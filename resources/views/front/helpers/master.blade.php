@@ -70,7 +70,7 @@
     <script src="{{asset('dist/js/price-range.js')}}"></script>
     <script src="{{asset('dist/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('dist/js/main.js')}}"></script>
-    <link href="album.css" rel="stylesheet">
+    <link href="{{asset('dist/css/album.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -93,10 +93,13 @@
                 </div>
             </div>
         </div>
+        <a href="{{url('/')}}">
+            <img src="{{asset('dist/img/ecom.png')}}" alt="here is a logo">
+        </a>
     </header>
 
     @yield('content')
-    
+
     <footer class="text-muted">
         <div class="container">
             <p class="float-right">
@@ -106,7 +109,9 @@
             <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
         </div>
     </footer>
+
     @yield('scripts')
+
     <link href="{{asset('dist/js/slick.js')}}">
     <link href="{{asset('dist/js/jquery-3.2.1.js')}}">
     <!-- <link href="{{asset('dist/js/slick.min.js')}}"> -->
