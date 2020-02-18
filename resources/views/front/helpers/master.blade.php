@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Album example for Bootstrap</title>
+    <title>Our shop</title>
     <style type="text/css">
         html, body {
             margin: 0;
