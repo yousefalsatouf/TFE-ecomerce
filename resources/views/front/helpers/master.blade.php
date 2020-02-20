@@ -11,24 +11,25 @@
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
 </head>
 
-<body>
-    <header>
-            @include('front.menu')
-    </header>
+    <body>
+        <header>
+                @include('front.helpers.menu')
+        </header>
 
-    @yield('content')
+        @yield('content')
 
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-        </div>
-    </footer>
+        <footer class="text-muted">
+            <div class="container">
+                <div>
 
-    @yield('scripts')
+                </div>
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+            </div>
+        </footer>
 
-</body>
+    </body>
 </html>
 <!-- end -->
 

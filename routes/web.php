@@ -20,7 +20,11 @@ Route::get('/shop', function () {
 });
 
 Route::get('/products', function () {
-    return view('front/shop');
+    return view('front/products');
+});
+
+Route::get('/contact', function () {
+    return view('front/contact');
 });
 
 Route::get('/about', function () {
@@ -30,3 +34,4 @@ Route::get('/about', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@contact')->name('contact');
