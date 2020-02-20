@@ -34,4 +34,4 @@ Route::get('/about', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@contact')->name('contact');
+Route::get('/contact', 'ContactController@contact')->name('contact');
