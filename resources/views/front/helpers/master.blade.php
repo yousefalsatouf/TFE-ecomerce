@@ -14,18 +14,7 @@
 
 <body>
     <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 py-4">
-                        <h4 class="text-white">About</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="{{url('/')}}">
-            <img src="{{asset('dist/img/ecom.png')}}" alt="here is a logo">
-        </a>
+        <a href="{{url('/login')}}">Login</a>
     </header>
 
     @yield('content')
