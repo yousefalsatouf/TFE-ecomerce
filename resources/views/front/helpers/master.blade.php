@@ -7,14 +7,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Our shop</title>
-    <link rel="stylesheet" href="{{asset('dist/css/album.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
 </head>
 
 <body>
     <header>
-        <a href="{{url('/login')}}">Login</a>
+            @include('front.menu')
     </header>
 
     @yield('content')
