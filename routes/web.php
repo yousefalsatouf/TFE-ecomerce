@@ -15,23 +15,28 @@ Route::get('/', function () {
     return view('/front/home');
 });
 
+Route::get('/home', function () {
+    return view('/home');
+});
+
 Route::get('/shop', function () {
-    return view('front/shop');
+    return view('/front/shop');
 });
 
 Route::get('/products', function () {
-    return view('front/products');
-});
-
-Route::get('/contact', function () {
-    return view('front/contact');
+    return view('/front/products');
 });
 
 Route::get('/about', function () {
     return view('front/about');
 });
 
+Route::get('/contact', function () {
+    return view('front/contact');
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/user-home', 'HomeController@home')->name('user-home');
 Route::get('/contact', 'ContactController@contact')->name('contact');

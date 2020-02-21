@@ -20,12 +20,27 @@
                 <li class="nav-item active">
                     <a href="{{url('/contact')}}" class="nav-link">CONTACT</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/login')}}" class="nav-link">LOGIN</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/register')}}" class="nav-link">REGISTER</a>
-                </li>
+                @guest
+                    <li class="nav-item">
+                        <a href="{{url('/login')}}" class="nav-link text-primary">LOGIN</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a href="{{url('/register')}}" class="nav-link">REGISTER</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item">
+                        <a href="{{url('/logout')}}" class="nav-link text-danger">LOGOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-success">
+                            {{ Auth::user()->name }}
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                @endguest
+
             </ul>
             <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
                 <div class="d-flex justify-content-between align-items-center">
