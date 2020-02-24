@@ -15,6 +15,7 @@ class AddAdminColumnToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->tinyInteger('admin')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddAdminColumnToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn('admin');
         });
     }
 }
