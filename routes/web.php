@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('/front/home');
 });
 
-Route::get('/home', function () {
-    return view('/home');
-});
 
 Route::get('/shop', function () {
     return view('/front/shop');
@@ -37,6 +34,6 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/user-home', 'HomeController@home')->name('user-home');
+Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/contact', 'ContactController@contact')->name('contact');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
