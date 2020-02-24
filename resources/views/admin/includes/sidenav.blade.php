@@ -9,9 +9,6 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('product.create')}}">Add Product</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('category.index')}}">Category</a>
-        </li>
     </ul>
 
     <ul class="nav nav-pills flex-column">
