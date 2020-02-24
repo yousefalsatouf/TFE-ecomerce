@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('/front/home');
 });
 
-
 Route::get('/shop', function () {
     return view('/front/shop');
 });
@@ -45,4 +44,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
             return view('admin.index');
         })->name('admin.index');
         Route::resource('product', 'ProductsController');
-    });
+    }
+);
