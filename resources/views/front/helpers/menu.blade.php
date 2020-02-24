@@ -34,7 +34,7 @@
                         <a href="{{url('/logout')}}" class="nav-link text-danger">LOGOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-success">
+                        <a href="{{url('/home')}}" class="nav-link text-success">
                             {{ Auth::user()->name }}
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
