@@ -33,6 +33,7 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
+Route::get('/shop', 'HomeController@shop');
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
