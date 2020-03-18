@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Product;
 use Illuminate\Http\Request;
+
 
 class ProductsController extends Controller
 {
@@ -32,7 +34,7 @@ class ProductsController extends Controller
             'image' => 'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 
-        $image = $request>image;
+        $image = $request->image;
         if ($image)
         {
             $imageName = $image->getClientOriginalName();
@@ -45,8 +47,7 @@ class ProductsController extends Controller
 
     public function show($id)
     {
-        $product = Product::findOrFail($id);
 
-        return view('product.show', compact('products'));
+        return view('product.show');
     }
 }

@@ -20,6 +20,9 @@
                 <li class="nav-item active">
                     <a href="{{url('/contact')}}" class="nav-link">CONTACT</a>
                 </li>
+                <li class="nav-item active">
+                    <a href="{{url('/admin')}}" class="nav-link">ADMIN</a>
+                </li>
                 @guest
                     <li class="nav-item">
                         <a href="{{url('/login')}}" class="nav-link text-primary">LOGIN</a>
