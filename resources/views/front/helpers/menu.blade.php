@@ -34,13 +34,19 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a href="{{url('/logout')}}" class="nav-link text-danger">LOGOUT</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{url('/home')}}" class="nav-link text-success">
                             {{ Auth::user()->name }}
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('/cart')}}" class="nav-link text-danger">
+                            <i class="fa fa-shopping-cart"> ({{Cart::count()}}) Items</i>
+                            <i class="">({{Cart::total()}}$)</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('/logout')}}" class="nav-link text-danger">LOGOUT</a>
                     </li>
                 @endguest
 
