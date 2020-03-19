@@ -31,6 +31,8 @@ Route::get('/contact', function () {
     return view('front/contact');
 });
 
+Route::get('/product_details/{id}', 'HomeController@product_details');
+
 Auth::routes();
 
 Route::get('/shop', 'HomeController@shop');

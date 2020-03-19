@@ -36,8 +36,13 @@ class HomeController extends Controller
     public function shop()
     {
         $products = Product::all();
-
         return view('front.shop', compact('products'));
+    }
+
+    public function product_details($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('front/product_details', compact('product'));
     }
 
 }
