@@ -9,6 +9,7 @@
     <title>Our shop</title>
     <link rel="stylesheet" href="{{asset('dist/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/album.css')}}">
 </head>
 
     <body>

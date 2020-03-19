@@ -20,7 +20,7 @@ Route::get('/shop', function () {
 });
 
 Route::get('/products', function () {
-    return view('/front/products');
+    return view('/front/shop');
 });
 
 Route::get('/about', function () {

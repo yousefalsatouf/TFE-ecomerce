@@ -56,11 +56,11 @@
             <div class="container">
                 <div class="row">
                     @forelse($products as $product)
-                        <div class="card" style="width:30rem height: 20rem">
+                        <div class="card" style="width:30rem; height: 20rem">
                             <img src="{{url('images',$product->image)}}" class="card-img">
                             <div class="card-body">
                                 <p id="price">
-                                <h4 class="card-text iphone"><a href="{{url('/product_details')}}/{{$product->id}}" style="width:30rem height: 20rem">{{$product->pro_name}}</a></h4>
+                                <h4 class="card-text iphone"><a href="{{url('/product_details')}}/{{$product->id}}" style="width:30rem; height: 20rem">{{$product->pro_name}}</a></h4>
                                 @if($product->spl_price==0)
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="card-text">${{$product->pro_price}}</p>
