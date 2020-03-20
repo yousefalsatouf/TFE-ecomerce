@@ -22,7 +22,7 @@ class CartController extends Controller
 
         Cart::add($product->product_name, $id, 1, $product->product_price);
 
-        return back();
+        return redirect('/cart');
     }
 
     public function destroy($id)

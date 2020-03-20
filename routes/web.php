@@ -57,3 +57,5 @@ Route::get('/cart', 'CartController@index');
 Route::get('/cart/addItem/{id}', 'CartController@addItem');
 Route::get('/cart/removeItem/{id}', 'CartController@destroy');
 Route::put('/cart/updateItem/{id}', 'CartController@update');
+Route::get('/checkout', 'CheckoutController@index');
+Route::post('/formValidate', 'CheckoutController@formValidate');

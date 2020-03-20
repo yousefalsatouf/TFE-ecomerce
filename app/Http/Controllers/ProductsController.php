@@ -42,7 +42,7 @@ class ProductsController extends Controller
             $formInput['image']=$imageName;
         }
         Product::create($formInput);
-        return redirect()->back();
+        return redirect('/shop');
     }
 
     public function show($id)
