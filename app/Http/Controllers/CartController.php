@@ -22,4 +22,12 @@ class CartController extends Controller
 
         Cart::add($product->product_name, $id, 1, $product->product_price);
     }
+
+    public function destroy($id)
+    {
+        //echo $id;
+        Cart::remove($id);
+
+        return back();
+    }
 }

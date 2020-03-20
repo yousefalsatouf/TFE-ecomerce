@@ -34,6 +34,7 @@ Route::get('/contact', function () {
 Route::get('/product_details/{id}', 'HomeController@product_details');
 Route::get('/cart', 'CartController@index');
 Route::get('/cart/addItem/{id}', 'CartController@addItem');
+Route::get('/cart/removeItem/{id}', 'CartController@destroy');
 
 Auth::routes();
 
