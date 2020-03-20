@@ -14,9 +14,6 @@
                 <li class="nav-item active">
                     <a href="{{url('/shop')}}" class="nav-link">SHOP</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/products')}}" class="nav-link">PRODUCTS</a>
-                </li>
                 <li class="nav-item active">
                     <a href="{{url('/contact')}}" class="nav-link">CONTACT</a>
                 </li>
@@ -33,29 +30,27 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item">
-                        <a href="{{url('/cart')}}" class="nav-link text-danger">
-                            <i class="fa fa-shopping-cart"> ({{Cart::count()}}) Items</i>
-                            <i class="">({{Cart::total()}}$)</i>
-                        </a>
-                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{Auth::user()->name}}
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ '/home'}}">
+                            <a class="dropdown-item text-dark" href="{{ '/home'}}">
                                 {{Auth::user()->name}}
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}">
                                 Logout
                             </a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{url('/cart')}}" class="nav-link text-info">
+                            <i class="fa fa-shopping-cart"> ({{Cart::count()}}) Items</i>
+                        </a>
+                    </li>
                 @endguest
-
             </ul>
             <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
                 <div class="d-flex justify-content-between align-items-center">
