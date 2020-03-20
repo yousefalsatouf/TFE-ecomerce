@@ -31,10 +31,7 @@ Route::get('/contact', function () {
     return view('front/contact');
 });
 
-Route::get('/product_details/{id}', 'HomeController@product_details');
-Route::get('/cart', 'CartController@index');
-Route::get('/cart/addItem/{id}', 'CartController@addItem');
-Route::get('/cart/removeItem/{id}', 'CartController@destroy');
+Route::get('/cart/addItem/{id}', 'HomeController@product_details');
 
 Auth::routes();
 
@@ -54,3 +51,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::resource('product', 'ProductsController');
     }
 );
+
+Route::get('/product_details/{id}', 'HomeController@product_details');
+Route::get('/cart', 'CartController@index');
+Route::get('/cart/addItem/{id}', 'CartController@addItem');
+Route::get('/cart/removeItem/{id}', 'CartController@destroy');
+Route::put('/cart/updateItem/{id}', 'CartController@update');

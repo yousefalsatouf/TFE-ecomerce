@@ -21,13 +21,20 @@ class CartController extends Controller
         $product = Product::find($id);
 
         Cart::add($product->product_name, $id, 1, $product->product_price);
+
+        return back();
     }
 
     public function destroy($id)
     {
         //echo $id;
         Cart::remove($id);
-
         return back();
+    }
+
+    public function update(Request $request, $id)
+    {
+       Cart::update($id, $request->qty);
+       return back();
     }
 }

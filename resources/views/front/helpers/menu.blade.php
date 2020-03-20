@@ -34,19 +34,25 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a href="{{url('/home')}}" class="nav-link text-success">
-                            {{ Auth::user()->name }}
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{url('/cart')}}" class="nav-link text-danger">
                             <i class="fa fa-shopping-cart"> ({{Cart::count()}}) Items</i>
                             <i class="">({{Cart::total()}}$)</i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{url('/logout')}}" class="nav-link text-danger">LOGOUT</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{Auth::user()->name}}
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ '/home'}}">
+                                {{Auth::user()->name}}
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}">
+                                Logout
+                            </a>
+                        </div>
                     </li>
                 @endguest
 

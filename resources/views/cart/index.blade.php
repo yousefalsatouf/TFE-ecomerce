@@ -84,32 +84,37 @@
                             <tbody>
                             <tr>
                                 <td class="cart_product">
-                                    <p><img src="{{url('images',$cartItem->options->img)}}" class="card-img-top bmw" ></p>
+                                    <p><img src="{{url('images',$cartItem->image)}}" class="card-img-top bmw" ></p>
                                 </td>
+                                {!! Form::open(['url'=> ['cart/update', $cartItem->rowId], 'method'=> 'put']) !!}
                                 <td class="cart_description">
-                                    <a href="{{url('/product_details')}}/{{$cartItem->id}}">
-                                        <br>
-                                        <h4><a href="{{url('/product_details')}}/{{$cartItem->id}}" style="color:blue">{{$cartItem->name}}</a></h4>
-                                        <p>Product ID: {{$cartItem->id}}</p>
+                                        <h4>
+                                            <a href="{{url('/product_details/'.$cartItem->name)}}" style="color:blue">{{$cartItem->id}}</a>
+                                        </h4>
+                                        <p>Product ID: {{$cartItem->name}}</p>
                                         <p>Only {{$cartItem->options->stock}} left</p>
-                                    </a>
                                 </td>
                                 <td class="cart_price">
                                     <p>${{$cartItem->price}}</p>
                                 </td>
                                 <td class="cart_quantity">
-                                    <input type="hidden" id="rowId<?php echo $count;?>" value="{{$cartItem->rowId}}"/>
-                                    <input type="hidden" id="proId<?php echo $count;?>" value="{{$cartItem->id}}"/>
-                                    <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
-                                           autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
+                                    <div class="cart_quantity_button">
+                                        <input type="hidden" id="rowId<?php echo $count;?>" value="{{$cartItem->rowId}}"/>
+                                        <input type="hidden" id="proId<?php echo $count;?>" value="{{$cartItem->id}}"/>
+                                        <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
+                                               autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
+                                        <input type="submit" class="btn btn-primary" value="Update" style="margin: 5px;"/>
+                                    </div>
                                 </td>
+                                {!! Form::close() !!}
                                 <td class="cart_total">
                                     <p class="cart_total_price">${{$cartItem->subtotal}}</p>
                                 </td>
                                 <td class="cart_delete">
                                     <button class="btn btn-primary">
-                                        <a class="cart_quantity_delete" style="background-color:red"
-                                           href="{{url('/cart/remove')}}/{{$cartItem->rowId}}"><i class="fa fa-times"></i></a>
+                                        <a class="cart_quantity_delete" style="background-color:red" href="{{url('/cart/remove')}}/{{$cartItem->name}}">
+                                            <i class="fa fa-times"></i>
+                                        </a>
                                     </button>
                                 </td>
                             </tr>
@@ -130,18 +135,6 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="chose_area">
-                        <?php /*      <ul class="user_option">
-                            <li>
-                                <label>Use Coupon Code</label>
-                            </li>
-                            <li>
-                                <input type="text" id="couponCode">
-                            </li>
-                            <li>
-                                <button id="couponBtn">Apply</button>
-                            </li>
-                        </ul>
-                        */?>
                         <ul class="user_info">
                             <li class="single_field">
                                 <label>Country:</label>
