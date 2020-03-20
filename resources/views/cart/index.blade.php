@@ -69,15 +69,15 @@
                 <div class="table-responsive cart_info">
                     <table class="table table-condensed">
                         <thead>
-                        <tr class="cart_menu">
-                            <td class="image">Image</td>
-                            <td class="description">Product</td>
-                            <td class="price">Price</td>
-                            <td class="quantity">Quantity</td>
-                            <td class="total">Total</td>
-                            <td></td>
-                        </tr>
-                        <!-- Start #updateDiv -->
+                            <tr class="cart_menu">
+                                <th class="image">Image</th>
+                                <th class="title">Product ID</th>
+                                <th class="description">Product Name</th>
+                                <th class="price">Price</th>
+                                <th class="quantity">Quantity</th>
+                                <th class="total">Subtotal</th>
+                                <th>Action</th>
+                            </tr>
                         </thead>
                         <?php $count =1;?>
                         @foreach($cartItems as $cartItem)
@@ -86,13 +86,15 @@
                                 <td class="cart_product">
                                     <p><img src="{{url('images',$cartItem->image)}}" class="card-img-top bmw" ></p>
                                 </td>
-                                {!! Form::open(['url'=> ['cart/update', $cartItem->rowId], 'method'=> 'put']) !!}
+                                <td class="cart_title">
+                                    <h5>{{$cartItem->name}}</h5>
+                                </td>
+                                {!! Form::open(['url'=> ['cart/updateItem', $cartItem->rowId], 'method'=> 'put']) !!}
                                 <td class="cart_description">
                                         <h4>
                                             <a href="{{url('/product_details/'.$cartItem->name)}}" style="color:blue">{{$cartItem->id}}</a>
                                         </h4>
-                                        <p>Product ID: {{$cartItem->name}}</p>
-                                        <p>Only {{$cartItem->options->stock}} left</p>
+                                <!--<p>Only {{$cartItem->options->stock}} left</p>-->
                                 </td>
                                 <td class="cart_price">
                                     <p>${{$cartItem->price}}</p>
@@ -103,19 +105,21 @@
                                         <input type="hidden" id="proId<?php echo $count;?>" value="{{$cartItem->id}}"/>
                                         <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
                                                autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
-                                        <input type="submit" class="btn btn-primary" value="Update" style="margin: 5px;"/>
                                     </div>
                                 </td>
-                                {!! Form::close() !!}
                                 <td class="cart_total">
                                     <p class="cart_total_price">${{$cartItem->subtotal}}</p>
                                 </td>
-                                <td class="cart_delete">
-                                    <button class="btn btn-primary">
-                                        <a class="cart_quantity_delete" style="background-color:red" href="{{url('/cart/remove')}}/{{$cartItem->name}}">
-                                            <i class="fa fa-times"></i>
-                                        </a>
+                                <td class="">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
                                     </button>
+                                    {!! Form::close() !!}
+                                    <a class="cart_quantity_delete" style="background-color:red" href="{{url('/cart/removeItem')}}/{{$cartItem->rowId}}">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                             <?php $count++;?>
@@ -123,9 +127,9 @@
                         @endforeach
                     </table>
                 </div>
-                <!-- End of Updatediv</div> --></div>
+            </div>
         </div>
-    </section> <!--/#cart_items-->
+    </section>
     <section id="do_action">
         <div class="container">
             <div class="heading">

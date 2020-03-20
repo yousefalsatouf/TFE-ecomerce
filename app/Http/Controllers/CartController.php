@@ -25,16 +25,17 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
-    public function destroy($id)
+    public function removeItem($id)
     {
         //echo $id;
         Cart::remove($id);
         return back();
     }
 
-    public function update(Request $request, $id)
+    public function updateItem(Request $request, $id)
     {
-       Cart::update($id, $request->qty);
-       return back();
+        //echo $id;
+        Cart::update($id, $request->qty);
+        return back();
     }
 }

@@ -55,7 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 Route::get('/product_details/{id}', 'HomeController@product_details');
 Route::get('/cart', 'CartController@index');
 Route::get('/cart/addItem/{id}', 'CartController@addItem');
-Route::get('/cart/removeItem/{id}', 'CartController@destroy');
-Route::put('/cart/updateItem/{id}', 'CartController@update');
+Route::get('/cart/removeItem/{id}', 'CartController@removeItem');
+Route::put('/cart/updateItem/{id}', 'CartController@updateItem');
 Route::get('/checkout', 'CheckoutController@index');
 Route::post('/formValidate', 'CheckoutController@formValidate');
