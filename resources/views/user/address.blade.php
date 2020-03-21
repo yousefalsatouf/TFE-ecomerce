@@ -5,11 +5,11 @@
             <div class="breadcrumbs">
                 <strong>Hello {{ucwords(Auth::user()->name)}}, </strong>
                 <ol class="breadcrumb">
-                    <li class="active"><b class="text-success">Your Address</b></li>
+                    <li class="active"><b class="text-success">Your Infos</b></li>
                 </ol>
             </div>
             @if(session('msg'))
-                <div class="alert alert-info">{{session('msg')}}</div>
+                <div class="alert alert-success">{{session('msg')}}, <a href="{{url('/user')}}">See it Here</a></div>
             @endif
             <h1><span class="text-primary">Dashboard</span></h1>
             <div class="row">
@@ -17,9 +17,10 @@
                 <div class="col-md-8">
                     <div class="container">
                         <hr>
+                        <h3 class="text-danger"> Edit Your information</h3>
+                        <hr>
                         {!! Form::open(['url' => 'updateAddress',  'method' => 'post']) !!}
                             <div class="row">
-                                <h3 class="text-danger"> Edit Your address information</h3>
                                 <div class="form-group col-md-6">
                                     <label for="first-name" class="form-label">First Name</label>
                                     <input id="first-name" type="text" name="first_name" placeholder="First Name"  value="{{ old('first_name') }}" class="form-control">
