@@ -67,9 +67,9 @@ Route::group(['middleware' => 'auth'], function()
     Route::post('/formValidate', 'CheckoutController@formValidate');
     Route::get('/orders', 'ProfileController@orders');
     Route::get('/address', 'ProfileController@address');
-    //Route::post('/updateAddress', 'ProfileController@UpdateAddress');
-    //Route::get('/password', 'ProfileController@Password');
-    //Route::post('/updatePassword', 'ProfileController@updatePassword');
+    Route::post('/updateAddress', 'ProfileController@UpdateAddress');
+    Route::get('/password', 'ProfileController@password');
+    Route::post('/updatePassword', 'ProfileController@updatePassword');
     Route::get('/user', 'ProfileController@index');
     Route::get('/finish', function() {
         return view('user.finish');

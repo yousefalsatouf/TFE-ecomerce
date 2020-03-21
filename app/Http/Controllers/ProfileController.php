@@ -34,4 +34,41 @@ class ProfileController extends Controller
 
         return view('user.address', compact('address_data'));
     }
+
+    public function updateAddress(Request $request)
+    {
+        $this->validate($request, [
+            'first_name' => 'required|min:5|max:35',
+            'last_name' => 'required|min:5|max:35',
+            'state' => 'required|min:5|max:35',
+            'city' => 'required|min:5|max:25',
+            'postal_code' => 'required|numeric',
+            'street' => 'required|min:7|max:25',
+            'street_number' => 'required|numeric',
+        ]);
+
+        $userid = Auth::user()->id;
+        DB::table('address')->where('user_id', $userid)->update($request->except('_token'));
+
+        return back()->with('msg','Your address has been updated');
+    }
+
+    public function password()
+    {
+        return view('user.password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $oldPassword = $request->oldPassword;
+        $newPassword = $request->newPassword;
+
+        if(!Hash::check($oldPassword, Auth::user()->password)){
+            return back()->with('msg','The specified password does not match the database password');
+
+        }else{
+            $request->user()->fill(['password' => Hash::make($newPassword)])->save();
+            return back()->with('msg','Password has been updated');
+        }
+    }
 }
