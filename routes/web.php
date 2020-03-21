@@ -70,9 +70,7 @@ Route::group(['middleware' => 'auth'], function()
     //Route::post('/updateAddress', 'ProfileController@UpdateAddress');
     //Route::get('/password', 'ProfileController@Password');
     //Route::post('/updatePassword', 'ProfileController@updatePassword');
-    Route::get('/user', function() {
-        return view('user.index');
-    });
+    Route::get('/user', 'ProfileController@index');
     Route::get('/finish', function() {
         return view('user.finish');
     });
