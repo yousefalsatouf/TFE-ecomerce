@@ -3,23 +3,23 @@
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
+                <strong>Hello {{ucwords(Auth::user()->name)}}, </strong>
                 <ol class="breadcrumb">
-                    <li><a href="{{url('/user')}}">Profile</a></li>
-                    <li class="active">My Address</li>
+                    <li class="active"><b class="text-success">Your Address</b></li>
                 </ol>
             </div>
             @if(session('msg'))
                 <div class="alert alert-info">{{session('msg')}}</div>
             @endif
+            <h1><span class="text-primary">Dashboard</span></h1>
             <div class="row">
-                @include('user.helpers.menu')
+                @include('user.helpers.quickMenu')
                 <div class="col-md-8">
-                    <h3><span style='color:green'>{{ucwords(Auth::user()->name)}}</span>, Your Address</h3>
-                    <div class="container" >
+                    <div class="container">
+                        <hr>
                         {!! Form::open(['url' => 'updateAddress',  'method' => 'post']) !!}
-                        @foreach($address_data as $value)
                             <div class="row">
-                                <h1>Shopper Information</h1>
+                                <h3 class="text-danger"> Edit Your address information</h3>
                                 <div class="form-group col-md-6">
                                     <label for="first-name" class="form-label">First Name</label>
                                     <input id="first-name" type="text" name="first_name" placeholder="First Name"  value="{{ old('first_name') }}" class="form-control">
@@ -63,7 +63,7 @@
                                     <span style="color:red">{{ $errors->first('street_number') }}</span>
                                 </div>
                             </div>
-                        @endforeach
+                        <input type="submit" value="Update" class="btn btn-primary">
                         {!! Form::close() !!}
                     </div>
 

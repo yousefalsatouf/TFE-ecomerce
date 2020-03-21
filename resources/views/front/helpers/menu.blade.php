@@ -44,10 +44,12 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="{{ '/user'}}">
+                            <a class="dropdown-item text-dark" href="{{ url('/user')}}">
                                 {{Auth::user()->name}}
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
+                            <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Your Orders</a>
+                            <a class="dropdown-item text-dark" href="{{ url('/address') }}">Your Address</a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">
                                 Logout
                             </a>

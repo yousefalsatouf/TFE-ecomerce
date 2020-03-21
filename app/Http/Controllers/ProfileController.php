@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
     public function index()
     {
+        $user_id = Auth::user()->id;
+        $address_data = DB::table('address')->where('user_id', '=', $user_id)->orderby('id', 'DESC')->get();
+
         if (Auth::check())
-            return view('user.index');
+            return view('user.index', compact('address_data'));
         else
             return redirect('/login');
     }
@@ -28,6 +32,6 @@ class ProfileController extends Controller
         $user_id = Auth::user()->id;
         $address_data = DB::table('address')->where('user_id', '=', $user_id)->orderby('id', 'DESC')->get();
 
-        return view('/address', compact('address_data'));
+        return view('user.address', compact('address_data'));
     }
 }
