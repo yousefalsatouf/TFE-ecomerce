@@ -38,7 +38,6 @@ Route::get('/cart/addItem/{id}', 'HomeController@product_details');
 Auth::routes();
 
 Route::get('/shop', 'HomeController@shop');
-//Route::get('/user', 'ProfileController@index')->name('index');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -52,6 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::POST('/admin/store', 'AdminController@store');
         Route::get('/admin', 'AdminController@index');
         Route::resource('product', 'ProductsController');
+        Route::resource('category','CategoriesController');
     }
 );
 
