@@ -12,21 +12,21 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="{{url('/shop')}}" class="nav-link">SHOP</a>
+                    <a href="{{url('/shop')}}" class="nav-link">Shop</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="{{url('/contact')}}" class="nav-link">CONTACT</a>
+                    <a href="{{url('/contact')}}" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="{{url('/admin')}}" class="nav-link">ADMIN</a>
+                    <a href="{{url('/admin')}}" class="nav-link">Dashboard</a>
                 </li>
                 @guest
                     <li class="nav-item">
-                        <a href="{{url('/login')}}" class="nav-link text-primary">LOGIN</a>
+                        <a href="{{url('/login')}}" class="nav-link text-primary">Login</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a href="{{url('/register')}}" class="nav-link">REGISTER</a>
+                            <a href="{{url('/register')}}" class="nav-link">Register</a>
                         </li>
                     @endif
                 @else
