@@ -10,9 +10,6 @@
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-brand">HOME</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/shop')}}" class="nav-link">Shop</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -21,6 +18,9 @@
                             <a class="dropdown-item" href="{{url('/')}}/products/{{$cat->name}}">{{ucwords($cat->name)}}</a>
                         @endforeach
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/shop')}}" class="nav-link">Shop</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/contact')}}" class="nav-link">Contact</a>

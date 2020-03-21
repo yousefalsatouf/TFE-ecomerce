@@ -76,7 +76,10 @@
                                         </div>
                                     @endif
                                     <button class="btn btn-primary btn-sm">
-                                       <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-black-50">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                                        <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark"><b>View <i class="fa fa-eye"></i></b></a>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm float-right">
+                                        <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark"><b>Add <i class="fa fa-shopping-cart"></i></b></a>
                                     </button>
                                 </div>
                             </div>

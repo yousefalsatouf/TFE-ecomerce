@@ -26,6 +26,9 @@ class HomeController extends Controller
 
     public function index()
     {
+        $products=Product::all();
+        $categories=Category::all();
+
         return view('front.home');
     }
 
