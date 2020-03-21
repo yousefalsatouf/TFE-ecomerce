@@ -38,7 +38,7 @@ Route::get('/cart/addItem/{id}', 'HomeController@product_details');
 Auth::routes();
 
 Route::get('/shop', 'HomeController@shop');
-Route::get('/user', 'ProfileController@index')->name('index');
+//Route::get('/user', 'ProfileController@index')->name('index');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -70,9 +70,9 @@ Route::group(['middleware' => 'auth'], function()
     //Route::post('/updateAddress', 'ProfileController@UpdateAddress');
     //Route::get('/password', 'ProfileController@Password');
     //Route::post('/updatePassword', 'ProfileController@updatePassword');
-    /*Route::get('/profile', function() {
-        return view('profile.index');
-    });*/
+    Route::get('/user', function() {
+        return view('user.index');
+    });
     Route::get('/finish', function() {
         return view('user.finish');
     });

@@ -32,11 +32,6 @@ class HomeController extends Controller
         return view('front.home');
     }
 
-    public function home()
-    {
-        return view('home');
-    }
-
     public function shop()
     {
         $products = Product::all();
