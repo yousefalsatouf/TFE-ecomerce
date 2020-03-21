@@ -36,6 +36,7 @@ class CheckoutController extends Controller
         ]);
         //dd($request->all());
         $userId = Auth::user()->id;
+        $userEmail = Auth::user()->email;
 
         $address = new address;
 
@@ -48,6 +49,7 @@ class CheckoutController extends Controller
         $address->street_number = $request->street_number;
         $address->payment_type = $request->pay;
         $address->user_id = $userId;
+        $address->user_email = $userEmail;
 
         $address->save();
     }

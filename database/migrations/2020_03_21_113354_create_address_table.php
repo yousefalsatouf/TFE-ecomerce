@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\address;
 
 class CreateAddressTable extends Migration
 {
@@ -25,6 +24,7 @@ class CreateAddressTable extends Migration
             $table->integer('postal_code');
             $table->string('payment_type');
             $table->integer('user_id');
+            $table->string('user_email');
             $table->timestamps();
         });
     }
