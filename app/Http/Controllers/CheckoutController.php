@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\address;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,17 +26,31 @@ class CheckoutController extends Controller
     public function formValidate(Request $request)
     {
         $this->validate($request, [
-            'f-name' => 'required|min:5|max:35',
-            'l-name' => 'required|min:5|max:35',
-            'email' => 'required|email',
+            'first_name' => 'required|min:5|max:35',
+            'last_name' => 'required|min:5|max:35',
             'state' => 'required|min:5|max:35',
             'city' => 'required|min:5|max:25',
-            'postal-code' => 'required|numeric',
+            'postal_code' => 'required|numeric',
             'street' => 'required|min:7|max:25',
-            'street-n' => 'required|numeric',
+            'street_number' => 'required|numeric',
         ]);
+        //dd($request->all());
+        $userId = Auth::user()->id;
 
-        dd($request->all());
+        $address = new address;
+
+        $address->first_name = $request->first_name;
+        $address->last_name = $request->last_name;
+        $address->state = $request->state;
+        $address->city = $request->city;
+        $address->postal_code = $request->postal_code;
+        $address->street = $request->street;
+        $address->street_number = $request->street_number;
+        $address->payment_type = $request->pay;
+        $address->user_id = $userId;
+
+        $address->save();
     }
 
 }
+

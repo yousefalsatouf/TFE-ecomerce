@@ -95,22 +95,16 @@
                                 <div class="row">
                                     <h1>Shopper Information</h1>
                                     <div class="form-group col-md-6">
-                                        <label for="f-name" class="form-label">First Name</label>
-                                        <input id="f-name" type="text" name="f-name" placeholder="First Name"  value="{{ old('f-name') }}" class="form-control">
+                                        <label for="first-name" class="form-label">First Name</label>
+                                        <input id="first-name" type="text" name="first_name" placeholder="First Name"  value="{{ old('first_name') }}" class="form-control">
                                         <br>
-                                        <span style="color:red">{{ $errors->first('f-name') }}</span>
+                                        <span style="color:red">{{ $errors->first('first_name') }}</span>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="l-name" class="form-label">Last Name</label>
-                                        <input id="l-name" type="text" name="l-name" placeholder="Last Name"  value="{{ old('l-name') }}" class="form-control">
+                                        <label for="last-name" class="form-label">Last Name</label>
+                                        <input id="last-name" type="text" name="last_name" placeholder="Last Name"  value="{{ old('last_name') }}" class="form-control">
                                         <br>
-                                        <span style="color:red">{{ $errors->first('l-name') }}</span>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="email" class="form-label">Email Address</label>
-                                        <input id="email" type="email" name="email" placeholder="Email Address"  value="{{ old('email') }}" class="form-control">
-                                        <br>
-                                        <span style="color:red">{{ $errors->first('email') }}</span>
+                                        <span style="color:red">{{ $errors->first('last_name') }}</span>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="state" class="form-label">State Name</label>
@@ -126,9 +120,9 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="postal-code" class="form-label">Postal code</label>
-                                        <input id="postal-code" type="text" name="postal-code" placeholder="Postal Code" value="{{ old('postal-code') }}" class="form-control">
+                                        <input id="postal-code" type="text" name="postal_code" placeholder="Postal Code" value="{{ old('postal_code') }}" class="form-control">
                                         <br>
-                                        <span style="color:red">{{ $errors->first('postal-code') }}</span>
+                                        <span style="color:red">{{ $errors->first('postal_code') }}</span>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="street" class="form-label">Street</label>
@@ -137,10 +131,10 @@
                                         <span style="color:red">{{ $errors->first('street') }}</span>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="street-n" class="form-label">Street Number</label>
-                                        <input id="street-n" type="text" name="street-n" placeholder="Street Number" value="{{ old('street-n') }}" class="form-control">
+                                        <label for="street-number" class="form-label">Street Number</label>
+                                        <input id="street-number" type="text" name="street_number" placeholder="Street Number" value="{{ old('street_number') }}" class="form-control">
                                         <br>
-                                        <span style="color:red">{{ $errors->first('street-n') }}</span>
+                                        <span style="color:red">{{ $errors->first('street_number') }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
