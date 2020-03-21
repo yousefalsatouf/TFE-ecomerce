@@ -56,7 +56,7 @@ class CheckoutController extends Controller
 
         orders::createOrder();
         Cart::destroy();
-        return redirect('/shop');
+        return redirect('user/orderFinished');
     }
 }
 

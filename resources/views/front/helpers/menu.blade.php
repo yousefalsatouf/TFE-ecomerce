@@ -44,7 +44,7 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="{{ '/home'}}">
+                            <a class="dropdown-item text-dark" href="{{ '/user'}}">
                                 {{Auth::user()->name}}
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
