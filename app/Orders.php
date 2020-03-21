@@ -27,7 +27,7 @@ class Orders extends Model
 
         foreach ($cartItems as $cartItem)
         {
-            $order->orderFields()->attach($cartItem->id, ['qty' => $cartItem->qty, 'tax' => Cart::tax(), 'total' => $cartItem->qty * $cartItem->price]);
+            $order->orderFields()->attach($cartItem->name, ['qty' => $cartItem->qty, 'tax' => Cart::tax(), 'total' => $cartItem->qty * $cartItem->price]);
         }
     }
 }
