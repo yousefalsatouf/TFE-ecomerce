@@ -34,6 +34,18 @@
                                     <span style="color:red">{{ $errors->first('last_name') }}</span>
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input id="email" type="text" name="email" placeholder="Email"  value="{{ old('email') }}" class="form-control">
+                                    <br>
+                                    <span style="color:red">{{ $errors->first('email') }}</span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input id="phone" type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}" class="form-control">
+                                    <br>
+                                    <span style="color:red">{{ $errors->first('phone') }}</span>
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label for="state" class="form-label">State Name</label>
                                     <input id="state" type="text" name="state" placeholder="State" value="{{ old('state') }}" class="form-control">
                                     <br>

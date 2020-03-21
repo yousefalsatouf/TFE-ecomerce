@@ -20,8 +20,6 @@ class CategoriesController extends Controller
         $products = Product::all();
 
         return view('admin.category.index',compact(['categories','products']));
-
-
     }
 
     /**
