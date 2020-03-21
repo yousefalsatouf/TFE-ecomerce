@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="checkout1.html" class="nav-link active">Address</a></li>
+                        <li class="nav-item"><a href="{{url('/checkout')}}" class="nav-link active">Address</a></li>
                         <li class="nav-item"><a href="#" class="nav-link disabled">Delivery Method </a></li>
                         <li class="nav-item"><a href="#" class="nav-link disabled">Payment Method </a></li>
                         <li class="nav-item"><a href="#" class="nav-link disabled">Order Review</a></li>
@@ -90,27 +90,33 @@
                     <hr>
                     <div class="tab-content">
                         <div id="address" class="active tab-block">
-                            <form action="{{url('/')}}/formValidate" method="post">
+                            <form action="{{url('/formValidate')}}" method="post">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="row">
                                     <h1>Shopper Information</h1>
                                     <div class="form-group col-md-6">
-                                        <label for="firstname" class="form-label">Display Name</label>
-                                        <input id="firstname" type="text" name="fullname" placeholder="Display Name"  value="{{ old('firstname') }}" class="form-control">
+                                        <label for="f-name" class="form-label">First Name</label>
+                                        <input id="f-name" type="text" name="f-name" placeholder="First Name"  value="{{ old('f-name') }}" class="form-control">
                                         <br>
-                                        <span style="color:red">{{ $errors->first('fullname') }}</span>
+                                        <span style="color:red">{{ $errors->first('f-name') }}</span>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="lastname" class="form-label">State Name</label>
-                                        <input id="lastname" type="text" name="state" placeholder="State Name" value="{{ old('state') }}" class="form-control">
+                                        <label for="l-name" class="form-label">Last Name</label>
+                                        <input id="l-name" type="text" name="l-name" placeholder="Last Name"  value="{{ old('l-name') }}" class="form-control">
+                                        <br>
+                                        <span style="color:red">{{ $errors->first('l-name') }}</span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input id="email" type="email" name="email" placeholder="Email Address"  value="{{ old('email') }}" class="form-control">
+                                        <br>
+                                        <span style="color:red">{{ $errors->first('email') }}</span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="state" class="form-label">State Name</label>
+                                        <input id="state" type="text" name="state" placeholder="State" value="{{ old('state') }}" class="form-control">
                                         <br>
                                         <span style="color:red">{{ $errors->first('state') }}</span>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="pincode" class="form-label">Pin code</label>
-                                        <input id="pincode" type="text" name="pincode" placeholder="Pincode" value="{{ old('pincode') }}" class="form-control">
-                                        <br>
-                                        <span style="color:red">{{ $errors->first('pincode') }}</span>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="city" class="form-label">City Name</label>
@@ -118,30 +124,40 @@
                                         <br>
                                         <span style="color:red">{{ $errors->first('city') }}</span>
                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="postal-code" class="form-label">Postal code</label>
+                                        <input id="postal-code" type="text" name="postal-code" placeholder="Postal Code" value="{{ old('postal-code') }}" class="form-control">
+                                        <br>
+                                        <span style="color:red">{{ $errors->first('postal-code') }}</span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="street" class="form-label">Street</label>
+                                        <input id="street" type="text" name="street" placeholder="Street" value="{{ old('street') }}" class="form-control">
+                                        <br>
+                                        <span style="color:red">{{ $errors->first('street') }}</span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="street-n" class="form-label">Street Number</label>
+                                        <input id="street-n" type="text" name="street-n" placeholder="Street Number" value="{{ old('street-n') }}" class="form-control">
+                                        <br>
+                                        <span style="color:red">{{ $errors->first('street-n') }}</span>
+                                    </div>
                                 </div>
-                                    <hr>
-                                    <select name="country" class="form-control" >
-                                        <option value="{{ old('country') }}" selected="selected">Select country</option>
-                                        <option value="United States">United States</option>
-                                        <option value="Bangladesh">Bangladesh</option>
-                                        <option value="UK">UK</option>
-                                        <option value="India">India</option>
-                                        <option value="Pakistan">Pakistan</option>
-                                        <option value="Ucrane">Ucrane</option>
-                                        <option value="Canada">Canada</option>
-                                        <option value="Dubai">Dubai</option>
-                                    </select>
-                                    <span style="color:red">{{ $errors->first('country') }}</span>
-                                    <input type="radio" name="pay" value="COD" checked="checked">
-                                    <span>
-                                        <input type="radio" name="pay" value="paypal"> PayPal
-
-                                    </span>
-                                    <span>
-                                        <input type="submit" value="Continue" class="btn btn-primary btn-sm">
-                                   </span>
+                                <div class="form-group">
+                                    <label for="pay" class="form-label">PayPal
+                                        <input type="radio" name="pay" value="paypal" checked>
+                                    </label>
+                                </div>
+                                <input type="submit" value="Continue" class="btn btn-primary">
                             </form>
-                            <div class="CTAs d-flex justify-content-between flex-column flex-lg-row"><a href="cart.html" class="btn btn-template-outlined wide prev"> <i class="fa fa-angle-left"></i>Back to basket</a><a href="checkout2.html" class="btn btn-template wide next">Choose delivery method<i class="fa fa-angle-right"></i></a></div>
+                            <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
+                                <a href="{{url('/cart')}}" class="btn btn-template-outlined wide prev">
+                                    <i class="fa fa-angle-left"></i>Back to basket
+                                </a>
+                                <a href="" class="btn btn-template wide next">Choose delivery method
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

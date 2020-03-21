@@ -25,11 +25,17 @@ class CheckoutController extends Controller
     public function formValidate(Request $request)
     {
         $this->validate($request, [
-            'fullname' => 'required|min:5|max:35',
-            'pincode' => 'required|numeric',
-            'city' => 'required|min:5|max:25',
+            'f-name' => 'required|min:5|max:35',
+            'l-name' => 'required|min:5|max:35',
+            'email' => 'required|email',
             'state' => 'required|min:5|max:35',
-            'country' => 'required']);
+            'city' => 'required|min:5|max:25',
+            'postal-code' => 'required|numeric',
+            'street' => 'required|min:7|max:25',
+            'street-n' => 'required|numeric',
+        ]);
+
+        dd($request->all());
     }
 
 }
