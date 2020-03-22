@@ -73,8 +73,8 @@
                                 <th class="image">Image</th>
                                 <th class="title">Product ID</th>
                                 <th class="description">Product Name</th>
-                                <th class="price">Price</th>
                                 <th class="quantity">Quantity</th>
+                                <th class="price">Price</th>
                                 <th class="total">Subtotal</th>
                                 <th>Action</th>
                             </tr>
@@ -84,7 +84,7 @@
                             <tbody>
                             <tr>
                                 <td class="cart_product">
-                                    <p><img src="{{url('images',$cartItem->image)}}" class="card-img-top bmw" ></p>
+                                    <p><img src="{{url('images',$cartItem->options->img)}}" class="card-img-top bmw" ></p>
                                 </td>
                                 <td class="cart_title">
                                     <h5>{{$cartItem->name}}</h5>
@@ -96,9 +96,6 @@
                                         </h4>
                                 <!--<p>Only {{$cartItem->options->stock}} left</p>-->
                                 </td>
-                                <td class="cart_price">
-                                    <p>${{$cartItem->price}}</p>
-                                </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
                                         <input type="hidden" id="rowId<?php echo $count;?>" value="{{$cartItem->rowId}}"/>
@@ -107,8 +104,11 @@
                                                autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
                                     </div>
                                 </td>
+                                <td class="cart_price">
+                                    <p>{{$cartItem->price}} $</p>
+                                </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price">${{$cartItem->subtotal}}</p>
+                                    <p class="cart_total_price">{{$cartItem->subtotal}} $</p>
                                 </td>
                                 <td class="">
                                     <button type="submit" class="btn btn-primary">
@@ -132,59 +132,33 @@
     </section>
     <section id="do_action">
         <div class="container">
-            <div class="heading">
-                <h3>What would you like to do next?</h3>
-                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-            </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="chose_area">
-                        <ul class="user_info">
-                            <li class="single_field">
-                                <label>Country:</label>
-                                <select>
-                                    <option>United States</option>
-                                    <option>Bangladesh</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucrane</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-                            </li>
-                            <li class="single_field">
-                                <label>Region / State:</label>
-                                <select>
-                                    <option>Select</option>
-                                    <option>Dhaka</option>
-                                    <option>London</option>
-                                    <option>Dillih</option>
-                                    <option>Lahore</option>
-                                    <option>Alaska</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>Zip Code:</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Get Quotes</a>
-                        <a class="btn btn-default check_out" href="">Continue</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
                     <div class="total_area">
+                        <h3 class="text-success">Your Order</h3>
+                        <hr>
                         <ul>
-                            <li>Cart Sub Total <span>${{$cartItem->subtotal}}</span></li>
-                            <li>Eco Tax <span>${{Cart::tax()}}</span></li>
-                            <li>Shipping Cost <span>Free</span></li>
-                            <li>Total <span>${{$cartItem->total}}</span></li>
+                            <li><b>SubTotal</b> <span> {{$cartItem->subtotal}}$</span></li>
+                            <li><b>Tax </b><span>{{Cart::tax()}}$</span></li>
+                            <li><b>Shipping Cost </b> <span>Free</span></li>
+                            <li><b>Total </b><span>{{$cartItem->total}}$</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="{{url('/')}}/checkout">Check Out</a>
+                        <div class="heading">
+                            <h3>What would you like to do next?</h3>
+                            <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+                        </div>
+                        <div>
+                            <a href="{{url('/shop')}}" class="text-dark">
+                                <button class="btn btn-primary">
+                                    <b><i class="fa fa-backward"></i> Add More From Shop</b>
+                                </button>
+                            </a>
+                            <a href="{{url('/checkout')}}" class="text-dark">
+                                <button class="btn btn-primary float-right">
+                                    <b>Checkout <i class="fa fa-eye"></i></b>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

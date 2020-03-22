@@ -80,6 +80,20 @@
     <section class="checkout">
         <div class="container">
             <div class="row">
+                <div class="col-lg-4">
+                    <div class="block-body order-summary" style="margin: 1.3rem">
+                        <h6 class="text-uppercase">Order Summary</h6>
+                        <hr>
+                        <p>Shipping and additional costs are calculated based on values you have entered</p>
+                        <ul class="order-menu list-unstyled">
+                            <li class="d-flex justify-content-between"><span>Order Subtotal </span><strong>${{Cart::subtotal()}}</strong></li>
+                            <li class="d-flex justify-content-between"><span>Shipping and handling</span><strong>$10.00</strong></li>
+                            <li class="d-flex justify-content-between"><span>Tax</span><strong>${{Cart::tax()}}</strong></li>
+                            <li class="d-flex justify-content-between"><span>Total</span><strong class="text-primary price-total">${{Cart::total()}}</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="col-lg-8">
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a href="{{url('/checkout')}}" class="nav-link active">Address</a></li>
@@ -143,35 +157,28 @@
                                         <span style="color:red">{{ $errors->first('street_number') }}</span>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="pay" class="form-label">PayPal
-                                        <input type="radio" name="pay" value="paypal" checked>
-                                    </label>
+                                <div>
+                                    <div class="form-group">
+                                        <label for="pay" class="form-label">PayPal
+                                            <input type="radio" name="pay" value="paypal" checked>
+                                        </label>
+                                        @include('front.paypal')
+                                    </div>
+                                    <div class="float-right">
+                                        <input type="submit" value="Continue" class="btn btn-primary">
+                                    </div>
                                 </div>
-                                <input type="submit" value="Continue" class="btn btn-primary">
                             </form>
-                            <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
+                            <hr>
+                            <br>
+                            <div>
                                 <a href="{{url('/cart')}}" class="btn btn-template-outlined wide prev">
-                                    <i class="fa fa-angle-left"></i>Back to basket
-                                </a>
-                                <a href="" class="btn btn-template wide next">Choose delivery method
-                                    <i class="fa fa-angle-right"></i>
+                                    <button class="btn btn-light">
+                                        <i class="fa fa-backward"></i> Back to Cart
+                                    </button>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="block-body order-summary" style="margin: 1.3rem">
-                        <h6 class="text-uppercase">Order Summary</h6>
-                        <hr>
-                        <p>Shipping and additional costs are calculated based on values you have entered</p>
-                        <ul class="order-menu list-unstyled">
-                            <li class="d-flex justify-content-between"><span>Order Subtotal </span><strong>${{Cart::subtotal()}}</strong></li>
-                            <li class="d-flex justify-content-between"><span>Shipping and handling</span><strong>$10.00</strong></li>
-                            <li class="d-flex justify-content-between"><span>Tax</span><strong>${{Cart::tax()}}</strong></li>
-                            <li class="d-flex justify-content-between"><span>Total</span><strong class="text-primary price-total">${{Cart::total()}}</strong></li>
-                        </ul>
                     </div>
                 </div>
             </div>
