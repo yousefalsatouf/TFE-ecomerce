@@ -7,7 +7,13 @@
             </nav>
             <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
                 <div class="col-md-6">
+                    <div>
+                        <button class="btn bg-light float-right">
+                            <a class="nav-link text-dark" href="{{url('/admin/product')}}"><b><i class="fa fa-backward"></i> Manage Products</b></a>
+                        </button>
+                    </div>
                     <h1>Add New Product</h1>
+
                     <div class="panel-body">
                         {!! Form::open(['route' => 'product.store', 'method' => 'post', 'files' => true]) !!}
                         <div class="form-group">
@@ -43,6 +49,7 @@
                             {{ Form::textarea('product_info', null, array('class' => 'form-control')) }}
                         </div>
                         {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+                        <br>
                         {!! Form::close() !!}
                     </div>
                 </div>

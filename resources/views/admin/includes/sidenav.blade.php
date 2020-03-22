@@ -19,13 +19,7 @@
             <a class="nav-link" href="{{route('product.index')}}">Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('product.create')}}">Add Product</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Edit Products</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('admin/category')}}">Manage Categories</a>
+            <a class="nav-link" href="{{url('admin/category')}}">Categories</a>
         </li>
     </ul>
 </nav>
