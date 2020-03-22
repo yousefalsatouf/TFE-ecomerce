@@ -73,6 +73,7 @@
                                 <th class="image">Image</th>
                                 <th class="title">Product ID</th>
                                 <th class="description">Product Name</th>
+                                <th class="description">only left</th>
                                 <th class="quantity">Quantity</th>
                                 <th class="price">Price</th>
                                 <th class="total">Subtotal</th>
@@ -83,44 +84,46 @@
                         @foreach($cartItems as $cartItem)
                             <tbody>
                             <tr>
-                                <td class="cart_product">
-                                    <p><img src="{{url('images',$cartItem->options->img)}}" class="card-img-top bmw" ></p>
+                                <td class="cart_product w-25 h-25">
+                                    <p class="w-50 h-50"><img src="{{url('images',$cartItem->options->img)}}" class="card-img-top w-100" ></p>
                                 </td>
                                 <td class="cart_title">
-                                    <h5>{{$cartItem->name}}</h5>
+                                    <h5>{{$cartItem->id}}</h5>
                                 </td>
                                 {!! Form::open(['url'=> ['cart/updateItem', $cartItem->rowId], 'method'=> 'put']) !!}
-                                <td class="cart_description">
-                                        <h4>
-                                            <a href="{{url('/product_details/'.$cartItem->name)}}" style="color:blue">{{$cartItem->id}}</a>
-                                        </h4>
-                                <!--<p>Only {{$cartItem->options->stock}} left</p>-->
-                                </td>
-                                <td class="cart_quantity">
-                                    <div class="cart_quantity_button">
-                                        <input type="hidden" id="rowId<?php echo $count;?>" value="{{$cartItem->rowId}}"/>
-                                        <input type="hidden" id="proId<?php echo $count;?>" value="{{$cartItem->id}}"/>
-                                        <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
-                                               autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
-                                    </div>
-                                </td>
-                                <td class="cart_price">
-                                    <p>{{$cartItem->price}} $</p>
-                                </td>
-                                <td class="cart_total">
-                                    <p class="cart_total_price">{{$cartItem->subtotal}} $</p>
-                                </td>
-                                <td class="">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
+                                    <td class="cart_description">
+                                            <h4>
+                                                <a href="{{url('/product_details/'.$cartItem->id)}}" style="color:blue">{{$cartItem->name}}</a>
+                                            </h4>
+                                    </td>
+                                    <td>
+                                        <p>{{$cartItem->options->stock}} item(s)</p>
+                                    </td>
+                                    <td class="cart_quantity">
+                                        <div class="cart_quantity_button">
+                                            <input type="hidden" name="rowId{{$cartItem->id}}" value="{{$cartItem->rowId}}"/>
+                                            <input type="hidden" name="productId{{$cartItem->id}}" value="{{$cartItem->id}}"/>
+                                            <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
+                                                   autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
+                                        </div>
+                                    </td>
+                                    <td class="cart_price">
+                                        <p>{{$cartItem->price}} $</p>
+                                    </td>
+                                    <td class="cart_total">
+                                        <p class="cart_total_price">{{$cartItem->subtotal}} $</p>
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
                                     {!! Form::close() !!}
                                     <a class="cart_quantity_delete" style="background-color:red" href="{{url('/cart/removeItem')}}/{{$cartItem->rowId}}">
                                         <button class="btn btn-danger">
                                             <i class="fa fa-trash-o"></i>
                                         </button>
                                     </a>
-                                </td>
+                                    </td>
                             </tr>
                             <?php $count++;?>
                             </tbody>

@@ -32,21 +32,21 @@
                 @foreach($cartItems as $cartItem)
                     <tbody>
                     <tr>
-                        <td class="cart_product">
+                        <td class="cart_product w-25 ">
                             <a href="{{url('/product_details')}}/{{$cartItem->id}}">
-                                <img src="{{$cartItem->options->img}}" alt="" width="200px">
+                                <img src="{{url('images/'.$cartItem->options->img)}}" alt="" class="w-50">
                             </a>
                         </td>
                         <td class="cart_product">
-                            <h5>{{$cartItem->name}}</h5>
+                            <h5>{{$cartItem->id}}</h5>
                         </td>
                         {!! Form::open(['url' => ['cart/updateItem',$cartItem->rowId], 'method'=>'put']) !!}
                         <td class="cart_description">
-                            <h4><a href="{{url('/product_details')}}/{{$cartItem->name}}" style="color:blue">{{$cartItem->id}}</a></h4>
+                            <h4><a href="{{url('/product_details')}}/{{$cartItem->id}}" style="color:blue">{{$cartItem->name}}</a></h4>
                             <!--<p>Only {{$cartItem->options->stock}} left</p>-->
                         </td>
                         <td class="cart_price">
-                            <p>${{$cartItem->price}}</p>
+                            <p>{{$cartItem->price}}$</p>
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
@@ -57,7 +57,7 @@
                             </div>
                         </td>
                         <td class="cart_total">
-                            <p class="cart_total_price">${{$cartItem->subtotal}}</p>
+                            <p class="cart_total_price">{{$cartItem->subtotal}}$</p>
                         </td>
                         <td class="">
                             <button type="submit" class="btn btn-primary">

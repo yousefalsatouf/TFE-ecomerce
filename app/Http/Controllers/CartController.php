@@ -16,11 +16,16 @@ class CartController extends Controller
         return view('cart.index', compact('cartItems'));
     }
 
-    public function addItem($id)
+    public function addItem(Request $request, $id)
     {
         $product = Product::find($id);
 
-        Cart::add($product->product_name, $id, 1, $product->product_price);
+        if(isset($request->newPrice))
+            $price = $request->newPrice;
+        else
+            $price = $product->product_price;
+
+        Cart::add($id, $product->product_name, 1, $price, 1, ['img' => $product->image, 'stock' => $product->stock]);
 
         return redirect('/cart');
     }
@@ -34,8 +39,24 @@ class CartController extends Controller
 
     public function updateItem(Request $request, $id)
     {
-        //echo $id;
-        Cart::update($id, $request->qty);
-        return back();
+        $qty = $request->qty;
+        $productId = $request->productId1;
+        $product = Product::find($productId);
+        $stock = $product->stock;
+
+        if($qty < $stock)
+        {
+            $msg = 'Quantity is updated successfully';
+            Cart::update($id, $request->qty);
+
+            return back()->with('status', $msg);
+        }
+        else
+        {
+                $cartItems = Cart::content();
+                $msg = 'Please check if your quantity is more than product stock';
+                return back()->with('error', $msg);
+        }
+        //return view('cart.upCart', compact('cartItems'))->with('status', 'cart updated');
     }
 }
