@@ -25,9 +25,6 @@
                 <li class="nav-item">
                     <a href="{{url('/contact')}}" class="nav-link">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/admin')}}" class="nav-link">Dashboard</a>
-                </li>
                 @guest
                     <li class="nav-item">
                         <a href="{{url('/login')}}" class="nav-link text-primary">Login</a>
@@ -40,7 +37,11 @@
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{Auth::user()->name}}
+                            @if(Auth::check() && Auth::user()->isAdmin())
+                                    Admin({{Auth::user()->name}})
+                            @else
+                                {{Auth::user()->name}}
+                            @endif
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -60,6 +61,11 @@
                             <i class="fa fa-shopping-cart"> ({{Cart::count()}}) Items</i>
                         </a>
                     </li>
+                    @if(Auth::check() && Auth::user()->isAdmin())
+                        <li class="nav-item">
+                            <a href="{{url('/admin')}}" class="nav-link">Admin Dashboard</a>
+                        </li>
+                    @endif
                 @endguest
             </ul>
             <form action='{{('/search')}}' class="form-inline ml-auto" method="post">

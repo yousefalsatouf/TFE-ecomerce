@@ -15,6 +15,7 @@
     @include('admin.helpers.header')
     <div class="container-fluid">
         <div class="row">
+            <h3>What's on your mind</h3>
             @include('admin.includes.sidenav')
             @yield('content')
         </div>

@@ -32,6 +32,7 @@ class ProductsController extends Controller
             'product_name' => 'required',
             'product_code' => 'required',
             'product_price' => 'required',
+            'stock' => 'required',
             'product_info' => 'required',
             'spl_price' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:10000'
@@ -52,7 +53,6 @@ class ProductsController extends Controller
 
     public function show($id)
     {
-
         return view('product.show');
     }
 }

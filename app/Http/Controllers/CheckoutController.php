@@ -29,7 +29,7 @@ class CheckoutController extends Controller
         $this->validate($request, [
             'first_name' => 'required|min:3|max:35',
             'last_name' => 'required|min:3|max:35',
-            'phone' => 'required|numeric|min:9|max:13',
+            'phone' => 'required|numeric|min:9',
             'state' => 'required|min:3|max:35',
             'city' => 'required|min:3|max:25',
             'postal_code' => 'required|numeric',
@@ -44,6 +44,7 @@ class CheckoutController extends Controller
 
         $address->first_name = $request->first_name;
         $address->last_name = $request->last_name;
+        $address->phone = $request->phone;
         $address->state = $request->state;
         $address->city = $request->city;
         $address->postal_code = $request->postal_code;
