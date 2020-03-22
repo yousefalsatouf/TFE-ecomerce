@@ -9,5 +9,8 @@
         <li class="nav-item">
             <a class="nav-link" href="">Edit Products</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/category')}}">Manage Categories</a>
+        </li>
     </ul>
 </nav>
