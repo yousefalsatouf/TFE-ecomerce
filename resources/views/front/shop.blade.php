@@ -75,12 +75,16 @@
                                             <p class="">${{$product->product_price}}</p>
                                         </div>
                                     @endif
-                                    <button class="btn btn-primary btn-sm">
-                                        <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark"><b>View <i class="fa fa-eye"></i></b></a>
-                                    </button>
-                                    <button class="btn btn-primary btn-sm float-right">
-                                        <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark"><b>Add <i class="fa fa-shopping-cart"></i></b></a>
-                                    </button>
+                                    <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
+                                        <button class="btn btn-primary btn-sm">
+                                            <b>View <i class="fa fa-eye"></i></b>
+                                        </button>
+                                    </a>
+                                    <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
+                                        <button class="btn btn-primary btn-sm float-right">
+                                            <b>Add <i class="fa fa-shopping-cart"></i></b>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                     @empty

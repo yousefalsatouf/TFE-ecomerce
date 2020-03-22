@@ -36,7 +36,7 @@ Route::get('/contact', function () {
 Route::get('/cart/addItem/{id}', 'HomeController@product_details');
 
 Auth::routes();
-
+Route::get('/', 'HomeController@index');
 Route::get('/shop', 'HomeController@shop');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

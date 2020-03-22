@@ -26,10 +26,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products=Product::all();
-        $categories=Category::all();
+        $products = Product::all();
+        $categories = Category::all();
+        //dd($products);
 
-        return view('front.home');
+        return view('front.home', compact(['categories', 'products']));
     }
 
     public function shop()
@@ -42,10 +43,10 @@ class HomeController extends Controller
 
     public function product_details($id)
     {
-        $products = Product::findOrFail($id);
+        $product = Product::findOrFail($id);
         //$product = $products->product_name;
         //dd($products->product_name);
-        return view('front/product_details', compact('products'));
+        return view('front/product_details', compact('product'));
     }
 
 }
