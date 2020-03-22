@@ -34,6 +34,7 @@ Route::get('/contact', function () {
 });
 
 Route::get('/cart/addItem/{id}', 'HomeController@product_details');
+Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
 
 Auth::routes();
 Route::get('/', 'HomeController@index');

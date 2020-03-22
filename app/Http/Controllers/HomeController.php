@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\wishList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
