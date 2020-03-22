@@ -39,12 +39,12 @@ class CartController extends Controller
 
     public function updateItem(Request $request, $id)
     {
-        $qty = $request->qty;
-        $productId = $request->productId1;
-        $product = Product::find($productId);
-        $stock = $product->stock;
+        $msg = 'Quantity is updated successfully';
+        Cart::update($id, $request->qty);
 
-        if($qty < $stock)
+        return back()->with('status', $msg);
+
+        /*if($qty < $stock)
         {
             $msg = 'Quantity is updated successfully';
             Cart::update($id, $request->qty);
@@ -56,7 +56,7 @@ class CartController extends Controller
                 $cartItems = Cart::content();
                 $msg = 'Please check if your quantity is more than product stock';
                 return back()->with('error', $msg);
-        }
+        }*/
         //return view('cart.upCart', compact('cartItems'))->with('status', 'cart updated');
     }
 }

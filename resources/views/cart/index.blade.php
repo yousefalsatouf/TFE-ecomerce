@@ -101,9 +101,9 @@
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
-                                            <input type="hidden" name="rowId{{$cartItem->id}}" value="{{$cartItem->rowId}}"/>
-                                            <input type="hidden" name="productId{{$cartItem->id}}" value="{{$cartItem->id}}"/>
-                                            <input type="number" size="2" value="{{$cartItem->qty}}" name="qty" id="upCart<?php echo $count;?>"
+                                            <input type="hidden" name="rowId" value="{{$cartItem->rowId}}"/>
+                                            <input type="hidden" name="productId" value="{{$cartItem->id}}"/>
+                                            <input type="number" size="2" value="{{  $cartItem->qty<$cartItem->options->stock?  $cartItem->qty : $cartItem->options->stock}}" name="qty" id="upCart<?php echo $count;?>"
                                                    autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
                                         </div>
                                     </td>
