@@ -48,7 +48,7 @@ class ProductsController extends Controller
         $categories = Category::all();
         Product::create($formInput);
 
-        return redirect('/shop');
+        return redirect('/admin/product');
     }
 
     public function show($id)

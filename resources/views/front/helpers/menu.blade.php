@@ -49,6 +49,7 @@
                                 {{Auth::user()->name}}
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
+                            <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}"><span>({{\App\wishList::count()}})</span>Wishlist <i class="fa fa-star"></i></a>
                             <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Your Orders</a>
                             <a class="dropdown-item text-dark" href="{{ url('/address') }}">Your Address</a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">

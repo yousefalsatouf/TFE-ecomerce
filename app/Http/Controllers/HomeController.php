@@ -59,7 +59,7 @@ class HomeController extends Controller
         $wishlist->product_id = $request->product_id;
         $wishlist->save();
 
-        $products = DB::table('products')->where('id', $request->product_id)->get();
+        $products = DB::table('products')->where('id', $request->user_id)->get();
 
         return view('front/product_details', compact('products'));
 
@@ -70,6 +70,13 @@ class HomeController extends Controller
         $products = DB::table('wishlist')->leftJoin('products', 'wishlist.product_id', '=', 'products.id')->get();
 
         return view('front.wishList', compact('products'));
+    }
+
+    public function remove_from_wishlist($id)
+    {
+        DB::table('wishlist')->where('product_id', '=', $id)->delete();
+
+        return back()->with('msg', 'Item Removed from Wishlist');
     }
 
 }

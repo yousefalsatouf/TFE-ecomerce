@@ -36,6 +36,7 @@ Route::get('/contact', function () {
 Route::get('/cart/addItem/{id}', 'HomeController@product_details');
 Route::get('/wishlist', 'HomeController@view_wishlist');
 Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
+Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 
 Auth::routes();
 Route::get('/', 'HomeController@index');

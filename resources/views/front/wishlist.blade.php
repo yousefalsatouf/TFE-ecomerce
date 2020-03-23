@@ -28,7 +28,7 @@
                                             <a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Move to cart</a>
                                         </div>
                                     </div>
-                                    <a href="{{url('/removeFromWishlist').'/'.$product->id}}" style="color:red" class="btn btn-default btn-block"><i class="fa fa-minus-square"></i>Remove from wishlist</a></li>
+                                    <a href="{{url('/removeFromWishlist').'/'.$product->id}}" style="color:red" class="btn btn-default btn-block"><i class="fa fa-minus-square"></i>Remove from wishlist</a>
                                 </div>
                             </div>
                         @endforeach
