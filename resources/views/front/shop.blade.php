@@ -93,5 +93,6 @@
                 </div>
             </div>
         </section>
+        @include('front.recommends')
     </main>
 @endsection

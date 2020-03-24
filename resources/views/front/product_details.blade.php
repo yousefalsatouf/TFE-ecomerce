@@ -110,5 +110,6 @@
     </div>
     <div class="recommended_items"><!--recommended_items-->
         <h2 class="title text-center">recommended items</h2>
+        @include('front.recommends')
     </div>
 @endsection
