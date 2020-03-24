@@ -46,6 +46,14 @@ class HomeController extends Controller
 
     public function product_details($id)
     {
+        if (Auth::check())
+        {
+            $recommends = new Recommends;
+            $recommends->user_Id = Auth::check()->id;
+            $recommends->product_id = $id;
+
+        }
+
         $product = Product::findOrFail($id);
         //$product = $products->product_name;
         //dd($products->product_name);
