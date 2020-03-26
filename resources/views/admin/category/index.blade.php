@@ -46,7 +46,7 @@
                     <h2>Create Category</h2>
                     <hr>
                     <div class="card card-body bg-dark text-white py-5">
-                        {!! Form::open(['route' => 'category.store', 'method' => 'post']) !!}
+                        {!! Form::open(['route' => 'categories.store', 'method' => 'post']) !!}
                             <div class="form-group">
                                 {{ Form::label('name', 'Category Name') }}
                                 {{ Form::text('name', null, array('class' => 'form-control')) }}
@@ -54,7 +54,7 @@
                             <button type="submit" class="btn btn-primary">Add Category</button>
                         {!! Form::close() !!}
                     </div>
-                    {!! Form::open(['route' => 'category.store', 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'categories.store', 'method' => 'post']) !!}
                 </div>
                 {!! Form::close() !!}
             </div>

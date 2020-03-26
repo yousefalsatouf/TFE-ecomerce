@@ -21,11 +21,6 @@ Route::get('/shop', function () {
     return view('/front/shop');
 });
 
-Route::get('/products', function () {
-    return view('/front/shop');
-});
-
-
 Route::get('/about', function () {
     return view('front/about');
 });
@@ -55,10 +50,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         })->name('admin.index');
         Route::POST('/admin/store', 'AdminController@store');
         Route::get('/admin', 'AdminController@index');
-        Route::resource('product', 'ProductsController');
-        Route::resource('category','CategoriesController');
+        Route::resource('products', 'ProductsController');
+        Route::resource('categories','CategoriesController');
         Route::get('editProductForm/{id}', 'ProductsController@editProductForm')->name('editProductForm');
-        Route::post('editProduct/{id}', 'ProductController@editProduct')->name('editProduct');
+        Route::post('editProduct/{id}', 'ProductsController@editProduct')->name('editProduct');
     }
 );
 

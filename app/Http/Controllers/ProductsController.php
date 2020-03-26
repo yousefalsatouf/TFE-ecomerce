@@ -67,11 +67,11 @@ class ProductsController extends Controller
         $products = DB::table('products')->where('id', '=', $id)->get();
 
         $productId = $request->id;
-
         $product_name = $request->product_name;
         $category_id = $request->category_id;
         $product_code = $request->product_code;
         $product_price = $request->product_price;
+        $stock = $request->stock;
         $product_info = $request->product_info;
         $spl_price = $request->spl_price;
 
@@ -82,16 +82,17 @@ class ProductsController extends Controller
             $new_arrival = $request->new_arrival;
         }*/
         DB::table('products')->where('id', $productId)->update([
-            'prodcut_name' => $product_name,
+            'product_name' => $product_name,
             'category_id' => $category_id,
             'product_code' => $product_code,
             'product_price' => $product_price,
             'product_info' => $product_info,
+            'stock' => $stock,
             'spl_price' => $spl_price,
             //'new_arrival' => $new_arrival
 
         ]);
 
-        return view('admin.product.index', compact('products','category'));
+        return redirect('admin/products')->with(compact('products'));
     }
 }

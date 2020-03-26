@@ -16,10 +16,10 @@
             <a class="nav-link" href="">Users</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('product.index')}}">Products</a>
+            <a class="nav-link" href="{{url('/admin/products')}}">Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('admin/category')}}">Categories</a>
+            <a class="nav-link" href="{{url('admin/categories')}}">Categories</a>
         </li>
     </ul>
 </nav>

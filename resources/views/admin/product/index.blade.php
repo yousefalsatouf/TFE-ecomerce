@@ -38,8 +38,8 @@
         <div>
             <div class="container">
                 <div>
-                    <button class="btn bg-light float-right">
-                        <a class="nav-link text-dark" href="{{route('product.create')}}"><b>Add One</b></a>
+                    <button class="btn bg-success float-right">
+                        <a class="nav-link text-dark" href="{{route('products.create')}}"><b>Add One</b></a>
                     </button>
                 </div>
                 <h3>Products</h3>
@@ -54,7 +54,8 @@
                     <th>Name</th>
                     <th>Code</th>
                     <th>Price</th>
-                    <th>sale</th>
+                    <th>Sale</th>
+                    <th>stock</th>
                     <th>Category</th>
                     <th>On Sale</th>
                     <th>Edit</th>
@@ -66,12 +67,13 @@
                 @foreach($products as $product)
                     <tr>
                         <td style="width:50px; border: 1px solid #333;"><img class="card-img-top img-fluid" src="{{url('images',$product->image)}}" width="50px" alt="Card image cap"></td>
-                        <td style="width:50px;">{{$product->id}} </td>
-                        <td style="width:50px;">{{$product->product_name}} </td>
-                        <td style="width:50px;">{{$product->product_code}} </td>
-                        <td style="width:50px;">{{$product->product_price}} </td>
-                        <td style="width:50px;">{{$product->spl_price}} </td>
-                        <td style="width:50px;">{{$product->name}}</td>
+                        <td>{{$product->id}} </td>
+                        <td>{{$product->product_name}} </td>
+                        <td>{{$product->product_code}} </td>
+                        <td>{{$product->product_price}} $</td>
+                        <td>{{($product->spl_price == null ? 'No sale on this': $product->spl_price.' $')}}</td>
+                        <td>{{$product->stock}} </td>
+                        <td>{{ isset($product->name)? $product->name : '' }}</td>
                         <td>
                             <div id="checkSale<?php echo $count; ?>">
                                 <input type="checkbox" id="onSale<?php echo $count; ?>"> Yes
