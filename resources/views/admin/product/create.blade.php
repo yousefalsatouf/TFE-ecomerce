@@ -9,13 +9,13 @@
                 <div class="col-md-6">
                     <div>
                         <button class="btn bg-light float-right">
-                            <a class="nav-link text-dark" href="{{url('/admin/product')}}"><b><i class="fa fa-backward"></i> Manage Products</b></a>
+                            <a class="nav-link text-dark" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> Manage Products</b></a>
                         </button>
                     </div>
                     <h1>Add New Product</h1>
 
                     <div class="panel-body">
-                        {!! Form::open(['route' => 'product.store', 'method' => 'post', 'files' => true]) !!}
+                        {!! Form::open(['route' => 'products.store', 'method' => 'post', 'files' => true]) !!}
                         <div class="form-group">
                             {{ Form::label('Product name', 'Product Name') }}
                             {{ Form::text('product_name', null, array('class' => 'form-control','required'=>'','minlength'=>'5')) }}

@@ -49,7 +49,7 @@ class ProductsController extends Controller
         $categories = Category::all();
         Product::create($formInput);
 
-        return redirect('/admin/product');
+        return redirect('/admin/products');
     }
 
     public function editProductForm($id) {
