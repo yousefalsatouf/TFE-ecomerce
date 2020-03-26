@@ -96,6 +96,13 @@ class ProductsController extends Controller
         return redirect('admin/products')->with(compact('products'));
     }
 
+    public function destroy($id)
+    {
+        Product::findOrFail($id)->delete();
+
+        return redirect()->back();
+    }
+
     public function editImage($id)
     {
         $product = Product::findOrFail($id);

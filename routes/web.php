@@ -35,6 +35,7 @@ Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
 Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 
 Auth::routes();
+
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'HomeController@shop');
 Route::get('/category/list/{name}', 'CategoriesController@list');
@@ -78,5 +79,4 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/finish', function() {
         return view('user.finish');
     });
-
 });

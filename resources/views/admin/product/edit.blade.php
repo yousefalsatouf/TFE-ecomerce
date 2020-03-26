@@ -1,14 +1,17 @@
 @extends('admin.master')
 @section('content')
     <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-        <h3>Edit</h3>
+
         <ul>
             <div class="row">
                 <div class="col-md-4">
-                    {!! Form::model($products, ['method'=>'post', 'action'=> ['ProductsController@editProduct', $products->id], 'files'=>true]) !!}
-                    <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                        <h3>Edit</h3>
                         <img class="card-img-top img-fluid" src="{{url('images',$products->image)}}" style="width:50px" alt="Card image cap">
                     </div>
+                    <hr>
+                    <br>
+                    {!! Form::model($products, ['method'=>'post', 'action'=> ['ProductsController@editProduct', $products->id], 'files'=>true]) !!}
                     <div class="form-group">
                         <Select class="form-control" name="category_id">
                             @foreach($categories as $cat)
@@ -58,6 +61,8 @@
                             <div>
                                 <h1>Change Image</h1>
                                 <img class="card-img-top img-fluid" src="{{url('images',$products->image)}}" style="width:200px" alt="">
+                                <hr>
+                                <br>
                                 <p>
                                     <a href="{{route('editImage',$products->id)}}"  class="btn btn-info">Change Now!</a>
                                 </p>

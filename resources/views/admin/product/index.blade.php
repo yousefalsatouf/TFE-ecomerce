@@ -89,7 +89,9 @@
                             <a class="btn btn-primary" href="{{route('editProductForm', $product->id)}}">Edit</a>
                         </td>
                         {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
-                        <td> {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}</td>
+                            <td>
+                                {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+                            </td>
                         {!! Form::close() !!}
                     </tr>
                     <?php $count++; ?>
