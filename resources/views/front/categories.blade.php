@@ -3,24 +3,24 @@
     <main role="main">
         <section id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                @for ($i = 0; $i < sizeof($products); $i++)
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                @for ($i = 1; $i < sizeof($products); $i++)
                     <li data-target="#myCarousel" data-slide-to={{$i}}></li>
                 @endfor
-                <li data-target="#myCarousel" data-slide-to="0"></li>
             </ol>
-            <div class="carousel-inner h-50">
+            <div class="carousel-inner">
                 @foreach($products as $product)
                     <div class="carousel-item active">
-                        <img class="first-slide h-50" src="{{url('images',$product->image)}}" alt="First slide">
+                        <img class="first-slide" src="{{url('images',$product->image)}}" alt="slide">
                         <div class="container">
                             <div class="carousel-caption text-left">
-                                <h1>{{$product->product_name}}</h1>
-                                <p>{{$product->product_info}}</p>
+                                <h1>{{$product->name}}</h1>
                                 <p><a class="btn btn-lg btn-primary" href="{{url('/register')}}" role="button">Sign up today</a></p>
                             </div>
                         </div>
                     </div>
                 @endforeach
+            </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -29,7 +29,6 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div>
         </section>
         <section>
             <div class="album text-muted">
