@@ -44,7 +44,7 @@
                         {!! Form::textarea('product_info', null, ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
-                        New Arrival: <p class="pull-right"><input type="checkbox" name="new_arrival" value="1"></p>
+                        <label class="pull-right">New Arrival: <input type="checkbox" name="new_arrival" value="1"></label>
                     </div>
                     {{ Form::submit('Update', array('class' => 'btn btn-success')) }}
 
@@ -53,15 +53,17 @@
                 </div>
                 <div class="col-md-3">
                     <div class="content-box-large">
-                        <div class="panel-heading">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Username">
-                                <div class="input-group-append">
-                                    <a href="" class="btn btn-info pull-right"
-                                       style="margin:-6px; color:#fff">Add more</a>
-                                </div>
+                        <?php {?>
+                        <div class="content-box-large">
+                            <div>
+                                <h1>Change Image</h1>
+                                <img class="card-img-top img-fluid" src="{{url('images',$products->image)}}" style="width:200px" alt="">
+                                <p>
+                                    <a href="{{route('editImage',$products->id)}}"  class="btn btn-info">Change Now!</a>
+                                </p>
                             </div>
                         </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>

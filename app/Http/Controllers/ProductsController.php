@@ -95,4 +95,28 @@ class ProductsController extends Controller
 
         return redirect('admin/products')->with(compact('products'));
     }
+
+    public function editImage($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('admin.product.editImage', compact('product'));
+    }
+
+    public function editProductImage(Request $request) {
+        $produtId = $request->id;
+
+        $image = $request->image;
+
+        if($image)
+        {
+            $imageName = $image->getClientOriginalName();
+            $image->move('images',$imageName);
+            $formInput['image'] = $imageName;
+
+            DB::table('products')->where('id', $produtId)->update(['image' => $imageName]);
+        }
+
+        return redirect()->back();
+    }
 }
