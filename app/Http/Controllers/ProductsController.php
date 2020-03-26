@@ -13,7 +13,9 @@ class ProductsController extends Controller
     //
     public function index()
     {
-        $products = Product::all();
+        //$products = Product::all();
+        $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->get();
+        //dd($products);
 
         return view('admin.product.index', compact('products'));
     }
@@ -21,6 +23,7 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
+
 
         return view('admin.product.create', compact('categories'));
     }

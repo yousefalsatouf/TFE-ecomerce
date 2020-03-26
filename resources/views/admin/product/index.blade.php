@@ -71,7 +71,7 @@
                         <td style="width:50px;">{{$product->product_code}} </td>
                         <td style="width:50px;">{{$product->product_price}} </td>
                         <td style="width:50px;">{{$product->spl_price}} </td>
-                        <td style="width:50px;">{{$product->category_id}}</td>
+                        <td style="width:50px;">{{$product->name}}</td>
                         <td>
                             <div id="checkSale<?php echo $count; ?>">
                                 <input type="checkbox" id="onSale<?php echo $count; ?>"> Yes
@@ -83,7 +83,7 @@
                                 <button id="saveAmount<?php echo $count; ?>" class="btn btn-success">Save Amount</button>
                             </div>
                         </td>
-                        {!! Form::open(['method'=>'PUT', 'action'=> ['ProductsController@edit', $product->id]]) !!}
+                        {!! Form::open(['method'=>'PUT', 'action'=> ['ProductsController@editProduct', $product->id]]) !!}
                         <td> {!! Form::submit('Edit', ['class'=>'btn btn-primary']) !!}</td>
                         {!! Form::close() !!}
                         {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
