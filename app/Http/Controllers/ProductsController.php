@@ -24,7 +24,6 @@ class ProductsController extends Controller
     {
         $categories = Category::pluck('name', 'id');
 
-
         return view('admin.product.create', compact('categories'));
     }
 
@@ -37,7 +36,6 @@ class ProductsController extends Controller
             'product_price' => 'required',
             'stock' => 'required',
             'product_info' => 'required',
-            'spl_price' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 
@@ -54,8 +52,46 @@ class ProductsController extends Controller
         return redirect('/admin/product');
     }
 
-    public function show($id)
+    public function editProductForm($id) {
+        $products = Product::findOrFail($id);
+        $categories = Category::all();
+
+        //$props = products_properties::all();
+
+        return view('admin.product.edit', compact('products', 'categories'));
+    }
+
+
+    public function editProduct(Request $request, $id)
     {
-        return view('product.show');
+        $products = DB::table('products')->where('id', '=', $id)->get();
+
+        $productId = $request->id;
+
+        $product_name = $request->product_name;
+        $category_id = $request->category_id;
+        $product_code = $request->product_code;
+        $product_price = $request->product_price;
+        $product_info = $request->product_info;
+        $spl_price = $request->spl_price;
+
+        /*if($request->new_arrival =='NULL')
+        {
+            $new_arrival = '1';
+        }else {
+            $new_arrival = $request->new_arrival;
+        }*/
+        DB::table('products')->where('id', $productId)->update([
+            'prodcut_name' => $product_name,
+            'category_id' => $category_id,
+            'product_code' => $product_code,
+            'product_price' => $product_price,
+            'product_info' => $product_info,
+            'spl_price' => $spl_price,
+            //'new_arrival' => $new_arrival
+
+        ]);
+
+        return view('admin.product.index', compact('products','category'));
     }
 }

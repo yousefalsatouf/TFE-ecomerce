@@ -50,7 +50,7 @@
                                             <form action="{{url('/cart/addItem/'.$product->id)}}">
                                                 @if($product->spl_price == 0)
                                                     <span id="price">
-                                                        {{$product->product_price}}
+                                                        {{$product->product_price}} $
                                                     </span>
                                                     <input type="hidden" value="{{$product->product_price}}" name="newPrice"/>
                                                 @else

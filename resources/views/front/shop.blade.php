@@ -64,11 +64,11 @@
                                             <p class="card-text">${{$product->product_price}}</p>
                                             <p class="card-text text-success"><strong>FREE</strong></p>
                                         </div>
-                                    @elseif(($product->product_price < $product->spl_price))
+                                    @elseif(($product->product_price > $product->spl_price))
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="" style="text-decoration:line-through; color:#333">${{$product->spl_price}}</p>
+                                            <p class="" style="text-decoration:line-through; color:#333">${{$product->product_price}}</p>
                                             <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                            <p class="">${{$product->product_price}}</p>
+                                            <p class="">${{$product->spl_price}}</p>
                                         </div>
                                      @else
                                         <div class="d-flex justify-content-between align-items-center">

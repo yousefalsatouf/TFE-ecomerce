@@ -83,9 +83,9 @@
                                 <button id="saveAmount<?php echo $count; ?>" class="btn btn-success">Save Amount</button>
                             </div>
                         </td>
-                        {!! Form::open(['method'=>'PUT', 'action'=> ['ProductsController@editProduct', $product->id]]) !!}
-                        <td> {!! Form::submit('Edit', ['class'=>'btn btn-primary']) !!}</td>
-                        {!! Form::close() !!}
+                        <td>
+                            <a class="btn btn-primary" href="{{route('editProductForm', $product->id)}}">Edit</a>
+                        </td>
                         {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
                         <td> {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}</td>
                         {!! Form::close() !!}

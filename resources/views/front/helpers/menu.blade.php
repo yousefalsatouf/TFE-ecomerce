@@ -15,7 +15,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <?php  $cats = DB::table('categories')->get(); ?>
                         @foreach($cats as $cat)
-                            <a class="dropdown-item" href="{{url('/')}}/products/{{$cat->name}}">{{ucwords($cat->name)}}</a>
+                            <a class="dropdown-item" href="{{url('/category')}}/list/{{$cat->name}}">{{ucwords($cat->name)}}</a>
                         @endforeach
                     </div>
                 </li>

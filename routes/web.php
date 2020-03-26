@@ -25,6 +25,7 @@ Route::get('/products', function () {
     return view('/front/shop');
 });
 
+
 Route::get('/about', function () {
     return view('front/about');
 });
@@ -41,6 +42,7 @@ Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'HomeController@shop');
+Route::get('/category/list/{name}', 'CategoriesController@list');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -55,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::get('/admin', 'AdminController@index');
         Route::resource('product', 'ProductsController');
         Route::resource('category','CategoriesController');
+        Route::get('editProductForm/{id}', 'ProductsController@editProductForm')->name('editProductForm');
         Route::post('editProduct/{id}', 'ProductController@editProduct')->name('editProduct');
     }
 );

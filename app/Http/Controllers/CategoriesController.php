@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoriesController extends Controller
 {
@@ -75,5 +76,20 @@ class CategoriesController extends Controller
         Category::findOrFail($id)->delete();
 
         return redirect()->back();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function list($name)
+    {
+        //echo $name;
+        $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->where('name', '=', $name)->get();
+        //dd($products);
+
+        return view('front.categories', compact('products'));
     }
 }
