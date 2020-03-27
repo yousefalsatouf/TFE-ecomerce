@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\products_properties;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use Illuminate\Http\Request;
@@ -56,9 +57,9 @@ class ProductsController extends Controller
         $products = Product::findOrFail($id);
         $categories = Category::all();
 
-        //$props = products_properties::all();
+        $props = products_properties::all();
 
-        return view('admin.product.edit', compact('products', 'categories'));
+        return view('admin.product.edit', compact('products', 'categories', 'props'));
     }
 
 
@@ -125,5 +126,23 @@ class ProductsController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function addProperty($id)
+    {
+        $products = Product::findOrFail($id);
+
+        return view('admin.product.addProperty', compact('products'));
+    }
+
+    public function submitProperty(Request $request){
+        $property = new products_properties;
+        //dd($request->productId);
+        $property->product_id = $request->productId;
+        $property->size = $request->size;
+        $property->color = $request->color;
+        $property->save();
+
+        return redirect('admin/products');
     }
 }

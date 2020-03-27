@@ -1,7 +1,6 @@
 @extends('admin.master')
 @section('content')
     <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-
         <ul>
             <div class="row">
                 <div class="col-md-4">
@@ -52,12 +51,32 @@
                     {{ Form::submit('Update', array('class' => 'btn btn-success')) }}
 
                     {!! Form::close() !!}
-
                 </div>
                 <div class="col-md-3">
                     <div class="content-box-large">
                         <?php {?>
                         <div class="content-box-large">
+                            <table class="table table-responsive">
+                                <tr>
+                                    <td>Size</td>
+                                    <td>Color</td>
+                                </tr>
+
+                                    {!! Form::open(['url' => 'admin/products/editProperty/',  'method' => 'put']) !!}
+                                    @foreach($props as $prop)
+                                        <tr>
+                                            <input type="hidden" name="product_id" value="{{$prop->product_id}}" size="6"/> <!-- products_properties pro_id -->
+                                            <input type="hidden" name="id" value="{{$prop->id}}" size="6"/> <!--// products_properties id -->
+                                            <td>{{$prop->size}}</td>
+                                            <td>{{$prop->color}}</td>
+                                        </tr>
+                                    @endforeach
+                                    {!! Form::close() !!}
+                            </table>
+                            <div>
+                                <a href="{{route('addProperty',$products->id)}}" class="btn btn-sm btn-info" style="margin:5px">Add Property</a>
+                                <br>
+                            </div>
                             <div>
                                 <h1>Change Image</h1>
                                 <img class="card-img-top img-fluid" src="{{url('images',$products->image)}}" style="width:200px" alt="">

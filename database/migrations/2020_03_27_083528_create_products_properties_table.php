@@ -18,7 +18,6 @@ class CreateProductsPropertiesTable extends Migration
             $table->integer('product_id');
             $table->string('size');
             $table->string('color');
-            $table->string('product_price');
             $table->timestamps();
         });
     }
