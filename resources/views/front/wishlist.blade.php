@@ -15,7 +15,7 @@
                         @if($products->isEmpty())
                             <h2 class="text-danger">Wish list is empty !</h2>
                         @else
-                           <div class="d-flex">
+                           <div class="d-flex flex-wrap">
                                @foreach($products as $product)
                                    <div class="col-sm-6">
                                        <div class="product-image-wrapper">
@@ -31,6 +31,7 @@
                                                        <a href="{{url('/removeFromWishlist').'/'.$product->id}}" style="color:red" class="btn btn-default btn-block"><i class="fa fa-minus-square"></i>Remove from wishlist</a>
                                                    </div>
                                                </div>
+                                               <hr>
                                            </div>
                                        </div>
                                    </div>

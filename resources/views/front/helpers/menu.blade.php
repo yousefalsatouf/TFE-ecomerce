@@ -45,11 +45,14 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="{{ url('/user')}}">
-                                {{Auth::user()->name}}
-                                <i class="fa fa-user" aria-hidden="true"></i>
+                            <a class="dropdown-item text-success" href="{{ url('/user')}}">
+                                <b>
+                                    {{Auth::user()->name}}
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </b>
                             </a>
-                            <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}"><span>({{\App\wishList::count()}})</span>Wishlist <i class="fa fa-star"></i></a>
+                            <hr>
+                            <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
                             <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Your Orders</a>
                             <a class="dropdown-item text-dark" href="{{ url('/address') }}">Your Address</a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">

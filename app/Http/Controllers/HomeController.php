@@ -83,16 +83,23 @@ class HomeController extends Controller
 
     public function view_wishlist()
     {
-        $userId = Auth::user()->id;
+        if (Auth::check())
+        {
+            $userId = Auth::user()->id;
 
-        dd($userId);
+            //dd($userId);
 
-        $products = DB::table('wishlist')
-            ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
-            ->where('wishlist.user_id', '=', $userId)
-            ->get();
+            $products = DB::table('wishlist')
+                ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
+                ->where('wishlist.user_id', '=', $userId)
+                ->get();
 
-        return view('front.wishlist', compact('products'));
+            return view('front.wishlist', compact('products'));
+        }
+        else
+        {
+            return redirect('login')->with("msg", "Please Login First");
+        }
     }
 
     public function remove_from_wishlist($id)
