@@ -5,38 +5,44 @@
             <div class="row">
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">
-                            <?php if (isset($msg)) {
-                                echo $msg;
-                            } else { ?> WishList Item <?php } ?> </h2>
+                        <h1 class="text-success">Wishlist Items: </h1>
+                        <br>
+                        <hr>
+                        @if (isset($removed))
+                            <h2 class="title text-center">{{$removed}}</h2>
+                        @endif
 
-                        <?php if ($products->isEmpty()) { ?>
-                            Wish list is empty !
-                        <?php } else { ?>
-                        @foreach($products as $product)
-                            <div class="col-sm-4">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <div class="w-50">
-                                                <a href="{{url('/product_details')}}">
-                                                    <img src="{{url('images',$product->image)}}" class="w-100" alt="" />
-                                                </a>
-                                            </div>
-                                            <h2><?php echo $product->product_price; ?>$</h2>
-                                            <p><a href="{{url('/product_details')}}"><?php echo $product->product_name; ?></a></p>
-                                            <a href="{{url('/cart/addItem')}}/<?php echo $product->id; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Move to cart</a>
-                                        </div>
-                                    </div>
-                                    <a href="{{url('/removeFromWishlist').'/'.$product->id}}" style="color:red" class="btn btn-default btn-block"><i class="fa fa-minus-square"></i>Remove from wishlist</a>
-                                </div>
-                            </div>
-                        @endforeach
-                        <?php } ?>
+                        @if($products->isEmpty())
+                            <h2 class="text-danger">Wish list is empty !</h2>
+                        @else
+                           <div class="d-flex">
+                               @foreach($products as $product)
+                                   <div class="col-sm-6">
+                                       <div class="product-image-wrapper">
+                                           <div class="single-products">
+                                               <div class="productinfo text-center">
+                                                   <div class="w-50">
+                                                       <a href="{{url('/product_details')}}">
+                                                           <img src="{{url('images',$product->image)}}" class="w-100" alt="" />
+                                                       </a>
+                                                       <h2>{{ $product->product_price }}$</h2>
+                                                       <p>{{ $product->product_name }}</p>
+                                                       <a href="{{url('/cart/addItem'). '/' .$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Move to cart</a>
+                                                       <a href="{{url('/removeFromWishlist').'/'.$product->id}}" style="color:red" class="btn btn-default btn-block"><i class="fa fa-minus-square"></i>Remove from wishlist</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               @endforeach
+                           </div>
+                        @endif
+                        <br>
+                        <hr>
+                        <div>
+                            <a class="btn btn-primary" href="{{url('/shop')}}"><i class="fa fa-backward"></i> Back to Shop</a>
+                        </div>
                     </div>
-                    <ul class="pagination">
-                        {{ $products}}
-                    </ul>
                 </div><!--features_items-->
             </div>
         </div>

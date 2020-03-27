@@ -17,10 +17,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
 
     /**
      * Show the application dashboard.
@@ -63,29 +63,44 @@ class HomeController extends Controller
 
     public function wishlist(Request $request)
     {
-        $wishlist = new wishList;
-        $wishlist->user_id = Auth::user()->id;
-        $wishlist->product_id = $request->product_id;
-        $wishlist->save();
+       if (Auth::check())
+       {
+           $wishlist = new wishList;
+           $wishlist->user_id = Auth::user()->id;
+           $wishlist->product_id = $request->product_id;
+           $wishlist->save();
 
-        $products = DB::table('products')->where('id', $request->user_id)->get();
+           $products = DB::table('products')->where('id', '=', $request->user_id)->get();
 
-        return view('front/product_details', compact('products'));
+           return redirect('/wishlist')->with(compact('products'));
+       }
+       else
+       {
+           return redirect('login')->with("msg", "Please Login First");
+       }
 
     }
 
     public function view_wishlist()
     {
-        $products = DB::table('wishlist')->leftJoin('products', 'wishlist.product_id', '=', 'products.id')->get();
+        $userId = Auth::user()->id;
 
-        return view('front.wishList', compact('products'));
+        dd($userId);
+
+        $products = DB::table('wishlist')
+            ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
+            ->where('wishlist.user_id', '=', $userId)
+            ->get();
+
+        return view('front.wishlist', compact('products'));
     }
 
     public function remove_from_wishlist($id)
     {
         DB::table('wishlist')->where('product_id', '=', $id)->delete();
+        $removed = 'Item Removed from Wishlist';
 
-        return back()->with('msg', 'Item Removed from Wishlist');
+        return back()->with(compact('removed'));
     }
 
 }
