@@ -57,7 +57,9 @@ class ProductsController extends Controller
         $products = Product::findOrFail($id);
         $categories = Category::all();
 
-        $props = products_properties::all();
+        $props = DB::table('products_properties')->where('product_id', '=', $id)->get();
+
+        //dd($props);
 
         return view('admin.product.edit', compact('products', 'categories', 'props'));
     }
@@ -135,7 +137,8 @@ class ProductsController extends Controller
         return view('admin.product.addProperty', compact('products'));
     }
 
-    public function submitProperty(Request $request){
+    public function submitProperty(Request $request)
+    {
         $property = new products_properties;
         //dd($request->productId);
         $property->product_id = $request->productId;
@@ -144,5 +147,22 @@ class ProductsController extends Controller
         $property->save();
 
         return redirect('admin/products');
+    }
+
+    public function editProperty(Request $request)
+    {
+        $id = $request->id;
+        $size = $request->size;
+        $color = $request->color;
+        //dd($id);
+
+        DB::table('products_properties')->where('id', $id)->update([
+            'size' => $size,
+            'color' => $color,
+        ]);
+
+        return back();
+
+
     }
 }

@@ -15,19 +15,11 @@
                     </label>
                     <br>
                     <label for="size">Size:
-                        <select class="form-control" name="size">
-                            <option  value="L">L</option>
-                            <option  value="XL">XL</option>
-                            <option  value="XXL">XXL</option>
-                        </select>
+                        <input type="text" class="form-control" name="size">
                     </label>
                     <br>
                     <label for="color">Color:
-                        <select class="form-control" name="color">
-                            <option  value="blue">Blue</option>
-                            <option  value="green">Green</option>
-                            <option  value="black">Black</option>
-                        </select>
+                        <input type="text" class="form-control" name="color">
                     </label>
                     <br>
                     <br>
