@@ -127,4 +127,15 @@ class HomeController extends Controller
         return back();
     }
 
+    public function search(Request $request)
+    {
+        $result = $request->search;
+        $products = DB::table('products')->where('product_name', 'like', '%'.$result.'%')->paginate(2);
+
+        if ($request == '')
+            return view('front.shop');
+        else
+            return view('front.shop', ['msg' => 'Result: '.$result], compact('products'));
+
+    }
 }

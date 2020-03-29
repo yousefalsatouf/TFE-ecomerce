@@ -50,6 +50,8 @@ Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 
 Route::post('/addReview', 'HomeController@addReview');
 
+Route::post('/search', 'HomeController@search');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()

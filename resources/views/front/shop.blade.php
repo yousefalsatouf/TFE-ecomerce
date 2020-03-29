@@ -51,6 +51,13 @@
 
         <section class="album text-muted">
             <div class="container">
+                <h3 class="text-center">
+                    @if(isset($msg))
+                        {{$msg}}
+                    @else
+                        Featured Items
+                    @endif
+                </h3>
                 <div class="row d-flex justify-content-around">
                     @forelse($products as $product)
                             <div class="card w-25">
