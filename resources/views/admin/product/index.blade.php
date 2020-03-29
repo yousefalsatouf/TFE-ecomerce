@@ -76,11 +76,15 @@
                         <td>{{ isset($product->name)? $product->name : '' }}</td>
                         <td>
                             <div id="checkSale<?php echo $count; ?>">
-                                <input type="checkbox" id="onSale<?php echo $count; ?>"> Yes
+                                <label for="">
+                                    <input type="checkbox" id="onSale<?php echo $count; ?>">Yes
+                                </label>
                             </div>
                             <div id="amountDiv<?php echo $count; ?>">
                                 <input type="hidden" id="pro_id<?php echo $count; ?>" value="{{$product->id}}" />
-                                <input type="checkbox" id="noSale<?php echo $count; ?>"> No<br>
+                                <label for="">
+                                    <input type="checkbox" id="noSale<?php echo $count; ?>"> No
+                                </label>
                                 <input type="text" id="spl_price<?php echo $count; ?>" size="12" placeholder="Sale Price" /><br>
                                 <button id="saveAmount<?php echo $count; ?>" class="btn btn-success">Save Amount</button>
                             </div>
