@@ -29,18 +29,27 @@ Route::get('/contact', function () {
     return view('front/contact');
 });
 
-Route::get('/cart/addItem/{id}', 'HomeController@product_details');
-Route::get('/wishlist', 'HomeController@view_wishlist');
-Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
-Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'HomeController@shop');
+Route::get('/product_details/{id}', 'HomeController@product_details');
 Route::get('/category/list/{name}', 'CategoriesController@list');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/cart', 'CartController@index');
+Route::get('/cart/addItem/{id}', 'CartController@addItem');
+Route::get('/cart/addItem/{id}', 'HomeController@product_details');
+Route::get('/cart/removeItem/{id}', 'CartController@removeItem');
+Route::put('/cart/updateItem/{id}', 'CartController@updateItem');
+
+Route::get('/wishlist', 'HomeController@view_wishlist');
+Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
+Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
+
+Route::post('/addReview', 'HomeController@addReview');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()
@@ -62,12 +71,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::post('/editProperty', 'ProductsController@editProperty');
     }
 );
-
-Route::get('/product_details/{id}', 'HomeController@product_details');
-Route::get('/cart', 'CartController@index');
-Route::get('/cart/addItem/{id}', 'CartController@addItem');
-Route::get('/cart/removeItem/{id}', 'CartController@removeItem');
-Route::put('/cart/updateItem/{id}', 'CartController@updateItem');
 
 Route::group(['middleware' => 'auth'], function()
 {

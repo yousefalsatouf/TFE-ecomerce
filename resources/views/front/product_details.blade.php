@@ -81,17 +81,64 @@
                                             $wishData = DB::table('wishlist')->rightJoin('products','wishlist.product_id', '=', 'products.id')->where('wishlist.product_id', '=', $product->id)->get();
                                             $count = App\wishlist::where(['product_id' => $product->id])->count();
                                             ?>
-                                            <?php if($count=="0"){?>
+                                            @if($count=="0")
                                             {!! Form::open(['route' => 'addToWishList', 'method' => 'post']) !!}
                                                 <input type="hidden" value="{{$product->id}}" name="product_id"/>
                                                 <input type="submit" value="Add to Wishlist" class="btn btn-primary"/>
                                             {!! Form::close() !!}
-                                            <?php } else {?>
+                                            @else
                                                 <h3 style="color:green">Already Added to Wishlist <a href="{{url('/wishlist')}}">wishlist</a></h3>
-                                            <?php }?>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
+                                <div class="category-tab shop-details-tab"><!--category-tab-->
+                                    <div class="col-sm-12">
+                                        <ul class="nav nav-tabs">
+                                            <li><a href="#details" data-toggle="tab">Details</a></li>
+                                            <li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
+                                            <li><a href="#tag" data-toggle="tab">Tag</a></li>
+                                            <li class="active"><a href="#reviews" data-toggle="tab">Reviews ({{count($reviews)}})</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade" id="details" >
+                                            {{$product->product_info}}
+                                        </div>
+                                        <div class="tab-pane fade" id="companyprofile" >
+                                        </div>
+                                        <div class="tab-pane fade active in" id="reviews" >
+                                            <div class="col-sm-12">
+                                                @foreach($reviews as $review)
+                                                    <ul>
+                                                        <li><a href=""><i class="fa fa-user"></i>{{$review->client_name}}</a></li>
+                                                        <li><a href=""><i class="fa fa-clock-o"></i>{{date('H: i', strtotime($review->created_at))}}</a></li>
+                                                        <li><a href=""><i class="fa fa-calendar-o"></i>{{date('F j, Y', strtotime($review->created_at))}}</a></li>
+                                                    </ul>
+                                                    <p>{{$review->review_content}}</p>
+                                                @endforeach
+                                                <p><b>Write Your Review</b></p>
+                                                <form action="{{url('/addReview')}}" method="post">
+                                                    {{ csrf_field() }}
+                                                    <span>
+                                                      <label for="clientName">Name:
+                                                          <input type="text" name="clientName" placeholder="Your Name"/>
+                                                      </label>
+                                                      <label for="clientEmail">Email:
+                                                          <input type="email" name="clientEmail" placeholder="Email Address"/>
+                                                      </label>
+                                                    </span>
+                                                    <label for="reviewContent">What Would you like to say?
+                                                        <textarea name="reviewContent" ></textarea>
+                                                    </label>
+                                                    <b>Rating: </b> <img src="{{asset('images/product-details/rating.png')}}" alt="" />
+                                                    <button type="submit" class="btn btn-default pull-right">Submit</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--/category-tab-->
+                                <!-- End of Review -->
                             </div>
                         </div>
                     </div>

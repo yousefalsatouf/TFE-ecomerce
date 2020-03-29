@@ -54,11 +54,11 @@ class HomeController extends Controller
             $recommends->product_id = $id;
 
         }
-
         $product = Product::findOrFail($id);
-        //$product = $products->product_name;
         //dd($products->product_name);
-        return view('front/product_details', compact('product'));
+        $reviews = DB::table('reviews')->get();
+
+        return view('front/product_details', compact('product', 'reviews'));
     }
 
     public function wishlist(Request $request)
@@ -108,6 +108,23 @@ class HomeController extends Controller
         $removed = 'Item Removed from Wishlist';
 
         return back()->with(compact('removed'));
+    }
+
+    public function addReview(Request $request)
+    {
+        $name = $request->clientName;
+        $email = $request->clientEmail;
+        $content = $request->reviewContent;
+
+        DB::table('reviews')->insert([
+            'client_name' => $name,
+            'client_email' => $email,
+            'review_content' => $content,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' =>date("Y-m-d H:i:s")
+            ]);
+
+        return back();
     }
 
 }
