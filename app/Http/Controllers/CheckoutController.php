@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\address;
+use App\user_infos;
 use App\orders;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -29,7 +29,7 @@ class CheckoutController extends Controller
         $this->validate($request, [
             'first_name' => 'required|min:3|max:35',
             'last_name' => 'required|min:3|max:35',
-            'phone' => 'required|numeric|min:9',
+            'phone_number' => 'required|numeric|min:9',
             'state' => 'required|min:3|max:35',
             'city' => 'required|min:3|max:25',
             'postal_code' => 'required|numeric',
@@ -40,24 +40,25 @@ class CheckoutController extends Controller
         $userId = Auth::user()->id;
         $userEmail = Auth::user()->email;
 
-        $address = new address;
+        $userInfos = new user_infos;
 
-        $address->first_name = $request->first_name;
-        $address->last_name = $request->last_name;
-        $address->phone = $request->phone;
-        $address->state = $request->state;
-        $address->city = $request->city;
-        $address->postal_code = $request->postal_code;
-        $address->street = $request->street;
-        $address->street_number = $request->street_number;
-        $address->payment_type = $request->pay;
-        $address->user_id = $userId;
-        $address->user_email = $userEmail;
+        $userInfos->first_name = $request->first_name;
+        $userInfos->last_name = $request->last_name;
+        $userInfos->phone_number = $request->phone_number;
+        $userInfos->state = $request->state;
+        $userInfos->city = $request->city;
+        $userInfos->postal_code = $request->postal_code;
+        $userInfos->street = $request->street;
+        $userInfos->street_number = $request->street_number;
+        $userInfos->payment_type = $request->pay;
+        $userInfos->user_id = $userId;
+        $userInfos->user_email = $userEmail;
 
-        $address->save();
+        $userInfos->save();
 
         orders::createOrder();
         Cart::destroy();
+
         return redirect('finish');
     }
 }

@@ -48,15 +48,15 @@
                                             <hr>
                                             <br>
                                             <form action="{{url('/cart/addItem/'.$product->id)}}">
-                                                @if($product->spl_price == 0)
+                                                @if($product->sale_price == 0)
                                                     <span id="price">
                                                         <b>Price: </b>{{$product->product_price}} $
                                                     </span>
                                                     <input type="hidden" value="{{$product->product_price}}" name="newPrice"/>
                                                 @else
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <input type="hidden" value="{{$product->spl_price}}" name="newPrice"/>
-                                                        <p class="" style="text-decoration:line-through; color:#333"><b>Sale Price</b>{{$product->spl_price}} $</p>
+                                                        <input type="hidden" value="{{$product->sale_price}}" name="newPrice"/>
+                                                        <p class="" style="text-decoration:line-through; color:#333"><b>Sale Price</b>{{$product->sale_price}} $</p>
                                                          <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
                                                          <p class=""><b>Price: </b>{{$product->product_price}}$</p>
                                                     </div>
@@ -112,13 +112,14 @@
                                                 @foreach($reviews as $review)
                                                     <ul>
                                                         <li><a href=""><i class="fa fa-user"></i>{{$review->client_name}}</a></li>
+                                                        <li><a href=""><i class="fa fa-user"></i>{{$review->rating}}</a></li>
                                                         <li><a href=""><i class="fa fa-clock-o"></i>{{date('H: i', strtotime($review->created_at))}}</a></li>
                                                         <li><a href=""><i class="fa fa-calendar-o"></i>{{date('F j, Y', strtotime($review->created_at))}}</a></li>
                                                     </ul>
                                                     <p>{{$review->review_content}}</p>
                                                 @endforeach
                                                 <p><b>Write Your Review</b></p>
-                                                <form action="{{url('/addReview')}}" method="post">
+                                                <form action="{{url('/addReview'.$product->id)}}" method="post">
                                                     {{ csrf_field() }}
                                                     <span>
                                                       <label for="clientName">Name:
@@ -131,7 +132,11 @@
                                                     <label for="reviewContent">What Would you like to say?
                                                         <textarea name="reviewContent" ></textarea>
                                                     </label>
-                                                    <b>Rating: </b> <img src="{{asset('images/product-details/rating.png')}}" alt="" />
+                                                    <label for="rating">Rating:
+                                                        <input type="checkbox" name="rating" value="1">Bad <br>
+                                                        <input type="checkbox" name="rating" value="3">Good <br>
+                                                        <input type="checkbox" name="rating" value="5">Excellent
+                                                    </label>
                                                     <button type="submit" class="btn btn-default pull-right">Submit</button>
                                                 </form>
                                             </div>

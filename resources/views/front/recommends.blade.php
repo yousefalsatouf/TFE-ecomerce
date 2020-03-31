@@ -56,7 +56,7 @@ else
                                     <img src="{{url('images',$p->image)}}" alt="" /></a>
                                 <h2>${{$p->product_price}}</h2>
                                 <p>  <a href="{{url('/product_details')}}/{{$p->product_id}}">{{$p->product_name}}</a></p>
-                                <a href="{{url('/cart/addItem')}}/{{$p->pro_id}}" class="btn btn-default add-to-cart">
+                                <a href="{{url('/cart/addItem')}}/{{$p->product_id}}" class="btn btn-default add-to-cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     Add to cart</a>
                             </div>
@@ -64,7 +64,6 @@ else
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
     <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

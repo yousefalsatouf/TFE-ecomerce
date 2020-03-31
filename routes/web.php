@@ -40,7 +40,6 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/cart', 'CartController@index');
 Route::get('/cart/addItem/{id}', 'CartController@addItem');
-Route::get('/cart/addItem/{id}', 'HomeController@product_details');
 Route::get('/cart/removeItem/{id}', 'CartController@removeItem');
 Route::put('/cart/updateItem/{id}', 'CartController@updateItem');
 

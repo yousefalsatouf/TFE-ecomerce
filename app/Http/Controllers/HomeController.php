@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use App\Recommends;
+use App\Review;
 use App\wishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,15 +46,16 @@ class HomeController extends Controller
         return view('front.shop', compact(['categories','products']));
     }
 
-    public function product_details($id)
+    public function product_details(Request $request, $id)
     {
         if (Auth::check())
         {
             $recommends = new Recommends;
             $recommends->user_id = Auth::user()->id;
             $recommends->product_id = $id;
-
+            $recommends->save();
         }
+
         $product = Product::findOrFail($id);
         //dd($products->product_name);
         $reviews = DB::table('reviews')->get();
@@ -86,7 +88,6 @@ class HomeController extends Controller
         if (Auth::check())
         {
             $userId = Auth::user()->id;
-
             //dd($userId);
 
             $products = DB::table('wishlist')
@@ -110,19 +111,45 @@ class HomeController extends Controller
         return back()->with(compact('removed'));
     }
 
-    public function addReview(Request $request)
+    public function addReview(Request $request, $id)
     {
-        $name = $request->clientName;
-        $email = $request->clientEmail;
+        $productId = $id;
         $content = $request->reviewContent;
+        $rating = $request->rating;
 
-        DB::table('reviews')->insert([
-            'client_name' => $name,
-            'client_email' => $email,
-            'review_content' => $content,
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' =>date("Y-m-d H:i:s")
+        if (Auth::check())
+        {
+            $userId = Auth::user()->id;
+            $userName = Auth::user()->name;
+            $userEmail = Auth::user()->email;
+
+            DB::table('reviews')->insert([
+                'client_name' => $userName,
+                'client_email' => $userEmail,
+                'review_content' => $content,
+                'rating' => $rating,
+                'user_id' => $userId,
+                'product_id' => $productId,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' =>date("Y-m-d H:i:s")
             ]);
+        }
+        else
+        {
+            $guestName = $request->clientName;
+            $guestEmail = $request->clientEmail;
+
+            DB::table('reviews')->insert([
+                'client_name' => $guestName,
+                'client_email' => $guestEmail,
+                'review_content' => $content,
+                'rating' => $rating,
+                'product_id' => $productId,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' =>date("Y-m-d H:i:s")
+            ]);
+        }
+
 
         return back();
     }

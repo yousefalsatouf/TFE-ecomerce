@@ -75,7 +75,7 @@ class ProductsController extends Controller
         $product_price = $request->product_price;
         $stock = $request->stock;
         $product_info = $request->product_info;
-        $spl_price = $request->spl_price;
+        $sale_price = $request->sale_price;
 
         /*if($request->new_arrival =='NULL')
         {
@@ -90,7 +90,7 @@ class ProductsController extends Controller
             'product_price' => $product_price,
             'product_info' => $product_info,
             'stock' => $stock,
-            'spl_price' => $spl_price,
+            'sale_price' => $sale_price,
             //'new_arrival' => $new_arrival
 
         ]);

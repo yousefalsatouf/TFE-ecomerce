@@ -1,0 +1,22 @@
+#myCarousel
+{
+    .carousel-item
+    {
+        max-height: 50rem;
+        h1
+        {
+            color: white;
+            font-weight: bolder;
+        }
+        img
+        {
+            height: 100%;
+            width: 100%;
+        }
+        a
+        {
+            color: black;
+            font-weight: bold;
+        }
+    }
+}

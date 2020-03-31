@@ -30,7 +30,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($address_data as $value)
+                                    @foreach($user_data as $value)
                                         <tr>
                                             <td>{{$value->first_name}}</td>
                                             <td>{{$value->last_name}}</td>

@@ -121,13 +121,13 @@
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </button>
+                                        {!! Form::close() !!}
                                             <a class="cart_quantity_delete" style="background-color:red" href="{{url('/cart/removeItem')}}/{{$cartItem->rowId}}">
                                                 <button class="btn btn-danger">
                                                     <i class="fa fa-trash-o"></i>
                                                 </button>
                                             </a>
                                         </td>
-                                    {!! Form::close() !!}
                                 </tr>
                                 <?php $count++;?>
                                 </tbody>

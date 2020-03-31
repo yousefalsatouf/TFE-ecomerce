@@ -71,7 +71,7 @@
                         <td>{{$product->product_name}} </td>
                         <td>{{$product->product_code}} </td>
                         <td>{{$product->product_price}} $</td>
-                        <td>{{($product->spl_price == null ? 'No sale on this': $product->spl_price.' $')}}</td>
+                        <td>{{($product->sale_price == null ? 'No sale on this': $product->sale_price.' $')}}</td>
                         <td>{{$product->stock}} </td>
                         <td>{{ isset($product->name)? $product->name : '' }}</td>
                         <td>

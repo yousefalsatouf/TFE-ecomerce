@@ -34,8 +34,8 @@
                         {!! Form::text('product_code', null, ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
-                        {!! Form::label('spl_price', 'Sale Price:') !!}
-                        {!! Form::text('spl_price', null, ['class'=>'form-control'])!!}
+                        {!! Form::label('sale_price', 'Sale Price:') !!}
+                        {!! Form::text('sale_price', null, ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('stock', 'In Stock:') !!}

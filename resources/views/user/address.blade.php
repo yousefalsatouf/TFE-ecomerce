@@ -41,9 +41,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phone" class="form-label">Phone Number</label>
-                                    <input id="phone" type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}" class="form-control">
+                                    <input id="phone" type="text" name="phone_number" placeholder="Phone Number" value="{{ old('phone_number') }}" class="form-control">
                                     <br>
-                                    <span style="color:red">{{ $errors->first('phone') }}</span>
+                                    <span style="color:red">{{ $errors->first('phone_number') }}</span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="state" class="form-label">State Name</label>
