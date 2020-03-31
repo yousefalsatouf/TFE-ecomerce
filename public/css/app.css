@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
@@ -113,13 +113,13 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Berkshire Swash", cursive;
   font-size: 0.9rem;
   font-weight: normal;
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -565,7 +565,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 0.25rem;
   transition: all 0.2s ease-in-out;
@@ -1411,7 +1411,7 @@ pre code {
 }
 
 .table .table {
-  background-color: #f8fafc;
+  background-color: #fff;
 }
 
 .table-sm th,
@@ -1577,7 +1577,7 @@ pre code {
 }
 
 .thead-inverse th {
-  color: #f8fafc;
+  color: #fff;
   background-color: #212529;
 }
 
@@ -1587,7 +1587,7 @@ pre code {
 }
 
 .table-inverse {
-  color: #f8fafc;
+  color: #fff;
   background-color: #212529;
 }
 
@@ -3136,7 +3136,7 @@ tbody.collapse.show {
 }
 
 .custom-control-input:focus ~ .custom-control-indicator {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 3px #3490dc;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #3490dc;
 }
 
 .custom-control-input:active ~ .custom-control-indicator {
@@ -3362,8 +3362,8 @@ tbody.collapse.show {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #ddd #ddd #f8fafc;
+  background-color: #fff;
+  border-color: #ddd #ddd #fff;
 }
 
 .nav-tabs .dropdown-menu {
@@ -4886,7 +4886,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Berkshire Swash", cursive;
   font-style: normal;
   font-weight: normal;
   line-height: 1.6;
@@ -5012,7 +5012,7 @@ button.close {
   display: block;
   max-width: 276px;
   padding: 1px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Berkshire Swash", cursive;
   font-style: normal;
   font-weight: normal;
   line-height: 1.6;
@@ -8381,12 +8381,49 @@ a.text-dark:hover {
   visibility: hidden !important;
 }
 
+#header #header-menu {
+  background-color: black;
+  font-family: "Berkshire Swash", cursive;
+}
+
+#header #header-menu h1 {
+  font-weight: bolder;
+}
+
+#header #header-menu h1 a {
+  color: #38c172;
+}
+
+#header #header-menu a {
+  color: #fff;
+}
+
+#header #header-menu a:hover {
+  color: #38c172;
+}
+
+#footer {
+  font-family: "Berkshire Swash", cursive;
+}
+
+#footer .bottom {
+  padding: 2rem;
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+#myCarousel {
+  font-family: "Berkshire Swash", cursive;
+}
+
 #myCarousel .carousel-item {
   max-height: 50rem;
 }
 
 #myCarousel .carousel-item h1 {
-  color: white;
+  color: #38c172;
   font-weight: bolder;
 }
 
@@ -8396,7 +8433,7 @@ a.text-dark:hover {
 }
 
 #myCarousel .carousel-item a {
-  color: black;
+  color: #000;
   font-weight: bold;
 }
 

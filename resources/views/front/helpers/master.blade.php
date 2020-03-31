@@ -6,27 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Our shop</title>
+    <title>SHOPClub</title>
     <link rel="stylesheet" href="{{asset('dist/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/css/app.css')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-
     <body>
-        <header>
-                @include('front.helpers.menu')
+        <header id="header">
+            @include('front.helpers.menu')
         </header>
 
         @yield('content')
 
-        <footer class="text-muted">
-            <div class="container">
-                <div>
-
-                </div>
-                <p class="float-right">
-                    <a href="#">Back to top</a>
-                </p>
+        <footer id="footer">
+            @include('front.helpers.footer')
+            <div class="bottom">
+                <b class="float-left">
+                    <p>Copyright © 2020 - SHOPClub</p>
+                </b>
+                <b class="float-right">
+                    <a href="#" class="btn btn-outline-success"><i class="fa fa-toggle-up"></i> Back to top</a>
+                </b>
             </div>
         </footer>
         <script src="{{asset('js/app.js')}}"></script>

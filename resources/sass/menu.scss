@@ -1,0 +1,24 @@
+#header
+{
+    #header-menu
+    {
+        background-color: $main-bg;
+        font-family: $font-family-sans-serif;
+        h1
+        {
+            font-weight: bolder;
+            a
+            {
+                color: $green;
+            }
+        }
+        a
+        {
+            color: $white;
+        }
+        a:hover
+        {
+            color: $green;
+        }
+    }
+}

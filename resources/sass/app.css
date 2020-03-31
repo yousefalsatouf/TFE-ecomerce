@@ -1,20 +1,21 @@
 /*
 Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.
-        on line 5 of app.scss
+        on line 8 of app.scss
 
-1: // Variables
-2: @import 'variables';
 3: 
-4: // Bootstrap
-5: @import '~bootstrap/scss/bootstrap';
+4: // Variables
+5: @import 'variables';
 6: 
-7: // menu
-8: @import "menu";
+7: // Bootstrap
+8: @import '~bootstrap/scss/bootstrap';
 9: 
-10: // slider
+10: // menu header
+11: @import "menu";
+12: 
+13: // footer
 
 Backtrace:
-app.scss:5
+app.scss:8
 C:/Ruby25/lib/ruby/gems/2.5.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Ruby25/lib/ruby/gems/2.5.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:44:in `import'
 C:/Ruby25/lib/ruby/gems/2.5.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -52,4 +53,4 @@ C:/Ruby25/bin/sass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.\A         on line 5 of app.scss\A \A 1: // Variables\A 2: @import 'variables';\A 3: \A 4: // Bootstrap\A 5: @import '~bootstrap/scss/bootstrap';\A 6: \A 7: // menu\A 8: @import \"menu\";\A 9: \A 10: // slider"; }
+  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.\A         on line 8 of app.scss\A \A 3: \A 4: // Variables\A 5: @import 'variables';\A 6: \A 7: // Bootstrap\A 8: @import '~bootstrap/scss/bootstrap';\A 9: \A 10: // menu header\A 11: @import \"menu\";\A 12: \A 13: // footer"; }

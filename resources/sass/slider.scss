@@ -1,11 +1,12 @@
 #myCarousel
 {
+    font-family: $font-family-sans-serif;
     .carousel-item
     {
         max-height: 50rem;
         h1
         {
-            color: white;
+            color: $green;
             font-weight: bolder;
         }
         img
@@ -15,7 +16,7 @@
         }
         a
         {
-            color: black;
+            color: $black;
             font-weight: bold;
         }
     }
