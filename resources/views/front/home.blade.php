@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                         @endforeach
-                            <div>
+                            <div class="see-more">
                                 <a href="{{url('/shop')}}" class="last">
                                     See More
                                     <i class="fa fa-eye"></i>
@@ -43,7 +43,7 @@
         <hr>
         <br>
         <section class="quick-access">
-            <div class="container">
+            <div class="container articles">
                 <div class="col-lg-4">
                     <div>
                         <i class="fa fa-truck"></i>

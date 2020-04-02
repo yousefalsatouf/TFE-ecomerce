@@ -1,23 +1,15 @@
-<nav id="header-menu" class="navbar navbar-expand-sm">
+<nav id="header-menu" class="navbar">
     <div class="logo">
         <h1>
             <a href="{{url('/')}}">SHOPClub</a>
         </h1>
     </div>
-    <div class="container">
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    @include('front/helpers/toggleMenu')
+    <div class="container large-screen col-md-auto">
+        <div id="navbarCollapse" class="content">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i>HOME</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <?php  $cats = DB::table('categories')->get(); ?>
-                        @foreach($cats as $cat)
-                            <a class="dropdown-item text-dark" href="{{url('/category')}}/list/{{$cat->name}}">{{ucwords($cat->name)}}</a>
-                        @endforeach
-                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/shop')}}" class="nav-link">Shop</a>
@@ -82,15 +74,17 @@
                     </li>
                 @endguest
             </ul>
-            <form action='{{('/search')}}' class="form-inline search ml-auto" method="post">
-                <div class="d-flex justify-content-between align-items-center">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
-                    <label for="search">
-                        <input type="text" name="search" class="form-control mr-2" placeholder="Search">
-                    </label>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </div>
-            </form>
         </div>
+    </div>
+    <div class="search">
+        <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
+            <div class="d-flex justify-content-between align-items-center">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
+                <label for="search">
+                    <input type="text" name="search" class="form-control mr-2" placeholder="Search">
+                </label>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </form>
     </div>
 </nav>

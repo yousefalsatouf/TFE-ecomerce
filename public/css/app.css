@@ -8381,29 +8381,170 @@ a.text-dark:hover {
   visibility: hidden !important;
 }
 
-#header #header-menu {
-  background-color: black;
-  font-family: "Berkshire Swash", cursive;
+@media screen and (max-width: 768px) {
+  #header #header-menu {
+    background-color: black;
+    font-family: "Berkshire Swash", cursive;
+  }
+
+  #header #header-menu a {
+    color: #fff;
+  }
+
+  #header #header-menu a:hover {
+    color: #38c172;
+  }
+
+  #header #header-menu .logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  #header #header-menu .large-screen {
+    display: none;
+  }
+
+  #header #header-menu .toggle-menu {
+    margin: 1rem auto;
+  }
+
+  #header #header-menu .toggle-menu div {
+    width: 100%;
+  }
+
+  #header #header-menu .toggle-menu button {
+    background-color: transparent;
+    border: 0;
+    color: #38c172;
+    width: 100%;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  #header #header-menu .toggle-menu button i {
+    width: 100%;
+    color: #38c172;
+  }
+
+  #header #header-menu .toggle-menu div {
+    background-color: #000;
+  }
+
+  #header #header-menu .search {
+    margin: auto;
+  }
+
+  #header #header-menu .search div {
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  #header #header-menu .search div button,
+  #header #header-menu .search div label {
+    margin: 0.5rem;
+    width: 100%;
+  }
 }
 
-#header #header-menu h1 {
-  font-weight: bolder;
+@media screen and (min-width: 768px) {
+  #header #header-menu {
+    background-color: black;
+    font-family: "Berkshire Swash", cursive;
+  }
+
+  #header #header-menu .toggle-menu {
+    display: none;
+  }
+
+  #header #header-menu .large-screen {
+    width: 100%;
+  }
+
+  #header #header-menu .large-screen .content {
+    width: 100%;
+  }
+
+  #header #header-menu .large-screen .content ul {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  #header #header-menu a {
+    color: #fff;
+  }
+
+  #header #header-menu a:hover {
+    color: #38c172;
+  }
+
+  #header #header-menu .logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  #header #header-menu .search {
+    margin: auto;
+  }
+
+  #header #header-menu .search div {
+    margin: auto;
+  }
+
+  #header #header-menu .search div button,
+  #header #header-menu .search div label {
+    margin: 0.5rem;
+    width: 100%;
+  }
 }
 
-#header #header-menu h1 a {
-  color: #38c172;
-}
+@media screen and (min-width: 1200px) {
+  .logo {
+    max-width: 20%;
+  }
 
-#header #header-menu a {
-  color: #fff;
-}
+  .large-screen {
+    max-width: 40%;
+  }
 
-#header #header-menu a:hover {
-  color: #38c172;
+  .large-screen ul {
+    justify-content: space-around;
+  }
+
+  .search {
+    max-width: 30%;
+  }
 }
 
 #footer {
   font-family: "Berkshire Swash", cursive;
+}
+
+@media screen and (max-width: 768px) {
+  #footer .toggle-menu,
+  #footer .large-screen {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #footer .toggle-menu,
+  #footer .large-screen {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #footer .toggle-menu {
+    display: none;
+  }
+
+  #footer b {
+    max-width: 25%;
+  }
 }
 
 #footer .bottom {
@@ -8414,11 +8555,7 @@ a.text-dark:hover {
 }
 
 #footer .bottom b {
-  margin: 2rem auto;
-}
-
-#footer .bottom #header-menu {
-  max-width: 50%;
+  margin: 1rem auto;
 }
 
 #footer .bottom #header-menu .logo,
@@ -8459,6 +8596,34 @@ a.text-dark:hover {
   font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
+  #home .articles {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #home .see-more {
+    margin: 1rem;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  #home .articles {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #home .articles .card {
+    max-width: 50%;
+  }
+
+  #home .see-more {
+    margin: 1rem;
+    font-size: 25px;
+  }
+}
+
 #home h2 {
   color: #38c172;
   padding-bottom: 0.5rem;
@@ -8488,6 +8653,11 @@ a.text-dark:hover {
 
 #home #categories .container .articles a.last {
   color: #000;
+}
+
+#home #categories .container .articles a.last:hover {
+  color: #38c172;
+  font-weight: bolder;
 }
 
 #home .quick-access {
