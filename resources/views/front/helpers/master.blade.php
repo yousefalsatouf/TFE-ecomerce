@@ -14,22 +14,12 @@
         <header id="header">
             @include('front.helpers.menu')
         </header>
-
         @yield('content')
-
+        <hr>
         <footer id="footer">
             @include('front.helpers.footer')
-            <div class="bottom">
-                <b class="float-left">
-                    <p>Copyright © 2020 - SHOPClub</p>
-                </b>
-                <b class="float-right">
-                    <a href="#" class="btn btn-outline-success"><i class="fa fa-toggle-up"></i> Back to top</a>
-                </b>
-            </div>
         </footer>
         <script src="{{asset('js/app.js')}}"></script>
-        <script src="{{asset('js/bootstrap.js')}}"></script>
     </body>
 </html>
 <!-- end -->

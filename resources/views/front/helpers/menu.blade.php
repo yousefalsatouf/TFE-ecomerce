@@ -1,5 +1,5 @@
 <nav id="header-menu" class="navbar navbar-expand-sm">
-    <div>
+    <div class="logo">
         <h1>
             <a href="{{url('/')}}">SHOPClub</a>
         </h1>
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                     @endif
-                        <li class="nav-item dropdown">
+                        <li class=" cart nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa fa-shopping-cart"></i> Cart
                             </a>
@@ -56,7 +56,7 @@
                                 <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Your Orders</a>
                             </div>
                         </li>
-                    <li class="nav-item dropdown">
+                    <li class="user nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if(Auth::check() && Auth::user()->isAdmin())
                                 {{strtoupper(Auth::user()->name)}}
@@ -77,9 +77,12 @@
                             </a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{url('/logout')}}" class="nav-link text-danger">Logout</a>
+                    </li>
                 @endguest
             </ul>
-            <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
+            <form action='{{('/search')}}' class="form-inline search ml-auto" method="post">
                 <div class="d-flex justify-content-between align-items-center">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
                     <label for="search">

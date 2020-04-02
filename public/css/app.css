@@ -8407,11 +8407,33 @@ a.text-dark:hover {
 }
 
 #footer .bottom {
-  padding: 2rem;
-  overflow: hidden;
-  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
   background-color: #000;
   color: #fff;
+}
+
+#footer .bottom b {
+  margin: 2rem auto;
+}
+
+#footer .bottom #header-menu {
+  max-width: 50%;
+}
+
+#footer .bottom #header-menu .logo,
+#footer .bottom #header-menu .search,
+#footer .bottom #header-menu .user,
+#footer .bottom #header-menu .cart {
+  display: none;
+}
+
+#footer .bottom #header-menu a {
+  color: #fff;
+}
+
+#footer .bottom #header-menu a:hover {
+  color: #38c172;
 }
 
 #myCarousel {
@@ -8435,5 +8457,80 @@ a.text-dark:hover {
 #myCarousel .carousel-item a {
   color: #000;
   font-weight: bold;
+}
+
+#home h2 {
+  color: #38c172;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid #38c172;
+}
+
+#home #categories .container {
+  margin: 1rem auto;
+}
+
+#home #categories .container .articles {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  margin: 3rem auto;
+}
+
+#home #categories .container .articles .card {
+  box-shadow: 5px 5px 5px gray;
+  transition: all 1s;
+}
+
+#home #categories .container .articles .card:hover {
+  box-shadow: 5px 5px 15px #000;
+  transform: scale(0.9);
+}
+
+#home #categories .container .articles a.last {
+  color: #000;
+}
+
+#home .quick-access {
+  margin: 1rem auto;
+}
+
+#home .quick-access div {
+  margin: 1rem auto;
+}
+
+#home .quick-access .container {
+  border: 1px solid #38c172;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding-top: 0.5rem;
+}
+
+#home .quick-access .container div.col-lg-4 {
+  text-align: center;
+  transition: all 1s;
+}
+
+#home .quick-access .container div.col-lg-4:hover {
+  border-top: 1px solid #38c172;
+}
+
+#home .quick-access .container div.col-lg-4 a {
+  font-size: 10px;
+}
+
+#home .quick-access .container div.col-lg-4 i {
+  font-size: 5rem;
+  color: #38c172;
+}
+
+#home .quick-access .container div.col-lg-4 b {
+  font-size: 2rem;
+}
+
+#home .quick-access .container div.col-lg-4 p {
+  color: #000;
+  font-size: 18px;
 }
 

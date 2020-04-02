@@ -7,10 +7,29 @@
     }
     .bottom
     {
-        padding: 2rem;
-        overflow: hidden;
-        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
         background-color: $black;
         color: $white;
+        b
+        {
+            margin: 2rem auto;
+        }
+        #header-menu
+        {
+            max-width: 50%;
+            .logo, .search, .user, .cart
+            {
+                display: none;
+            }
+            a
+            {
+                color: $white;
+                &:hover
+                {
+                    color: $green;
+                }
+            }
+        }
     }
 }

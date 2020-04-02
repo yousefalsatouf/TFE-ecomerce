@@ -31,11 +31,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products = Product::all();
-        $categories = Category::all();
-        //dd($products);
+        $products = Product::all()->take(4);
 
-        return view('front.home', compact(['categories', 'products']));
+        return view('front.home', compact('products'));
     }
 
     public function shop()
