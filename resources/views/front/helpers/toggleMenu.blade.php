@@ -12,15 +12,6 @@
                                 <li class="nav-item">
                                     <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i>HOME</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                        <?php  $cats = DB::table('categories')->get(); ?>
-                                        @foreach($cats as $cat)
-                                            <a class="dropdown-item text-dark" href="{{url('/category')}}/list/{{$cat->name}}">{{ucwords($cat->name)}}</a>
-                                        @endforeach
-                                    </div>
-                                </li>
                                 <li class="nav-item">
                                     <a href="{{url('/shop')}}" class="nav-link">Shop</a>
                                 </li>

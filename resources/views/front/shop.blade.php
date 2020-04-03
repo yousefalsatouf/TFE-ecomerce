@@ -1,55 +1,70 @@
 @extends('front.helpers.master')
 @section('content')
-    <main role="main">
-        <section id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner h-50">
-                <div class="carousel-item active">
-                    <img class="first-slide h-50" src="{{URL::asset('dist/img/create-section1.jpg')}}" alt="First slide">
-                    <div class="container">
-                        <div class="carousel-caption text-left">
-                            <h1>Example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                        </div>
+    <main role="main" id="shop">
+        <section class="shop-bg">
+            <div>
+                <img src="{{URL::asset('dist/img/watch.jpg')}}" alt="First slide">
+                <div class="container">
+                    <div class="text-center">
+                        <h1>watch is one of our products</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <a class="btn btn-lg btn-light" href="{{url('/register')}}" role="button">Sing up now</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="second-slide h-50" src="{{URL::asset('dist/img/explore-section1.jpg')}}" alt="Second slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                        </div>
+            </div>
+        </section>
+        <section class="advanced-search">
+            <h3 class="text-center">Advanced Search: </h3>
+            <hr>
+            <br>
+            <div class="container">
+                <h2>Search for products with the desire name ...</h2>
+                <hr>
+                <div class="search">
+                    <div class="search-input">
+                        <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
+                                <label for="search">
+                                    <input type="text" name="search" class="form-control mr-2" placeholder="Search">
+                                </label>
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="carousel-item h-50">
-                    <img class="third-slide" src="{{URL::asset('dist/img/rollsroysemain.jpg')}}" alt="Third slide">
-                    <div class="container">
-                        <div class="carousel-caption text-right">
-                            <h1>One more for good measure.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    <hr>
+                    <br>
+                    <div class="search-specific">
+                        <h2>search for product with category, price, sale ...</h2>
+                        <hr>
+                        <div class="search-area">
+                            {!! Form::open(['url' => '/advancedSearch']) !!}
+                                <div class="form-group">
+                                    <label for="category">Category <br>
+                                        <select name="category" class="browser-default custom-select" id="category">
+                                            @if(isset($categories))
+                                                @foreach($categories as $cat)
+                                                    <option value="{{$cat->name}}">{{ucwords($cat->name)}}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="maxPrice">Great Price
+                                        <input type="number" class="form-control" id="greater-than" name="maxPrice" placeholder="Max Price">
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-outline-success">Submit</button>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </section>
-
-        <section class="album text-muted">
+        <hr>
+        <br>
+        <section class="album text-muted products">
             <div class="container">
                 <h3 class="text-center">
                     @if(isset($msg))
@@ -58,9 +73,11 @@
                         Featured Items
                     @endif
                 </h3>
+                <hr>
+                <br>
                 <div class="row d-flex justify-content-around">
                     @forelse($products as $product)
-                            <div class="card w-25">
+                            <div class="card">
                                 <a href="{{url('/product_details')}}/{{$product->id}}">
                                     <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">
                                 </a>
@@ -94,11 +111,10 @@
                                 </div>
                             </div>
                     @empty
-                        <h3>No Products for now ...</h3>
+                        <h3 class="text-danger">No Products for now ...</h3>
                     @endforelse
                 </div>
             </div>
         </section>
-        @include('front.recommends')
     </main>
 @endsection
