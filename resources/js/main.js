@@ -1,13 +1,15 @@
-let images = document.querySelector('.images');
+$('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
 
-images.addEventListener('mouseover', changeDefOver);
-images.addEventListener('mouseout', changeDefOut);
-
-function changeDefOver(e) {
-    e.target.classList.toggle('opacity-toggle');
-    //console.log('over')
-}
-function changeDefOut(e) {
-    e.target.classList.toggle('opacity-toggle');
-    //console.log('out')
-}
+    for (var i=0;i<4;i++) {
+        next=next.next();
+        if (!next.length) {
+            next=$(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+    }
+});

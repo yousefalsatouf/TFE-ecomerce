@@ -13,32 +13,38 @@
                 </div>
             </div>
         </section>
-        <section class="advanced-search">
-            <h3 class="text-center">Advanced Search: </h3>
-            <hr>
-            <br>
-            <div class="container">
-                <h2>Search for products with the desire name ...</h2>
+        <hr>
+        <br>
+
+        <section class="last-products-carousel">
+        </section>
+
+        <section class="productsSearch container">
+            <div class="advanced-search">
+                <h3 class="text-center">Advanced Search: </h3>
                 <hr>
-                <div class="search">
-                    <div class="search-input">
-                        <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
-                                <label for="search">
-                                    <input type="text" name="search" class="form-control mr-2" placeholder="Search">
-                                </label>
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </div>
-                        </form>
-                    </div>
+                <br>
+                <div class="container">
+                    <h6>Search for products with the desire name ...</h6>
                     <hr>
-                    <br>
-                    <div class="search-specific">
-                        <h2>search for product with category, price, sale ...</h2>
-                        <hr>
-                        <div class="search-area">
-                            {!! Form::open(['url' => '/advancedSearch']) !!}
+                    <div class="search">
+                        <div class="search-input">
+                            <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
+                                    <label for="search">
+                                        <input type="text" name="search" class="form-control mr-2" placeholder="Search">
+                                    </label>
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <div class="search-specific">
+                            <h6>Search for product with category, price, sale ...</h6>
+                            <hr>
+                            <div class="search-area">
+                                {!! Form::open(['url' => '/advancedSearch']) !!}
                                 <div class="form-group">
                                     <label for="category">Category <br>
                                         <select name="category" class="browser-default custom-select" id="category">
@@ -56,27 +62,25 @@
                                     </label>
                                 </div>
                                 <button type="submit" class="btn btn-outline-success">Submit</button>
-                            {!! Form::close() !!}
+                                {!! Form::close() !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <hr>
-        <br>
-        <section class="album text-muted products">
-            <div class="container">
-                <h3 class="text-center">
-                    @if(isset($msg))
-                        {{$msg}}
-                    @else
-                        Featured Items
-                    @endif
-                </h3>
-                <hr>
-                <br>
-                <div class="row d-flex justify-content-around">
-                    @forelse($products as $product)
+            <div class="album text-muted products">
+                <div class="container">
+                    <h3 class="text-center">
+                        @if(isset($msg))
+                            {{$msg}}
+                        @else
+                            Featured Items
+                        @endif
+                    </h3>
+                    <hr>
+                    <br>
+                    <div class="row d-flex justify-content-around">
+                        @forelse($products as $product)
                             <div class="card">
                                 <a href="{{url('/product_details')}}/{{$product->id}}">
                                     <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">
@@ -93,7 +97,7 @@
                                             <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
                                             <p class="">{{$product->sale_price}} $</p>
                                         </div>
-                                     @else
+                                    @else
                                         <div class="d-flex justify-content-between align-items-center">
                                             <p class="">{{$product->product_price}} $</p>
                                         </div>
@@ -110,9 +114,17 @@
                                     </a>
                                 </div>
                             </div>
-                    @empty
-                        <h3 class="text-danger">No Products for now ...</h3>
-                    @endforelse
+                        @empty
+                            <div>
+                                <h3 class="text-danger">Sorry, No Products Match Your Search ...</h3>
+                                <a href="{{url('/shop')}}" class="text-dark">
+                                    <button class="btn btn-outline-success btn-sm float-right">
+                                        <b><i class="fa fa-toggle-left"></i> Back to Shop</b>
+                                    </button>
+                                </a>
+                            </div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </section>

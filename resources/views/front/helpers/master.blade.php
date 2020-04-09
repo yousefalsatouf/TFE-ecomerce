@@ -15,7 +15,6 @@
             @include('front.helpers.menu')
         </header>
         @yield('content')
-        <hr>
         <footer id="footer">
             @include('front.helpers.footer')
         </footer>

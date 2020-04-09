@@ -48629,6 +48629,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 __webpack_require__(/*! ./main */ "./resources/js/main.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -48776,17 +48778,25 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var images = document.querySelector('.images');
-images.addEventListener('mouseover', changeDefOver);
-images.addEventListener('mouseout', changeDefOut);
+$('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+  var next = $(this).next();
 
-function changeDefOver(e) {
-  e.target.classList.toggle('opacity-toggle'); //console.log('over')
-}
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
 
-function changeDefOut(e) {
-  e.target.classList.toggle('opacity-toggle'); //console.log('out')
-}
+  next.children(':first-child').clone().appendTo($(this));
+
+  for (var i = 0; i < 4; i++) {
+    next = next.next();
+
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
 
 /***/ }),
 

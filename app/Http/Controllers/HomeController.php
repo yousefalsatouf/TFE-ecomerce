@@ -32,16 +32,19 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all()->take(4);
+        $categories = Category::all();
 
-        return view('front.home', compact('products'));
+        return view('front.home', compact(['products', 'categories']));
     }
 
     public function shop()
     {
+        $lastProducts = Product::all()->take(10);
         $products = Product::all();
         $categories = Category::all();
+        //dd($lastProducts);
 
-        return view('front.shop', compact(['categories','products']));
+        return view('front.shop', compact(['categories','products', 'lastProducts']));
     }
 
     public function product_details(Request $request, $id)

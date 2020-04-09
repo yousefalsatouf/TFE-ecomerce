@@ -2,30 +2,19 @@
 {
     #home
     {
-        .articles
+        h2
         {
-            display: flex;
-            flex-wrap: wrap;
+            color: $green;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid $green;
         }
-        .see-more
-        {
-            margin: 1rem;
-            font-size: 25px;
-        }
-    }
-}
-
-@media screen and (max-width: $break-small + 300px)
-{
-    #home
-    {
         .articles
         {
             display: flex;
             flex-wrap: wrap;
             .card
             {
-                max-width: 50%;
+                width: 49%;
             }
         }
         .see-more
@@ -33,94 +22,244 @@
             margin: 1rem;
             font-size: 25px;
         }
+        .quick-access
+        {
+            background-color: $green;
+            .articles
+            {
+                div
+                {
+                    text-align: center;
+                    margin: 1rem auto;
+                    h2
+                    {
+                        color: $black;
+                    }
+                    i
+                    {
+                        font-size: 5rem;
+                        color: $black;
+                    }
+                }
+            }
+        }
     }
 }
 
-#home
+@media screen and (min-width: $break-small) and (max-width: $break-medium + 450px)
 {
-    h2
+    #home
     {
-        color: $green;
-        padding-bottom: 0.5rem;
-        border-bottom: 1.5px solid $green;
-    }
-    #categories
-    {
-        .container
+        h2
         {
-            margin: 1rem auto;
+            color: $green;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid $green;
+        }
+        .articles
+        {
+            display: flex;
+            flex-wrap: wrap;
+            .card
+            {
+                width: 32%;
+            }
+        }
+        .see-more
+        {
+            margin: 1rem;
+            font-size: 25px;
+            width: 100%;
+        }
+        .quick-access
+        {
+            background-color: $green;
+            .articles
+            {
+                div
+                {
+                    text-align: center;
+                    h2
+                    {
+                        color: $black;
+                    }
+                    i
+                    {
+                        font-size: 5rem;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-large)
+{
+    #home
+    {
+        h2
+        {
+            color: $green;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid $green;
+        }
+        .last-products
+        {
+            .container
+            {
+                margin: 1rem auto;
+                .articles
+                {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    justify-items: center;
+                    margin: 3rem auto;
+                    .card
+                    {
+                        width: 24%;
+                        box-shadow: 5px 5px 5px gray;
+                        transition: all 1s;
+                        img
+                        {
+                            width: 100%;
+                        }
+                        &:hover
+                        {
+                            box-shadow: 5px 5px 15px $black;
+                            transform: scale(0.9);
+                        }
+                    }
+                    .see-more
+                    {
+                        margin: 1rem auto;
+                        width: 100%;
+                        a.last
+                        {
+                            transition: all 1s;
+                            font-weight: bolder;
+                            width: 100%;
+                            button
+                            {
+                                transition: all 1s;
+                                .fa-backward
+                                {
+                                    display: none;
+                                }
+                            }
+                            &:hover
+                            {
+                                button
+                                {
+                                    min-width: 30%;
+                                    .fa-forward
+                                    {
+                                        display: none;
+                                    }
+                                    .fa-backward
+                                    {
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        .categories-list
+        {
+            .container
+            {
+                margin: 1rem auto;
+                .articles
+                {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    justify-items: center;
+                    margin: 3rem auto;
+                    .card
+                    {
+                        width: 32%;
+                        margin: 1rem auto;
+                        border: 0;
+                        img
+                        {
+                            width: 100%;
+                        }
+                        a
+                        {
+                            text-align: center;
+                            button
+                            {
+                                width: 100%;
+                                height: 3rem;
+                                border-radius: 0;
+                                color: $white;
+                                transition: all 1s;
+                                &:hover
+                                {
+                                    width: 90%;
+                                    height: 2rem;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        .quick-access
+        {
+            background-color: $green;
+            div:not(.articles)
+            {
+                margin: 1rem auto;
+                color: gray;
+            }
             .articles
             {
                 display: flex;
-                justify-content: space-between;
-                justify-items: center;
-                margin: 3rem auto;
-                .card
+                justify-content: space-around;
+                align-items: flex-end;
+                padding-top: 0.5rem;
+                div.col-lg-4
                 {
-                    box-shadow: 5px 5px 5px gray;
+                    text-align: center;
                     transition: all 1s;
                     &:hover
                     {
-                        box-shadow: 5px 5px 15px $black;
-                        transform: scale(0.9);
+                        border-top: 1px solid $black;
                     }
-                }
-                a.last
-                {
-                    color: $black;
-                    &:hover
+                    h2
                     {
-                        color: $green;
-                        font-weight: bolder;
+                        color: $black;
+                    }
+                    a
+                    {
+                        font-size: 10px;
+                    }
+                    i
+                    {
+                        font-size: 5rem;
+                        color: $black;
+                    }
+                    b
+                    {
+                        font-size: 2rem;
+                    }
+                    p
+                    {
+                        color: $black;
+                        font-size: 18px;
                     }
                 }
 
             }
         }
     }
-    .quick-access
-    {
-        margin: 1rem auto;
-        div
-        {
-            margin: 1rem auto;
-        }
-        .container
-        {
-            border: 1px solid $green;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            padding-top: 0.5rem;
-            div.col-lg-4
-            {
-                text-align: center;
-                transition: all 1s;
-                &:hover
-                {
-                    border-top: 1px solid $green;
-                }
-                a
-                {
-                    font-size: 10px;
-                }
-                i
-                {
-                    font-size: 5rem;
-                    color: $green;
-                }
-                b
-                {
-                    font-size: 2rem;
-                }
-                p
-                {
-                    color: $black;
-                    font-size: 18px;
-                }
-            }
 
-        }
-    }
 }

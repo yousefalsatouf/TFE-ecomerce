@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
 {
+    public function index()
+    {
+        //
+    }
     public function advancedSearch(Request $request)
     {
-        $categories = Category::all();
-
         $category = $request->category;
         $maxPrice = $request->maxPrice;
 
@@ -26,6 +28,6 @@ class ShopController extends Controller
        else
            $products = Product::all();
 
-        return view('front/shop', compact(['categories', 'products']));
+        return view('front/shop', compact('products'));
     }
 }
