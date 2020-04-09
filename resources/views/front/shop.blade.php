@@ -17,6 +17,7 @@
         <br>
 
         <section class="last-products-carousel">
+            @include('front/helpers/lastProductsCarousel')
         </section>
 
         <section class="productsSearch container">

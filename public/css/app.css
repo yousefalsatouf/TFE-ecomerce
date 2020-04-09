@@ -9015,3 +9015,31 @@ a.text-dark:hover {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #single-category .card {
+    width: 49%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #single-category .slide .carousel-inner .carousel-item .container .carousel-caption {
+    background-color: #000;
+    opacity: 0.8;
+    padding: 2rem auto;
+  }
+
+  #single-category .info .container {
+    background-color: #38c172;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+  }
+
+  #single-category .info .container * {
+    margin: 1rem auto;
+  }
+
+  #single-category .card {
+    width: 33%;
+  }
+}
+

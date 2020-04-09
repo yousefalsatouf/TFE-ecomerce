@@ -1,0 +1,53 @@
+@media screen and (max-width: $break-small)
+{
+    #single-category
+    {
+        .card
+        {
+            width: 49%;
+        }
+    }
+}
+
+
+@media screen and (min-width: $break-medium)
+{
+    #single-category
+    {
+        .slide
+        {
+            .carousel-inner
+            {
+                .carousel-item
+                {
+                    .container
+                    {
+                        .carousel-caption
+                        {
+                            background-color: $black;
+                            opacity: 0.8;
+                            padding: 2rem auto;
+                        }
+                    }
+                }
+            }
+        }
+        .info
+        {
+            .container
+            {
+                background-color: $green;
+                border-radius: 5px;
+                margin-bottom: 2rem;
+                *{
+                    margin: 1rem auto;
+                }
+            }
+        }
+        .card
+        {
+            width: 33%;
+        }
+    }
+}
+

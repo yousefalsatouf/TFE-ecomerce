@@ -15,7 +15,7 @@
         <?php $count=0;?>
         @foreach($lastProducts as $lastOne)
             <?php  $count++; ?>
-            <div class="carousel-item {{$count=1? "active" : ""}}">
+            <div class="carousel-item {{$count==1? 'active' : ''}}">
                 <div class="col-12 col-md-4">
                     <div class="card mb-2">
                         <img class="card-img-top" src="{{url('images',$lastOne->image)}}"

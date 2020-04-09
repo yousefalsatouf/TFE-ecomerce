@@ -1,6 +1,6 @@
 @extends('front.helpers.master')
 @section('content')
-    <main role="main">
+    <main role="main" id="single-category">
         <section id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -9,13 +9,15 @@
                 @endfor
             </ol>
             <div class="carousel-inner">
+                <?php $count=0;?>
                 @foreach($products as $product)
-                    <div class="carousel-item active">
+                    <?php $count++;?>
+                    <div class="carousel-item {{$count==1? 'active':''}}">
                         <img class="first-slide" src="{{url('images',$product->image)}}" alt="slide">
                         <div class="container">
-                            <div class="carousel-caption text-left">
+                            <div class="carousel-caption text-center">
                                 <h1>{{$product->name}}</h1>
-                                <p><a class="btn btn-lg btn-primary" href="{{url('/register')}}" role="button">Sign up today</a></p>
+                                <p>{{$product->product_info}}</p>
                             </div>
                         </div>
                     </div>
@@ -30,12 +32,21 @@
                     <span class="sr-only">Next</span>
                 </a>
         </section>
+        <section class="info">
+            <div class="container">
+                <div class="text-center">
+                    <h1>Our Goal is to make search is easy for you</h1>
+                    <p>With every section you will find all products related to the specific category you choose</p>
+                    <a class="btn btn-lg btn-light" href="{{url('/')}}" role="button">Return to Home</a>
+                </div>
+            </div>
+        </section>
         <section>
             <div class="album text-muted">
                 <div class="container">
                     <div class="row d-flex justify-content-around">
                         @forelse($products as $product)
-                            <div class="card w-25">
+                            <div class="card">
                                 <a href="{{url('/product_details')}}/{{$product->id}}">
                                     <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">
                                 </a>
@@ -70,12 +81,11 @@
                                 </div>
                             </div>
                         @empty
-                            <h3>No Products for now ...</h3>
+                            <h3 class="text-danger">No Products for now ...</h3>
                         @endforelse
                     </div>
                 </div>
             </div>
         </section>
-        @include('front.recommends')
     </main>
 @endsection
