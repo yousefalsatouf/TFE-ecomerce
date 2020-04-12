@@ -49,19 +49,36 @@ class HomeController extends Controller
 
     public function product_details(Request $request, $id)
     {
+        $wishlistData = null;
+        $userId = null;
+
         if (Auth::check())
         {
             $recommends = new Recommends;
             $recommends->user_id = Auth::user()->id;
             $recommends->product_id = $id;
             $recommends->save();
+
+            //wish list setup ...
+            $wishlistData = DB::table('wishlist')
+                ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
+                ->rightJoin('users','wishlist.user_id', '=', 'users.id')
+                ->where('wishlist.user_id', '=', Auth::user()->id)
+                ->where('wishlist.product_id', '=', $id)
+                ->get();
+
+            foreach ($wishlistData as $data)
+                $userId = $data->user_id;
         }
+        //dd($wishlistData);
 
         $product = Product::findOrFail($id);
         //dd($products->product_name);
+
+        //dd($userId);
         $reviews = DB::table('reviews')->get();
 
-        return view('front/product_details', compact('product', 'reviews'));
+        return view('front/product_details', compact('product', 'reviews', 'wishlistData', 'userId'));
     }
 
     public function wishlist(Request $request)

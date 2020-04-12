@@ -39,7 +39,7 @@
                                 <i class="fa fa-shopping-cart"></i> Cart
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-success" href="{{ url('/user')}}">
+                                <a class="dropdown-item text-success" href="{{ url('/cart')}}">
                                     <b>
                                         <i class="fa fa-shopping-cart"></i> {{Cart::count()}} Item(s)
                                     </b>

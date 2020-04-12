@@ -17,7 +17,7 @@
         <br>
 
         <section class="last-products-carousel">
-            @include('front/helpers/lastProductsCarousel')
+
         </section>
 
         <section class="productsSearch container">
@@ -104,12 +104,12 @@
                                         </div>
                                     @endif
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-primary btn-sm">
+                                        <button class="btn btn-outline-dark btn-sm">
                                             <b>View <i class="fa fa-eye"></i></b>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-primary btn-sm float-right">
+                                        <button class="btn btn-outline-success btn-sm float-right">
                                             <b>Add <i class="fa fa-shopping-cart"></i></b>
                                         </button>
                                     </a>
@@ -119,7 +119,7 @@
                             <div>
                                 <h3 class="text-danger">Sorry, No Products Match Your Search ...</h3>
                                 <a href="{{url('/shop')}}" class="text-dark">
-                                    <button class="btn btn-outline-success btn-sm float-right">
+                                    <button class="btn btn-outline-danger btn-sm float-right">
                                         <b><i class="fa fa-toggle-left"></i> Back to Shop</b>
                                     </button>
                                 </a>

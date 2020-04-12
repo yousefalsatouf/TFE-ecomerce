@@ -9040,6 +9040,106 @@ a.text-dark:hover {
 
   #single-category .card {
     width: 33%;
+    border: 0;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #product-details .product-details div.controls {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #product-details {
+    margin-bottom: 10rem;
+  }
+}
+
+#product-details .quick-access {
+  width: 80%;
+  background-color: #000;
+  margin-bottom: 2rem;
+  border-bottom-right-radius: 5px;
+}
+
+#product-details .quick-access ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#product-details .quick-access ul li {
+  width: 20%;
+}
+
+#product-details .quick-access ul li a {
+  color: #fff;
+}
+
+#product-details .quick-access ul li a:hover {
+  color: #38c172;
+}
+
+#product-details .quick-access ul li:last-child a {
+  color: #38c172;
+}
+
+#product-details #carousel-thumb ol {
+  margin-top: 1rem;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+#product-details #carousel-thumb ol .active {
+  opacity: 1;
+}
+
+#product-details #carousel-thumb ol li {
+  width: 30%;
+  text-indent: 0;
+  opacity: 0.6;
+}
+
+#product-details #carousel-thumb ol li img {
+  max-width: 100%;
+}
+
+#wishlist .quick-access {
+  width: 25%;
+  background-color: #000;
+  border-bottom-right-radius: 5px;
+  height: 40%;
+}
+
+#wishlist .quick-access ul {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+}
+
+#wishlist .quick-access ul li {
+  width: 100%;
+  margin: 5% auto;
+}
+
+#wishlist .quick-access ul li a {
+  color: #fff;
+}
+
+#wishlist .quick-access ul li a:hover {
+  color: #38c172;
+}
+
+#wishlist .quick-access ul li:last-child a {
+  color: #38c172;
 }
 

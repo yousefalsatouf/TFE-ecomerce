@@ -1,0 +1,91 @@
+@media screen and (max-width: $break-small)
+{
+    .gallery
+    {
+        margin-bottom: 5rem;
+    }
+}
+
+@media screen and (max-width: $break-medium + 232px)
+{
+    #product-details
+    {
+        .product-details
+        {
+            div.controls
+            {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-medium)
+{
+    #product-details
+    {
+        margin-bottom: 10rem;
+    }
+}
+
+
+#product-details
+{
+    .quick-access
+    {
+        width: 80%;
+        background-color: $black;
+        margin-bottom: 2rem;
+        border-bottom-right-radius: 5px;
+        ul
+        {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            li
+            {
+                width: 20%;
+                a
+                {
+                    color: $white;
+                    &:hover
+                    {
+                        color: $green;
+                    }
+                }
+            }
+            li:last-child
+            {
+                a
+                {
+                    color: $green;
+                }
+            }
+        }
+    }
+    #carousel-thumb
+    {
+        ol
+        {
+            margin-top: 1rem;
+            list-style: none;
+            justify-content: space-evenly;
+            .active
+            {
+                opacity: 1;
+            }
+            li
+            {
+                width: 30%;
+                text-indent: 0;
+                opacity: 0.6;
+                img
+                {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}

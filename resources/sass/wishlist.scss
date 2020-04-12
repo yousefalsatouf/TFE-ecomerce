@@ -1,0 +1,36 @@
+#wishlist
+{
+    .quick-access
+    {
+        width: 25%;
+        background-color: $black;
+        border-bottom-right-radius: 5px;
+        height: 40%;
+        ul
+        {
+            list-style: none;
+            margin: 0;
+            width: 100%;
+            li
+            {
+                width: 100%;
+                margin: 5% auto;
+                a
+                {
+                    color: $white;
+                    &:hover
+                    {
+                        color: $green;
+                    }
+                }
+            }
+            li:last-child
+            {
+                a
+                {
+                    color: $green;
+                }
+            }
+        }
+    }
+}
