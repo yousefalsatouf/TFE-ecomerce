@@ -23,9 +23,9 @@
                         @if($products->isEmpty())
                             <h2 class="text-danger">Wish list is empty !</h2>
                         @else
-                           <div class="d-flex flex-wrap">
+                           <div class="d-flex flex-wrap products">
                                @foreach($products as $product)
-                                   <div class="col-sm-6">
+                                   <div class="col-sm-6 product">
                                        <div class="product-image-wrapper">
                                            <div class="single-products">
                                                <div class="text-center">

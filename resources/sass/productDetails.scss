@@ -35,7 +35,7 @@
     .quick-access
     {
         width: 80%;
-        background-color: $black;
+        background-color: $green;
         margin-bottom: 2rem;
         border-bottom-right-radius: 5px;
         ul
@@ -49,10 +49,11 @@
                 width: 20%;
                 a
                 {
-                    color: $white;
+                    color: $black;
+                    font-weight: bolder;
                     &:hover
                     {
-                        color: $green;
+                        color: $white;
                     }
                 }
             }
@@ -60,7 +61,7 @@
             {
                 a
                 {
-                    color: $green;
+                    color: $white;
                 }
             }
         }

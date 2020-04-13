@@ -15,11 +15,8 @@
         </section>
         <hr>
         <br>
-
         <section class="last-products-carousel">
-
         </section>
-
         <section class="productsSearch container">
             <div class="advanced-search">
                 <h3 class="text-center">Advanced Search: </h3>
@@ -49,6 +46,7 @@
                                 <div class="form-group">
                                     <label for="category">Category <br>
                                         <select name="category" class="browser-default custom-select" id="category">
+                                            <option></option>
                                             @if(isset($categories))
                                                 @foreach($categories as $cat)
                                                     <option value="{{$cat->name}}">{{ucwords($cat->name)}}</option>
@@ -60,6 +58,12 @@
                                 <div class="form-group">
                                     <label for="maxPrice">Great Price
                                         <input type="number" class="form-control" id="greater-than" name="maxPrice" placeholder="Max Price">
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="onSold">Products on sold
+                                        <input type="checkbox" class="form-control" id="greater-than" name="onSold">
+                                        YES
                                     </label>
                                 </div>
                                 <button type="submit" class="btn btn-outline-success">Submit</button>

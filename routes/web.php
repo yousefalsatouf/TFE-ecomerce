@@ -51,6 +51,7 @@ Route::post('/addReview', 'HomeController@addReview');
 
 Route::post('/search', 'HomeController@search');
 Route::post('/advancedSearch', 'ShopController@advancedSearch');
+Route::post('/searchSingleCategory', 'CategoriesController@searchSingleCategory');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()

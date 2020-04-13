@@ -88,8 +88,46 @@ class CategoriesController extends Controller
     {
         //echo $name;
         $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->where('name', '=', $name)->get();
+        $category = DB::table('categories')->where('name', '=', $name)->get();
         //dd($products);
 
-        return view('front.categories', compact('products'));
+        return view('front.categories', compact(['products', 'category']));
+    }
+
+    public function searchSingleCategory(Request $request)
+    {
+        $categoryName = $request->categoryName;
+        $price = $request->price;
+        $sold = $request->sold;
+
+        //dd($sold);
+
+        if ($price && $sold)
+            $products = DB::table('products')
+                ->leftJoin('categories', 'categories.id', 'products.category_id')
+                ->where('name', 'like', $categoryName)
+                ->where('product_price', "<=", $price)
+                ->whereNotNull('sale_price')
+                ->get();
+        elseif ($price)
+            $products = DB::table('products')
+                ->leftJoin('categories', 'categories.id', 'products.category_id')
+                ->where('name', 'like', $categoryName)
+                ->where('product_price', "<=", $price)
+                ->get();
+        elseif ($sold)
+            $products = DB::table('products')
+                ->leftJoin('categories', 'categories.id', 'products.category_id')
+                ->where('name', 'like', $categoryName)
+                ->whereNotNull('sale_price')
+                ->get();
+        else
+            $products = DB::table('products')
+                ->leftJoin('categories', 'categories.id', 'products.category_id')
+                ->where('name', 'like', $categoryName)
+                ->get();
+
+        //dd($products);
+        return view('front.categories', compact(['products', 'categoryName']));
     }
 }

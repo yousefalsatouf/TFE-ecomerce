@@ -1,43 +1,46 @@
 @extends('front.helpers.master')
 @section('content')
     <main role="main" id="single-category">
-        <section id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                @for ($i = 1; $i < sizeof($products); $i++)
-                    <li data-target="#myCarousel" data-slide-to={{$i}}></li>
-                @endfor
-            </ol>
+        <section class="bg-single-category">
             <div class="carousel-inner">
-                <?php $count=0;?>
-                @foreach($products as $product)
-                    <?php $count++;?>
-                    <div class="carousel-item {{$count==1? 'active':''}}">
-                        <img class="first-slide" src="{{url('images',$product->image)}}" alt="slide">
-                        <div class="container">
-                            <div class="carousel-caption text-center">
-                                <h1>{{$product->name}}</h1>
-                                <p>{{$product->product_info}}</p>
+                @if(isset($category))
+                    @foreach($category as $cat)
+                        @php ($categoryName = $cat->name)
+                        <div>
+                            <input type="hidden">
+                            <img class="first-slide" src="{{url('images/tv.jpg')}}" alt="slide">
+                            <div class="container">
+                                <div class="carousel-caption text-center">
+                                    <h1>{{strtoupper($cat->name)}}</h1>
+                                    <p>here is some static content will be replaced by other one</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
         </section>
         <section class="info">
             <div class="container">
                 <div class="text-center">
-                    <h1>Our Goal is to make search is easy for you</h1>
-                    <p>With every section you will find all products related to the specific category you choose</p>
-                    <a class="btn btn-lg btn-light" href="{{url('/')}}" role="button">Return to Home</a>
+                    <h1>Search for products ...</h1>
+                    <div class="search-area">
+                        <form action='{{('/searchSingleCategory')}}' class="form-inline ml-auto" method="post">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
+                                <input type="hidden" name="categoryName" value="{{(isset($categoryName))? $categoryName: ''}}">
+                                <label for="price">
+                                    Max Price:
+                                    <input type="number" name="price" class="form-control mr-2" placeholder="Great Price" required>
+                                </label>
+                                <label for="sold">
+                                    Products On Sold:
+                                    <input type="checkbox" name="sold" class="form-control mr-2" required>
+                                </label>
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -52,36 +55,43 @@
                                 </a>
                                 <div class="card-body">
                                     <h3 class="card-text iphone">{{$product->product_name}}</h3>
-                                    @if($product->sale_price==0)
+                                    @if($product->product_price == 0)
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-text">${{$product->product_price}}</p>
                                             <p class="card-text text-success"><strong>FREE</strong></p>
                                         </div>
-                                    @elseif(($product->product_price > $product->sale_price))
+                                    @elseif(($product->sale_price != null))
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="" style="text-decoration:line-through; color:#333">${{$product->product_price}}</p>
+                                               <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
                                             <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                            <p class="">${{$product->sale_price}}</p>
+                                            <p class="">{{$product->sale_price}} $</p>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="">${{$product->product_price}}</p>
+                                            <p class="">{{$product->product_price}} $</p>
                                         </div>
                                     @endif
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-primary btn-sm">
+                                        <button class="btn btn-outline-dark btn-sm">
                                             <b>View <i class="fa fa-eye"></i></b>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-primary btn-sm float-right">
+                                        <button class="btn btn-outline-success btn-sm float-right">
                                             <b>Add <i class="fa fa-shopping-cart"></i></b>
                                         </button>
                                     </a>
                                 </div>
                             </div>
                         @empty
-                            <h3 class="text-danger">No Products for now ...</h3>
+                            <div class="empty">
+                                <h3 class="text-danger">No Products for now ...</h3>
+                                <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
+                                    <button class="btn bg-success btn-sm text-dark">
+                                        <i class="fa fa-backward"></i>
+                                        <b>Back</b>
+                                    </button>
+                                </a>
+                            </div>
                         @endforelse
                     </div>
                 </div>

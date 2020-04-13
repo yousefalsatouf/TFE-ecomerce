@@ -8931,6 +8931,7 @@ a.text-dark:hover {
   #shop .products .container div .card {
     width: 30%;
     margin: 1rem auto;
+    border: 0;
   }
 }
 
@@ -8991,6 +8992,7 @@ a.text-dark:hover {
     width: 28%;
     margin: 1rem auto;
     transition: all 1.5s;
+    border: 0;
     /*.card-body
     {
         &:hover
@@ -9016,31 +9018,101 @@ a.text-dark:hover {
 }
 
 @media screen and (max-width: 768px) {
-  #single-category .card {
-    width: 49%;
+  #single-category .bg-single-category .carousel-inner img {
+    width: 100%;
+    height: 30rem;
   }
-}
 
-@media screen and (min-width: 768px) {
-  #single-category .slide .carousel-inner .carousel-item .container .carousel-caption {
+  #single-category .bg-single-category .carousel-inner .container .carousel-caption {
     background-color: #000;
-    opacity: 0.8;
+    opacity: 0.7;
     padding: 2rem auto;
   }
 
   #single-category .info .container {
-    background-color: #38c172;
-    border-radius: 5px;
+    background-color: #000;
     margin-bottom: 2rem;
+  }
+
+  #single-category .info .container h1 {
+    color: #38c172;
+    margin-top: 0;
+    padding-top: 2rem;
+    border-bottom: 2px solid #38c172;
+  }
+
+  #single-category .info .container .text-center {
+    margin-top: 0;
   }
 
   #single-category .info .container * {
     margin: 1rem auto;
   }
 
+  #single-category .info .container label {
+    color: #38c172;
+  }
+
+  #single-category .card {
+    width: 49%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #single-category .bg-single-category .carousel-inner img {
+    width: 100%;
+    height: 30rem;
+  }
+
+  #single-category .bg-single-category .carousel-inner .container .carousel-caption {
+    background-color: #000;
+    opacity: 0.7;
+    padding: 2rem auto;
+  }
+
+  #single-category .info .container {
+    background-color: #000;
+    margin-bottom: 2rem;
+  }
+
+  #single-category .info .container h1 {
+    color: #38c172;
+    margin-top: 0;
+    padding-top: 2rem;
+    border-bottom: 2px solid #38c172;
+  }
+
+  #single-category .info .container .text-center {
+    margin-top: 0;
+  }
+
+  #single-category .info .container * {
+    margin: 1rem auto;
+  }
+
+  #single-category .info .container label {
+    color: #38c172;
+  }
+
   #single-category .card {
     width: 33%;
     border: 0;
+  }
+
+  #single-category .empty {
+    min-width: 100%;
+    margin: 5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #single-category .empty h3 {
+    width: 100%;
+    text-align: center;
+  }
+
+  #single-category .empty a {
+    width: 50%;
   }
 }
 
@@ -9065,7 +9137,7 @@ a.text-dark:hover {
 
 #product-details .quick-access {
   width: 80%;
-  background-color: #000;
+  background-color: #38c172;
   margin-bottom: 2rem;
   border-bottom-right-radius: 5px;
 }
@@ -9082,15 +9154,16 @@ a.text-dark:hover {
 }
 
 #product-details .quick-access ul li a {
-  color: #fff;
+  color: #000;
+  font-weight: bolder;
 }
 
 #product-details .quick-access ul li a:hover {
-  color: #38c172;
+  color: #fff;
 }
 
 #product-details .quick-access ul li:last-child a {
-  color: #38c172;
+  color: #fff;
 }
 
 #product-details #carousel-thumb ol {
@@ -9113,11 +9186,39 @@ a.text-dark:hover {
   max-width: 100%;
 }
 
+@media screen and (max-width: 1000px) {
+  #wishlist .products .product {
+    max-width: 49%;
+  }
+
+  #wishlist .products .product .control {
+    flex-wrap: wrap;
+  }
+
+  #wishlist .products .product .control a {
+    margin: 1rem auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #wishlist .products .product {
+    max-width: 32%;
+  }
+
+  #wishlist .products .product .control {
+    flex-wrap: wrap;
+  }
+
+  #wishlist .products .product .control a {
+    margin: 1rem auto;
+  }
+}
+
 #wishlist .quick-access {
   width: 25%;
-  background-color: #000;
+  background-color: #38c172;
   border-bottom-right-radius: 5px;
-  height: 40%;
+  height: 20rem;
 }
 
 #wishlist .quick-access ul {
@@ -9132,14 +9233,15 @@ a.text-dark:hover {
 }
 
 #wishlist .quick-access ul li a {
-  color: #fff;
+  color: #000;
+  font-weight: bolder;
 }
 
 #wishlist .quick-access ul li a:hover {
-  color: #38c172;
+  color: #fff;
 }
 
 #wishlist .quick-access ul li:last-child a {
-  color: #38c172;
+  color: #fff;
 }
 

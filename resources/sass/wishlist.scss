@@ -1,11 +1,54 @@
+@media screen and (max-width: 1000px)
+{
+    #wishlist
+    {
+        .products
+        {
+            .product
+            {
+                max-width: 49%;
+                .control
+                {
+                    flex-wrap: wrap;
+                    a
+                    {
+                        margin: 1rem auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px)
+{
+    #wishlist
+    {
+        .products
+        {
+            .product
+            {
+                max-width: 32%;
+                .control
+                {
+                    flex-wrap: wrap;
+                    a
+                    {
+                        margin: 1rem auto;
+                    }
+                }
+            }
+        }
+    }
+}
 #wishlist
 {
     .quick-access
     {
         width: 25%;
-        background-color: $black;
+        background-color: $green;
         border-bottom-right-radius: 5px;
-        height: 40%;
+        height: 20rem;
         ul
         {
             list-style: none;
@@ -17,10 +60,11 @@
                 margin: 5% auto;
                 a
                 {
-                    color: $white;
+                    color: $black;
+                    font-weight: bolder;
                     &:hover
                     {
-                        color: $green;
+                        color: $white;
                     }
                 }
             }
@@ -28,7 +72,7 @@
             {
                 a
                 {
-                    color: $green;
+                    color: $white;
                 }
             }
         }
