@@ -119,16 +119,15 @@
                     .card
                     {
                         width: 24%;
-                        box-shadow: 5px 5px 5px gray;
-                        transition: all 1s;
+                        transition: all 0.5s;
                         img
                         {
                             width: 100%;
                         }
                         &:hover
                         {
-                            box-shadow: 5px 5px 15px $black;
                             transform: scale(0.9);
+                            border: 0;
                         }
                     }
                     .see-more
@@ -137,12 +136,12 @@
                         width: 100%;
                         a.last
                         {
-                            transition: all 1s;
+                            transition: all 0.5s;
                             font-weight: bolder;
                             width: 100%;
                             button
                             {
-                                transition: all 1s;
+                                transition: all 0.5s;
                                 .fa-backward
                                 {
                                     display: none;
@@ -199,7 +198,7 @@
                                 height: 3rem;
                                 border-radius: 0;
                                 color: $white;
-                                transition: all 1s;
+                                transition: all 0.5s;
                                 &:hover
                                 {
                                     width: 90%;
@@ -229,7 +228,7 @@
                 div.col-lg-4
                 {
                     text-align: center;
-                    transition: all 1s;
+                    transition: all 0.5s;
                     &:hover
                     {
                         border-top: 1px solid $black;

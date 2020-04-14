@@ -9,7 +9,7 @@
                         <img src="{{asset('images/black.jpg')}}" class="images card-img w-100 h-100">
                     </a>
                     <div class="card-body">
-                        <h3 class="card-text iphone">{{$category->name}}</h3>
+                        <h3 class="card-text iphone">{{strtoupper($category->name)}}</h3>
                         <p>some content to test</p>
                     </div>
                     <a href="{{url('/category/list/'.$category->name)}}" class="text-dark">

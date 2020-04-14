@@ -8698,8 +8698,7 @@ a.text-dark:hover {
 
   #home .last-products .container .articles .card {
     width: 24%;
-    box-shadow: 5px 5px 5px gray;
-    transition: all 1s;
+    transition: all 0.5s;
   }
 
   #home .last-products .container .articles .card img {
@@ -8707,8 +8706,8 @@ a.text-dark:hover {
   }
 
   #home .last-products .container .articles .card:hover {
-    box-shadow: 5px 5px 15px #000;
     transform: scale(0.9);
+    border: 0;
   }
 
   #home .last-products .container .articles .see-more {
@@ -8717,13 +8716,13 @@ a.text-dark:hover {
   }
 
   #home .last-products .container .articles .see-more a.last {
-    transition: all 1s;
+    transition: all 0.5s;
     font-weight: bolder;
     width: 100%;
   }
 
   #home .last-products .container .articles .see-more a.last button {
-    transition: all 1s;
+    transition: all 0.5s;
   }
 
   #home .last-products .container .articles .see-more a.last button .fa-backward {
@@ -8773,7 +8772,7 @@ a.text-dark:hover {
     height: 3rem;
     border-radius: 0;
     color: #fff;
-    transition: all 1s;
+    transition: all 0.5s;
   }
 
   #home .categories-list .container .articles .card a button:hover {
@@ -8799,7 +8798,7 @@ a.text-dark:hover {
 
   #home .quick-access .articles div.col-lg-4 {
     text-align: center;
-    transition: all 1s;
+    transition: all 0.5s;
   }
 
   #home .quick-access .articles div.col-lg-4:hover {
@@ -8956,7 +8955,16 @@ a.text-dark:hover {
   }
 
   #shop .shop-bg .container {
+    background-color: #000;
     padding: 2rem auto;
+  }
+
+  #shop .shop-bg .container div h1 {
+    color: #38c172;
+  }
+
+  #shop .shop-bg .container div p {
+    color: #fff;
   }
 
   #shop .shop-bg .container div * {
@@ -8991,7 +8999,7 @@ a.text-dark:hover {
   #shop .productsSearch .products .container div .card {
     width: 28%;
     margin: 1rem auto;
-    transition: all 1.5s;
+    transition: all 0.5s;
     border: 0;
     /*.card-body
     {
@@ -9008,12 +9016,11 @@ a.text-dark:hover {
   }
 
   #shop .productsSearch .products .container div .card a {
-    transition: all 1.5s;
+    transition: all 0.5s;
   }
 
   #shop .productsSearch .products .container div .card a:hover {
     transform: scale(1.1);
-    box-shadow: 2px 2px 10px #000;
   }
 }
 
@@ -9243,5 +9250,59 @@ a.text-dark:hover {
 
 #wishlist .quick-access ul li:last-child a {
   color: #fff;
+}
+
+#login {
+  font-family: "Berkshire Swash", cursive;
+}
+
+#login .card {
+  background-color: #000;
+}
+
+#login .card .card-header {
+  color: #38c172;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+#login .card .card-body label {
+  color: #38c172;
+}
+
+#register {
+  font-family: "Berkshire Swash", cursive;
+}
+
+#register .card {
+  background-color: #000;
+}
+
+#register .card .card-header {
+  color: #38c172;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+#register .card .card-body label {
+  color: #38c172;
+}
+
+#app\ navAuth nav {
+  background-color: black;
+  font-family: "Berkshire Swash", cursive;
+}
+
+#app\ navAuth nav .container a {
+  color: #fff;
+}
+
+#app\ navAuth nav .container a:hover {
+  color: #38c172;
+}
+
+#app\ navAuth nav .container button {
+  background-color: #fff;
+  border: 1px solid #38c172;
 }
 

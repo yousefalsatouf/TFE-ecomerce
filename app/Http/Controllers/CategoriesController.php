@@ -100,6 +100,8 @@ class CategoriesController extends Controller
         $price = $request->price;
         $sold = $request->sold;
 
+        $msg = 'Result ...';
+
         //dd($sold);
 
         if ($price && $sold)
@@ -128,6 +130,6 @@ class CategoriesController extends Controller
                 ->get();
 
         //dd($products);
-        return view('front.categories', compact(['products', 'categoryName']));
+        return view('front.categories', compact(['products', 'categoryName', 'msg']));
     }
 }

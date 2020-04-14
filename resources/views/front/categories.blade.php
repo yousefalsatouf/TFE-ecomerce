@@ -31,11 +31,11 @@
                                 <input type="hidden" name="categoryName" value="{{(isset($categoryName))? $categoryName: ''}}">
                                 <label for="price">
                                     Max Price:
-                                    <input type="number" name="price" class="form-control mr-2" placeholder="Great Price" required>
+                                    <input type="number" name="price" class="form-control mr-2" placeholder="Great Price">
                                 </label>
                                 <label for="sold">
                                     Products On Sold:
-                                    <input type="checkbox" name="sold" class="form-control mr-2" required>
+                                    <input type="checkbox" name="sold" class="form-control mr-2" >
                                 </label>
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </div>
@@ -47,6 +47,17 @@
         <section>
             <div class="album text-muted">
                 <div class="container">
+                   @if(isset($msg))
+                        <div class="empty">
+                            <h3 class="text-success">{{$msg}}</h3>
+                            <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
+                                <button class="btn bg-success btn-sm text-dark">
+                                    <i class="fa fa-backward"></i>
+                                    <b>Back</b>
+                                </button>
+                            </a>
+                        </div>
+                    @endif
                     <div class="row d-flex justify-content-around">
                         @forelse($products as $product)
                             <div class="card">

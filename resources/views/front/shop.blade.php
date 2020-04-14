@@ -6,9 +6,9 @@
                 <img src="{{URL::asset('dist/img/watch.jpg')}}" alt="First slide">
                 <div class="container">
                     <div class="text-center">
-                        <h1>watch is one of our products</h1>
+                        <h1>here should replace for an ad </h1>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <a class="btn btn-lg btn-light" href="{{url('/register')}}" role="button">Sing up now</a>
+                        <a class="btn btn-outline-info  " href="{{url('/register')}}" role="button">Learn more ...</a>
                     </div>
                 </div>
             </div>
