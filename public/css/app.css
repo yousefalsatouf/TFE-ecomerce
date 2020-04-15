@@ -9508,3 +9508,184 @@ a.text-dark:hover {
   color: #38c172;
 }
 
+@media screen and (max-width: 768px) {
+  .address .user-info .card-body ul li {
+    width: 49%;
+  }
+}
+
+#checkout h1,
+#checkout h2,
+#checkout h3,
+#checkout h4,
+#checkout h5 {
+  font-family: "Berkshire Swash", cursive;
+  color: #38c172;
+}
+
+#checkout section .quick-access {
+  background-color: #38c172;
+}
+
+#checkout section .quick-access ol {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+#checkout section .quick-access ol a {
+  color: #000;
+}
+
+#checkout section .quick-access ol a:hover {
+  color: #38c172;
+}
+
+#checkout section .quick-access ol .active {
+  color: #38c172;
+}
+
+#checkout section.head .row div {
+  margin: 1rem;
+}
+
+#checkout .checkout .quick-checkout {
+  background-color: #000;
+}
+
+#checkout .checkout .quick-checkout ul {
+  padding-top: 2%;
+  margin-left: 1rem;
+}
+
+#checkout .checkout .quick-checkout ul li {
+  color: #38c172;
+  margin: auto 1rem;
+}
+
+#checkout .checkout .quick-checkout ul li i {
+  margin-left: 10px;
+}
+
+#checkout .checkout .delivery div {
+  display: flex;
+}
+
+#checkout .checkout .delivery div i {
+  font-size: 35px;
+  color: #38c172;
+  width: 20%;
+}
+
+#checkout .address .user-info {
+  margin: 2rem auto;
+}
+
+#checkout .address .user-info .card-header {
+  display: flex;
+}
+
+#checkout .address .user-info .card-header i {
+  font-size: 35px;
+  width: 20%;
+}
+
+#checkout .address .user-info .card-body ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  #checkout .address .user-info .card-body ul li {
+    width: 19%;
+  }
+}
+
+#checkout .address .user-info .card-body ul li {
+  border-left: 1px solid #38c172;
+  padding: 1%;
+}
+
+#checkout .address .user-info .card-body ul li p {
+  font-weight: bold;
+}
+
+#checkout .address form label {
+  font-weight: bolder;
+  font-size: 18px;
+  color: #38c172;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #38c172;
+  font-family: "Berkshire Swash", cursive;
+}
+
+.quick-menu {
+  margin-bottom: 20rem;
+  padding: 1rem;
+}
+
+.quick-menu a {
+  color: #000;
+  font-weight: bolder;
+}
+
+.quick-menu a:hover {
+  color: #38c172;
+}
+
+@media screen and (max-width: 768px) {
+  #cart_items\ profile .user-info .card-body ul li {
+    width: 49%;
+  }
+}
+
+#cart_items\ profile {
+  margin-bottom: 12rem;
+}
+
+#cart_items\ profile .user-info {
+  margin: 5rem auto;
+}
+
+#cart_items\ profile .user-info .card-header {
+  display: flex;
+}
+
+#cart_items\ profile .user-info .card-header i {
+  font-size: 35px;
+  width: 20%;
+}
+
+#cart_items\ profile .user-info .card-body ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  #cart_items\ profile .user-info .card-body ul li {
+    width: 19%;
+  }
+}
+
+#cart_items\ profile .user-info .card-body ul li {
+  border-left: 1px solid #38c172;
+  padding: 1%;
+}
+
+#cart_items\ profile .user-info .card-body ul li p {
+  font-weight: bold;
+}
+

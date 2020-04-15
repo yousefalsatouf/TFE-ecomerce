@@ -56,10 +56,15 @@ class CheckoutController extends Controller
 
         $userInfos->save();
 
+        return back();
+    }
+
+    public function finishOrder()
+    {
         orders::createOrder();
         Cart::destroy();
 
-        return redirect('finish');
+        return redirect('/finish');
     }
 }
 

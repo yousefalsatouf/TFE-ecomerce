@@ -9,7 +9,7 @@
         <div id="navbarCollapse" class="content">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i>HOME</a>
+                    <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/shop')}}" class="nav-link">Shop</a>

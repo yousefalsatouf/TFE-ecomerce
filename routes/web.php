@@ -78,9 +78,10 @@ Route::group(['middleware' => 'auth'], function()
 {
     Route::get('/checkout', 'CheckoutController@index');
     Route::post('/formValidate', 'CheckoutController@formValidate');
+    Route::get('/finishOrder', 'CheckoutController@finishOrder');
     Route::get('/orders', 'ProfileController@orders');
-    Route::get('/address', 'ProfileController@address');
-    Route::post('/updateAddress', 'ProfileController@UpdateAddress');
+    Route::get('/infos', 'ProfileController@infos');
+    Route::post('/updateInfos', 'ProfileController@UpdateInfos');
     Route::get('/password', 'ProfileController@password');
     Route::post('/updatePassword', 'ProfileController@updatePassword');
     Route::get('/user', 'ProfileController@index');

@@ -3,12 +3,11 @@
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
-                <b>Hello {{ucwords(Auth::user()->name)}},</b>
                 <ol class="breadcrumb">
-                    <li class="active"><b class="text-success">Your Orders</b></li>
+                    <li><b class="text-success">Hello {{ucwords(Auth::user()->name)}},</b></li>
+                    <li><b class="text-info">Manage your password</b></li>
                 </ol>
             </div>
-            <h1><span class="text-primary">Dashboard</span></h1>
             <div class="row">
                 <div class="col-md-4 well well-sm">
                     @include('user.helpers.quickMenu')

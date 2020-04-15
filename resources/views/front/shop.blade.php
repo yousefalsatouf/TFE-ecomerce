@@ -3,7 +3,7 @@
     <main role="main" id="shop">
         <section class="shop-bg">
             <div>
-                <img src="{{URL::asset('dist/img/watch.jpg')}}" alt="First slide">
+                {{--<img src="{{URL::asset('dist/img/watch.jpg')}}" alt="First slide">--}}
                 <div class="container">
                     <div class="text-center">
                         <h1>here should replace for an ad </h1>

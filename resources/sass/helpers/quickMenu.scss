@@ -1,0 +1,16 @@
+
+    .quick-menu
+    {
+        margin-bottom: 20rem;
+        padding: 1rem;
+        a
+        {
+            color: $black;
+            font-weight: bolder;
+            &:hover
+            {
+                color: $green;
+            }
+        }
+    }
+

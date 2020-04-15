@@ -48778,7 +48778,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+document.addEventListener('click', '#checkout .checkout .active', function (e) {
+  console.log('hello');
+});
 
 /***/ }),
 

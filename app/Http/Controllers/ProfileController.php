@@ -28,15 +28,15 @@ class ProfileController extends Controller
         return view('user.orders', compact('orders'));
     }
 
-    public function address()
+    public function infos()
     {
         $user_id = Auth::user()->id;
         $user_data = DB::table('user_infos')->where('user_id', '=', $user_id)->orderby('id', 'DESC')->get();
 
-        return view('user.address', compact('user_data'));
+        return view('user.infos', compact('user_data'));
     }
 
-    public function updateAddress(Request $request)
+    public function updateInfos(Request $request)
     {
         $this->validate($request, [
             'first_name' => 'required|min:3|max:35',
@@ -51,9 +51,11 @@ class ProfileController extends Controller
         ]);
 
         $userid = Auth::user()->id;
-        DB::table('user_infos')->where('user_id', $userid)->update($request->except('_token'));
+        DB::table('user_infos')
+            ->where('user_id', $userid)
+            ->update($request->except('_token'));
 
-        return back()->with('msg','Your address has been updated');
+        return back()->with('msg','Your Infos have been updated');
     }
 
     public function password()

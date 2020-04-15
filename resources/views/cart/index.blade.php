@@ -69,6 +69,7 @@
                            </div>
                        @endif
                        <h1 class="text-success">Cart Content </h1>
+                       <p class="lead text-muted">You currently have <b class="text-success">{{Cart::count()}}</b>   item(s) in your basket</p>
                        <div class="table-responsive">
                            <table class="table table-striped">
                                <thead>
@@ -98,32 +99,32 @@
                                                <h4>{{$cartItem->name}}</h4>
                                            </td>
                                            <td>
-                                               <p>{{($cartItem->options->stock - $cartItem->qty)}} item(s)</p>
+                                               <p><b class="text-danger">{{($cartItem->options->stock - $cartItem->qty)}}</b> item(s)</p>
                                            </td>
                                            <td class="cart_quantity">
                                                <div class="cart_quantity_button">
                                                    <input type="hidden" name="rowId" value="{{$cartItem->rowId}}"/>
                                                    <input type="hidden" name="productId" value="{{$cartItem->id}}"/>
                                                    <input type="number" size="2" value="{{  $cartItem->qty<$cartItem->options->stock?  $cartItem->qty : $cartItem->options->stock}}" name="qty" id="upCart"
-                                                          autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="1000">
+                                                          autocomplete="off" style="text-align:center; max-width:50px; "  MIN="1" MAX="{{$cartItem->options->stock}}">
                                                </div>
                                            </td>
                                            <td class="cart_price">
-                                               <p>{{$cartItem->price}} $</p>
+                                               <p><b>{{$cartItem->price}}</b> $</p>
                                            </td>
                                            <td class="cart_total">
-                                               <p class="cart_total_price">{{$cartItem->subtotal}} $</p>
+                                               <p class="cart_total_price"><b>{{$cartItem->subtotal}}</b> $</p>
                                            </td>
                                            <td>
+                                               <button type="submit" class="btn btn-outline-success">
+                                                   <i class="fa fa-edit"></i>
+                                               </button>
+                                               {!! Form::close() !!}
                                                <a class="cart_quantity_delete" href="{{url('/product_details/'.$cartItem->id)}}">
                                                    <button class="btn btn-outline-info">
                                                        <i class="fa fa-eye"></i>
                                                    </button>
                                                </a>
-                                               <button type="submit" class="btn btn-outline-success">
-                                                   <i class="fa fa-edit"></i>
-                                               </button>
-                                               {!! Form::close() !!}
                                                <a class="cart_quantity_delete" href="{{url('/cart/removeItem')}}/{{$cartItem->rowId}}">
                                                    <button class="btn btn-outline-danger">
                                                        <i class="fa fa-trash-o"></i>
@@ -149,18 +150,18 @@
                                <table class="table table-striped">
                                    <thead>
                                        <tr class="cart_menu">
-                                           <th class="description">Tax</th>
                                            <th class="description">Shipping Cost</th>
+                                           <th class="description">Tax</th>
                                            <th class="image">SubTotal</th>
                                            <th class="title">Total</th>
                                        </tr>
                                    </thead>
                                    <tbody>
                                        <tr>
-                                           <td>{{Cart::tax()}} $</td>
                                            <td><span class="text-success">Free</span></td>
-                                           <td>{{$cartItem->subtotal}} $</td>
-                                           <td>{{$cartItem->total}} $</td>
+                                           <td>{{Cart::tax()}} $</td>
+                                           <td>{{Cart::subtotal()}} $</td>
+                                           <td>{{Cart::total()}} $</td>
                                        </tr>
                                    </tbody>
                                </table>
