@@ -9306,3 +9306,205 @@ a.text-dark:hover {
   border: 1px solid #38c172;
 }
 
+#reset-password {
+  font-family: "Berkshire Swash", cursive;
+}
+
+#reset-password .card {
+  background-color: #000;
+}
+
+#reset-password .card .card-header {
+  color: #38c172;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+#reset-password .card .card-body label {
+  color: #38c172;
+}
+
+@media screen and (max-width: 768px) {
+  #admin-menu nav .menu ul {
+    justify-content: space-evenly;
+  }
+}
+
+#admin-menu {
+  font-family: "Berkshire Swash", cursive;
+}
+
+#admin-menu nav {
+  background-color: black;
+  display: flex;
+}
+
+#admin-menu nav .menu {
+  width: 80%;
+}
+
+#admin-menu nav .menu ul {
+  display: flex;
+  flex-direction: row;
+}
+
+#admin-menu nav > a:first-child {
+  color: #38c172;
+  font-weight: bolder;
+}
+
+#admin-menu nav div ul li a {
+  color: #fff;
+}
+
+#admin-menu nav div ul li a:hover {
+  color: #38c172;
+}
+
+#admin {
+  font-family: "Berkshire Swash", cursive;
+}
+
+#admin h1,
+#admin h4 {
+  color: #38c172;
+}
+
+#admin .row .sidebar {
+  background-color: #000;
+}
+
+#admin .row .sidebar .active {
+  background-color: #38c172;
+  color: #000;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+#admin .row .sidebar a {
+  color: #38c172;
+}
+
+#admin .row .sidebar a:hover {
+  color: #fff;
+}
+
+#admin #admin-content {
+  background-color: #000;
+}
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+
+/*
+ * Typography
+ */
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+/* Placeholders */
+
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+#admin nav {
+  background-color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .resume .side {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .resume {
+    justify-content: space-between;
+  }
+
+  .resume .side {
+    width: 45%;
+    margin: 1rem;
+  }
+}
+
+#cart h1,
+#cart h2 {
+  font-family: "Berkshire Swash", cursive;
+  color: #38c172;
+}
+
+#cart section:first-child {
+  margin-bottom: 12rem;
+  margin-top: 2rem;
+}
+
+#cart section .quick-access {
+  background-color: #38c172;
+}
+
+#cart section .quick-access ol {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+#cart section .quick-access ol a {
+  color: #000;
+}
+
+#cart section .quick-access ol a:hover {
+  color: #38c172;
+}
+
+#cart section .quick-access ol .active {
+  color: #38c172;
+}
+

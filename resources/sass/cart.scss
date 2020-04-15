@@ -1,0 +1,65 @@
+@media screen and (max-width: $break-small)
+{
+    .resume
+    {
+        .side
+        {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+@media screen and (min-width: $break-small)
+{
+    .resume
+    {
+        justify-content: space-between;
+        .side
+        {
+            width: 45%;
+            margin: 1rem;
+        }
+    }
+}
+#cart
+{
+    h1, h2
+    {
+        font-family: $font-family-sans-serif;
+        color: $green;
+    }
+    section:first-child
+    {
+        margin-bottom: 12rem;
+        margin-top: 2rem;
+    }
+    section
+    {
+        .quick-access
+        {
+            background-color: $green;
+            ol
+            {
+                display: flex;
+                list-style: none;
+                justify-content: space-evenly;
+                font-size: 18px;
+                font-weight: bolder;
+                a
+                {
+                    color: $black;
+                    &:hover
+                    {
+                        color: $green;
+                    }
+                }
+                .active
+                {
+                    color: $green;
+                }
+            }
+        }
+
+    }
+}

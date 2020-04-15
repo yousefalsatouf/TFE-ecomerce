@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,19 +6,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{asset('dist/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/css/dashboard.css')}}">
-    <script src="{{asset('dist/js/jquery.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
 <body>
     @include('admin.helpers.header')
-    <div class="container-fluid">
+    <div id="admin" class="container-fluid">
         <div class="row">
-            <h3>What's on your mind</h3>
             @include('admin.includes.sidenav')
             @yield('content')
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
