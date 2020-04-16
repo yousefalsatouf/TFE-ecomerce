@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-md-8">
                     <h3 ><span style='color:green'>Order's History</span></h3>
-                    <table class="table table-responsive">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Date</th>

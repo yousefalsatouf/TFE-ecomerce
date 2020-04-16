@@ -9370,23 +9370,23 @@ a.text-dark:hover {
   color: #38c172;
 }
 
-#admin .row .sidebar {
+#admin .sidebar {
   background-color: #000;
 }
 
-#admin .row .sidebar .active {
+#admin .sidebar .active {
   background-color: #38c172;
   color: #000;
   font-weight: bolder;
   font-size: 25px;
 }
 
-#admin .row .sidebar a {
+#admin .sidebar a {
   color: #38c172;
 }
 
-#admin .row .sidebar a:hover {
-  color: #fff;
+#admin .sidebar a:hover {
+  color: #000;
 }
 
 #admin #admin-content {
@@ -9451,8 +9451,29 @@ a.text-dark:hover {
   padding-bottom: 1.5rem;
 }
 
-#admin nav {
-  background-color: #000;
+@media screen and (max-width: 1000px) {
+  #admin .sidebar {
+    display: none;
+  }
+
+  #admin #products {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) and (max-width: 992px) {
+  #admin #products .nav-products {
+    display: none;
+  }
+}
+
+#admin #admin-content,
+#admin #products,
+#admin .categories,
+#admin #edit-product,
+#admin .add-property,
+#admin .create-product {
+  margin-top: 4rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -9631,7 +9652,7 @@ h6 {
 }
 
 .quick-menu {
-  margin-bottom: 20rem;
+  margin-bottom: 5rem;
   padding: 1rem;
 }
 
@@ -9676,7 +9697,7 @@ h6 {
 
 @media screen and (min-width: 768px) {
   #cart_items\ profile .user-info .card-body ul li {
-    width: 19%;
+    width: 32%;
   }
 }
 

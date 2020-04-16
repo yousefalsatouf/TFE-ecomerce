@@ -1,10 +1,10 @@
 @extends('admin.master')
 @section('content')
-    <main role="main" id="admin-content" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+    <section id="admin-content" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
         <h1 class="text-info">What's on your mind</h1>
         <h2 class="text-success">Hello {{strtoupper(Auth::user()->name)}}</h2>
         <p><b>Something you wanna do ...</b></p>
-        <section class="row text-center placeholders">
+        <div class="row text-center placeholders">
             <div class="col-lg-3 col-sm-6 placeholder">
                 <a href="">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
@@ -33,6 +33,6 @@
                 </a>                <h4>Any thing else</h4>
                 <span class="text-muted">Any ideas about what admin can do ?</span>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 @endsection

@@ -53,25 +53,22 @@
     {
         color: $green;
     }
-    .row
+    .sidebar
     {
-        .sidebar
+        background-color: $black;
+        .active
         {
-            background-color: $black;
-            .active
+            background-color: $green;
+            color: $black;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+        a
+        {
+            color: $green;
+            &:hover
             {
-                background-color: $green;
                 color: $black;
-                font-weight: bolder;
-                font-size: 25px;
-            }
-            a
-            {
-                color: $green;
-                &:hover
-                {
-                    color: $white;
-                }
             }
         }
     }

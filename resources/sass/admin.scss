@@ -1,7 +1,25 @@
 #admin
 {
-    nav
+    @media screen and (max-width: 1000px)
     {
-        background-color: $black;
+        .sidebar
+        {
+            display: none;
+        }
+        #products
+        {
+            width: 100%;
+            @media screen and (max-width: 992px)
+            {
+                .nav-products
+                {
+                    display: none;
+                }
+            }
+        }
+    }
+    #admin-content, #products, .categories, #edit-product, .add-property, .create-product
+    {
+        margin-top: 4rem;
     }
 }

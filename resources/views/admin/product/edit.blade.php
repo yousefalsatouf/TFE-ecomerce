@@ -1,8 +1,11 @@
 @extends('admin.master')
 @section('content')
-    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+    <main id="edit-product" class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
         <ul>
             <div class="row">
+                <div>
+                    @include('admin.includes.sidenav')
+                </div>
                 <div class="col-md-4">
                     <div class="d-flex justify-content-between">
                         <h3>Edit</h3>
@@ -12,14 +15,16 @@
                     <br>
                     {!! Form::model($products, ['method'=>'post', 'action'=> ['ProductsController@editProduct', $products->id], 'files'=>true]) !!}
                     <div class="form-group">
-                        <Select class="form-control" name="category_id">
-                            @foreach($categories as $cat)
-                                Category:
-                                <option value="{{ $cat->id }}" {{ $products->category_id == $cat->id ? "selected" : "" }}>
-                                    {{ ucwords($cat->name) }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <label for="category_id">
+                            Category:
+                            <Select class="form-control" name="category_id">
+                                @foreach($categories as $cat)
+                                    <option value="{{ $cat->id }}" {{ $products->category_id == $cat->id ? "selected" : "" }}>
+                                        {{ ucwords($cat->name) }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </label>
                     </div>
                     <div class="form-group">
                         {!! Form::label('product_name', 'Name:') !!}
@@ -34,7 +39,7 @@
                         {!! Form::text('product_code', null, ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
-                        {!! Form::label('sale_price', 'Sale Price:') !!}
+                        {!! Form::label('sale_price', 'Sold Price:') !!}
                         {!! Form::text('sale_price', null, ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
@@ -83,7 +88,7 @@
                             @else
                             <h3 class="text-info">Add Properties such as color size ...</h3>
                             <div>
-                                <a href="{{route('addProperty',$products->id)}}" class="btn btn-sm btn-info" style="margin:5px">Add Property</a>
+                                <a href="{{route('addProperty',$products->id)}}" class="btn btn-sm btn-outline-success" style="margin:5px">Add Property</a>
                                 <br>
                             </div>
                             @endif
@@ -93,7 +98,7 @@
                                 <hr>
                                 <br>
                                 <p>
-                                    <a href="{{route('editImage',$products->id)}}"  class="btn btn-info">Change Now!</a>
+                                    <a href="{{route('editImage',$products->id)}}"  class="btn btn-outline-success">Change Now!</a>
                                 </p>
                             </div>
                         </div>

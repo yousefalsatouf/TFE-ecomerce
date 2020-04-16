@@ -11,12 +11,11 @@
 
 <body>
     @include('admin.helpers.header')
-    <div id="admin" class="container-fluid">
+    <main id="admin" class="container-fluid">
         <div class="row">
-            @include('admin.includes.sidenav')
             @yield('content')
         </div>
-    </div>
+    </main>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

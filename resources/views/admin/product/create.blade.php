@@ -1,12 +1,12 @@
 @extends('admin.master')
 @section('content')
-    <div class="container-fluid">
+    <section class="container-fluid create-product">
         <div class="row">
-            <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+            <div>
                 @include('admin.includes.sidenav')
-            </nav>
-            <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-                <div class="col-md-6">
+            </div>
+            <div class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+                <div class="col-lg-8">
                     <div>
                         <button class="btn bg-light float-right">
                             <a class="nav-link text-dark" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> Manage Products</b></a>
@@ -48,12 +48,12 @@
                             {{ Form::label('Description', 'Description') }}
                             {{ Form::textarea('product_info', null, array('class' => 'form-control')) }}
                         </div>
-                        {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+                        {{ Form::submit('Submit', array('class' => 'btn btn-outline-success')) }}
                         <br>
                         {!! Form::close() !!}
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
-    </div>
+    </section>
 @endsection

@@ -1,11 +1,8 @@
 <header id="admin-menu">
     <nav class="navbar navbar-expand-md fixed-top">
-        <a class="navbar-brand" href="{{url('/admin')}}">Overview</a>
+        <a class="navbar-brand" href="{{url('/admin')}}">Admin</a>
         <div class="menu" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/')}}">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/user')}}">Users</a>
                 </li>
