@@ -9372,6 +9372,7 @@ a.text-dark:hover {
 
 #admin .sidebar {
   background-color: #000;
+  padding: 0;
 }
 
 #admin .sidebar .active {
@@ -9473,7 +9474,7 @@ a.text-dark:hover {
 #admin #edit-product,
 #admin .add-property,
 #admin .create-product {
-  margin-top: 4rem;
+  margin-top: 3.2rem;
 }
 
 @media screen and (max-width: 768px) {
