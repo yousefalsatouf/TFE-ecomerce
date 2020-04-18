@@ -112,8 +112,9 @@ class ProductsController extends Controller
         return view('admin.product.editImage', compact('product'));
     }
 
-    public function editProductImage(Request $request) {
-        $produtId = $request->id;
+    public function editProductImage(Request $request)
+    {
+        $productId = $request->id;
 
         $image = $request->image;
 
@@ -123,7 +124,7 @@ class ProductsController extends Controller
             $image->move('images',$imageName);
             $formInput['image'] = $imageName;
 
-            DB::table('products')->where('id', $produtId)->update(['image' => $imageName]);
+            DB::table('products')->where('id', $productId)->update(['image' => $imageName]);
         }
 
         return redirect()->back();

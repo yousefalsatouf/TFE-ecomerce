@@ -34,6 +34,9 @@
                             </a>
                         </li>
                     @endif
+                        <li class="nav-item">
+                            <a href="{{url('/logout')}}" class="nav-link text-danger">Logout</a>
+                        </li>
                         <li class=" cart nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa fa-shopping-cart"></i> Cart
@@ -50,12 +53,11 @@
                         </li>
                     <li class="user nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            @if(Auth::check() && Auth::user()->isAdmin())
-                                {{strtoupper(Auth::user()->name)}}
+                            @if(Auth::user()->image)
+                                <img class="card-img-top img-fluid" src="{{url('images',Auth::user()->image)}}" style="width:40px; border-radius: 50%" alt="Card image cap">
                             @else
-                                {{strtoupper(Auth::user()->name)}}
+                                <i class="fa fa-user" aria-hidden="true"></i>
                             @endif
-                            <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <b class="dropdown-item text-success">
@@ -68,9 +70,6 @@
                                 Logout
                             </a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{url('/logout')}}" class="nav-link text-danger">Logout</a>
                     </li>
                 @endguest
             </ul>

@@ -67,6 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::resource('users', 'UsersController');
         Route::get('findUser/{id}', 'UsersController@findUser')->name('findUser');
         Route::post('editUser/{id}', 'UsersController@editUser')->name('editUser');
+        Route::get('editImage/{id}', 'UsersController@editImage')->name('editImage');
 
         Route::resource('products', 'ProductsController');
         Route::get('editProductForm/{id}', 'ProductsController@editProductForm')->name('editProductForm');

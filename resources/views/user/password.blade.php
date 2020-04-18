@@ -16,17 +16,19 @@
                     @include('user.helpers.quickMenu')
                 </div>
                 <div class="col-md-8">
-                    <h3 ><span style='color:green'>Change Password</span></h3>
+                    <h3 ><span class="text-danger">Change Password</span></h3>
+                    <br>
+                    <hr>
                     {!! Form::open(['url' => 'updatePassword',  'method' => 'post']) !!}
                         <div class="form-group row">
                             <div class="form-group col-md-6">
-                                <label for="example-text-input" >Current Password</label>
+                                <label for="example-text-input" class="text-success">Current Password</label>
                                 <input class="form-control" type="password"  name="oldPassword">
                                 <span style="color:red">{{ $errors->first('old_password') }}</span>
                             </div>
                             <br>
                             <div class="form-group col-md-6">
-                                <label for="example-text-input" >New Password</label>
+                                <label for="example-text-input" class="text-success">New Password</label>
                                 <input class="form-control" type="password"  name="newPassword">
                                 <span style="color:red">{{ $errors->first('newPassword') }}</span>
                             </div>

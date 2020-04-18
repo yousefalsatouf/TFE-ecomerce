@@ -30,15 +30,18 @@ class ProfileController extends Controller
 
     public function infos()
     {
-        $user_id = Auth::user()->id;
-        $user_data = DB::table('users')->where('id', '=', $user_id)->orderby('id', 'DESC')->get();
+        $userId = Auth::user()->id;
+        $users = DB::table('users')->where('id', '=', $userId)->get();
+        //dd($user);
 
-        return view('user.infos', compact('user_data'));
+        return view('user.infos', compact('users'));
     }
 
     public function updateInfos(Request $request)
     {
         $this->validate($request, [
+            'image' => 'required',
+            'name' => 'required|min:3|max:35',
             'first_name' => 'required|min:3|max:35',
             'last_name' => 'required|min:3|max:35',
             'email' => 'required|email',
@@ -48,15 +51,27 @@ class ProfileController extends Controller
             'postal_code' => 'required|numeric',
             'street' => 'required|min:5|max:25',
             'street_number' => 'required|numeric',
+            'payment_type' => 'required',
         ]);
 
-        $userid = Auth::user()->id;
+        $userId = Auth::user()->id;
         DB::table('users')
-            ->where('id', $userid)
+            ->where('id', $userId)
             ->update($request->except('_token'));
+
+        $image = $request->image;
+
+        //dd($image);
+        if($image)
+            $imageName = $image->getClientOriginalName();
+            $image->move('images',$imageName);
+            $formInput['image'] = $imageName;
+
+            DB::table('users')->where('id', $userId)->update(['image' => $imageName]);
 
         return back()->with('msg','Your Infos have been updated');
     }
+
 
     public function password()
     {
