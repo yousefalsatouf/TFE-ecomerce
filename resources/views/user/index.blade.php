@@ -35,7 +35,7 @@
                                         </li>
                                         <li>
                                             <h5>Email</h5>
-                                            <p>{{$info->user_email}}</p>
+                                            <p>{{$info->email}}</p>
                                         </li>
                                         <li>
                                             <h5>Phone</h5>

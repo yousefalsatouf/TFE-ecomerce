@@ -27,7 +27,7 @@
                         </li>
                     @endif
                 @else
-                    @if(Auth::check() && Auth::user()->isAdmin())
+                    @if(Auth::check() && (Auth::user()->isAdmin() || Auth::user()->isActor()))
                         <li class="nav-item">
                             <a href="{{url('/admin')}}" class="nav-link">
                                 <i class="fas fa-user-cog"></i> Admin

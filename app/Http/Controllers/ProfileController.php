@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $user_data = DB::table('user_infos')->where('user_id', '=', $user_id)->orderby('id', 'DESC')->get();
+        $user_data = DB::table('users')->where('id', '=', $user_id)->orderby('id', 'DESC')->get();
 
         if (Auth::check())
             return view('user.index', compact('user_data'));
@@ -31,7 +31,7 @@ class ProfileController extends Controller
     public function infos()
     {
         $user_id = Auth::user()->id;
-        $user_data = DB::table('user_infos')->where('user_id', '=', $user_id)->orderby('id', 'DESC')->get();
+        $user_data = DB::table('users')->where('id', '=', $user_id)->orderby('id', 'DESC')->get();
 
         return view('user.infos', compact('user_data'));
     }
@@ -51,8 +51,8 @@ class ProfileController extends Controller
         ]);
 
         $userid = Auth::user()->id;
-        DB::table('user_infos')
-            ->where('user_id', $userid)
+        DB::table('users')
+            ->where('id', $userid)
             ->update($request->except('_token'));
 
         return back()->with('msg','Your Infos have been updated');
@@ -69,14 +69,10 @@ class ProfileController extends Controller
         $newPassword = $request->newPassword;
 
         if(!Hash::check($oldPassword, Auth::user()->password))
-        {
             return back()->with('msg','The specified password does not match the database password');
 
-        }
         else
-            {
             $request->user()->fill(['password' => Hash::make($newPassword)])->save();
             return back()->with('msg','Password has been updated');
-        }
     }
 }

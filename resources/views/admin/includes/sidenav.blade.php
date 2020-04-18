@@ -12,14 +12,16 @@
         <li class="nav-item">
             <p class="nav-link active"><b>Manage</b></p>
         </li>
+        @if(Auth::check() && (Auth::user()->isAdmin()))
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/users')}}">Users Management</a>
+            </li>
+        @endif
         <li class="nav-item">
-            <a class="nav-link" href="">Users</a>
+            <a class="nav-link" href="{{url('/admin/products')}}">Products Management</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/products')}}">Products</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('admin/categories')}}">Categories</a>
+            <a class="nav-link" href="{{url('admin/categories')}}">Categories Management</a>
         </li>
     </ul>
 </nav>

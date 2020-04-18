@@ -60,10 +60,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         {
             return view('admin.index');
         })->name('admin.index');
+
         Route::POST('/admin/store', 'AdminController@store');
         Route::get('/admin', 'AdminController@index');
+
+        Route::resource('users', 'UsersController');
+        Route::get('findUser/{id}', 'UsersController@findUser')->name('findUser');
+        Route::post('editUser/{id}', 'UsersController@editUser')->name('editUser');
+
         Route::resource('products', 'ProductsController');
-        Route::resource('categories','CategoriesController');
         Route::get('editProductForm/{id}', 'ProductsController@editProductForm')->name('editProductForm');
         Route::post('editProduct/{id}', 'ProductsController@editProduct')->name('editProduct');
         Route::get('editImage/{id}', 'ProductsController@editImage')->name('editImage');
@@ -71,8 +76,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::get('/addProperty/{id}', 'ProductsController@addProperty')->name('addProperty');
         Route::post('/submitProperty', 'ProductsController@submitProperty')->name('submitProperty');
         Route::post('/editProperty', 'ProductsController@editProperty');
+
+        Route::resource('categories','CategoriesController');
     }
 );
+
 
 Route::group(['middleware' => 'auth'], function()
 {
