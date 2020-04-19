@@ -32,8 +32,25 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
-        Category::create($request->all());
-        return back();
+        $name = $request->name;
+        $des = $request->description;
+        $image = $request->image;
+
+        //dd($image);
+        if($image)
+        {
+            $imageName = $image->getClientOriginalName();
+            $image->move('images',$imageName);
+            $formInput['image'] = $imageName;
+        }
+
+        DB::table('categories')->insert([
+            'name' => $name,
+            'description' => $des,
+            'image' => $imageName
+        ]);
+
+        return back()->with('msg','Category added');
     }
 
     /**
@@ -61,7 +78,7 @@ class CategoriesController extends Controller
     {
         Category::findOrFail($id)->update();
 
-        return redirect()->back();
+        return back()->with('msg','Category updated');
     }
 
     /**
@@ -75,7 +92,7 @@ class CategoriesController extends Controller
         //
         Category::findOrFail($id)->delete();
 
-        return redirect()->back();
+        return back()->with('msg','Category removed');
     }
 
     /**

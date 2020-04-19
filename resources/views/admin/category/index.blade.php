@@ -10,16 +10,30 @@
                     <h2>Create Category</h2>
                     <hr>
                     <div class="card card-body py-5">
-                        {!! Form::open(['route' => 'categories.store', 'method' => 'post']) !!}
+                        {!! Form::open(['route' => 'categories.store','files' => true, 'method' => 'post']) !!}
                         <div class="form-group">
                             {{ Form::label('name', 'Category Name') }}
                             {{ Form::text('name', null, array('class' => 'form-control')) }}
                         </div>
+                        <div class="form-group">
+                            {{ Form::label('description', 'Category Description') }}
+                            {{ Form::textarea('description', null, array('class' => 'form-control')) }}
+                        </div>
+                        <div class="form-group">
+                            Select Image:
+                            {{ Form::label('image', 'Image') }}
+                            {{ Form::file('image',array('class' => 'form-control')) }}
+                        </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-outline-success">Add Category</button>
                         {!! Form::close() !!}
                     </div>
                 </div>
             </div>
+            <hr>
+            @if(session('msg'))
+                <div class="alert alert-success">{{session('msg')}}</div>
+            @endif
             <hr>
             <div class="row">
                 <div class="col-md-10">
@@ -31,7 +45,6 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Status</th>
                                 <th>Edit</th>
                                 <th>Remove</th>
                             </tr>
@@ -39,25 +52,21 @@
                         <tbody>
                         @foreach($categories as $category)
                             <tr>
-                                <td>image</td>
+                                <td style="width:50px; border: 1px solid #333;">
+                                    <img class="card-img-top img-fluid" src="{{url('images',$category->image)}}" width="50px" alt="Card image cap">
+                                </td>
                                 <td>
                                     <strong>{{strtoupper($category->name)}}</strong>
                                 </td>
-                                <td>some content</td>
-                                <td>@if($category->status=='0')
-                                        Enable
-                                    @else
-                                        Disable
-                                    @endif
-                                </td>
-                                {!! Form::open(['method'=>'DELETE', 'action'=> ['CategoriesController@destroy', $category->id]]) !!}
+                                <td>{{$category->description}}</td>
+                                {!! Form::open(['method'=>'post', 'action'=> ['CategoriesController@edit', $category->id]]) !!}
                                     <td>
-                                        {!! Form::submit('Edit', ['class'=>'btn btn-outline-success col-sm-6']) !!}
+                                        {!! Form::submit('Edit', ['class'=>'btn btn-outline-success']) !!}
                                     </td>
                                 {!! Form::close() !!}
                                 {!! Form::open(['method'=>'DELETE', 'action'=> ['CategoriesController@destroy', $category->id]]) !!}
                                 <td>
-                                    {!! Form::submit('Delete', ['class'=>'btn btn-outline-danger col-sm-6']) !!}
+                                    {!! Form::submit('Delete', ['class'=>'btn btn-outline-danger']) !!}
                                 </td>
                                 {!! Form::close() !!}
                             </tr>

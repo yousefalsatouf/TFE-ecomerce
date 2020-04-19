@@ -5,5 +5,6 @@
         <a class="nav-link" href="{{url('/orders')}}">My Orders</a>
         <a class="nav-link" href="{{url('/infos')}}">Edit Infos</a>
         <a class="nav-link" href="{{url('/password')}}">Change Password</a>
+        <a class="nav-link text-danger" href="{{url('/logout')}}">Logout</a>
     </nav>
 

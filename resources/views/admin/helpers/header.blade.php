@@ -15,6 +15,9 @@
                     <a class="nav-link" href="{{url('/admin/categories')}}">Categories  Management</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link " href="{{url('/admin/ads')}}">Ads Management <i class="fa fa-users"></i></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-info" href="{{url('/user')}}">You <i class="fa fa-users"></i></a>
                 </li>
             </ul>

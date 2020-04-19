@@ -23,5 +23,8 @@
         <li class="nav-item">
             <a class="nav-link" href="{{url('admin/categories')}}">Categories Management</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/ads')}}">Ads Management</a>
+        </li>
     </ul>
 </nav>

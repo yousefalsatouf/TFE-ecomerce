@@ -79,6 +79,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::post('/editProperty', 'ProductsController@editProperty');
 
         Route::resource('categories','CategoriesController');
+
+        Route::resource('ads','AdsController');
     }
 );
 
