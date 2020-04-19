@@ -17,7 +17,6 @@ class CreateAdsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
