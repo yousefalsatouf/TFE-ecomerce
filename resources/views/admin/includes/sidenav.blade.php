@@ -4,27 +4,30 @@
             <p class="nav-link active"><b>Overview</b></p>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin')}}">Admin</a>
+            <a class="nav-link" style="font-size: 40px" href="{{url('/')}}"><i class="fa fa-home"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/user')}}">Profile</a>
+            <a class="nav-link" href="{{url('/admin')}}"><i class="fa fa-eye"></i> Admin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/user')}}"><i class="fa fa-user"></i> Profile</a>
         </li>
         <li class="nav-item">
             <p class="nav-link active"><b>Manage</b></p>
         </li>
         @if(Auth::check() && (Auth::user()->isAdmin()))
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/admin/users')}}">Users Management</a>
+                <a class="nav-link" href="{{url('/admin/users')}}"><i class="fa fa-users"></i> Users Management</a>
             </li>
         @endif
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/products')}}">Products Management</a>
+            <a class="nav-link" href="{{url('/admin/products')}}"><i class="fa fa-shopping-cart"></i> Products Management</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('admin/categories')}}">Categories Management</a>
+            <a class="nav-link" href="{{url('admin/categories')}}"><i class="fa fa-bars"></i> Categories Management</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/ads')}}">Ads Management</a>
+            <a class="nav-link" href="{{url('/admin/ads')}}"><i class="fa fa-adn"></i> Ads Management</a>
         </li>
     </ul>
 </nav>

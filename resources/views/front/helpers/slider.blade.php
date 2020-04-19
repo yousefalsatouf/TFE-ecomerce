@@ -7,37 +7,37 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="first-slide" src="{{URL::asset('dist/img/camera.jpg')}}" alt="First slide">
+            <img class="first-slide" src="{{URL::asset('dist/images/home/nice.jpg')}}" alt="First slide">
             <div class="container">
                 <div class="carousel-caption text-center">
-                    <h1>Cameras are one of our products</h1>
+                    <h1>Every suit is created with love</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <a class="btn btn-lg btn-light" href="{{url('/shop')}}" role="button">See Products</a>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <img class="second-slide h-100" src="{{URL::asset('dist/img/Items.jpg')}}" alt="Second slide">
+            <img class="second-slide h-100" src="{{URL::asset('dist/images/home/boss.jpg')}}" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Go and see Cart to see your Items.</h1>
+                    <h1>Because you are the BOSS.</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <a class="btn btn-lg btn-light" href="{{url('/cart')}}" role="button">GO To Cart</a>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <img class="third-slider" src="{{URL::asset('dist/img/addtocart.jpg')}}" alt="Third slide">
+            <img class="third-slider" src="{{URL::asset('dist/images/home/suitangila.jpg')}}" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption text-center">
-                    <h1>Go to our shop to discover all products that we have.</h1>
+                    <h1>You are the one choosing the color as you wish.</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <a class="btn btn-lg btn-light" href="{{'/shop'}}" role="button">Go to shop</a>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <img class="fourth-slide" src="{{URL::asset('dist/img/keyboard.jpg')}}" alt="First slide">
+            <img class="fourth-slide" src="{{URL::asset('dist/images/home/suitdrow.jpg')}}" alt="First slide">
             <div class="container">
                 <div class="carousel-caption text-center">
                     <h1>Register yourself to be one of our client</h1>

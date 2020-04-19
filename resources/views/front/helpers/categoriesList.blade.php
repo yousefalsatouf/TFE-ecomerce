@@ -6,11 +6,11 @@
             @foreach($categories as $category)
                 <div class="card">
                     <a href="{{url('/category/list/'.$category->name)}}">
-                        <img src="{{asset('images/black.jpg')}}" class="images card-img w-100 h-100">
+                        <img src="{{url('images', $category->image)}}" class="images card-img w-100 h-100">
                     </a>
                     <div class="card-body">
                         <h3 class="card-text iphone">{{strtoupper($category->name)}}</h3>
-                        <p>some content to test</p>
+                        <p>{{$category->description}}</p>
                     </div>
                     <a href="{{url('/category/list/'.$category->name)}}" class="text-dark">
                         <button class="btn bg-success btn-sm text-dark">

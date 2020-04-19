@@ -59,7 +59,7 @@
                                     <strong>{{strtoupper($category->name)}}</strong>
                                 </td>
                                 <td>{{$category->description}}</td>
-                                {!! Form::open(['method'=>'post', 'action'=> ['CategoriesController@edit', $category->id]]) !!}
+                                {!! Form::open(['method'=>'get', 'action'=> ['CategoriesController@editCategoryForm', $category->id]]) !!}
                                     <td>
                                         {!! Form::submit('Edit', ['class'=>'btn btn-outline-success']) !!}
                                     </td>

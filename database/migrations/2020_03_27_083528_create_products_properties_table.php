@@ -16,8 +16,9 @@ class CreateProductsPropertiesTable extends Migration
         Schema::create('products_properties', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('product_id');
-            $table->string('size');
-            $table->string('color');
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
+            $table->string('mark')->nullable();
             $table->timestamps();
         });
     }

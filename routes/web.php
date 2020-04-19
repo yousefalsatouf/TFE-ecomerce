@@ -79,6 +79,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::post('/editProperty', 'ProductsController@editProperty');
 
         Route::resource('categories','CategoriesController');
+        Route::get('editCategoryForm/{id}', 'CategoriesController@editCategoryForm')->name('editCategoryForm');
+        Route::post('update/{id}', 'CategoriesController@update')->name('update');
 
         Route::resource('ads','AdsController');
     }

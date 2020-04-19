@@ -74,11 +74,40 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function editCategoryForm($id)
     {
-        Category::findOrFail($id)->update();
+        $category = Category::findOrFail($id);
 
-        return back()->with('msg','Category updated');
+        return view('admin.category.edit', compact('category'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
+        $name = $request->name;
+        $description = $request->description;
+        $image = $request->image;
+
+        if($image)
+        {
+            $imageName = $image->getClientOriginalName();
+            $image->move('images',$imageName);
+            $formInput['image'] = $imageName;
+        }
+
+        DB::table('categories')->update([
+            'name' => $name,
+            'description' => $description,
+            'image' => $imageName
+        ]);
+
+        return redirect('/admin/categories/index')->with('msg','Category updated');
     }
 
     /**
@@ -92,7 +121,7 @@ class CategoriesController extends Controller
         //
         Category::findOrFail($id)->delete();
 
-        return back()->with('msg','Category removed');
+        return back()->with('msg','Category removedd');
     }
 
     /**

@@ -1,20 +1,21 @@
 /*
 Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.
-        on line 5 of app.scss
+        on line 8 of app.scss
 
-1: // google fonts
-2: @import "https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap";
 3: 
-4: // Bootstrap
-5: @import '~bootstrap/scss/bootstrap';
+4: // font awesome
+5: @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 6: 
-7: // Variables
-8: @import 'helpers/variables';
+7: // Bootstrap
+8: @import '~bootstrap/scss/bootstrap';
 9: 
-10: // header
+10: // Variables
+11: @import 'helpers/variables';
+12: 
+13: // header
 
 Backtrace:
-app.scss:5
+app.scss:8
 C:/Ruby25/lib/ruby/gems/2.5.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Ruby25/lib/ruby/gems/2.5.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:44:in `import'
 C:/Ruby25/lib/ruby/gems/2.5.0/gems/sass-3.5.7/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -52,4 +53,4 @@ C:/Ruby25/bin/sass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.\A         on line 5 of app.scss\A \A 1: // google fonts\A 2: @import \"https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap\";\A 3: \A 4: // Bootstrap\A 5: @import '~bootstrap/scss/bootstrap';\A 6: \A 7: // Variables\A 8: @import 'helpers/variables';\A 9: \A 10: // header"; }
+  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.\A         on line 8 of app.scss\A \A 3: \A 4: // font awesome\A 5: @import \"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\";\A 6: \A 7: // Bootstrap\A 8: @import '~bootstrap/scss/bootstrap';\A 9: \A 10: // Variables\A 11: @import 'helpers/variables';\A 12: \A 13: // header"; }
