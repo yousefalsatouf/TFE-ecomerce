@@ -13,12 +13,13 @@
                         </button>
                     </div>
                     <h1>Add New Product</h1>
-
+                    <hr>
+                    <br>
                     <div class="panel-body">
                         {!! Form::open(['route' => 'products.store', 'method' => 'post', 'files' => true]) !!}
                         <div class="form-group">
                             {{ Form::label('Product name', 'Product Name') }}
-                            {{ Form::text('product_name', null, array('class' => 'form-control','required'=>'','minlength'=>'5')) }}
+                            {{ Form::text('product_name', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
                             {{ Form::label('Code', 'Product Code') }}
@@ -33,16 +34,20 @@
                             {{ Form::text('product_price', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Sale Price', 'Sale Price') }}
-                            {{ Form::text('sale_price', null, array('class' => 'form-control')) }}
+                            {{ Form::label('Sold Price', 'Sold Price') }}
+                            {{ Form::text('sold_price', null, array('class' => 'form-control')) }}
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label('shopping_cost', 'Shopping Cost') }}
+                            {{ Form::text('shopping_cost', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
                             {{ Form::label('category_id', 'Categories') }}
                             {{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder'=>'SelectCategory']) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('image', 'Image') }}
-                            {{ Form::file('image',array('class' => 'form-control')) }}
+                            {{ Form::label('image', 'Select First Image') }}
+                            {{ Form::file('image', array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
                             {{ Form::label('Description', 'Description') }}

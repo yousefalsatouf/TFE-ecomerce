@@ -52,11 +52,12 @@
                                 @if($user->admin){{'Admin'}}@elseif($user->actor){{'Actor'}}@else{{'User'}}@endif
                             </td>
                             <td>
-                                <a class="btn btn-outline-success" href="{{route('findUser', $user->id)}}">Edit</a>
+                                @if($user->id == 1) <button class="btn btn-outline-success" disabled>Edit</button>
+                                @else<a class="btn btn-outline-success" href="{{route('findUser', $user->id)}}">Edit</a>@endif
                             </td>
                             {!! Form::open(['method'=>'DELETE', 'action'=> ['UsersController@destroy', $user->id]]) !!}
                             <td>
-                                @if($user->id == Auth::user()->id){!! Form::submit('Delete', ['class'=>'btn btn-outline-danger', 'disabled']) !!}
+                                @if($user->id == 1){!! Form::submit('Delete', ['class'=>'btn btn-outline-danger', 'disabled']) !!}
                                 @else{!! Form::submit('Delete', ['class'=>'btn btn-outline-danger']) !!}@endif
                             </td>
                             {!! Form::close() !!}

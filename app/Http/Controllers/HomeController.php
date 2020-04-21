@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ads;
 use App\Category;
 use App\Product;
 use App\Recommends;
@@ -42,15 +43,17 @@ class HomeController extends Controller
         $lastProducts = Product::all()->take(10);
         $products = Product::all();
         $categories = Category::all();
+        $ads = Ads::all();
         //dd($lastProducts);
 
-        return view('front.shop', compact(['categories','products', 'lastProducts']));
+        return view('front.shop', compact(['categories','products', 'lastProducts', 'ads']));
     }
 
     public function product_details(Request $request, $id)
     {
         $wishlistData = null;
         $userId = null;
+        $count = 0;
 
         if (Auth::check())
         {
@@ -78,7 +81,11 @@ class HomeController extends Controller
         //dd($userId);
         $reviews = DB::table('reviews')->get();
 
-        return view('front/product_details', compact('product', 'reviews', 'wishlistData', 'userId'));
+        $images = DB::table('product_images')
+            ->where('product_id', '=', $id)
+            ->get();
+
+        return view('front/product_details', compact('product', 'reviews', 'wishlistData', 'userId', 'images', 'count'));
     }
 
     public function wishlist(Request $request)

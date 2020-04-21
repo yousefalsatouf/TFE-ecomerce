@@ -5,6 +5,11 @@
             <div>
                 @include('admin.includes.sidenav')
             </div>
+            <hr>
+            @if(session('msg'))
+                <div class="alert alert-success">{{session('msg')}}</div>
+            @endif
+            <hr>
             <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                 <h2>Add Properties: </h2>
                 <hr>
@@ -18,6 +23,10 @@
                 <br>
                 <label for="size">Size:
                     <input type="text" class="form-control" name="size">
+                </label>
+                <br>
+                <label for="mark">Mark:
+                    <input type="text" class="form-control" name="mark">
                 </label>
                 <br>
                 <label for="color">Color:

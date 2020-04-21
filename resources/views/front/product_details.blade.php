@@ -20,15 +20,12 @@
                                     <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
                                         <!--Slides-->
                                         <div class="carousel-inner" role="listbox">
-                                            <div class="carousel-item active">
-                                                <img src="{{url('images', $product->image)}}" class="card-img">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="{{url('images', $product->image)}}" class="card-img">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="{{url('images', $product->image)}}" class="card-img">
-                                            </div>
+                                            @foreach($images as $image)
+                                                @php($count++)
+                                                <div class="carousel-item {{$count == 1?"active": ""}}">
+                                                    <img src="{{url('images', $image->gallery)}}" class="card-img h-50">
+                                                </div>
+                                            @endforeach
                                         </div>
                                         <!--/.Slides-->
                                         <!--Controls-->
@@ -41,15 +38,12 @@
                                             <span class="sr-only">Next</span>
                                         </a>
                                         <ol class="carousel-indicators">
-                                            <li data-target="#carousel-thumb" data-slide-to="0" class="active">
-                                                <img src="{{url('images', $product->image)}}">
-                                            </li>
-                                            <li data-target="#carousel-thumb" data-slide-to="1">
-                                                <img src="{{url('images', $product->image)}}">
-                                            </li>
-                                            <li data-target="#carousel-thumb" data-slide-to="2">
-                                                <img src="{{url('images', $product->image)}}">
-                                            </li>
+
+                                            @foreach($images as $i => $one)
+                                                <li data-target="#carousel-thumb" data-slide-to={{$i}} class={{$i == 0?"active": ""}}>
+                                                    <img src="{{url('images', $one->gallery)}}">
+                                                </li>
+                                            @endforeach
                                         </ol>
                                         <!--/.Controls-->
                                     </div>

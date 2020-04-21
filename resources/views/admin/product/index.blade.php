@@ -7,23 +7,29 @@
                 @include('admin.includes.sidenav')
             </div>
             <div class="col-sm-12 ml-sm-auto col-md-12 col-lg-10 pt-3">
-                <div>
-                    <h3>Products</h3>
-                    <button class="btn bg-success float-right">
+                <div class="d-flex justify-content-around">
+                    <h2>List Of Products</h2>
+                    <button class="btn btn-outline-success float-right">
                         <a class="nav-link text-dark" href="{{route('products.create')}}"><b>Add One</b></a>
                     </button>
                 </div>
+                @if(session('msg'))
+                    <div class="alert alert-success">{{session('msg')}}</div>
+                @endif
+                <hr>
                 <br>
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Image</th>
                         <th>Id</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Code</th>
                         <th>Price</th>
-                        <th>sold</th>
-                        <th>stock</th>
+                        <th>Sold</th>
+                        <th>Stock</th>
+                        <th>Shopping Cost</th>
+                        <th>New</th>
                         <th>Category</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -32,13 +38,15 @@
                     <tbody>
                     @foreach($products as $product)
                         <tr>
-                            <td style="width:50px; border: 1px solid #333;"><img class="card-img-top img-fluid" src="{{url('images',$product->image)}}" width="50px" alt="Card image cap"></td>
                             <td>{{$product->id}} </td>
+                            <td style="width: 20px"><img src="{{url('images', $product->image)}}" class="w-100" alt=""></td>
                             <td>{{$product->product_name}} </td>
                             <td>{{$product->product_code}} </td>
                             <td>{{$product->product_price}} $</td>
-                            <td>{{($product->sale_price == null ? 'No sale on this': $product->sale_price.' $')}}</td>
+                            <td>{{($product->sold_price == null ? 'No sale on this': $product->sold_price.' $')}}</td>
                             <td>{{$product->stock}} </td>
+                            <td>{{$product->shopping_cost}} </td>
+                            <td>{{$product->new_arrival?"Yes":"No"}}</td>
                             <td>{{ isset($product->name)? $product->name : '' }}</td>
                             <td>
                                 <a class="btn btn-outline-success" href="{{route('editProductForm', $product->id)}}">Edit</a>

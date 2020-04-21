@@ -5,11 +5,17 @@
             <div>
                 {{--<img src="{{URL::asset('dist/img/watch.jpg')}}" alt="First slide">--}}
                 <div class="container">
-                    <div class="text-center">
-                        <h1>here should replace for an ad </h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <a class="btn btn-outline-info  " href="{{url('/register')}}" role="button">Learn more ...</a>
-                    </div>
+                    @foreach($ads as $ad)
+                        <div class="text-center ad">
+                            <h1>{{$ad->title}}</h1>
+                            <strong class="text-warning">This is an ad</strong>
+                            <div class="content">
+                                <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
+                                <p>{{$ad->description}}</p>
+                            </div>
+                            <a class="btn btn-outline-info" href={{$ad->link}} role="button">Learn more ...</a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -121,7 +127,7 @@
                             </div>
                         @empty
                             <div>
-                                <h3 class="text-danger">Sorry, No Products Match Your Search ...</h3>
+                                <h3 class="text-danger">Sorry, No Products ...</h3>
                                 <a href="{{url('/shop')}}" class="text-dark">
                                     <button class="btn btn-outline-danger btn-sm float-right">
                                         <b><i class="fa fa-toggle-left"></i> Back to Shop</b>

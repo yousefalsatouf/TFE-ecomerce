@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product_images;
 use App\products_properties;
 use Illuminate\Support\Facades\DB;
 use App\Product;
@@ -29,38 +30,48 @@ class ProductsController extends Controller
 
     public function store( Request $request)
     {
+
         $formInput = $request->except('image');
+
         $this->validate($request, [
             'product_name' => 'required',
             'product_code' => 'required',
             'product_price' => 'required',
             'stock' => 'required',
             'product_info' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:10000'
+            'image' => 'required'
         ]);
-
+        //dd($request->all());
+        // create first image
         $image = $request->image;
-        if ($image)
+
+        if($request->hasfile('image'))
         {
             $imageName = $image->getClientOriginalName();
-            $image->move('images', $imageName);
-            $formInput['image']=$imageName;
+            $image->move('image', $imageName);
+            $formInput['image'] = $imageName;
         }
-        $categories = Category::all();
+        // create gallery images
+
         Product::create($formInput);
 
-        return redirect('/admin/products');
+
+        return redirect('/admin/products')->with('msg', 'Product created !');
     }
 
     public function editProductForm($id) {
         $products = Product::findOrFail($id);
         $categories = Category::all();
+        $galleries = DB::table('product_images')
+            ->where('product_id', '=', $id)
+            ->get();
+        //dd($id);
 
         $props = DB::table('products_properties')->where('product_id', '=', $id)->get();
 
         //dd($props);
 
-        return view('admin.product.edit', compact('products', 'categories', 'props'));
+        return view('admin.product.edit', compact('products', 'categories', 'props', 'galleries'));
     }
 
 
@@ -69,30 +80,40 @@ class ProductsController extends Controller
         $products = DB::table('products')->where('id', '=', $id)->get();
 
         $productId = $request->id;
-        $product_name = $request->product_name;
-        $category_id = $request->category_id;
-        $product_code = $request->product_code;
-        $product_price = $request->product_price;
+        $productName = $request->product_name;
+        $categoryId = $request->category_id;
+        $productCode = $request->product_code;
+        $productPrice = $request->product_price;
         $stock = $request->stock;
-        $product_info = $request->product_info;
-        $sale_price = $request->sale_price;
+        $productInfo = $request->product_info;
+        $cost = $request->product_info;
+        $soldPrice = $request->sold_price;
+        $image = $request->image;
 
-        /*if($request->new_arrival =='NULL')
+        if($request->new_arrival == null)
+            $new_arrival = null;
+        else
+            $new_arrival = true;
+
+        //upload First Image
+
+        if ($request->file('image'))
         {
-            $new_arrival = '1';
-        }else {
-            $new_arrival = $request->new_arrival;
-        }*/
-        DB::table('products')->where('id', $productId)->update([
-            'product_name' => $product_name,
-            'category_id' => $category_id,
-            'product_code' => $product_code,
-            'product_price' => $product_price,
-            'product_info' => $product_info,
-            'stock' => $stock,
-            'sale_price' => $sale_price,
-            //'new_arrival' => $new_arrival
+            $imageName = $image->getClientOriginalName();
+            $image->move('image', $imageName);
+        }
 
+        DB::table('products')->where('id', $productId)->update([
+            'product_name' => $productName,
+            'category_id' => $categoryId,
+            'product_code' => $productCode,
+            'product_price' => $productPrice,
+            'product_info' => $productInfo,
+            'stock' => $stock,
+            'sold_price' => $soldPrice,
+            'shopping_cost' => $cost,
+            'image' => $imageName,
+            'new_arrival' => $new_arrival
         ]);
 
         return redirect('admin/products')->with(compact('products'));
@@ -102,12 +123,14 @@ class ProductsController extends Controller
     {
         Product::findOrFail($id)->delete();
 
-        return redirect()->back();
+        return back()->with('msg', 'Product removed !');
     }
 
     public function editImage($id)
     {
         $product = Product::findOrFail($id);
+        //dd($id);
+        DB::table('product_images')->where('product_id', '=', $id)->delete();
 
         return view('admin.product.editImage', compact('product'));
     }
@@ -115,19 +138,33 @@ class ProductsController extends Controller
     public function editProductImage(Request $request)
     {
         $productId = $request->id;
+        //dd($productId);
 
-        $image = $request->image;
+        // upload Galleries
+        $images = array();
 
-        if($image)
+        if($files = $request->file('gallery'))
         {
-            $imageName = $image->getClientOriginalName();
-            $image->move('images',$imageName);
-            $formInput['image'] = $imageName;
+            foreach($files as $file)
+            {
+                $name = $file->getClientOriginalName();
+                $file->move('images', $name);
+                $images[] = $name;
+            }
+        }
+        //Insert  data
+        //dd($images);
 
-            DB::table('products')->where('id', $productId)->update(['image' => $imageName]);
+        foreach ($images as $one)
+        {
+            DB::table('product_images')
+                ->updateOrInsert( [
+                    'product_id' => $productId,
+                    'gallery'=>  $one
+                ]);
         }
 
-        return redirect()->back();
+        return redirect('admin/editProductForm/'.$productId)->with('msg', 'Image changed !');
     }
 
     public function addProperty($id)
@@ -143,24 +180,41 @@ class ProductsController extends Controller
         //dd($request->productId);
         $property->product_id = $request->productId;
         $property->size = $request->size;
+        $property->mark = $request->mark;
         $property->color = $request->color;
         $property->save();
 
-        return redirect('admin/products');
+        return redirect('admin/products')->with('msg', 'Property added !');
     }
 
     public function editProperty(Request $request)
     {
         $id = $request->id;
+        $mark = $request->mark;
         $size = $request->size;
         $color = $request->color;
         //dd($id);
 
         DB::table('products_properties')->where('id', $id)->update([
             'size' => $size,
+            'mark' => $mark,
             'color' => $color,
         ]);
 
-        return back();
+        return back()->with('msg', 'Property updated !');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function removeProperty($id)
+    {
+        Products_properties::findOrFail($id)->delete();
+
+        return back()->with('msg', 'Property removed !');
     }
 }

@@ -121,7 +121,7 @@ class CategoriesController extends Controller
         //
         Category::findOrFail($id)->delete();
 
-        return back()->with('msg','Category removedd');
+        return back()->with('msg','Category removed');
     }
 
     /**

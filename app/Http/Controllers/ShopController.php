@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ads;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
@@ -12,6 +13,9 @@ class ShopController extends Controller
     public function index()
     {
         //
+        $ads = Ads::all();
+
+        return view('front/shop', compact('ads'));
     }
     public function advancedSearch(Request $request)
     {

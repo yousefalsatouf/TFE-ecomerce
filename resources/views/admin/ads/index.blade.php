@@ -66,7 +66,7 @@
                                 <td>{{$ad->link}}</td>
                                 {!! Form::open(['method'=>'DELETE', 'action'=> ['AdsController@destroy', $ad->id]]) !!}
                                 <td>
-                                    {!! Form::submit('Delete', ['class'=>'btn btn-outline-danger col-sm-6']) !!}
+                                    {!! Form::submit('Delete', ['class'=>'btn btn-outline-danger']) !!}
                                 </td>
                                 {!! Form::close() !!}
                             </tr>

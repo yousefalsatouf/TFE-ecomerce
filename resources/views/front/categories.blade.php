@@ -8,11 +8,11 @@
                         @php ($categoryName = $cat->name)
                         <div>
                             <input type="hidden">
-                            <img class="first-slide" src="{{url('images/tv.jpg')}}" alt="slide">
+                            <img class="first-slide" src="{{url('images', $cat->image)}}" alt="slide">
                             <div class="container">
                                 <div class="carousel-caption text-center">
                                     <h1>{{strtoupper($cat->name)}}</h1>
-                                    <p>here is some static content will be replaced by other one</p>
+                                    <p>{{$cat->description}}</p>
                                 </div>
                             </div>
                         </div>

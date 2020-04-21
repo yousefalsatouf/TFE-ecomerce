@@ -74,9 +74,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::post('editProduct/{id}', 'ProductsController@editProduct')->name('editProduct');
         Route::get('editImage/{id}', 'ProductsController@editImage')->name('editImage');
         Route::post('editProductImage', 'ProductsController@editProductImage')->name('editProductImage');
+
         Route::get('/addProperty/{id}', 'ProductsController@addProperty')->name('addProperty');
         Route::post('/submitProperty', 'ProductsController@submitProperty')->name('submitProperty');
         Route::post('/editProperty', 'ProductsController@editProperty');
+        Route::delete('/removeProperty/{id}', 'ProductsController@removeProperty');
+
 
         Route::resource('categories','CategoriesController');
         Route::get('editCategoryForm/{id}', 'CategoriesController@editCategoryForm')->name('editCategoryForm');

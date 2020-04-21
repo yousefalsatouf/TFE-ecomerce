@@ -1,25 +1,35 @@
 @extends('admin.master')
 @section('content')
-    <div class="container">
+    <div class="container add-property">
         <div class="row">
-            <div class="col-md-4">
-                <h1>Edit Image</h1>
+            <div>
+                @include('admin.includes.sidenav')
             </div>
-            <div class="col-md-6">
+            <hr>
+            @if(session('msg'))
+                <div class="alert alert-success">{{session('msg')}}</div>
+            @endif
+            <hr>
+            <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                <h2>Edit Image: </h2>
+                <hr>
+                <br>
                 {!! Form::model($product, ['method'=>'post', 'action'=> ['ProductsController@editProductImage', $product->id], 'files'=>true]) !!}
                 <input type="hidden" name="id" class="form-control" value="{{$product->id}}">
-                <input type="text" class="form-control" value="{{$product->product_name}}" readonly="readonly">
+                <div class="form-group">
+                    <label for=''>Related To
+                        <input type="text" class="form-control" value="{{$product->product_name}}" readonly="readonly">
+                    </label>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('gallery', 'Select Galleries') }}
+                    {{ Form::file('gallery[]',array('class' => 'form-control', 'multiple')) }}
+                </div>
                 <br/>
-                <img class="card-img-top img-fluid" src="{{url('images',$product->image)}}" width="150px" alt="Card image cap"/>
-                <br/>
-                Select Image:
-                {{ Form::label('image', 'Image') }}
-                {{ Form::file('image',array('class' => 'form-control')) }}
-                <br/>
-                <a class="btn btn-primary" href="{{url('/admin/products')}}">
+                <a class="btn btn-outline-dark" href="{{url('/admin/products')}}">
                     <i class="fa fa-backward"></i> GO back
                 </a>
-                <input type="submit" value="Upload Image" class="btn btn-success pull-right float-right">
+                <input type="submit" value="Upload Image" class="btn btn-outline-success pull-right float-right">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 {!! Form::close() !!}
             </div>

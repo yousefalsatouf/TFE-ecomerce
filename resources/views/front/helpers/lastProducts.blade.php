@@ -7,6 +7,7 @@
                 <div class="card">
                     <a href="{{url('/product_details')}}/{{$product->id}}">
                         <img src="{{url('images',$product->image)}}" class="images card-img w-100 h-100">
+                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}">@endif
                     </a>
                     <div class="card-body">
                         <h3 class="card-text iphone">{{$product->product_name}}</h3>
@@ -14,11 +15,11 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="card-text text-success"><strong>FREE</strong></p>
                             </div>
-                        @elseif(($product->sale_price != null))
+                        @elseif(($product->sold_price != null))
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
                                 <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                <p class="">{{$product->sale_price}} $</p>
+                                <p class="">{{$product->sold_price}} $</p>
                             </div>
                         @else
                             <div class="d-flex justify-content-between align-items-center">
