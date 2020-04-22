@@ -79,7 +79,7 @@ class HomeController extends Controller
         //dd($products->product_name);
 
         //dd($userId);
-        $reviews = DB::table('reviews')->get();
+        $reviews = DB::table('reviews')->where('product_id', '=', $id)->get();
 
         $images = DB::table('product_images')
             ->where('product_id', '=', $id)
@@ -136,10 +136,10 @@ class HomeController extends Controller
         return back()->with(compact('removed'));
     }
 
-    public function addReview(Request $request, $id)
+    public function addReview(Request $request)
     {
-        $productId = $id;
-        $content = $request->reviewContent;
+        $productId = $request->product_id;
+        $content = $request->review_content;
         $rating = $request->rating;
 
         if (Auth::check())
@@ -161,8 +161,8 @@ class HomeController extends Controller
         }
         else
         {
-            $guestName = $request->clientName;
-            $guestEmail = $request->clientEmail;
+            $guestName = $request->client_name;
+            $guestEmail = $request->client_email;
 
             DB::table('reviews')->insert([
                 'client_name' => $guestName,
@@ -176,7 +176,8 @@ class HomeController extends Controller
         }
 
 
-        return back();
+
+        return back()->with('msg', 'Review added successfully');
     }
 
     public function search(Request $request)

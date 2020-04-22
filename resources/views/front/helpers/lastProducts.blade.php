@@ -7,10 +7,12 @@
                 <div class="card">
                     <a href="{{url('/product_details')}}/{{$product->id}}">
                         <img src="{{url('images',$product->image)}}" class="images card-img w-100 h-100">
-                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}">@endif
                     </a>
                     <div class="card-body">
-                        <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                        <div class="d-flex justify-content-between">
+                            <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                            @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                        </div>
                         @if($product->product_price == 0)
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="card-text text-success"><strong>FREE</strong></p>

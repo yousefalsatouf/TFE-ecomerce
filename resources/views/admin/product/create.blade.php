@@ -22,11 +22,11 @@
                     <div class="panel-body">
                         {!! Form::open(['route' => 'products.store', 'method' => 'post', 'files' => true]) !!}
                         <div class="form-group">
-                            {{ Form::label('Product name', 'Product Name') }}
+                            {{ Form::label('product_name', 'Product Name') }}
                             {{ Form::text('product_name', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Code', 'Product Code') }}
+                            {{ Form::label('product_code', 'Product Code') }}
                             {{ Form::text('product_code', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
@@ -34,11 +34,11 @@
                             {{ Form::text('stock', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('price', 'Price') }}
+                            {{ Form::label('product_price', 'Price') }}
                             {{ Form::text('product_price', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Sold Price', 'Sold Price') }}
+                            {{ Form::label('sold_price', 'Sold Price') }}
                             {{ Form::text('sold_price', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
@@ -54,7 +54,7 @@
                             {{ Form::file('image', array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Description', 'Description') }}
+                            {{ Form::label('product_info', 'Description') }}
                             {{ Form::textarea('product_info', null, array('class' => 'form-control')) }}
                         </div>
                         {{ Form::submit('Submit', array('class' => 'btn btn-outline-success')) }}

@@ -34,6 +34,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'HomeController@shop');
 Route::get('/product_details/{id}', 'HomeController@product_details');
+
 Route::get('/category/list/{name}', 'CategoriesController@list');
 Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -47,7 +48,7 @@ Route::get('/wishlist', 'HomeController@view_wishlist');
 Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
 Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 
-Route::post('/addReview', 'HomeController@addReview');
+Route::post('/addReview', 'HomeController@addReview')->name('addReview');
 
 Route::post('/search', 'HomeController@search');
 Route::post('/advancedSearch', 'ShopController@advancedSearch');

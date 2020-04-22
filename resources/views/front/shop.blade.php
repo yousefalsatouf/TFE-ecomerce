@@ -97,22 +97,21 @@
                                     <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="card-text iphone">{{$product->product_name}}</h3>
-                                    @if($product->product_price == 0)
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-text text-success"><strong>FREE</strong></p>
-                                        </div>
-                                    @elseif(($product->sale_price != null))
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
-                                            <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                            <p class="">{{$product->sale_price}} $</p>
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="">{{$product->product_price}} $</p>
-                                        </div>
-                                    @endif
+                                    <div class="d-flex justify-content-between">
+                                        <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        @if(!$product->product_price)
+                                                <p class="card-text text-success"><strong>FREE</strong></p>
+                                        @elseif(($product->sold_price))
+                                                <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
+                                                <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
+                                                <p class="">{{$product->sold_price}} $</p>
+                                        @else
+                                                <p class="">{{$product->product_price}} $</p>
+                                        @endif
+                                    </div>
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                                         <button class="btn btn-outline-dark btn-sm">
                                             <b>View <i class="fa fa-eye"></i></b>
