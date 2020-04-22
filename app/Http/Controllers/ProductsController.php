@@ -33,14 +33,9 @@ class ProductsController extends Controller
 
         $formInput = $request->except('image');
 
-        $this->validate($request, [
-            'product_name' => 'required',
-            'product_code' => 'required',
-            'product_price' => 'required',
-            'stock' => 'required',
-            'product_info' => 'required',
-            'image' => 'required'
-        ]);
+        if (!$request->product_name || !$request->product_code || !$request->product_price || !$request->stock || !$request->product_info ||!$request->image)
+            return back()->with('error','Fields can not be empty');
+
         //dd($request->all());
         // create first image
         $image = $request->image;
@@ -89,6 +84,9 @@ class ProductsController extends Controller
         $cost = $request->product_info;
         $soldPrice = $request->sold_price;
         $image = $request->image;
+
+        if (!$image)
+            return back()->with('error','image can not be empty');
 
         if($request->new_arrival == null)
             $new_arrival = null;
@@ -176,6 +174,10 @@ class ProductsController extends Controller
 
     public function submitProperty(Request $request)
     {
+        if (!$request->size || !$request->color)
+            return back()->with('error','fields can not be empty');
+
+
         $property = new products_properties;
         //dd($request->productId);
         $property->product_id = $request->productId;

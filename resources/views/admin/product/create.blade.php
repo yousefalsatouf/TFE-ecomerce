@@ -14,7 +14,11 @@
                     </div>
                     <h1>Add New Product</h1>
                     <hr>
+                    <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be fill out</strong>
                     <br>
+                    @if(session('error'))
+                        <div class="alert alert-danger">{{session('error')}}</div>
+                    @endif
                     <div class="panel-body">
                         {!! Form::open(['route' => 'products.store', 'method' => 'post', 'files' => true]) !!}
                         <div class="form-group">

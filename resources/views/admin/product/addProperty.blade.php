@@ -10,9 +10,13 @@
                 <div class="alert alert-success">{{session('msg')}}</div>
             @endif
             <hr>
+            @if(session('error'))
+                <div class="alert alert-danger">{{session('error')}}</div>
+            @endif
             <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                 <h2>Add Properties: </h2>
                 <hr>
+                <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be fill out</strong>
                 <br>
                 {!! Form::model($products, ['method'=>'post', 'action'=> ['ProductsController@submitProperty', $products->id], 'files'=>true]) !!}
                 <label for="productId">

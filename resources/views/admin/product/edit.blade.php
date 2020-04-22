@@ -16,7 +16,11 @@
                     @endif
                     <hr>
                     <br>
+                    @if(session('error'))
+                        <div class="alert alert-danger">{{session('error')}}</div>
+                    @endif
                     {!! Form::model($products, ['method'=>'post', 'action'=> ['ProductsController@editProduct', $products->id], 'files'=>true]) !!}
+                    <strong class="text-warning"><i class="fa fa-warning"></i>Make sure first image fills out</strong>
                     <div class="form-group">
                         <label for="category_id">
                             Category:

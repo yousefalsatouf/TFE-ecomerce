@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             $table->text('product_info');
             $table->string('image');
             $table->integer('new_arrival')->nullable();
-            $table->integer('category_id');
             $table->string('sold_price')->nullable();
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

@@ -9,7 +9,11 @@
                 <div class="col-md-10">
                     <h2>Create Ad</h2>
                     <hr>
+                    <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be fill out</strong>
                     <div class="card card-body py-5">
+                        @if(session('error'))
+                            <div class="alert alert-danger">{{session('error')}}</div>
+                        @endif
                         {!! Form::open(['route' => 'ads.store', 'method' => 'post', 'files'=>true]) !!}
                             <div class="form-group">
                                 {{ Form::label('title', 'Ad Title') }}

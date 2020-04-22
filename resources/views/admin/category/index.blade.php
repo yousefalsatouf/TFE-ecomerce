@@ -9,22 +9,26 @@
                 <div class="col-md-10">
                     <h2>Create Category</h2>
                     <hr>
+                    <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be fill out</strong>
                     <div class="card card-body py-5">
+                        @if(session('error'))
+                            <div class="alert alert-danger">{{session('error')}}</div>
+                        @endif
                         {!! Form::open(['route' => 'categories.store','files' => true, 'method' => 'post']) !!}
                         <div class="form-group">
                             {{ Form::label('name', 'Category Name') }}
                             {{ Form::text('name', null, array('class' => 'form-control')) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('description', 'Category Description') }}
-                            {{ Form::textarea('description', null, array('class' => 'form-control')) }}
-                        </div>
-                        <div class="form-group">
                             Select Image:
                             {{ Form::label('image', 'Image') }}
                             {{ Form::file('image',array('class' => 'form-control')) }}
                         </div>
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="form-group">
+                            {{ Form::label('description', 'Category Description') }}
+                            {{ Form::textarea('description', null, array('class' => 'form-control')) }}
+                        </div>
+
                         <button type="submit" class="btn btn-outline-success">Add Category</button>
                         {!! Form::close() !!}
                     </div>

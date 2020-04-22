@@ -29,6 +29,9 @@ class AdsController extends Controller
         $link = $request->link;
         $image = $request->image;
 
+        if (!$title || !$des || !$image || !$link)
+            return back()->with('error','Fields can not be empty');
+
         //dd($image);
         if($image)
         {

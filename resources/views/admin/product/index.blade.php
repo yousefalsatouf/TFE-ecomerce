@@ -45,7 +45,7 @@
                             <td>{{$product->product_price}} $</td>
                             <td>{{($product->sold_price == null ? 'No sale on this': $product->sold_price.' $')}}</td>
                             <td>{{$product->stock}} </td>
-                            <td>{{$product->shopping_cost}} </td>
+                            <td>{{$product->shopping_cost? $product->shopping_cost : "Free"}} </td>
                             <td>{{$product->new_arrival?"Yes":"No"}}</td>
                             <td>{{ isset($product->name)? $product->name : '' }}</td>
                             <td>

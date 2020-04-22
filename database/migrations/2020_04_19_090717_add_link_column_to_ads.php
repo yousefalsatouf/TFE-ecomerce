@@ -15,7 +15,7 @@ class AddLinkColumnToAds extends Migration
     {
         Schema::table('ads', function (Blueprint $table) {
             //
-            $table->string('link')->nullable();
+            $table->string('link');
         });
     }
 

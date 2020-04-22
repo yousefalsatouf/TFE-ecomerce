@@ -32,11 +32,14 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
         $name = $request->name;
         $des = $request->description;
         $image = $request->image;
 
-        //dd($image);
+        if (!$name || !$des || !$image)
+            return back()->with('error','Fields can not be empty');
+
         if($image)
         {
             $imageName = $image->getClientOriginalName();
@@ -93,6 +96,9 @@ class CategoriesController extends Controller
         $name = $request->name;
         $description = $request->description;
         $image = $request->image;
+
+        if (!$name || !$description || !$image)
+            return back()->with('error','Fields can not be empty');
 
         if($image)
         {

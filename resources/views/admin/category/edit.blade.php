@@ -11,8 +11,11 @@
                         <h3>Edit Category</h3>
                     </div>
                     <hr>
-                    <strong class="text-warning">Sorry, you cannot change category's name because there are might products related to this category;</strong>
+                    <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be full out</strong>
                     <br>
+                    @if(session('error'))
+                        <div class="alert alert-danger">{{session('error')}}</div>
+                    @endif
                     {!! Form::model($category, ['method'=>'post', 'action'=> ['CategoriesController@update', $category->id], 'files'=>true]) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Name:') !!}
@@ -26,7 +29,7 @@
                         Select Image:
                         {{ Form::file('image', ['class' => 'form-control']) }}
                     </div>
-                    {{ Form::submit('Update', array('class' => 'btn btn-success')) }}
+                    {{ Form::submit('Update', array('class' => 'btn btn-outline-success')) }}
                     {!! Form::close() !!}
                 </div>
             </div>

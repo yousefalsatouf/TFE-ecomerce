@@ -84,7 +84,7 @@ class ProfileController extends Controller
         $newPassword = $request->newPassword;
 
         if(!Hash::check($oldPassword, Auth::user()->password))
-            return back()->with('msg','The specified password does not match the database password');
+            return back()->with('error','The specified password does not match the database password');
 
         else
             $request->user()->fill(['password' => Hash::make($newPassword)])->save();
