@@ -80,12 +80,17 @@ class HomeController extends Controller
 
         //dd($userId);
         $reviews = DB::table('reviews')->where('product_id', '=', $id)->get();
+        $ratingSum = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->sum('rating');
+        $ratingCount = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->pluck('rating')->count();
+        $rated =  $ratingSum / $ratingCount;
+
+        //dd($rated);
 
         $images = DB::table('product_images')
             ->where('product_id', '=', $id)
             ->get();
 
-        return view('front/product_details', compact('product', 'reviews', 'wishlistData', 'userId', 'images', 'count'));
+        return view('front/product_details', compact('product', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated'));
     }
 
     public function wishlist(Request $request)
@@ -141,6 +146,8 @@ class HomeController extends Controller
         $productId = $request->product_id;
         $content = $request->review_content;
         $rating = $request->rating;
+
+        //dd($rating);
 
         if (Auth::check())
         {

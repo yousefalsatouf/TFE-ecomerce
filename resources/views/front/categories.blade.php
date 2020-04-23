@@ -5,10 +5,9 @@
             <div class="carousel-inner">
                 @if(isset($category))
                     @foreach($category as $cat)
-                        @php ($categoryName = $cat->name)
+                        @php ($categoryName = $cat->name) @endphp
                         <div>
-                            <input type="hidden">
-                            <img class="first-slide" src="{{url('images', $cat->image)}}" alt="slide">
+                            <img style="height: 45rem" src="{{url('images', $cat->image)}}" alt="slide">
                             <div class="container">
                                 <div class="carousel-caption text-center">
                                     <h1>{{strtoupper($cat->name)}}</h1>
@@ -65,16 +64,32 @@
                                     <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                                    <div class="d-flex justify-content-between">
+                                        <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                                    </div>
+                                    <div class="general-rated">
+                                        @php
+                                            $ratingSum = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->sum('rating');
+                                            $ratingCount = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->pluck('rating')->count();
+                                            $rated =  $ratingSum / $ratingCount;
+                                        @endphp
+                                        @if($rated)
+                                            @for($i=1;$i<=$rated;$i++)
+                                                <i class="fa fa-star"></i>
+                                            @endfor
+                                            <b>({{$rated}}/5)</b>
+                                        @endif
+                                    </div>
                                     @if($product->product_price == 0)
                                         <div class="d-flex justify-content-between align-items-center">
                                             <p class="card-text text-success"><strong>FREE</strong></p>
                                         </div>
-                                    @elseif(($product->sale_price != null))
+                                    @elseif(($product->sold_price))
                                         <div class="d-flex justify-content-between align-items-center">
                                                <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
                                             <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                            <p class="">{{$product->sale_price}} $</p>
+                                            <p class="">{{$product->sold_price}} $</p>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-between align-items-center">

@@ -13,6 +13,20 @@
                             <h3 class="card-text iphone">{{$product->product_name}}</h3>
                             @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
                         </div>
+                        <div class="general-rated">
+                            @php
+                                $ratingSum = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->sum('rating');
+                                $ratingCount = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->pluck('rating')->count();
+                                $rated =  $ratingSum / $ratingCount;
+                            @endphp
+                            @if($rated)
+                                @for($i=1;$i<=$rated;$i++)
+                                    <i class="fa fa-star"></i>
+                                @endfor
+                                <b>({{$rated}}/5)</b>
+                            @endif
+                        </div>
+                        <hr>
                         @if($product->product_price == 0)
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="card-text text-success"><strong>FREE</strong></p>

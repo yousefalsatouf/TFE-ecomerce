@@ -9193,6 +9193,81 @@ a.text-dark:hover {
   max-width: 100%;
 }
 
+#reviews .new {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #38c172;
+}
+
+#reviews .new .form-group label {
+  font-weight: bolder;
+  color: #38c172;
+}
+
+#reviews .new .rating {
+  float: left;
+  width: 250px;
+}
+
+#reviews .new .rating span {
+  float: right;
+  position: relative;
+}
+
+#reviews .new .rating span input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+}
+
+#reviews .new .rating span label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  background: #ccc;
+  font-size: 30px;
+  margin-right: 2px;
+  line-height: 30px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+#reviews .new .rating span:hover ~ span label,
+#reviews .new .rating span:hover label,
+#reviews .new .rating span.checked label,
+#reviews .new .rating span.checked ~ span label {
+  background: #38c172;
+  color: #fff;
+}
+
+#reviews .reviews .head .rated {
+  color: #38c172;
+  margin: auto 2rem;
+}
+
+#reviews .reviews .head .rated i {
+  font-size: 12px;
+  margin: 0;
+}
+
+#reviews .reviews .head img {
+  width: 80px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+#reviews .reviews .head i {
+  font-size: 50px;
+  border-radius: 50%;
+  margin: auto 1rem;
+}
+
+#reviews .reviews .content {
+  margin-left: 2rem;
+}
+
 @media screen and (max-width: 1000px) {
   #wishlist .products .product {
     max-width: 49%;
