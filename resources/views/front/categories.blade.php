@@ -68,11 +68,14 @@
                                         <h3 class="card-text iphone">{{$product->product_name}}</h3>
                                         @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
                                     </div>
-                                    <div class="general-rated">
+                                    <div class="general-rated text-success">
                                         @php
                                             $ratingSum = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->sum('rating');
                                             $ratingCount = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->pluck('rating')->count();
-                                            $rated =  $ratingSum / $ratingCount;
+                                            if ($ratingSum == 0 || $ratingCount == 0)
+                                                $rated = null;
+                                            else
+                                                $rated =  $ratingSum / $ratingCount;
                                         @endphp
                                         @if($rated)
                                             @for($i=1;$i<=$rated;$i++)

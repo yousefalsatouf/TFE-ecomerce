@@ -3,16 +3,20 @@
     <main role="main" id="shop">
         <section class="shop-bg">
             <div>
-                {{--<img src="{{URL::asset('dist/img/watch.jpg')}}" alt="First slide">--}}
+                <img src="{{URL::asset('dist/images/shop/bg-shop.jpg')}}" class="bg" alt="First slide">
                 <div class="container">
                     @foreach($ads as $ad)
                         <div class="text-center ad">
-                            <h1>{{$ad->title}}</h1>
-                            <strong class="text-warning">This is an ad</strong>
-                            <div class="content">
-                                <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
-                                <p>{{$ad->description}}</p>
-                            </div>
+                           <div>
+                               <div>
+                                   <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
+                                   <h1>{{$ad->title}}</h1>
+                               </div>
+                               <div class="content">
+                                   <strong class="text-warning">This is an ad</strong>
+                                   <p>{{$ad->description}}</p>
+                               </div>
+                           </div>
                             <a class="btn btn-outline-info" href={{$ad->link}} role="button">Learn more ...</a>
                         </div>
                     @endforeach
@@ -21,8 +25,7 @@
         </section>
         <hr>
         <br>
-        <section class="last-products-carousel">
-        </section>
+        @include('front.helpers.topProducts')
         <section class="productsSearch container">
             <div class="advanced-search">
                 <h3 class="text-center">Advanced Search: </h3>
@@ -101,14 +104,17 @@
                                         <h3 class="card-text iphone">{{$product->product_name}}</h3>
                                         @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
                                     </div>
-                                    <div class="general-rated">
+                                    <div class="general-rated text-success">
                                         @php
                                             $ratingSum = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->sum('rating');
                                             $ratingCount = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->pluck('rating')->count();
-                                            $rated =  $ratingSum / $ratingCount;
+                                            if ($ratingSum == 0 || $ratingCount == 0)
+                                                $rated = null;
+                                            else
+                                                $rated =  $ratingSum / $ratingCount;
                                         @endphp
                                         @if($rated)
-                                            @for($i=1;$i<=$rated;$i++)
+                                            @for($i=0;$i<$rated;$i++)
                                                 <i class="fa fa-star"></i>
                                             @endfor
                                             <b>({{$rated}}/5)</b>

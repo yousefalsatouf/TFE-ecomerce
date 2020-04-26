@@ -81,7 +81,7 @@ class ProductsController extends Controller
         $productPrice = $request->product_price;
         $stock = $request->stock;
         $productInfo = $request->product_info;
-        $cost = $request->product_info;
+        $cost = $request->shopping_cost;
         $soldPrice = $request->sold_price;
         $image = $request->image;
 

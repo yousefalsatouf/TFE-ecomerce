@@ -45,8 +45,12 @@ class HomeController extends Controller
         $categories = Category::all();
         $ads = Ads::all();
         //dd($lastProducts);
+        $top = DB::table('recommends')
+            ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
+            ->take(5)
+            ->get();
 
-        return view('front.shop', compact(['categories','products', 'lastProducts', 'ads']));
+        return view('front.shop', compact(['categories','products', 'lastProducts', 'ads', 'top']));
     }
 
     public function product_details(Request $request, $id)
@@ -57,11 +61,6 @@ class HomeController extends Controller
 
         if (Auth::check())
         {
-            $recommends = new Recommends;
-            $recommends->user_id = Auth::user()->id;
-            $recommends->product_id = $id;
-            $recommends->save();
-
             //wish list setup ...
             $wishlistData = DB::table('wishlist')
                 ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
@@ -82,8 +81,11 @@ class HomeController extends Controller
         $reviews = DB::table('reviews')->where('product_id', '=', $id)->get();
         $ratingSum = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->sum('rating');
         $ratingCount = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->pluck('rating')->count();
-        $rated =  $ratingSum / $ratingCount;
 
+        if ($ratingSum == 0 || $ratingCount == 0)
+            $rated = null;
+        else
+            $rated =  $ratingSum / $ratingCount;
         //dd($rated);
 
         $images = DB::table('product_images')

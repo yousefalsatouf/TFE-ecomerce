@@ -58,6 +58,7 @@
                                             @if($product->new_arrival)<img src="{{URL::asset('dist/images/home/new.png')}}" alt="..."  style="width:60px">@endif
                                         </div>
                                         <div class="general-rated">
+
                                             @if($rated)
                                                 @for($i=1;$i<=$rated;$i++)
                                                     <i class="fa fa-star"></i>
@@ -83,6 +84,7 @@
                                             @endif
                                         </div>
                                         <p><strong class="text-info">Available</strong> <b class="text-warning">{{$product->stock}}</b> In Stock</p>
+                                        <p><strong class="text-info">Shopping Cost</strong> <b class="text-success">{{!$product->shopping_cost || $product->shopping_cost == 0?"Free":$product->shopping_cost}}</b> $</p>
                                         <hr>
                                         <br>
                                         <div class="controls">

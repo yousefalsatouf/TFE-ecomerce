@@ -24,7 +24,12 @@ class ProfileController extends Controller
     {
         $user_id = Auth::user()->id;
         // $orders=Orders_products::all();
-        $orders = DB::table('orders_product')->leftJoin('products', 'products.id', '=', 'orders_product.product_id')->leftJoin('orders', 'orders.id', '=', 'orders_product.orders_id')->where('orders.user_id', '=', $user_id)->get();
+        $orders = DB::table('orders_product')
+            ->leftJoin('products', 'products.id', '=', 'orders_product.product_id')
+            ->leftJoin('orders', 'orders.id', '=', 'orders_product.orders_id')
+            ->where('orders.user_id', '=', $user_id)
+            ->get();
+
         return view('user.orders', compact('orders'));
     }
 

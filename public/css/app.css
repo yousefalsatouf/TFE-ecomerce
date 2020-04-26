@@ -8883,12 +8883,29 @@ a.text-dark:hover {
 
   #shop img {
     max-width: 100%;
-    max-height: 50rem;
+  }
+
+  #shop .shop-bg .bg {
+    height: 40rem;
   }
 
   #shop .shop-bg .container {
     background-color: #CCCCC6;
     padding: 1rem;
+  }
+
+  #shop .shop-bg .container .ad div:first-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  #shop .top-products .articles {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #shop .top-products .articles .card {
+    width: 24%;
   }
 
   #shop .last-carousel {
@@ -8935,11 +8952,6 @@ a.text-dark:hover {
 }
 
 @media screen and (min-width: 1200px) {
-  #shop {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   #shop h2,
   #shop h6 {
     color: #38c172;

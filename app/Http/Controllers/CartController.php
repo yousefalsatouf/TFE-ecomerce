@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class CartController extends Controller
@@ -19,6 +21,13 @@ class CartController extends Controller
     public function addItem(Request $request, $id)
     {
         $product = Product::find($id);
+
+        if (Auth::check())
+            DB::table('recommends')
+                ->updateOrInsert(
+                    ['user_id' => Auth::user()->id],
+                    ['product_id' => $id]
+                );
 
         if(isset($request->newPrice))
             $price = $request->newPrice;

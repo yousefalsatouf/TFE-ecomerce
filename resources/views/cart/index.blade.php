@@ -176,12 +176,12 @@
                                </div>
                                <div>
                                    <a href="{{url('/shop')}}" class="text-dark">
-                                       <button class="btn btn-success">
+                                       <button class="btn btn-outline-dark">
                                            <b><i class="fa fa-backward"></i> Add More From Shop</b>
                                        </button>
                                    </a>
                                    <a href="{{url('/checkout')}}" class="text-dark">
-                                       <button class="btn btn-info float-right">
+                                       <button class="btn btn-outline-success float-right">
                                            <b>Checkout <i class="fa fa-eye"></i></b>
                                        </button>
                                    </a>

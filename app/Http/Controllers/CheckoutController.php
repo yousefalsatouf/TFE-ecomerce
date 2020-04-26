@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\user_infos;
+use App\User;
 use App\orders;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class CheckoutController extends Controller
+class   CheckoutController extends Controller
 {
     //
     public function index()
@@ -37,24 +38,30 @@ class CheckoutController extends Controller
             'street_number' => 'required|numeric',
         ]);
         //dd($request->all());
-        $userId = Auth::user()->id;
-        $userEmail = Auth::user()->email;
 
-        $userInfos = new user_infos;
+        $firstName = $request->first_name;
+        $lastName = $request->last_name;
+        $phoneNumber = $request->phone_number;
+        $state = $request->state;
+        $city = $request->city;
+        $postal_code = $request->postal_code;
+        $street = $request->street;
+        $street_number = $request->street_number;
+        $payment_type = $request->pay;
 
-        $userInfos->first_name = $request->first_name;
-        $userInfos->last_name = $request->last_name;
-        $userInfos->phone_number = $request->phone_number;
-        $userInfos->state = $request->state;
-        $userInfos->city = $request->city;
-        $userInfos->postal_code = $request->postal_code;
-        $userInfos->street = $request->street;
-        $userInfos->street_number = $request->street_number;
-        $userInfos->payment_type = $request->pay;
-        $userInfos->user_id = $userId;
-        $userInfos->user_email = $userEmail;
-
-        $userInfos->save();
+        DB::table('users')
+            ->where('id', '=', Auth::user()->id)
+            ->update([
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'phone_number' => $phoneNumber,
+                'state' => $state,
+                'city' => $city,
+                'postal_code' => $postal_code,
+                'street' => $street,
+                'street_number' => $street_number,
+                'payment_type' => $payment_type
+                ]);
 
         return back();
     }
@@ -62,6 +69,7 @@ class CheckoutController extends Controller
     public function finishOrder()
     {
         orders::createOrder();
+
         Cart::destroy();
 
         return redirect('/finish');

@@ -86,14 +86,37 @@
         img
         {
             max-width: 100%;
-            max-height: 50rem;
         }
         .shop-bg
         {
+            .bg
+            {
+                height: 40rem;
+            }
             .container
             {
                 background-color: #CCCCC6;
                 padding: 1rem;
+                .ad
+                {
+                    div:first-child
+                    {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .top-products
+        {
+            .articles
+            {
+                display: flex;
+                justify-content: space-between;
+                .card
+                {
+                    width: 24%;
+                }
             }
         }
         .last-carousel
@@ -167,8 +190,6 @@
 {
     #shop
     {
-        display: flex;
-        flex-wrap: wrap;
         h2, h6
         {
             color: $green;
@@ -181,6 +202,10 @@
         {
             width: 100%;
             padding-bottom: 1rem;
+            img
+            {
+
+            }
             .container
             {
                 background-color: $black;
