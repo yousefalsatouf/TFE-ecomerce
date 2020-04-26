@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '585117960507-k853jl9rqc2ere828tvrdivl3oipcvvg.apps.googleusercontent.com',
+        'client_secret' => 'Hsn3RYJMtSFKdpQmJCOCi7uS',
+        'redirect' => 'http://learnl52.hd/auth/google/callback',
+    ],
+
 ];

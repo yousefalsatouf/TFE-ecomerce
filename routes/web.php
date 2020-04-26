@@ -54,6 +54,13 @@ Route::post('/search', 'HomeController@search');
 Route::post('/advancedSearch', 'ShopController@advancedSearch');
 Route::post('/searchSingleCategory', 'CategoriesController@searchSingleCategory');
 
+Route::get('google', function () {
+    return view('googleAuth');
+});
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()
     {

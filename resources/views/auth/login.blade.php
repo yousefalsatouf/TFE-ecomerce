@@ -58,6 +58,13 @@
                                 @endif
                             </div>
                         </div>
+                        <hr>
+                        <br>
+                        <div class="col-md-12 row-block">
+                            <a href="{{ url('auth/google') }}" class="btn btn-lg btn-outline-success btn-block">
+                                <strong>Login With Google</strong>
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
