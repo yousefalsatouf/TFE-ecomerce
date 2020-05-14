@@ -3,20 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
     //
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -24,6 +15,25 @@ class ContactController extends Controller
      */
     public function contact()
     {
-        return view('front.contact');
+        $locations = DB::table('locations')->get();
+
+        return view('front.contact', compact('locations'));
+    }
+
+    public function submitForm(Request $request)
+    {
+        $name = $request->name;
+        $email = $request->email;
+        $sub = $request->sub;
+        $msg = $request->message;
+
+        DB::table('inbox')->insert([
+            'name' => $name,
+            'email' => $email,
+            'sub' => $sub,
+            'message' => $msg,
+        ]);
+
+        return back()->with('msg', 'Email sent successfully, we will contact you as soon as we can.');
     }
 }

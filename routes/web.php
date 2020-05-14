@@ -25,18 +25,15 @@ Route::get('/about', function () {
     return view('front/about');
 });
 
-Route::get('/contact', function () {
-    return view('front/contact');
-});
-
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'HomeController@shop');
+Route::get('/contact', 'ContactController@contact');
+Route::post('/submitForm', 'ContactController@submitForm');
 Route::get('/product_details/{id}', 'HomeController@product_details');
 
 Route::get('/category/list/{name}', 'CategoriesController@list');
-Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/cart', 'CartController@index');
@@ -69,8 +66,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
             return view('admin.index');
         })->name('admin.index');
 
+
         Route::POST('/admin/store', 'AdminController@store');
-        Route::get('/admin', 'AdminController@index');
+        Route::get('/inbox', 'AdminController@inbox');
+        Route::get('/inbox/{id}', 'AdminController@readMessage');
+        Route::delete('/inbox/deleteAll', 'AdminController@clearAllMessages');
+        Route::delete('/inbox/delete/{id}', 'AdminController@clearMessage');
 
         Route::resource('users', 'UsersController');
         Route::get('findUser/{id}', 'UsersController@findUser')->name('findUser');

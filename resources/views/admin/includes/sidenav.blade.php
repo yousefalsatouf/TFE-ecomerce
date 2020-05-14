@@ -12,6 +12,16 @@
         <li class="nav-item">
             <a class="nav-link" href="{{url('/user')}}"><i class="fa fa-user"></i> Profile</a>
         </li>
+        @if(Auth::check() && (Auth::user()->isAdmin()))
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/inbox')}}">
+                    <i class="fa fa-inbox"></i> Inbox
+                    @php
+                        $countUnreadMessages = DB::table('inbox')->whereNull('is_read')->count();
+                    @endphp
+                    <b class="text-danger">{{$countUnreadMessages > 0? '( '.$countUnreadMessages.' )': ''}} </b></a>
+            </li>
+        @endif
         <li class="nav-item">
             <p class="nav-link active"><b>Manage</b></p>
         </li>
