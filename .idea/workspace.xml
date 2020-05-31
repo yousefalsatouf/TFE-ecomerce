@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dfddda3-9d02-4d89-a53b-ad4b44969e5b" name="Default Changelist" comment="" />
+    <list default="true" id="3dfddda3-9d02-4d89-a53b-ad4b44969e5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/sass/helpers/.sass-cache/d993c5915b2e206ec1d1ad3d69e17d66018efd38/menu.scssc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/helpers/.sass-cache/d993c5915b2e206ec1d1ad3d69e17d66018efd38/sidebar.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/0970962364f0139e9644e7c7d361db5db6781888/profile.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/.sass-cache/0970962364f0139e9644e7c7d361db5db6781888/profile.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/helpers/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/helpers/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/profile.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +194,8 @@
       <workItem from="1589401572822" duration="16147000" />
       <workItem from="1590058178891" duration="971000" />
       <workItem from="1590496801307" duration="1540000" />
-      <workItem from="1590766610553" duration="15293000" />
+      <workItem from="1590766610553" duration="15393000" />
+      <workItem from="1590953864079" duration="712000" />
     </task>
     <servers />
   </component>
