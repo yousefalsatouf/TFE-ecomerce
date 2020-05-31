@@ -31,9 +31,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => '585117960507-k853jl9rqc2ere828tvrdivl3oipcvvg.apps.googleusercontent.com',
-        'client_secret' => 'Hsn3RYJMtSFKdpQmJCOCi7uS',
-        'redirect' => 'http://learnl52.hd/auth/google/callback',
+        'client_id' => '308653350627-5soi0aqkvcn7c5m1e2l1v3t88120ik0v.apps.googleusercontent.com',
+        'client_secret' => 'zDas3ZaBuOlEi1QI-dMGVY0N',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
     ],
 
 ];

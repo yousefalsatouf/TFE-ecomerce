@@ -4,6 +4,11 @@
         @include('front/helpers/slider')
         @include('front/helpers/lastProducts')
         @include('front/helpers/categoriesList')
+
+        <li><a href="{{ url('locale/en') }}" ><i class="fa fa-language"></i> EN</a></li>
+
+        <li><a href="{{ url('locale/fr') }}" ><i class="fa fa-language"></i> FR</a></li>
+        <h1>{{ __('messages.welcome') }}</h1>
         <section class="quick-access">
             <div class="articles container">
                 <div class="col-lg-4">

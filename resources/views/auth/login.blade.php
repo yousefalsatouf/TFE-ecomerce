@@ -61,8 +61,8 @@
                         <hr>
                         <br>
                         <div class="col-md-12 row-block">
-                            <a href="{{ url('auth/google') }}" class="btn btn-lg btn-outline-success btn-block">
-                                <strong>Login With Google</strong>
+                            <a href="{{ url('auth/google') }}" class="btn btn-outline-danger">
+                                <strong>Login With Google </strong>
                             </a>
                         </div>
                     </form>
