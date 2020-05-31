@@ -1,0 +1,59 @@
+@media screen and (max-width: $break-small)
+{
+    #cart_items\ profile
+    {
+        .user-info {
+            .card-body {
+                ul {
+                    li {
+                        width: 49%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#cart_items\ profile
+{
+    margin-bottom: 12rem;
+    .user-info
+    {
+        margin: 5rem auto;
+        .card-header
+        {
+            display: flex;
+            i
+            {
+                font-size: 35px;
+                width: 20%;
+            }
+        }
+        .card-body
+        {
+            ul
+            {
+                list-style-type: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                @media screen and (min-width: $break-small)
+                {
+                    li
+                    {
+                        width: 32%;
+                    }
+                }
+                li
+                {
+                    border-left: 1px solid $green;
+                    padding: 1%;
+                    p
+                    {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

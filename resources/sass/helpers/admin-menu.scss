@@ -1,0 +1,80 @@
+@media screen and (max-width: $break-small)
+{
+    #admin-menu {
+        nav {
+            .menu {
+                ul {
+                    justify-content: space-evenly;
+                }
+            }
+        }
+    }
+}
+#admin-menu
+{
+    font-family: $font-family-sans-serif;
+    nav
+    {
+        background-color: $main-bg;
+        display: flex;
+        .menu
+        {
+            width: 80%;
+            ul
+            {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+        >a:first-child
+        {
+            color: $green;
+            font-weight: bolder;
+        }
+        div
+        {
+            ul li a
+            {
+                color: $white;
+                &:hover
+                {
+                    color: $green;
+                }
+            }
+        }
+    }
+
+}
+
+#admin
+{
+    font-family: $font-family-sans-serif;
+    h1, h4
+    {
+        color: $green;
+    }
+    .sidebar
+    {
+        background-color: $black;
+        padding: 0;
+        .active
+        {
+            background-color: $green;
+            color: $black;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+        a
+        {
+            color: $green;
+            &:hover
+            {
+                color: $black;
+            }
+        }
+    }
+    #admin-content
+    {
+        background-color: $black;
+    }
+}

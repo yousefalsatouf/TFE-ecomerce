@@ -1,0 +1,290 @@
+@media screen and (max-width: $break-small)
+{
+    #shop
+    {
+        h2
+        {
+            color: $green;
+        }
+        img
+        {
+            max-width: 100%;
+        }
+        .shop-bg
+        {
+            .container
+            {
+                background-color: #CCCCC6;
+                padding: 1rem;
+            }
+        }
+        .advanced-search
+        {
+            margin: 1rem auto;
+            .search
+            {
+                .search-input
+                {
+                    form
+                    {
+                        div
+                        {
+                            width: 100%;
+                            label, input
+                            {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                .search-specific
+                {
+                    .search-area
+                    {
+                        form
+                        {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-around;
+                            div
+                            {
+                                width: 50%;
+                                *{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .products
+        {
+            .container
+            {
+                div
+                {
+                    .card
+                    {
+                        width: 45%;
+                        margin: 1rem auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-medium)
+{
+    #shop
+    {
+        h2, h6
+        {
+            color: $green;
+        }
+        img
+        {
+            max-width: 100%;
+        }
+        .shop-bg
+        {
+            .bg
+            {
+                height: 40rem;
+            }
+            .container
+            {
+                background-color: #CCCCC6;
+                padding: 1rem;
+                .ad
+                {
+                    div:first-child
+                    {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .top-products
+        {
+            .articles
+            {
+                display: flex;
+                justify-content: space-between;
+                .card
+                {
+                    width: 24%;
+                }
+            }
+        }
+        .last-carousel
+        {
+            width: 100%;
+            margin: 1rem auto;
+            .carousel-inner
+            {
+                display: flex;
+            }
+        }
+        .advanced-search
+        {
+            margin: 1rem auto;
+            .search
+            {
+                .search-input
+                {
+                    form
+                    {
+                        div
+                        {
+                            width: 100%;
+                            label, input
+                            {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .search-specific
+            {
+                .search-area
+                {
+                    form
+                    {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                        div
+                        {
+                            width: 30%;
+                            *{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .products
+        {
+            .container
+            {
+                div
+                {
+                    .card
+                    {
+                        width: 30%;
+                        margin: 1rem auto;
+                        border: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-large)
+{
+    #shop
+    {
+        h2, h6
+        {
+            color: $green;
+        }
+        img
+        {
+            width: 100%;
+        }
+        .shop-bg
+        {
+            width: 100%;
+            padding-bottom: 1rem;
+            img
+            {
+
+            }
+            .container
+            {
+                background-color: $black;
+                padding: 2rem auto;
+                div
+                {
+                    h1
+                    {
+                        color: $green;
+                    }
+                    p
+                    {
+                        color: $white;
+                    }
+                }
+                div *
+                {
+                    margin: 1rem;
+                }
+            }
+        }
+        .productsSearch
+        {
+            display: flex;
+            .advanced-search
+            {
+                width: 25%;
+                padding: 1%;
+                margin: 1rem auto;
+                border-right: 1px solid $green;
+                .container
+                {
+                    div
+                    {
+                        min-width: 100%;
+                    }
+                }
+            }
+            .products
+            {
+                width: 73%;
+                padding: 1%;
+                margin: 1rem auto;
+                .container
+                {
+                    div
+                    {
+                        justify-content: space-around;
+                        .card
+                        {
+                            width: 28%;
+                            margin: 1rem auto;
+                            transition: all 0.5s;
+                            border: 0;
+                            a
+                            {
+                                transition: all 0.5s;
+                                &:hover
+                                {
+                                    transform: scale(1.1);
+                                }
+                            }
+                            /*.card-body
+                            {
+                                &:hover
+                                {
+                                        position: absolute;
+                                        background-color: $black;
+                                        transform: translate(0px) scale(1);
+                                        width: 100%;
+                                        height: 100%;
+                                        display: none;
+                                }
+                            }*/
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

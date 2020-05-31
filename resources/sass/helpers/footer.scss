@@ -1,0 +1,56 @@
+#footer
+{
+    font-family: $font-family-sans-serif;
+    @media screen and (max-width: $break-small)
+    {
+        .toggle-menu, .large-screen
+        {
+            display: none;
+        }
+    }
+    @media screen and (max-width: $break-large)
+    {
+        .toggle-menu, .large-screen
+        {
+            display: none;
+        }
+    }
+    @media screen and (min-width: $break-large)
+    {
+        .toggle-menu
+        {
+            display: none;
+        }
+
+        b
+        {
+            max-width: 25%;
+        }
+    }
+    .bottom
+    {
+        display: flex;
+        justify-content: space-between;
+        background-color: $black;
+        color: $white;
+        b
+        {
+            margin: 1rem auto;
+        }
+        #header-menu
+        {
+            .logo, .search, .user, .cart
+            {
+                display: none;
+            }
+            a
+            {
+                color: $white;
+                &:hover
+                {
+                    color: $green;
+                }
+            }
+        }
+    }
+}

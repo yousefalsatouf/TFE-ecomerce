@@ -1,0 +1,39 @@
+.accordion
+{
+    .card
+    {
+        border: none;
+        margin-bottom: 2px;
+    }
+    .card-header
+    {
+        background: #21c2a2;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        h2
+        {
+            color: #fff;
+            font-size: 1rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            span
+            {
+                float: left;
+                margin-top: 10px;
+                font-weight: bolder;
+                font-size: 1rem;
+            }
+        }
+        button
+        {
+            color: #fff;
+            font-size: 1.3rem;
+            line-height: 1.3rem;
+            float: right;
+        }
+        button:hover
+        {
+            color: #23384e;
+        }
+    }
+}

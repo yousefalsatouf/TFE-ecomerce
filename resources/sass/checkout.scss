@@ -1,0 +1,146 @@
+@media screen and (max-width: $break-small)
+{
+    .address {
+        .user-info {
+            .card-body {
+                ul {
+                    li {
+                        width: 49%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#checkout
+{
+    h1, h2, h3, h4, h5
+    {
+        font-family: $font-family-sans-serif;
+        color: $green;
+    }
+    section
+    {
+        .quick-access
+        {
+            background-color: $green;
+            ol
+            {
+                display: flex;
+                list-style: none;
+                justify-content: space-evenly;
+                font-size: 18px;
+                font-weight: bolder;
+                a
+                {
+                    color: $black;
+                    &:hover
+                    {
+                        color: $green;
+                    }
+                }
+                .active
+                {
+                    color: $green;
+                }
+            }
+        }
+
+    }
+    section.head
+    {
+        .row
+        {
+            div
+            {
+                margin: 1rem;
+            }
+        }
+    }
+    .checkout
+    {
+        .quick-checkout
+        {
+            background-color: $black;
+            ul
+            {
+                padding-top: 2%;
+                margin-left: 1rem;
+                li
+                {
+                    color: $green;
+                    margin: auto 1rem;
+                    i
+                    {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+        .delivery
+        {
+            div
+            {
+                display: flex;
+                i
+                {
+                    font-size: 35px;
+                    color: $green;
+                    width: 20%;
+                }
+            }
+        }
+    }
+    .address
+    {
+        .user-info
+        {
+            margin: 2rem auto;
+            .card-header
+            {
+                display: flex;
+                i
+                {
+                    font-size: 35px;
+                    width: 20%;
+                }
+            }
+            .card-body
+            {
+                ul
+                {
+                    list-style-type: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    @media screen and (min-width: $break-small)
+                    {
+                        li
+                        {
+                            width: 19%;
+                        }
+                    }
+                    li
+                    {
+                        border-left: 1px solid $green;
+                        padding: 1%;
+                        p
+                        {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        form
+        {
+            label
+            {
+                font-weight: bolder;
+                font-size: 18px;
+                color: $green;
+            }
+        }
+    }
+}

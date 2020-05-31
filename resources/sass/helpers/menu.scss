@@ -1,0 +1,149 @@
+@media screen and (max-width: $break-small)
+{
+    #header
+    {
+        #header-menu
+        {
+            background-color: $main-bg;
+            font-family: $font-family-sans-serif;
+            a
+            {
+                color: $white;
+            }
+            a:hover
+            {
+                color: $green;
+            }
+            .logo
+            {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+            }
+            .large-screen
+            {
+                display: none;
+            }
+            .toggle-menu
+            {
+                margin: 1rem auto;
+                div
+                {
+                    width: 100%;
+                }
+                button
+                {
+                    background-color: transparent;
+                    border: 0;
+                    color: $green;
+                    width: 100%;
+                    font-weight: bolder;
+                    font-size: 20px;
+                    i
+                    {
+                        width: 100%;
+                        color: $green;
+                    }
+                }
+                div
+                {
+                    background-color: $black;
+                }
+            }
+            .search
+            {
+                margin: auto;
+                div
+                {
+                    margin: auto;
+                    flex-wrap: wrap;
+                    button, label
+                    {
+                        margin: 0.5rem;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-medium)
+{
+    #header
+    {
+        #header-menu
+        {
+            background-color: $main-bg;
+            font-family: $font-family-sans-serif;
+            .toggle-menu
+            {
+                display: none;
+            }
+            .large-screen
+            {
+                width: 100%;
+                .content
+                {
+                    width: 95%;
+                    margin: auto;
+                    ul
+                    {
+                        justify-content: space-around;
+                        flex-direction: row;
+                    }
+                }
+            }
+            a
+            {
+                color: $white;
+            }
+            a:hover
+            {
+                color: $green;
+            }
+            .logo
+            {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+            }
+            .search
+            {
+                margin: auto;
+                div
+                {
+                    margin: auto;
+                    button, label
+                    {
+                        margin: 0.5rem;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-large)
+{
+    .logo
+    {
+        max-width: 20%;
+    }
+    .large-screen
+    {
+        max-width: 40%;
+        ul
+        {
+            justify-content: space-between;
+        }
+    }
+    .search
+    {
+        max-width: 30%;
+    }
+}
+

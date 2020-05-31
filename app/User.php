@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'image', 'email', 'password', 'first_name', 'last_name', 'phone_number', 'state', 'city', 'street', 'street_number', 'postal_code', 'payment_type', 'admin', 'google_id'
     ];
 
     /**
@@ -36,4 +36,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        return $this->admin;
+    }
+
+    public function isActor()
+    {
+        return $this->actor;
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(orders::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

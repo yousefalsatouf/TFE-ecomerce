@@ -1,8 +1,71 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// google fonts
+@import "https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap";
 
-// Variables
-@import 'variables';
+// font awesome
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Variables
+@import 'helpers/variables';
+
+// header
+@import "helpers/menu";
+
+// footer
+@import "helpers/footer";
+
+// slider
+@import "helpers/slider";
+
+// Home
+@import "home";
+
+// Shop
+@import "shop";
+
+// Single category
+@import "categories";
+
+// product details
+@import "productDetails";
+
+//wishlist
+@import "wishlist";
+
+// Login
+@import "login";
+
+// Register
+@import "register";
+
+//Menu Auth
+@import "helpers/navAuth";
+
+//reset Password
+@import "helpers/reset-password";
+
+//admin menu
+@import "helpers/admin-menu";
+
+//Dashboard
+@import "dashboard";
+
+//admin
+@import "admin";
+
+//Cart
+@import "cart";
+
+//checkout
+@import "checkout";
+
+//general
+@import "general";
+
+// quick Menu
+@import "helpers/quickMenu";
+
+//profile
+@import "profile";

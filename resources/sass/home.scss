@@ -1,0 +1,264 @@
+@media screen and (max-width: $break-small)
+{
+    #home
+    {
+        h2
+        {
+            color: $green;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid $green;
+        }
+        .articles
+        {
+            display: flex;
+            flex-wrap: wrap;
+            .card
+            {
+                width: 49%;
+            }
+        }
+        .see-more
+        {
+            margin: 1rem;
+            font-size: 25px;
+        }
+        .quick-access
+        {
+            background-color: $green;
+            .articles
+            {
+                div
+                {
+                    text-align: center;
+                    margin: 1rem auto;
+                    h2
+                    {
+                        color: $black;
+                    }
+                    i
+                    {
+                        font-size: 5rem;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-small) and (max-width: $break-medium + 450px)
+{
+    #home
+    {
+        h2
+        {
+            color: $green;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid $green;
+        }
+        .articles
+        {
+            display: flex;
+            flex-wrap: wrap;
+            .card
+            {
+                width: 32%;
+            }
+        }
+        .see-more
+        {
+            margin: 1rem;
+            font-size: 25px;
+            width: 100%;
+        }
+        .quick-access
+        {
+            background-color: $green;
+            .articles
+            {
+                div
+                {
+                    text-align: center;
+                    h2
+                    {
+                        color: $black;
+                    }
+                    i
+                    {
+                        font-size: 5rem;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $break-large)
+{
+    #home
+    {
+        h2
+        {
+            color: $green;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid $green;
+        }
+        .last-products
+        {
+            .container
+            {
+                margin: 1rem auto;
+                .articles
+                {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    justify-items: center;
+                    margin: 3rem auto;
+                    .card
+                    {
+                        width: 24%;
+                        transition: all 0.5s;
+                        img
+                        {
+                            width: 100%;
+                        }
+                        &:hover
+                        {
+                            transform: scale(0.9);
+                            border: 0;
+                        }
+                    }
+                    .see-more
+                    {
+                        margin: 1rem auto;
+                        width: 100%;
+                        a.last
+                        {
+                            transition: all 0.5s;
+                            font-weight: bolder;
+                            width: 100%;
+                            button
+                            {
+                                transition: all 0.5s;
+                                .fa-backward
+                                {
+                                    display: none;
+                                }
+                            }
+                            &:hover
+                            {
+                                button
+                                {
+                                    min-width: 30%;
+                                    .fa-forward
+                                    {
+                                        display: none;
+                                    }
+                                    .fa-backward
+                                    {
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        .categories-list
+        {
+            .container
+            {
+                margin: 1rem auto;
+                .articles
+                {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    justify-items: center;
+                    margin: 3rem auto;
+                    .card
+                    {
+                        width: 32%;
+                        margin: 1rem auto;
+                        border: 0;
+                        img
+                        {
+                            width: 100%;
+                        }
+                        a
+                        {
+                            text-align: center;
+                            button
+                            {
+                                width: 100%;
+                                height: 3rem;
+                                border-radius: 0;
+                                color: $white;
+                                transition: all 0.5s;
+                                &:hover
+                                {
+                                    width: 90%;
+                                    height: 2rem;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        .quick-access
+        {
+            background-color: $green;
+            div:not(.articles)
+            {
+                margin: 1rem auto;
+                color: gray;
+            }
+            .articles
+            {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
+                padding-top: 0.5rem;
+                div.col-lg-4
+                {
+                    text-align: center;
+                    transition: all 0.5s;
+                    &:hover
+                    {
+                        border-top: 1px solid $black;
+                    }
+                    h2
+                    {
+                        color: $black;
+                    }
+                    a
+                    {
+                        font-size: 10px;
+                    }
+                    i
+                    {
+                        font-size: 5rem;
+                        color: $black;
+                    }
+                    b
+                    {
+                        font-size: 2rem;
+                    }
+                    p
+                    {
+                        color: $black;
+                        font-size: 18px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
