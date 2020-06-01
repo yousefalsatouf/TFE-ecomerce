@@ -41,16 +41,18 @@ class HomeController extends Controller
     public function shop()
     {
         $lastProducts = Product::all()->take(10);
-        $products = Product::all();
+        $products = Product::Paginate(9);;
         $categories = Category::all();
         $ads = Ads::all();
         //dd($lastProducts);
-        $top = DB::table('recommends')
+        $recommends = DB::table('recommends')
             ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
             ->take(5)
             ->get();
 
-        return view('front.shop', compact(['categories','products', 'lastProducts', 'ads', 'top']));
+        //dd($top);
+
+        return view('front.shop', compact(['categories','products', 'lastProducts','ads', 'recommends']));
     }
 
     public function product_details(Request $request, $id)
@@ -193,11 +195,17 @@ class HomeController extends Controller
     {
         $result = $request->search;
         $products = DB::table('products')->where('product_name', 'like', '%'.$result.'%')->paginate(2);
+        $ads = Ads::all();
+        //dd($lastProducts);
+        $recommends = DB::table('recommends')
+            ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
+            ->take(5)
+            ->get();
 
         if ($request == '')
             return view('front.shop');
         else
-            return view('front.shop', ['msg' => 'Result: '.$result], compact('products'));
+            return view('front.shop', ['msg' => 'Result: '.$result], compact('products', 'ads', 'recommends'));
 
     }
 }

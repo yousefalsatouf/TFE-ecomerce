@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dfddda3-9d02-4d89-a53b-ad4b44969e5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/sass/helpers/.sass-cache/d993c5915b2e206ec1d1ad3d69e17d66018efd38/menu.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/helpers/.sass-cache/d993c5915b2e206ec1d1ad3d69e17d66018efd38/sidebar.scssc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/suits.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/ties.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/suits - Copy (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/suits - Copy (3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/suits - Copy.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/.sass-cache/0970962364f0139e9644e7c7d361db5db6781888/profile.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/.sass-cache/0970962364f0139e9644e7c7d361db5db6781888/profile.scssc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/helpers/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/helpers/menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/helpers/topProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/helpers/topProducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/shop.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +199,8 @@
       <workItem from="1590058178891" duration="971000" />
       <workItem from="1590496801307" duration="1540000" />
       <workItem from="1590766610553" duration="15393000" />
-      <workItem from="1590953864079" duration="712000" />
+      <workItem from="1590953864079" duration="847000" />
+      <workItem from="1591005428311" duration="5413000" />
     </task>
     <servers />
   </component>

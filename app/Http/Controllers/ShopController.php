@@ -23,6 +23,11 @@ class ShopController extends Controller
         $maxPrice = $request->maxPrice;
         $onSold = $request->onSold;
 
+        $ads = Ads::all();
+        $recommends = DB::table('recommends')
+            ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
+            ->take(5)
+            ->get();
         //dd($onSale);
        if ($category && $maxPrice && $onSold)
            $products = DB::table('products')
@@ -49,6 +54,6 @@ class ShopController extends Controller
        else
            $products = Product::all();
 
-        return view('front/shop', compact('products'));
+        return view('front/shop', compact('products', 'ads', 'recommends'));
     }
 }

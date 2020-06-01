@@ -3,7 +3,7 @@
         <h2>Products recommend for you ...</h2>
         <br>
         <div class="articles">
-            @foreach($top as $product)
+            @foreach($recommends as $product)
                 <div class="card">
                     <a href="{{url('/product_details')}}/{{$product->id}}">
                         <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">

@@ -7,16 +7,16 @@
                 <div class="container">
                     @foreach($ads as $ad)
                         <div class="text-center ad">
-                           <div>
-                               <div>
-                                   <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
-                                   <h1>{{$ad->title}}</h1>
-                               </div>
-                               <div class="content">
-                                   <strong class="text-warning">This is an ad</strong>
-                                   <p>{{$ad->description}}</p>
-                               </div>
-                           </div>
+                            <div>
+                                <div>
+                                    <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
+                                    <h1>{{$ad->title}}</h1>
+                                </div>
+                                <div class="content">
+                                    <strong class="text-warning">This is an ad</strong>
+                                    <p>{{$ad->description}}</p>
+                                </div>
+                            </div>
                             <a class="btn btn-outline-info" href={{$ad->link}} role="button">Learn more ...</a>
                         </div>
                     @endforeach
@@ -155,6 +155,7 @@
                             </div>
                         @endforelse
                     </div>
+                    {{$products}}
                 </div>
             </div>
         </section>
