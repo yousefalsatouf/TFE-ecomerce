@@ -35,24 +35,24 @@ class ShopController extends Controller
                ->where('products.product_price', '<', $maxPrice)
                ->where('categories.name', 'like', '%'.$category.'%')
                ->whereNotNull('sale_price')
-               ->get();
+               ->paginate(12);
        elseif ($category)
            $products = DB::table('products')
                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                ->where('categories.name', 'like', '%'.$category.'%')
-               ->get();
+               ->paginate(12);
        elseif ($maxPrice)
            $products = DB::table('products')
                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                ->where('products.product_price', '<', $maxPrice)
-               ->get();
+               ->paginate(12);
        elseif ($onSold)
            $products = DB::table('products')
                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                ->whereNotNull('sale_price')
-               ->get();
+               ->paginate(12);
        else
-           $products = Product::all();
+           $products = Product::paginate(12);
 
         return view('front/shop', compact('products', 'ads', 'recommends'));
     }

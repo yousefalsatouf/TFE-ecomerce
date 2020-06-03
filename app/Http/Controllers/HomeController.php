@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function shop()
     {
         $lastProducts = Product::all()->take(10);
-        $products = Product::Paginate(9);;
+        $products = Product::Paginate(9);
         $categories = Category::all();
         $ads = Ads::all();
         //dd($lastProducts);
@@ -194,7 +194,7 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $result = $request->search;
-        $products = DB::table('products')->where('product_name', 'like', '%'.$result.'%')->paginate(2);
+        $products = DB::table('products')->where('product_name', 'like', '%'.$result.'%')->paginate(12);
         $ads = Ads::all();
         //dd($lastProducts);
         $recommends = DB::table('recommends')

@@ -22,19 +22,27 @@ class CartController extends Controller
     {
         $product = Product::find($id);
 
-        if (Auth::check())
-            DB::table('recommends')
-                ->updateOrInsert(
-                    ['user_id' => Auth::user()->id],
-                    ['product_id' => $id]
-                );
-
         if(isset($request->newPrice))
             $price = $request->newPrice;
         else
             $price = $product->product_price;
 
         Cart::add($id, $product->product_name, 1, $price, 1, ['img' => $product->image, 'stock' => $product->stock]);
+
+        if (Auth::check())
+        {
+            DB::table('recommends')
+                ->updateOrInsert(
+                    ['user_id' => Auth::user()->id],
+                    ['product_id' => $id]
+                );
+
+            DB::table('wishlist')
+                ->where([
+                    ['user_id', '=', Auth::user()->id],
+                    ['product_id', '=', $id]
+                ])->delete();
+        }
 
         return redirect('/cart');
     }

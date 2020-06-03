@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="general-rated text-success">
                                         @php
-                                            $ratingSum = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->sum('rating');
+                                            $ratingSum   = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->sum('rating');
                                             $ratingCount = DB::table('reviews')->where('product_id', '=', $product->id)->whereNotNull('rating')->pluck('rating')->count();
                                             if ($ratingSum == 0 || $ratingCount == 0)
                                                 $rated = null;
