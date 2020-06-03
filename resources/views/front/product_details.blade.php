@@ -68,11 +68,11 @@
                                         </div>
                                         <hr>
                                         <br>
-                                        <p><strong class="text-info">Description: </strong> {{$product->product_info}}</p>
+                                        <p><strong class="text-dark">Description: </strong> {{$product->product_info}}</p>
                                         <hr>
                                         <br>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <strong class="text-info">Price</strong>
+                                            <strong class="text-dark">Price</strong>
                                             @if(!$product->product_price)
                                                 <p class="card-text text-success"><strong>FREE</strong></p>
                                             @elseif(($product->sold_price))
@@ -83,8 +83,13 @@
                                                 <p class="">{{$product->product_price}} $</p>
                                             @endif
                                         </div>
-                                        <p><strong class="text-info">Available</strong> <b class="text-warning">{{$product->stock}}</b> In Stock</p>
-                                        <p><strong class="text-info">Shopping Cost</strong> <b class="text-success">{{!$product->shopping_cost || $product->shopping_cost == 0?"Free":$product->shopping_cost}}</b> $</p>
+                                        @foreach($productProp as $one)
+                                            <p><strong class="text-dark">Mark</strong> <b class="text-success"></b>{{$one->mark}}</p>
+                                            <p><strong class="text-dark">Color</strong> <b class="text-success"></b>{{$one->color}}</p>
+                                            <p><strong class="text-dark">Size</strong> <b class="text-success"></b>{{$one->size}}</p>
+                                        @endforeach
+                                        <p><strong class="text-dark">Available</strong> <b class="text-success">{{$product->stock}}</b> In Stock</p>
+                                        <p><strong class="text-dark">Shopping Cost</strong> <b class="text-success">{{!$product->shopping_cost || $product->shopping_cost == 0?"Free":$product->shopping_cost}}</b> $</p>
                                         <hr>
                                         <br>
                                         <div class="controls">

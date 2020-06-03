@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ads;
 use App\Category;
 use App\Product;
+use App\Products_properties;
 use App\Recommends;
 use App\Review;
 use App\wishList;
@@ -77,6 +78,7 @@ class HomeController extends Controller
         //dd($wishlistData);
 
         $product = Product::findOrFail($id);
+        $productProp = DB::table('products_properties')->where('product_id', '=', $id)->get();
         //dd($products->product_name);
 
         //dd($userId);
@@ -94,7 +96,7 @@ class HomeController extends Controller
             ->where('product_id', '=', $id)
             ->get();
 
-        return view('front/product_details', compact('product', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated'));
+        return view('front/product_details', compact('product','productProp', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated'));
     }
 
     public function wishlist(Request $request)
