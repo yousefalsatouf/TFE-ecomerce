@@ -8487,6 +8487,10 @@ a.text-dark:hover {
     padding: 1rem;
   }
 
+  #header #header-menu .over {
+    position: absolute;
+  }
+
   #header #header-menu .search {
     margin: auto;
   }
@@ -8499,6 +8503,12 @@ a.text-dark:hover {
   #header #header-menu .search div label {
     margin: 0.5rem;
     width: 100%;
+  }
+
+  #header #header-menu .search div input {
+    border: 0;
+    border-bottom: 1px solid #38c172;
+    background-color: #000;
   }
 }
 
@@ -8515,13 +8525,26 @@ a.text-dark:hover {
     justify-content: space-between;
   }
 
+  .over {
+    position: absolute;
+  }
+
   .search {
     max-width: 30%;
+  }
+
+  .search input {
+    border: 0;
+    border-bottom: 1px solid #38c172;
+    background-color: #000;
   }
 }
 
 #footer {
   font-family: "Berkshire Swash", cursive;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -8572,6 +8595,22 @@ a.text-dark:hover {
 
 #footer .bottom #header-menu a:hover {
   color: #38c172;
+}
+
+#footer .alert {
+  display: none;
+}
+
+#home + #footer,
+#contact + #footer,
+#shop + #footer,
+#single-category + #footer,
+#recommends + #footer,
+#cart + #footer,
+#checkout + #footer,
+#cart_items\ infos + #footer,
+#cart_items\ profile + #footer {
+  position: relative;
 }
 
 #myCarousel {
@@ -9341,6 +9380,7 @@ a.text-dark:hover {
 
 #login {
   font-family: "Berkshire Swash", cursive;
+  background-color: #000;
 }
 
 #login .card {
@@ -9357,8 +9397,15 @@ a.text-dark:hover {
   color: #38c172;
 }
 
+#login .card .card-body input {
+  border: 0;
+  border-bottom: 1px solid #38c172;
+  background-color: #000;
+}
+
 #register {
   font-family: "Berkshire Swash", cursive;
+  background-color: #000;
 }
 
 #register .card {
@@ -9373,6 +9420,16 @@ a.text-dark:hover {
 
 #register .card .card-body label {
   color: #38c172;
+}
+
+#register .card .card-body input {
+  border: 0;
+  border-bottom: 1px solid #38c172;
+  background-color: #000;
+}
+
+#auth {
+  background-color: #000;
 }
 
 #app\ navAuth nav {

@@ -1,12 +1,17 @@
 #footer
 {
     font-family: $font-family-sans-serif;
+    position:absolute;
+    bottom:0;
+    width:100%;
+
     @media screen and (max-width: $break-small)
     {
         .toggle-menu, .large-screen
         {
             display: none;
         }
+
     }
     @media screen and (max-width: $break-large)
     {
@@ -53,4 +58,12 @@
             }
         }
     }
+    .alert
+    {
+        display: none;
+    }
+}
+#home+#footer, #contact+#footer, #shop+#footer, #single-category+#footer, #recommends+#footer, #cart+#footer, #checkout+#footer, #cart_items\ infos+#footer, #cart_items\ profile+#footer
+{
+    position:relative;
 }

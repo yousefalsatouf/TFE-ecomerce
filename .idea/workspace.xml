@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dfddda3-9d02-4d89-a53b-ad4b44969e5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/black.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/helpers/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/helpers/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/helpers/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/helpers/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/helpers/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/helpers/menu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/register.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/register.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/helpers/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/helpers/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +203,7 @@
       <workItem from="1591005428311" duration="7739000" />
       <workItem from="1591182348721" duration="6451000" />
       <workItem from="1591258907184" duration="1843000" />
-      <workItem from="1591271868481" duration="4398000" />
+      <workItem from="1591271868481" duration="11130000" />
     </task>
     <servers />
   </component>
