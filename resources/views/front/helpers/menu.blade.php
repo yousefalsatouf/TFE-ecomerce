@@ -6,7 +6,18 @@
     </div>
     @include('front/helpers/toggleMenu')
     <div class="container large-screen col-md-auto">
+        @php
+            if (Auth::check())
+                $user = DB::table('users')->where('id', Auth::id())->pluck('email_verified_at');
+        //dd($user)
+        @endphp
+
         <div id="navbarCollapse" class="content">
+            @if(!$user[0])
+                <div class="alert alert-warning" role="alert">
+                    Please check your email to confirm registration!
+                </div>
+            @endif
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i></a>
@@ -87,3 +98,4 @@
         </form>
     </div>
 </nav>
+

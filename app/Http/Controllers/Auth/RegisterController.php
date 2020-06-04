@@ -58,7 +58,7 @@ class RegisterController extends Controller
         $user = DB::table('users')->get();
 
         if ($user->isEmpty())
-            return User::create([
+           return User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
@@ -70,6 +70,8 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
             ]);
+
+        //return redirect('/')->with('msg', 'Please, check your email to confirm registration');
 
     }
 }
