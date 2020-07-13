@@ -64,7 +64,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $products = Category::find($id)->products;
+        $products = Category::find($id);
         $categories = Category::all();
 
         return view('admin.category.index',compact(['categories','products']));
