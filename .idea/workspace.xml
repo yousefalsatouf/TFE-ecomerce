@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dfddda3-9d02-4d89-a53b-ad4b44969e5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/image/download (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/iphone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/download (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/download.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/shoseWomen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/CategorySeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +197,7 @@
       <workItem from="1591271868481" duration="11293000" />
       <workItem from="1591347753341" duration="3056000" />
       <workItem from="1591379142022" duration="58000" />
-      <workItem from="1594635076475" duration="1121000" />
+      <workItem from="1594635076475" duration="3461000" />
     </task>
     <servers />
   </component>
