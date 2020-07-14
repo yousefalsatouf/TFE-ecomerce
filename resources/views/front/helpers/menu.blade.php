@@ -1,15 +1,12 @@
 <nav id="header-menu" class="navbar">
     <div class="logo">
         <h1>
-            <a href="{{url('/')}}">SHOPClub</a>
+            <a href="{{url('/')}}">SPORTClub</a>
         </h1>
     </div>
     @include('front/helpers/toggleMenu')
     <div class="container large-screen col-md-auto">
         <div id="navbarCollapse" class="content">
-            @guest
-                <div class="alert alert-warning" role="alert"><a href="{{url('/register')}}" class="text-danger">Register</a> OR <a href="{{url('/login')}}" class="text-danger">Login</a> to get more benefits</div>
-            @else
                 @php
                     $verify = DB::table('users')->where('id', Auth::id())->pluck('email_verified_at');
                     //dd($verify)
@@ -19,7 +16,7 @@
                         Please check your email to confirm registration!
                     </div>
                 @endif
-            @endguest
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i></a>
@@ -32,11 +29,11 @@
                 </li>
                 @guest
                     <li class="nav-item">
-                        <a href="{{url('/login')}}" class="nav-link text-success">Login</a>
+                        <a href="{{url('/login')}}" class="nav-link">Login</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a href="{{url('/register')}}" class="nav-link text-success">Register</a>
+                            <a href="{{url('/register')}}" class="nav-link">Register</a>
                         </li>
                     @endif
                 @else
@@ -95,7 +92,7 @@
                 <label for="search">
                     <input type="text" name="search" class="form-control mr-2" placeholder="Search">
                 </label>
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button type="submit" class="head-search">Search</button>
             </div>
         </form>
     </div>
