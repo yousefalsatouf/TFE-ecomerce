@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap);@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap);@import url(https://fonts.googleapis.com/css2?family=Anton&display=swap);@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
@@ -8392,7 +8392,7 @@ a.text-dark:hover {
   }
 
   #header #header-menu a:hover {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #header #header-menu .logo {
@@ -8417,7 +8417,7 @@ a.text-dark:hover {
   #header #header-menu .toggle-menu button {
     background-color: transparent;
     border: 0;
-    color: #38c172;
+    color: #2BBBAD;
     width: 100%;
     font-weight: bolder;
     font-size: 20px;
@@ -8425,7 +8425,7 @@ a.text-dark:hover {
 
   #header #header-menu .toggle-menu button i {
     width: 100%;
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #header #header-menu .toggle-menu div {
@@ -8477,7 +8477,7 @@ a.text-dark:hover {
   }
 
   #header #header-menu a:hover {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #header #header-menu .logo {
@@ -8507,7 +8507,7 @@ a.text-dark:hover {
 
   #header #header-menu .search div input {
     border: 0;
-    border-bottom: 1px solid #38c172;
+    border-bottom: 1px solid #2BBBAD;
     background-color: #000;
   }
 }
@@ -8535,7 +8535,7 @@ a.text-dark:hover {
 
   .search input {
     border: 0;
-    border-bottom: 1px solid #38c172;
+    border-bottom: 1px solid #2BBBAD;
     background-color: #000;
   }
 }
@@ -8594,7 +8594,7 @@ a.text-dark:hover {
 }
 
 #footer .bottom #header-menu a:hover {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #footer .alert {
@@ -8622,7 +8622,7 @@ a.text-dark:hover {
 }
 
 #myCarousel .carousel-item h1 {
-  color: #38c172;
+  color: #2BBBAD;
   font-weight: bolder;
 }
 
@@ -8638,9 +8638,9 @@ a.text-dark:hover {
 
 @media screen and (max-width: 768px) {
   #home h2 {
-    color: #38c172;
+    color: #2BBBAD;
     padding-bottom: 0.5rem;
-    border-bottom: 1.5px solid #38c172;
+    border-bottom: 1.5px solid #2BBBAD;
   }
 
   #home .articles {
@@ -8658,7 +8658,7 @@ a.text-dark:hover {
   }
 
   #home .quick-access {
-    background-color: #38c172;
+    background-color: #2BBBAD;
   }
 
   #home .quick-access .articles div {
@@ -8678,9 +8678,9 @@ a.text-dark:hover {
 
 @media screen and (min-width: 768px) and (max-width: 1218px) {
   #home h2 {
-    color: #38c172;
+    color: #2BBBAD;
     padding-bottom: 0.5rem;
-    border-bottom: 1.5px solid #38c172;
+    border-bottom: 1.5px solid #2BBBAD;
   }
 
   #home .articles {
@@ -8699,7 +8699,7 @@ a.text-dark:hover {
   }
 
   #home .quick-access {
-    background-color: #38c172;
+    background-color: #2BBBAD;
   }
 
   #home .quick-access .articles div {
@@ -8718,9 +8718,9 @@ a.text-dark:hover {
 
 @media screen and (min-width: 1200px) {
   #home h2 {
-    color: #38c172;
+    color: #2BBBAD;
     padding-bottom: 0.5rem;
-    border-bottom: 1.5px solid #38c172;
+    border-bottom: 1.5px solid #2BBBAD;
   }
 
   #home .last-products .container {
@@ -8814,13 +8814,8 @@ a.text-dark:hover {
     transition: all 0.5s;
   }
 
-  #home .categories-list .container .articles .card a button:hover {
-    width: 90%;
-    height: 2rem;
-  }
-
   #home .quick-access {
-    background-color: #38c172;
+    background-color: #2BBBAD;
   }
 
   #home .quick-access div:not(.articles) {
@@ -8869,7 +8864,7 @@ a.text-dark:hover {
 
 @media screen and (max-width: 768px) {
   #shop h2 {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #shop img {
@@ -8917,7 +8912,7 @@ a.text-dark:hover {
 @media screen and (min-width: 768px) {
   #shop h2,
   #shop h6 {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #shop img {
@@ -8993,7 +8988,7 @@ a.text-dark:hover {
 @media screen and (min-width: 1200px) {
   #shop h2,
   #shop h6 {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #shop img {
@@ -9011,7 +9006,7 @@ a.text-dark:hover {
   }
 
   #shop .shop-bg .container div h1 {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #shop .shop-bg .container div p {
@@ -9030,7 +9025,7 @@ a.text-dark:hover {
     width: 25%;
     padding: 1%;
     margin: 1rem auto;
-    border-right: 1px solid #38c172;
+    border-right: 1px solid #2BBBAD;
   }
 
   #shop .productsSearch .advanced-search .container div {
@@ -9093,10 +9088,9 @@ a.text-dark:hover {
   }
 
   #single-category .info .container h1 {
-    color: #38c172;
+    color: #2BBBAD;
     margin-top: 0;
     padding-top: 2rem;
-    border-bottom: 2px solid #38c172;
   }
 
   #single-category .info .container .text-center {
@@ -9108,7 +9102,7 @@ a.text-dark:hover {
   }
 
   #single-category .info .container label {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #single-category .card {
@@ -9134,10 +9128,9 @@ a.text-dark:hover {
   }
 
   #single-category .info .container h1 {
-    color: #38c172;
+    color: #2BBBAD;
     margin-top: 0;
     padding-top: 2rem;
-    border-bottom: 2px solid #38c172;
   }
 
   #single-category .info .container .text-center {
@@ -9149,7 +9142,7 @@ a.text-dark:hover {
   }
 
   #single-category .info .container label {
-    color: #38c172;
+    color: #2BBBAD;
   }
 
   #single-category .card {
@@ -9195,7 +9188,7 @@ a.text-dark:hover {
 
 #product-details .quick-access {
   width: 80%;
-  background-color: #38c172;
+  background-color: #2BBBAD;
   margin-bottom: 2rem;
   border-bottom-right-radius: 5px;
 }
@@ -9246,12 +9239,12 @@ a.text-dark:hover {
 
 #reviews .new {
   margin-bottom: 2rem;
-  border-bottom: 1px solid #38c172;
+  border-bottom: 1px solid #2BBBAD;
 }
 
 #reviews .new .form-group label {
   font-weight: bolder;
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #reviews .new .rating {
@@ -9289,12 +9282,12 @@ a.text-dark:hover {
 #reviews .new .rating span:hover label,
 #reviews .new .rating span.checked label,
 #reviews .new .rating span.checked ~ span label {
-  background: #38c172;
+  background: #2BBBAD;
   color: #fff;
 }
 
 #reviews .reviews .head .rated {
-  color: #38c172;
+  color: #2BBBAD;
   margin: auto 2rem;
 }
 
@@ -9349,7 +9342,7 @@ a.text-dark:hover {
 
 #wishlist .quick-access {
   width: 25%;
-  background-color: #38c172;
+  background-color: #2BBBAD;
   border-bottom-right-radius: 5px;
   height: 20rem;
 }
@@ -9388,18 +9381,18 @@ a.text-dark:hover {
 }
 
 #login .card .card-header {
-  color: #38c172;
+  color: #2BBBAD;
   font-weight: bolder;
   font-size: 30px;
 }
 
 #login .card .card-body label {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #login .card .card-body input {
   border: 0;
-  border-bottom: 1px solid #38c172;
+  border-bottom: 1px solid #2BBBAD;
   background-color: #000;
 }
 
@@ -9413,18 +9406,18 @@ a.text-dark:hover {
 }
 
 #register .card .card-header {
-  color: #38c172;
+  color: #2BBBAD;
   font-weight: bolder;
   font-size: 30px;
 }
 
 #register .card .card-body label {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #register .card .card-body input {
   border: 0;
-  border-bottom: 1px solid #38c172;
+  border-bottom: 1px solid #2BBBAD;
   background-color: #000;
 }
 
@@ -9442,12 +9435,12 @@ a.text-dark:hover {
 }
 
 #app\ navAuth nav .container a:hover {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #app\ navAuth nav .container button {
   background-color: #fff;
-  border: 1px solid #38c172;
+  border: 1px solid #2BBBAD;
 }
 
 #reset-password {
@@ -9459,13 +9452,13 @@ a.text-dark:hover {
 }
 
 #reset-password .card .card-header {
-  color: #38c172;
+  color: #2BBBAD;
   font-weight: bolder;
   font-size: 30px;
 }
 
 #reset-password .card .card-body label {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 @media screen and (max-width: 768px) {
@@ -9493,7 +9486,7 @@ a.text-dark:hover {
 }
 
 #admin-menu nav > a:first-child {
-  color: #38c172;
+  color: #2BBBAD;
   font-weight: bolder;
 }
 
@@ -9502,7 +9495,7 @@ a.text-dark:hover {
 }
 
 #admin-menu nav div ul li a:hover {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #admin {
@@ -9511,7 +9504,7 @@ a.text-dark:hover {
 
 #admin h1,
 #admin h4 {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #admin .sidebar {
@@ -9520,14 +9513,14 @@ a.text-dark:hover {
 }
 
 #admin .sidebar .active {
-  background-color: #38c172;
+  background-color: #2BBBAD;
   color: #000;
   font-weight: bolder;
   font-size: 25px;
 }
 
 #admin .sidebar a {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #admin .sidebar a:hover {
@@ -9642,7 +9635,7 @@ a.text-dark:hover {
 #cart h1,
 #cart h2 {
   font-family: "Berkshire Swash", cursive;
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #cart section:first-child {
@@ -9651,7 +9644,7 @@ a.text-dark:hover {
 }
 
 #cart section .quick-access {
-  background-color: #38c172;
+  background-color: #2BBBAD;
 }
 
 #cart section .quick-access ol {
@@ -9667,11 +9660,11 @@ a.text-dark:hover {
 }
 
 #cart section .quick-access ol a:hover {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #cart section .quick-access ol .active {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 @media screen and (max-width: 768px) {
@@ -9686,11 +9679,11 @@ a.text-dark:hover {
 #checkout h4,
 #checkout h5 {
   font-family: "Berkshire Swash", cursive;
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #checkout section .quick-access {
-  background-color: #38c172;
+  background-color: #2BBBAD;
 }
 
 #checkout section .quick-access ol {
@@ -9706,11 +9699,11 @@ a.text-dark:hover {
 }
 
 #checkout section .quick-access ol a:hover {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #checkout section .quick-access ol .active {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 #checkout section.head .row div {
@@ -9727,7 +9720,7 @@ a.text-dark:hover {
 }
 
 #checkout .checkout .quick-checkout ul li {
-  color: #38c172;
+  color: #2BBBAD;
   margin: auto 1rem;
 }
 
@@ -9741,7 +9734,7 @@ a.text-dark:hover {
 
 #checkout .checkout .delivery div i {
   font-size: 35px;
-  color: #38c172;
+  color: #2BBBAD;
   width: 20%;
 }
 
@@ -9772,7 +9765,7 @@ a.text-dark:hover {
 }
 
 #checkout .address .user-info .card-body ul li {
-  border-left: 1px solid #38c172;
+  border-left: 1px solid #2BBBAD;
   padding: 1%;
 }
 
@@ -9783,17 +9776,28 @@ a.text-dark:hover {
 #checkout .address form label {
   font-weight: bolder;
   font-size: 18px;
-  color: #38c172;
+  color: #2BBBAD;
 }
 
-h1,
+h1 {
+  color: #000;
+  font-family: "Berkshire Swash", cursive;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #38c172;
-  font-family: "Berkshire Swash", cursive;
+  font-family: "Anton", sans-serif;
+}
+
+button,
+a.link {
+  background-color: #2BBBAD;
+  color: #fff;
+  border: 0;
+  padding: 10px 15px;
 }
 
 .quick-menu {
@@ -9807,7 +9811,7 @@ h6 {
 }
 
 .quick-menu a:hover {
-  color: #38c172;
+  color: #2BBBAD;
 }
 
 @media screen and (max-width: 768px) {
@@ -9847,7 +9851,7 @@ h6 {
 }
 
 #cart_items\ profile .user-info .card-body ul li {
-  border-left: 1px solid #38c172;
+  border-left: 1px solid #2BBBAD;
   padding: 1%;
 }
 

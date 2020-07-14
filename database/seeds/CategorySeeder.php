@@ -41,7 +41,7 @@ class CategorySeeder extends Seeder
         Category::create([
             'name'=> 'BEAUTE',
             'description'=> 'Les micronutriments sont impliqués dans de nombreux processus biologiques et participent au fonctionnement normal de l\'organisme.',
-            'image'=> 'beauty.jpg'
+            'image'=> 'olivia.jpg'
         ]);
 
     }

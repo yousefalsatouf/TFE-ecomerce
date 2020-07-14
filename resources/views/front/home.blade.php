@@ -12,11 +12,11 @@
                         <i class="fa fa-truck"></i>
                     </div>
                     <div>
-                        <h2>Delivery</h2>
+                        <h2>Livration</h2>
                         <p>
-                            As a precaution and to protect everyone's health,
-                            our stores will remain closed until further notice.
-                            Do you want to make a purchase? We remain available 24/7 on shopclub.be. Your orders will be delivered to your home, safely and free of charge.
+                            Par précaution et pour protéger la santé de tous,
+                            nos magasins resteront fermés jusqu'à nouvel ordre.
+                            Voulez-vous faire un achat? Nous restons disponibles 24/7 sur shopclub.be. Vos commandes seront livrées à votre domicile, en toute sécurité et gratuitement.
                         </p>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
                     <div>
                         <h2>Contact</h2>
                         <p>
-                            anything on your mind, any questions, you need answers about our services, or maybe you need to report
-                            a problem, please contact us and let's talk.
+                            quoi que ce soit à l'esprit, des questions, vous avez besoin de réponses sur nos services, ou peut-être vous devez signaler
+                            un problème, contactez-nous et parlons.
                         </p>
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                         <i class="fa fa-info-circle"></i>
                     </div>
                     <div>
-                        <h2>About Us</h2>
+                        <h2>Aprops de nous</h2>
                         <p>
-                            The short story about us, about our services during all the 10 years of existing and serving ou costumers .
+                            La petite histoire de nous, de nos services durant toutes les 10 années d'existence et de service à nos clients.
                         </p>
                     </div>
                 </div>
