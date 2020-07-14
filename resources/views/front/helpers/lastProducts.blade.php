@@ -50,7 +50,7 @@
             @endforeach
             <div class="see-more">
                 <a href="{{url('/shop')}}" class="last">
-                    <button class="btn btn-outline-success">
+                    <button>
                         See More
                         <i class="fa fa-forward"></i>
                         <i class="fa fa-backward"></i>
