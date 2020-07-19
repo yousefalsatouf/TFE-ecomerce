@@ -165,15 +165,151 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         //category 4, Nutrition sportive
 
         Product::create([
-            'product_name' => "Cookies protéinés Smart",
+            'product_name' => "Boisson Monster Energy Ultra",
             'product_code' => 222224442222,
             'product_price' => 10,
-            'image' => 'cookies.jpg',
+            'image' => 'energyDrink.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
-            'product_info' => 'Vous cherchez des cookies riches en protéines mais à faible teneur en sucre pour un petit extra sucré ? Nos cookies protéinés Smart sont disponibles en cinq saveurs délicieuses et chaque sachet de 175 g contient 21 cookies. Vous pouvez les emporter avec vous pour un shot de protéines à tout moment ou les manger après votre entraînement pour aider à développer et à maintenir la masse musculaire. Ou pourquoi ne pas les savourer avec votre boisson chaude préférée ou en dessert après le repas !',
+            'product_info' => 'Monster, la boisson énergétique numéro 1 en Amérique, est maintenant disponible chez Body & Fit ! Cette boisson énergétique est synonyme de passion, saveur et expérience. Les six saveurs délicieuses de la boisson Monster Ultra sont sans calories et sans sucres, mais elles contiennent des vitamines B3, B6, B5, B12, ainsi que 160 mg de caféine par canette de 500 ml. Savourez une boisson Monster Ultra quand vous avez besoin d’un coup de pouce ou que vous voulez booster votre entraînement !',
             'sold_price' => 25,
-            'category_id' => 3
+            'category_id' => 4
+        ]);
+
+        Product::create([
+            'product_name' => "BSN BCAA - 200g (40 servings) 2 for 1",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'bcaa.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' => 'Développée en 2016 par la marque BSN, la gamme DNA est une garantie de qualité, mot d’ordre pour l’entreprise américaine dans le développement de ses produits. BCAA DNA concentre 5 g d’acides aminés à chaîne ramifiée (2:1:1) par dose, éléments très convoités et utilisés dans le monde du fitness et bodybuilding pour leurs nombreux intérêts.',
+            'sold_price' => 25,
+            'category_id' => 4
+        ]);
+
+        Product::create([
+            'product_name' => "Gold Standard Pre-Workout",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'pre-workout.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Ne vous contentez pas du minimum et exploitez vos ressources lors d\'entraînements intenses ! Le Gold Standard Pre-Workout vous aide a y parvenir grâce à une formulation complète et adaptée. Il contient notamment 3,4 g de créatine monohydrate par dose, qui améliore les capacités physiques en cas de séries successives d\'exercices très intenses de courte durée. Ce produit concentre également 2,9 g d\'un complexe d\'acides aminés qui constituent les protéines. Pour clore le tout, le Gold Standard Pre-Workout mélange vitamines D, B1, B3, B5, B6, B9 et B12 pour produit unique en son genre. Ces vitamines contribuent à de nombreux processus biologiques utiles au sportif en situation d\'entraînement. La vitamine D contribue, par exemple, au maintien d\'une fonction musculaire normale, au maintien d\'une ossature normale et à une calcémie normale. Les vitamines B3, B6, B9 et B12 contribuent à réduire la fatigue et à un métabolisme énergétique normal.',
+            'sold_price' => 25,
+            'category_id' => 4
+        ]);
+
+        Product::create([
+            'product_name' => "Creatine DNA",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'creatine.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Développée en 2016 par la marque BSN, la gamme DNA est une réelle garantie de qualité, mot d’ordre pour l’entreprise américaine dans le développement de ses produits. Creatine DNA est issu d’un processus de micronisation sophistiqué pour une assimilation facilitée et des vertus entièrement exploitées. À prendre avant ou directement après l’entraînement.',
+            'sold_price' => 25,
+            'category_id' => 4
+        ]);
+
+        // category 5,  clothes
+
+        Product::create([
+            'product_name' => "Homme - Short mi-long",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'short.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Pour s’entraîner, il est essentiel de porter un short qui offre une grande liberté de mouvement. Ce short mi-long est le modèle idéal pour la salle. Doux et confortable, il est très agréable à porter.',
+            'sold_price' => 25,
+            'category_id' => 5
+        ]);
+
+        Product::create([
+            'product_name' => "Homme - Sweat à capuche zippé",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'C100494_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Ce sweat à capuche est idéal pour rester au chaud dans la salle comme en dehors. Fonctionnel, ce sweat à capuche zippé est stylé et offre une grande liberté de mouvement. Avec ses finitions haut de gamme et sa doublure douce, ce sweat sera l’allié incontournable de vos échauffements.',
+            'sold_price' => 25,
+            'category_id' => 5
+        ]);
+
+        Product::create([
+            'product_name' => "T-shirt Small Logo Noir Pour Femme",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'C100546_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Vous serez à l’aise et stylée pendant vos entraînements avec ce t-shirt extensible, doté de manches raglan et d’une encolure profonde. Il régule très bien l’humidité et vous garde au frais pendant vos exercices, grâce au coton qui absorbe la transpiration. Astuce : lavez-le sur l’envers pour préserver sa couleur et sa qualité.',
+            'sold_price' => 25,
+            'category_id' => 5
+        ]);
+
+        Product::create([
+            'product_name' => "Débardeur dos nageur",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'C100547_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Débardeur dos nageur doté d’une encolure profonde. Ce débardeur dos nageur est confectionné dans un mélange coton/élasthanne, qui associe douceur, confort et extensibilité. Vous disposerez de toute la liberté de mouvement nécessaire aux exercices les plus intensifs. Astuce : lavez-le sur l’envers pour préserver sa couleur et sa qualité.',
+            'sold_price' => 25,
+            'category_id' => 5
+        ]);
+
+        // category 6, Beaty
+
+        Product::create([
+            'product_name' => "Super Collagen de NeoCell – 250 comprimés",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'super-colleganc_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'En vieillissant, le corps produit moins de collagène. Donnez un coup de pouce à votre corps avec Super Collagen de NeoCell !',
+            'sold_price' => 25,
+            'category_id' => 6
+        ]);
+
+        Product::create([
+            'product_name' => "Best Collagen Types 1 & 3",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'best-collagen-types-1-3_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Le collagène est la protéine la plus importante dans le tissu conjonctif.',
+            'sold_price' => 25,
+            'category_id' => 6
+        ]);
+
+        Product::create([
+            'product_name' => "Déodorant naturel We love - Forever Fresh",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'C100176_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Le déodorant est essentiel pour une sensation de fraîcheur. Naturellement, nous voulons vivre cette expérience tout au long de la journée et c’est encore plus important quand on mène une vie active. Les types de déodorants habituels regorgent de produits chimiques non naturels. Ils sont mauvais pour la peau et peuvent même provoquer des irritations. ',
+            'sold_price' => 25,
+            'category_id' => 6
+        ]);
+
+        Product::create([
+            'product_name' => "Shampoing Perfect Curl d’Andrélon - 300 ml",
+            'product_code' => 222224442222,
+            'product_price' => 10,
+            'image' => 'C100362_Image_01.jpg',
+            'shopping_cost' => 0,
+            'stock' => 20,
+            'product_info' =>'Vous recherchez un shampoing nourrissant intensif pour vos boucles ? Perfect Curl d’Andrélon est la réponse ! Cette gamme a été spécialement conçue pour nourrir intensément les cheveux bouclés. Le shampoing est enrichi en huile d’argan et définit vos boucles. Avec Perfect Curl d’Andrélon, vos boucles redeviennent faciles à coiffer et sont douces, souples et résistantes. Le résultat parfait pour des cheveux bouclés. Pour un résultat optimal, utilisez également les autres produits de la ligne Perfect Curl d’Andrélon.',
+            'sold_price' => 25,
+            'category_id' => 6
         ]);
 
     }
