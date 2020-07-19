@@ -37,7 +37,7 @@
                         <i class="fa fa-info-circle"></i>
                     </div>
                     <div>
-                        <h2>Aprops de nous</h2>
+                        <h2>A props de nous</h2>
                         <p>
                             La petite histoire de nous, de nos services durant toutes les 10 années d'existence et de service à nos clients.
                         </p>
