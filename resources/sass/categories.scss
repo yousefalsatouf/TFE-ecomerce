@@ -46,6 +46,12 @@
                 {
                     color: $green;
                 }
+                input
+                {
+                    border: 0;
+                    border-bottom: 1px solid #2bbbad;
+                    background-color: transparent;
+                }
             }
         }
         .card
@@ -102,6 +108,12 @@
                 label
                 {
                     color: $green;
+                }
+                input
+                {
+                    border: 0;
+                    border-bottom: 1px solid #2bbbad;
+                    background-color: transparent;
                 }
             }
         }

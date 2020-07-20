@@ -5,7 +5,7 @@
             <div class="carousel-inner">
                 @if(isset($category))
                     @foreach($category as $cat)
-                        @php ($categoryName = $cat->name) @endphp
+                        @php $categoryName = $cat->name @endphp
                         <div>
                             <img style="height: 45rem" src="{{url('images', $cat->image)}}" alt="slide">
                             <div class="container">
@@ -22,21 +22,21 @@
         <section class="info">
             <div class="container">
                 <div class="text-center">
-                    <h1>Search for products ...</h1>
+                    <h1>Chercher par Prix, Promo ...</h1>
                     <div class="search-area">
                         <form action='{{('/searchSingleCategory')}}' class="form-inline ml-auto" method="post">
                             <div class="d-flex justify-content-between align-items-center">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
                                 <input type="hidden" name="categoryName" value="{{(isset($categoryName))? $categoryName: ''}}">
                                 <label for="price">
-                                    Max Price:
+                                    Prix Max:
                                     <input type="number" name="price" class="form-control mr-2" placeholder="Great Price">
                                 </label>
                                 <label for="sold">
-                                    Products On Sold:
+                                    Promo
                                     <input type="checkbox" name="sold" class="form-control mr-2" >
                                 </label>
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                <button type="submit">Search</button>
                             </div>
                         </form>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="empty">
                             <h3 class="text-success">{{$msg}}</h3>
                             <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
-                                <button class="btn bg-success btn-sm text-dark">
+                                <button>
                                     <i class="fa fa-backward"></i>
                                     <b>Back</b>
                                 </button>
@@ -65,7 +65,7 @@
                                 </a>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
-                                        <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                                        <h5 class="card-text iphone">{{$product->product_name}}</h5>
                                         @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
                                     </div>
                                     <div class="general-rated text-success">
@@ -100,12 +100,12 @@
                                         </div>
                                     @endif
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-outline-dark btn-sm">
+                                        <button >
                                             <b>View <i class="fa fa-eye"></i></b>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-outline-success btn-sm float-right">
+                                        <button class=" float-right">
                                             <b>Add <i class="fa fa-shopping-cart"></i></b>
                                         </button>
                                     </a>

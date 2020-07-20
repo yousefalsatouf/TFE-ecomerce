@@ -34,6 +34,12 @@
                             {
                                 width: 100%;
                             }
+                            input, button, select
+                            {
+                                background-color: transparent;
+                                border: 0;
+                                border-bottom: 1px solid $black;
+                            }
                         }
                     }
                 }
@@ -51,6 +57,12 @@
                                 width: 50%;
                                 *{
                                     width: 100%;
+                                }
+                                input, button, select
+                                {
+                                    background-color: transparent;
+                                    border: 0;
+                                    border-bottom: 1px solid $black;
                                 }
                             }
                         }
@@ -79,7 +91,7 @@
 {
     #shop
     {
-        h2, h6
+        h2
         {
             color: $green;
         }
@@ -131,6 +143,7 @@
         .advanced-search
         {
             margin: 1rem auto;
+            background-color: #2BBBAD;
             .search
             {
                 .search-input
@@ -143,6 +156,12 @@
                             label, input
                             {
                                 width: 100%;
+                            }
+                            input, button, select
+                            {
+                                background-color: transparent;
+                                border: 0;
+                                border-bottom: 1px solid $black;
                             }
                         }
                     }
@@ -162,6 +181,12 @@
                             width: 30%;
                             *{
                                 width: 100%;
+                            }
+                            input, button, select
+                            {
+                                background-color: transparent;
+                                border: 0;
+                                border-bottom: 1px solid $black;
                             }
                         }
                     }
@@ -190,7 +215,7 @@
 {
     #shop
     {
-        h2, h6
+        h2
         {
             color: $green;
         }
@@ -241,6 +266,13 @@
                     div
                     {
                         min-width: 100%;
+                        input, button, select
+                        {
+                            background-color: transparent;
+                            border: 0;
+                            border-bottom: 1px solid $black;
+                        }
+
                     }
                 }
             }

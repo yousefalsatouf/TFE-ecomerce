@@ -42,12 +42,12 @@
                             @endif
                         </div>
                         <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                            <button class="btn btn-outline-dark btn-sm">
+                            <button>
                                 <b>View <i class="fa fa-eye"></i></b>
                             </button>
                         </a>
                         <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                            <button class="btn btn-outline-success btn-sm float-right">
+                            <button class="float-right">
                                 <b>Add <i class="fa fa-shopping-cart"></i></b>
                             </button>
                         </a>
@@ -57,7 +57,7 @@
         </div>
         <div class="see-more">
             <a href="{{url('/shop')}}" class="last">
-                <button class="btn btn-outline-success">
+                <button>
                     See More
                     <i class="fa fa-forward"></i>
                 </button>

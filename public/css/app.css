@@ -8889,6 +8889,14 @@ a.text-dark:hover {
     width: 100%;
   }
 
+  #shop .advanced-search .search .search-input form div input,
+  #shop .advanced-search .search .search-input form div button,
+  #shop .advanced-search .search .search-input form div select {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000;
+  }
+
   #shop .advanced-search .search .search-specific .search-area form {
     display: flex;
     flex-wrap: wrap;
@@ -8903,6 +8911,14 @@ a.text-dark:hover {
     width: 100%;
   }
 
+  #shop .advanced-search .search .search-specific .search-area form div input,
+  #shop .advanced-search .search .search-specific .search-area form div button,
+  #shop .advanced-search .search .search-specific .search-area form div select {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000;
+  }
+
   #shop .products .container div .card {
     width: 45%;
     margin: 1rem auto;
@@ -8910,8 +8926,7 @@ a.text-dark:hover {
 }
 
 @media screen and (min-width: 768px) {
-  #shop h2,
-  #shop h6 {
+  #shop h2 {
     color: #2BBBAD;
   }
 
@@ -8953,6 +8968,7 @@ a.text-dark:hover {
 
   #shop .advanced-search {
     margin: 1rem auto;
+    background-color: #2BBBAD;
   }
 
   #shop .advanced-search .search .search-input form div {
@@ -8962,6 +8978,14 @@ a.text-dark:hover {
   #shop .advanced-search .search .search-input form div label,
   #shop .advanced-search .search .search-input form div input {
     width: 100%;
+  }
+
+  #shop .advanced-search .search .search-input form div input,
+  #shop .advanced-search .search .search-input form div button,
+  #shop .advanced-search .search .search-input form div select {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000;
   }
 
   #shop .advanced-search .search-specific .search-area form {
@@ -8978,6 +9002,14 @@ a.text-dark:hover {
     width: 100%;
   }
 
+  #shop .advanced-search .search-specific .search-area form div input,
+  #shop .advanced-search .search-specific .search-area form div button,
+  #shop .advanced-search .search-specific .search-area form div select {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000;
+  }
+
   #shop .products .container div .card {
     width: 30%;
     margin: 1rem auto;
@@ -8986,8 +9018,7 @@ a.text-dark:hover {
 }
 
 @media screen and (min-width: 1200px) {
-  #shop h2,
-  #shop h6 {
+  #shop h2 {
     color: #2BBBAD;
   }
 
@@ -9030,6 +9061,14 @@ a.text-dark:hover {
 
   #shop .productsSearch .advanced-search .container div {
     min-width: 100%;
+  }
+
+  #shop .productsSearch .advanced-search .container div input,
+  #shop .productsSearch .advanced-search .container div button,
+  #shop .productsSearch .advanced-search .container div select {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000;
   }
 
   #shop .productsSearch .products {
@@ -9105,6 +9144,12 @@ a.text-dark:hover {
     color: #2BBBAD;
   }
 
+  #single-category .info .container input {
+    border: 0;
+    border-bottom: 1px solid #2bbbad;
+    background-color: transparent;
+  }
+
   #single-category .card {
     width: 49%;
   }
@@ -9143,6 +9188,12 @@ a.text-dark:hover {
 
   #single-category .info .container label {
     color: #2BBBAD;
+  }
+
+  #single-category .info .container input {
+    border: 0;
+    border-bottom: 1px solid #2bbbad;
+    background-color: transparent;
   }
 
   #single-category .card {
@@ -9798,6 +9849,10 @@ a.link {
   color: #fff;
   border: 0;
   padding: 10px 15px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .quick-menu {

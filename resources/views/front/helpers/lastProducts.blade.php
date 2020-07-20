@@ -10,7 +10,7 @@
                     </a>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                            <h6 class="card-text iphone">{{$product->product_name}}</h6>
                             @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
                         </div>
                         <div class="general-rated text-success">
