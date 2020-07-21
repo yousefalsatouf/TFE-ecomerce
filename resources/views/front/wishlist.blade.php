@@ -12,8 +12,9 @@
                 </div>
                 <hr>
                 <div class="col-sm-9 padding-right">
+                    <br>
                     <div class="features_items"><!--features_items-->
-                        <h1 class="text-success">Wishlist Items: </h1>
+                        <h2>Votre Wishlist: </h2>
                         <br>
                         <hr>
                         @if (isset($removed))
@@ -33,14 +34,14 @@
                                                        <a href="{{url('/product_details/'.$product->id)}}">
                                                            <img src="{{url('images',$product->image)}}" class="w-100" alt="" />
                                                        </a>
-                                                       <h2>{{ $product->product_name }}</h2>
-                                                       <p><b>{{ $product->product_price }} $</b></p>
+                                                       <h5>{{ $product->product_name }}</h5>
+                                                       <p><b>{{ $product->product_price }} EUR</b></p>
                                                        <div class="control d-flex justify-content-between">
-                                                           <a href="{{url('/cart/addItem'). '/' .$product->id}}" class="btn btn-success">
-                                                               <i class="fa fa-shopping-cart"></i> Move to cart
+                                                           <a href="{{url('/cart/addItem'). '/' .$product->id}}" class="link">
+                                                               <i class="fa fa-shopping-cart"></i> Passer au panier
                                                            </a>
-                                                           <a href="{{url('/removeFromWishlist').'/'.$product->id}}" class="btn btn-danger">
-                                                               <i class="fa fa-minus-square"></i> Remove from wishlist
+                                                           <a href="{{url('/removeFromWishlist').'/'.$product->id}}" class="link">
+                                                               <i class="fa fa-minus-square"></i> Retire de la wishlist
                                                            </a>
                                                        </div>
                                                    </div>
@@ -53,11 +54,11 @@
                            </div>
                         @endif
                         <br>
-                        <hr>
                         <div>
-                            <a class="btn btn-outline-dark" href="{{url('/shop')}}"><i class="fa fa-backward"></i> Back to Shop</a>
+                            <a class="link" href="{{url('/shop')}}"><i class="fa fa-backward"></i> Retour à la boutique</a>
                         </div>
                     </div>
+                    <br>
                 </div><!--features_items-->
             </div>
         </div>

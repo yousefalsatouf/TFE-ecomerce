@@ -8446,6 +8446,12 @@ a.text-dark:hover {
     margin: 0.5rem;
     width: 100%;
   }
+
+  #header #header-menu .search div input {
+    border: 0;
+    border-bottom: 1px solid #2BBBAD;
+    background-color: #000;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -9229,6 +9235,10 @@ a.text-dark:hover {
     display: flex;
     justify-content: space-around;
   }
+
+  #product-details .product-details .general-rated {
+    color: #2BBBAD;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -9290,12 +9300,23 @@ a.text-dark:hover {
 
 #reviews .new {
   margin-bottom: 2rem;
-  border-bottom: 1px solid #2BBBAD;
 }
 
 #reviews .new .form-group label {
   font-weight: bolder;
   color: #2BBBAD;
+}
+
+#reviews .new .form-group input,
+#reviews .new .form-group textarea {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
+}
+
+#reviews .new .post {
+  width: 50%;
+  border: 0;
+  background-color: #2BBBAD;
 }
 
 #reviews .new .rating {
@@ -9833,6 +9854,10 @@ a.text-dark:hover {
 h1 {
   color: #000;
   font-family: "Berkshire Swash", cursive;
+}
+
+h2 {
+  color: #2BBBAD;
 }
 
 h2,

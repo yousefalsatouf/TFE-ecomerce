@@ -2,9 +2,8 @@
 {
     font-family: $font-family-sans-serif;
     position:absolute;
-    bottom:0;
+    bottom: 0;
     width:100%;
-
     @media screen and (max-width: $break-small)
     {
         .toggle-menu, .large-screen

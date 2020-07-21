@@ -63,6 +63,12 @@
                         margin: 0.5rem;
                         width: 100%;
                     }
+                    input
+                    {
+                        border: 0;
+                        border-bottom: 1px solid $green;
+                        background-color: $black;
+                    }
                 }
             }
         }

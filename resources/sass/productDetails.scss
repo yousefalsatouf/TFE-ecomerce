@@ -17,6 +17,10 @@
                 display: flex;
                 justify-content: space-around;
             }
+            .general-rated
+            {
+                color: $green;
+            }
         }
     }
 }
@@ -95,7 +99,6 @@
     .new
     {
         margin-bottom: 2rem;
-        border-bottom: 1px solid $green;
         .form-group
         {
             label
@@ -103,6 +106,17 @@
                 font-weight: bolder;
                 color: $green;
             }
+            input, textarea
+            {
+                border: 0;
+                border-bottom: 1px solid $green;
+            }
+        }
+        .post
+        {
+            width: 50%;
+            border: 0;
+            background-color: $green;
         }
         .rating
         {
