@@ -1,13 +1,14 @@
 #register
 {
     font-family: $font-family-sans-serif;
-    background-color: $black;
+    //background-color: $black;
     .card
     {
-        background-color: $black;
+       // background-color: $black;
         .card-header
         {
-            color: $green;
+            color: $black;
+            background-color: $green;
             font-weight: bolder;
             font-size: 30px;
         }
@@ -21,7 +22,6 @@
             {
                 border: 0;
                 border-bottom: 1px solid $green;
-                background-color: $black;
             }
         }
     }

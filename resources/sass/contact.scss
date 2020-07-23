@@ -1,0 +1,19 @@
+#contact
+{
+    .container
+    {
+        form
+        {
+            label
+            {
+                font-weight: bolder;
+                color: $green;
+            }
+            input, textarea
+            {
+                border: 0;
+                border-bottom: 1px solid $green;
+            }
+        }
+    }
+}

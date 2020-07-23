@@ -12,8 +12,8 @@
                     //dd($verify)
                 @endphp
                 @if(Auth::check() && !$verify[0])
-                    <div class="alert alert-warning" role="alert">
-                        Please check your email to confirm registration!
+                    <div class="link">
+                        Veuillez vérifier votre email pour confirmer votre inscription!
                     </div>
                 @endif
 
@@ -29,11 +29,11 @@
                 </li>
                 @guest
                     <li class="nav-item">
-                        <a href="{{url('/login')}}" class="nav-link">Login</a>
+                        <a href="{{url('/login')}}" class="nav-link">Connection</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a href="{{url('/register')}}" class="nav-link">Register</a>
+                            <a href="{{url('/register')}}" class="nav-link">S'inscrire</a>
                         </li>
                     @endif
                 @else
@@ -45,11 +45,11 @@
                         </li>
                     @endif
                         <li class="nav-item">
-                            <a href="{{url('/logout')}}" class="nav-link text-danger">Logout</a>
+                            <a href="{{url('/logout')}}" class="nav-link text-danger">Déconnection</a>
                         </li>
                         <li class=" cart nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fa fa-shopping-cart"></i> Cart
+                                <i class="fa fa-shopping-cart"></i> Panier
                             </a>
                             <div class="dropdown-menu dropdown-menu-right over" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-success" href="{{ url('/cart')}}">
@@ -58,7 +58,7 @@
                                     </b>
                                 </a>
                                 <hr>
-                                <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Your Orders</a>
+                                <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Vos Commandes</a>
                             </div>
                         </li>
                     <li class="user nav-item dropdown">
@@ -74,10 +74,10 @@
                                 {{Auth::user()->name}}<i class="fa fa-user" aria-hidden="true"></i>
                             </b>
                             <hr>
-                            <a class="dropdown-item text-dark" href="{{ url('/user') }}">Your Profile</a>
+                            <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
                             <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">
-                                Logout
+                                Déconnection
                             </a>
                         </div>
                     </li>
@@ -88,11 +88,11 @@
     <div class="search">
         <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
             <div class="d-flex justify-content-between align-items-center">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Recherche">
                 <label for="search">
-                    <input type="text" name="search" class="form-control mr-2" placeholder="Search">
+                    <input type="text" name="search" class="form-control mr-2" placeholder="Recherche">
                 </label>
-                <button type="submit" class="head-search">Search</button>
+                <button type="submit" class="head-search">Rechercher</button>
             </div>
         </form>
     </div>

@@ -9445,15 +9445,11 @@ a.text-dark:hover {
 
 #login {
   font-family: "Berkshire Swash", cursive;
-  background-color: #000;
-}
-
-#login .card {
-  background-color: #000;
 }
 
 #login .card .card-header {
-  color: #2BBBAD;
+  color: #000;
+  background-color: #2BBBAD;
   font-weight: bolder;
   font-size: 30px;
 }
@@ -9465,20 +9461,15 @@ a.text-dark:hover {
 #login .card .card-body input {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
-  background-color: #000;
 }
 
 #register {
   font-family: "Berkshire Swash", cursive;
-  background-color: #000;
-}
-
-#register .card {
-  background-color: #000;
 }
 
 #register .card .card-header {
-  color: #2BBBAD;
+  color: #000;
+  background-color: #2BBBAD;
   font-weight: bolder;
   font-size: 30px;
 }
@@ -9490,7 +9481,6 @@ a.text-dark:hover {
 #register .card .card-body input {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
-  background-color: #000;
 }
 
 #auth {
@@ -9937,5 +9927,16 @@ button:hover {
 
 #cart_items\ profile .user-info .card-body ul li p {
   font-weight: bold;
+}
+
+#contact .container form label {
+  font-weight: bolder;
+  color: #2BBBAD;
+}
+
+#contact .container form input,
+#contact .container form textarea {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
 }
 

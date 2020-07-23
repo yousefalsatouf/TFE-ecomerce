@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 content">
             <div class="card">
-                <div class="card-header">{{ __('Login ...') }}</div>
+                <div class="card-header">{{ __('Connection ...') }}</div>
                 <div class="card-body">
                     <div>
                         @if(session('msg'))
@@ -15,7 +15,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Addresse Mail') }}</label>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot De Passe') }}</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
@@ -37,23 +37,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                            <div class="col-md-6">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Se souvenir de moi') }}
                                     </label>
-                                </div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-outline-success">
-                                    {{ __('Login') }}
+                                <button type="submit">
+                                    {{ __('Se Connecter') }}
                                 </button>
                                 @if (Route::has('password.request'))
-                                    <a class="btn text-success" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a class="link" href="{{ route('password.request') }}">
+                                        {{ __('Mot de passe Oublier?') }}
                                     </a>
                                 @endif
                             </div>
@@ -61,8 +59,8 @@
                         <hr>
                         <br>
                         <div class="col-md-12 row-block">
-                            <a href="{{ url('auth/google') }}" class="btn btn-outline-danger">
-                                <strong>Login With Google </strong>
+                            <a href="{{ url('auth/google') }}" class="link">
+                                <strong>Connecter via Google </strong>
                             </a>
                         </div>
                     </form>
