@@ -1,30 +1,29 @@
 @extends('admin.master')
 @section('content')
-    <section class="container-fluid">
+    <section class="container-fluid ads-sec">
         <div class="row">
             @include('admin.includes.sidenav')
         </div>
         <div class="col-sm-9 ml-sm-auto col-md-10 pt-3 categories">
             <div class="row">
                 <div class="col-md-10">
-                    <h2>Create Ad</h2>
+                    <h2>créer une publicité</h2>
                     <hr>
-                    <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be fill out</strong>
                     <div class="card card-body py-5">
                         @if(session('error'))
                             <div class="alert alert-danger">{{session('error')}}</div>
                         @endif
                         {!! Form::open(['route' => 'ads.store', 'method' => 'post', 'files'=>true]) !!}
                             <div class="form-group">
-                                {{ Form::label('title', 'Ad Title') }}
-                                {{ Form::text('title', null, array('class' => 'form-control')) }}
+                                {{ Form::label('title', 'Titre') }}
+                                {{ Form::text('title', null, array('class' => 'form-control'), 'require') }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('link', 'Ad link') }}
-                                {{ Form::text('link', null, array('class' => 'form-control')) }}
+                                {{ Form::label('link', 'Lien Vers La publicité') }}
+                                {{ Form::text('link', null, array('class' => 'form-control'), 'require') }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('description', 'Ad Description') }}
+                                {{ Form::label('description', 'Description') }}
                                 {{ Form::textarea('description', null, array('class' => 'form-control')) }}
                             </div>
                             <div class="form-group">
@@ -33,7 +32,7 @@
                                 {{ Form::file('image',array('class' => 'form-control')) }}
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button type="submit" class="btn btn-outline-success">Add Ad</button>
+                            <button type="submit">Ajouter</button>
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -45,7 +44,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-10">
-                    <h2>List of Ads</h2>
+                    <h2>Liste des annonces</h2>
                     <hr>
                     <table class="table table-striped">
                         <thead>
@@ -70,7 +69,7 @@
                                 <td>{{$ad->link}}</td>
                                 {!! Form::open(['method'=>'DELETE', 'action'=> ['AdsController@destroy', $ad->id]]) !!}
                                 <td>
-                                    {!! Form::submit('Delete', ['class'=>'btn btn-outline-danger']) !!}
+                                    <button type="submit"><i class="fa fa-trash-o"></i></button>
                                 </td>
                                 {!! Form::close() !!}
                             </tr>

@@ -6,7 +6,7 @@
             @foreach($categories as $category)
                 <div class="card">
                     <a href="{{url('/category/list/'.$category->name)}}">
-                        <img src="{{url('images/categories', $category->image)}}" class="images card-img w-100 h-100">
+                        <img src="{{url('images', $category->image)}}" class="images card-img w-100 h-100">
                     </a>
                     <div class="card-body">
                         <h3 class="card-text iphone">{{strtoupper($category->name)}}</h3>

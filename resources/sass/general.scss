@@ -3,10 +3,15 @@ h1
     color: $black;
     font-family: $font-family-sans-serif;
 }
+h2
+{
+    color:$green;
+}
 h2, h3, h4, h5, h6
 {
     font-family: $font-family-anton;
 }
+
 button, a.link
 {
     background-color: $green;
@@ -14,7 +19,11 @@ button, a.link
     border: 0;
     padding: 10px 15px;
 }
+button:hover
+{
+    cursor: pointer;
+}
 body
 {
-
+    //position: relative;
 }

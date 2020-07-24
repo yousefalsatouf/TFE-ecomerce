@@ -33,7 +33,7 @@
        @if($cartItems->isEmpty())
            <section id="cart_items">
                <div class="container">
-                   <div class="quick-access">
+                   <div class="quick-access bg-info">
                        <ol class="breadcrumb">
                            <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Home <i class="fa fa-angle-right"></i></a></li>
                            <li><a href="{{url('/shop')}}"><i class="fa fa-shopping-cart"></i> Shop <i class="fa fa-angle-right"></i></a></li>
@@ -43,22 +43,22 @@
                    <div align="center">
                        <img src="{{asset('dist/img/empty-cart.png')}}"/>
                    </div>
-                   <a href="{{url('/shop')}}" class="btn btn-outline-success"><i class="fa fa-backward"></i> Back To Shop</a>
+                   <a href="{{url('/shop')}}" class="link"><i class="fa fa-backward"></i> Back To Shop</a>
                </div>
            </section> <!--/#cart_items-->
        @else
            <section id="cart_items">
                <div class="container">
-                   <div class="quick-access">
+                   <div class="quick-access bg-info">
                        <ol class="breadcrumb">
                            <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Home <i class="fa fa-angle-right"></i></a></li>
                            <li><a href="{{url('/shop')}}"><i class="fa fa-shopping-cart"></i> Shop <i class="fa fa-angle-right"></i></a></li>
-                           <li class="active"><i class="fa fa-info"></i> Shopping Cart</li>
+                           <li class="active"><i class="fa fa-info"></i> Votre Panier</li>
                        </ol>
                    </div>
                    <div id="updateDiv">
                        @if(session('status'))
-                           <div class="alert alert-success">
+                           <div class="alert alert-info">
                                {{session('status')}}
                            </div>
                        @endif
@@ -68,18 +68,18 @@
                                {{session('error')}}
                            </div>
                        @endif
-                       <h1 class="text-success">Cart Content </h1>
-                       <p class="lead text-muted">You currently have <b class="text-success">{{Cart::count()}}</b>   item(s) in your basket</p>
+                       <h1>Votre Panier </h1>
+                       <p class="lead text-muted">vous avez <b class="text-success">{{Cart::count()}}</b>   element(s) dans votre panier</p>
                        <div class="table-responsive">
                            <table class="table table-striped">
                                <thead>
                                    <tr class="cart_menu">
                                        <th class="image">Image</th>
-                                       <th class="title">Product ID</th>
-                                       <th class="description">Product Name</th>
+                                       <th class="title">ID</th>
+                                       <th class="description">Product</th>
                                        <th class="description">only left</th>
-                                       <th class="quantity">Quantity</th>
-                                       <th class="price">Price</th>
+                                       <th class="quantity">Quantité</th>
+                                       <th class="price">Prix</th>
                                        <th class="total">Subtotal</th>
                                        <th>Action</th>
                                    </tr>
@@ -94,13 +94,13 @@
                                            <td class="cart_title">
                                                <h5>{{$cartItem->id}}</h5>
                                            </td>
-                                           {!! Form::open(['url'=> ['cart/updateItem', $cartItem->rowId], 'method'=> 'put']) !!}
                                            <td class="cart_description">
                                                <h4>{{$cartItem->name}}</h4>
                                            </td>
                                            <td>
                                                <p><b class="text-danger">{{($cartItem->options->stock - $cartItem->qty)}}</b> item(s)</p>
                                            </td>
+                                           {!! Form::open(['url'=> ['cart/updateItem', $cartItem->rowId], 'method'=> 'put']) !!}
                                            <td class="cart_quantity">
                                                <div class="cart_quantity_button">
                                                    <input type="hidden" name="rowId" value="{{$cartItem->rowId}}"/>
@@ -110,23 +110,23 @@
                                                </div>
                                            </td>
                                            <td class="cart_price">
-                                               <p><b>{{$cartItem->price}}</b> $</p>
+                                               <p><b>{{$cartItem->price}}</b> EUR</p>
                                            </td>
                                            <td class="cart_total">
-                                               <p class="cart_total_price"><b>{{$cartItem->subtotal}}</b> $</p>
+                                               <p class="cart_total_price"><b>{{$cartItem->subtotal}}</b> EUR</p>
                                            </td>
-                                           <td>
-                                               <button type="submit" class="btn btn-outline-success">
-                                                   <i class="fa fa-edit"></i>
+                                           <td class="d-flex justify-content-between">
+                                               <button type="submit">
+                                                   <i class="fa fa-save"></i>
                                                </button>
                                                {!! Form::close() !!}
                                                <a class="cart_quantity_delete" href="{{url('/product_details/'.$cartItem->id)}}">
-                                                   <button class="btn btn-outline-info">
+                                                   <button>
                                                        <i class="fa fa-eye"></i>
                                                    </button>
                                                </a>
                                                <a class="cart_quantity_delete" href="{{url('/cart/removeItem')}}/{{$cartItem->rowId}}">
-                                                   <button class="btn btn-outline-danger">
+                                                   <button>
                                                        <i class="fa fa-trash-o"></i>
                                                    </button>
                                                </a>
@@ -145,7 +145,7 @@
                    <div class="row">
                        <div class="side">
                            <div class="total_area">
-                               <h2 class="text-success">Your Order</h2>
+                               <h2>Votre commande</h2>
                                <hr>
                                <table class="table table-striped">
                                    <thead>
@@ -170,19 +170,19 @@
                        <div class="side">
                            <div class="next-area">
                                <div class="heading">
-                                   <h2>What would you like to do next?</h2>
+                                   <h2>Que voulez-vous faire ensuite?</h2>
                                    <hr>
-                                   <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+                                   <p>Choisissez si vous avez un code de réduction ou des points de récompense que vous souhaitez utiliser ou souhaitez estimer vos frais de livraison.</p>
                                </div>
                                <div>
                                    <a href="{{url('/shop')}}" class="text-dark">
-                                       <button class="btn btn-outline-dark">
-                                           <b><i class="fa fa-backward"></i> Add More From Shop</b>
+                                       <button>
+                                           <b><i class="fa fa-backward"></i> Ajouter plus de la boutique</b>
                                        </button>
                                    </a>
                                    <a href="{{url('/checkout')}}" class="text-dark">
-                                       <button class="btn btn-outline-success float-right">
-                                           <b>Checkout <i class="fa fa-eye"></i></b>
+                                       <button class="float-right">
+                                           <b>Check-out <i class="fa fa-eye"></i></b>
                                        </button>
                                    </a>
                                </div>

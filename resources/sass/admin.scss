@@ -22,4 +22,42 @@
     {
         margin-top: 3.2rem;
     }
+    .create-product
+    {
+        label
+        {
+            font-weight: bolder;
+            color: $green;
+        }
+        input, select, textarea
+        {
+            border: 0;
+            border-bottom: 1px solid $green;
+        }
+    }
+    .role
+    {
+        margin-top: 5rem;
+        form
+        {
+            select
+            {
+                border: 0;
+                border-bottom: 1px solid $green;
+            }
+        }
+    }
+    .edit-product, .add-property, .categories-sec, .edit-category, .ads-sec
+    {
+        label
+        {
+            font-weight: bolder;
+            color: $green;
+        }
+        input, select, textarea
+        {
+            border: 0;
+            border-bottom: 1px solid $green;
+        }
+    }
 }

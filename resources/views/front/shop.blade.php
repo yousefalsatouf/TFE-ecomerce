@@ -17,7 +17,7 @@
                                     <p>{{$ad->description}}</p>
                                 </div>
                             </div>
-                            <a class="btn btn-outline-info" href={{$ad->link}} role="button">Learn more ...</a>
+                            <a class="link" href={{$ad->link}} role="button">Learn more ...</a>
                         </div>
                     @endforeach
                 </div>
@@ -28,11 +28,9 @@
         @include('front.helpers.topProducts')
         <section class="productsSearch container">
             <div class="advanced-search">
-                <h3 class="text-center">Advanced Search: </h3>
-                <hr>
                 <br>
                 <div class="container">
-                    <h6>Search for products with the desire name ...</h6>
+                    <h6>Chercher par Le nom de produit ...</h6>
                     <hr>
                     <div class="search">
                         <div class="search-input">
@@ -42,20 +40,20 @@
                                     <label for="search">
                                         <input type="text" name="search" class="form-control mr-2" placeholder="Search">
                                     </label>
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                    <button type="submit">Chercher</button>
                                 </div>
                             </form>
                         </div>
                         <br>
                         <div class="search-specific">
-                            <h6>Search for product with category, price, sale ...</h6>
+                            <h6>Chercher Par Prix, Categorie, promo ..</h6>
                             <hr>
                             <div class="search-area">
                                 {!! Form::open(['url' => '/advancedSearch']) !!}
                                 <div class="form-group">
-                                    <label for="category">Category <br>
+                                    <label for="category">Categorie <br>
                                         <select name="category" class="browser-default custom-select" id="category">
-                                            <option></option>
+                                            <option disabled>Veilliez Choisir un Categorie</option>
                                             @if(isset($categories))
                                                 @foreach($categories as $cat)
                                                     <option value="{{$cat->name}}">{{ucwords($cat->name)}}</option>
@@ -65,17 +63,17 @@
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="maxPrice">Great Price
+                                    <label for="maxPrice">Prix Max
                                         <input type="number" class="form-control" id="greater-than" name="maxPrice" placeholder="Max Price">
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="onSold">Products on sold
+                                    <label for="greater-than" class="d-flex">
+                                        Promo
                                         <input type="checkbox" class="form-control" id="greater-than" name="onSold">
-                                        YES
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-outline-success">Submit</button>
+                                <button type="submit">Submit</button>
                                 {!! Form::close() !!}
                             </div>
                         </div>
@@ -88,7 +86,7 @@
                         @if(isset($msg))
                             {{$msg}}
                         @else
-                            Featured Items
+                            Tous les produits
                         @endif
                     </h3>
                     <hr>
@@ -101,7 +99,7 @@
                                 </a>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
-                                        <h3 class="card-text iphone">{{$product->product_name}}</h3>
+                                        <h6 class="card-text iphone">{{$product->product_name}}</h6>
                                         @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
                                     </div>
                                     <div class="general-rated text-success">
@@ -133,12 +131,12 @@
                                         @endif
                                     </div>
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-outline-dark btn-sm">
+                                        <button>
                                             <b>View <i class="fa fa-eye"></i></b>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                        <button class="btn btn-outline-success btn-sm float-right">
+                                        <button class="float-right">
                                             <b>Add <i class="fa fa-shopping-cart"></i></b>
                                         </button>
                                     </a>
@@ -148,7 +146,7 @@
                             <div>
                                 <h3 class="text-danger">Sorry, No Products ...</h3>
                                 <a href="{{url('/shop')}}" class="text-dark">
-                                    <button class="btn btn-outline-danger btn-sm float-right">
+                                    <button class="float-right">
                                         <b><i class="fa fa-toggle-left"></i> Back to Shop</b>
                                     </button>
                                 </a>

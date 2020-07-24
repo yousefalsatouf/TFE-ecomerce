@@ -57,3 +57,20 @@
         }
     }
 }
+
+#cart_items\ infos, #cart_items\ password
+{
+    form
+    {
+        label
+        {
+            font-weight: bolder;
+            color: $green;
+        }
+        input
+        {
+            border: 0;
+            border-bottom: 1px solid $green;
+        }
+    }
+}

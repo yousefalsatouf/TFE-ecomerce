@@ -9,9 +9,6 @@
         <li class="nav-item">
             <a class="nav-link" href="{{url('/admin')}}"><i class="fa fa-eye"></i> Admin</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('/user')}}"><i class="fa fa-user"></i> Profile</a>
-        </li>
         @if(Auth::check() && (Auth::user()->isAdmin()))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/inbox')}}">
@@ -24,6 +21,9 @@
         @endif
         <li class="nav-item">
             <p class="nav-link active"><b>Manage</b></p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/user')}}"><i class="fa fa-user"></i> Profile</a>
         </li>
         @if(Auth::check() && (Auth::user()->isAdmin()))
             <li class="nav-item">

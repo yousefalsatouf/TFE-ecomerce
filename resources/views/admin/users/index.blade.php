@@ -8,7 +8,7 @@
             </div>
             <div class="col-sm-12 ml-sm-auto col-md-12 col-lg-10 pt-3">
                 <div>
-                    <h3>Users Management</h3>
+                    <h2>Gestion des utilisateurs</h2>
                 </div>
                 <br>
                 <table class="table table-striped">
@@ -20,16 +20,8 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>State</th>
-                        <th>City</th>
-                        <th>Street</th>
-                        <th>Street Number</th>
-                        <th>Postal Code</th>
-                        <th>Payment Method</th>
                         <th>Role</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,26 +33,15 @@
                             <td>{{$user->first_name}} </td>
                             <td>{{$user->last_name}} </td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->phone_number}}</td>
-                            <td>{{$user->state}} </td>
-                            <td>{{$user->city}}</td>
-                            <td>{{$user->street}} </td>
-                            <td>{{$user->street_number}}</td>
-                            <td>{{$user->postal_code}} </td>
-                            <td>{{$user->payment_type}}</td>
                             <td>
                                 @if($user->admin){{'Admin'}}@elseif($user->actor){{'Actor'}}@else{{'User'}}@endif
                             </td>
-                            <td>
-                                @if($user->id == 1) <button class="btn btn-outline-success" disabled>Edit</button>
-                                @else<a class="btn btn-outline-success" href="{{route('findUser', $user->id)}}">Edit</a>@endif
+                            <td class="d-flex">
+                                <a class="link" href="{{route('findUser', $user->id)}}"><i class="fa fa-edit"></i></a>
+                                {!! Form::open(['method'=>'DELETE', 'action'=> ['UsersController@destroy', $user->id]]) !!}
+                                <button type="submit"><i class="fa fa-trash-o"></i></button>
+                                {!! Form::close() !!}
                             </td>
-                            {!! Form::open(['method'=>'DELETE', 'action'=> ['UsersController@destroy', $user->id]]) !!}
-                            <td>
-                                @if($user->id == 1){!! Form::submit('Delete', ['class'=>'btn btn-outline-danger', 'disabled']) !!}
-                                @else{!! Form::submit('Delete', ['class'=>'btn btn-outline-danger']) !!}@endif
-                            </td>
-                            {!! Form::close() !!}
                         </tr>
                     @endforeach
                     </tbody>
