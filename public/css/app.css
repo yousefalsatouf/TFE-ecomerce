@@ -9676,6 +9676,55 @@ a.text-dark:hover {
   margin-top: 3.2rem;
 }
 
+#admin .create-product label {
+  font-weight: bolder;
+  color: #2BBBAD;
+}
+
+#admin .create-product input,
+#admin .create-product select,
+#admin .create-product textarea {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
+}
+
+#admin .role {
+  margin-top: 5rem;
+}
+
+#admin .role form select {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
+}
+
+#admin .edit-product label,
+#admin .add-property label,
+#admin .categories-sec label,
+#admin .edit-category label,
+#admin .ads-sec label {
+  font-weight: bolder;
+  color: #2BBBAD;
+}
+
+#admin .edit-product input,
+#admin .edit-product select,
+#admin .edit-product textarea,
+#admin .add-property input,
+#admin .add-property select,
+#admin .add-property textarea,
+#admin .categories-sec input,
+#admin .categories-sec select,
+#admin .categories-sec textarea,
+#admin .edit-category input,
+#admin .edit-category select,
+#admin .edit-category textarea,
+#admin .ads-sec input,
+#admin .ads-sec select,
+#admin .ads-sec textarea {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
+}
+
 @media screen and (max-width: 768px) {
   .resume .side {
     width: 100%;
@@ -9927,6 +9976,18 @@ button:hover {
 
 #cart_items\ profile .user-info .card-body ul li p {
   font-weight: bold;
+}
+
+#cart_items\ infos form label,
+#cart_items\ password form label {
+  font-weight: bolder;
+  color: #2BBBAD;
+}
+
+#cart_items\ infos form input,
+#cart_items\ password form input {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
 }
 
 #contact .container form label {

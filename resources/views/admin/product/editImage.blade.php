@@ -26,10 +26,10 @@
                     {{ Form::file('gallery[]',array('class' => 'form-control', 'multiple')) }}
                 </div>
                 <br/>
-                <a class="btn btn-outline-dark" href="{{url('/admin/products')}}">
+                <a class="link" href="{{url('/admin/products')}}">
                     <i class="fa fa-backward"></i> GO back
                 </a>
-                <input type="submit" value="Upload Image" class="btn btn-outline-success pull-right float-right">
+                <button type="submit" class="pull-right float-right"><i class="fa fa-upload"></i>Importer des images</button>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 {!! Form::close() !!}
             </div>

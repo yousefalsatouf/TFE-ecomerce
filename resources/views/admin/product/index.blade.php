@@ -8,9 +8,9 @@
             </div>
             <div class="col-sm-12 ml-sm-auto col-md-12 col-lg-10 pt-3">
                 <div class="d-flex justify-content-around">
-                    <h2>List Of Products</h2>
-                    <button class="btn btn-outline-success float-right">
-                        <a class="nav-link text-dark" href="{{route('products.create')}}"><b>Add One</b></a>
+                    <h2>Liste de produits</h2>
+                    <button class="float-right">
+                        <a class="nav-link text-dark" href="{{route('products.create')}}"><b><i class="fa fa-plus-circle"></i> Ajouter des produits</b></a>
                     </button>
                 </div>
                 @if(session('msg'))
@@ -31,8 +31,7 @@
                         <th>Shopping Cost</th>
                         <th>New</th>
                         <th>Category</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -48,14 +47,12 @@
                             <td>{{$product->shopping_cost? $product->shopping_cost : "Free"}} </td>
                             <td>{{$product->new_arrival?"Yes":"No"}}</td>
                             <td>{{ isset($product->name)? $product->name : '' }}</td>
-                            <td>
-                                <a class="btn btn-outline-success" href="{{route('editProductForm', $product->id)}}">Edit</a>
+                            <td class="d-flex">
+                                <a class="link" href="{{route('editProductForm', $product->id)}}"><i class="fa fa-edit"></i></a>
+                                {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
+                                <button type="submit"><i class="fa fa-trash-o"></i></button>
+                                {!! Form::close() !!}
                             </td>
-                            {!! Form::open(['method'=>'DELETE', 'action'=> ['ProductsController@destroy', $product->id]]) !!}
-                            <td>
-                                {!! Form::submit('Delete', ['class'=>'btn btn-outline-danger']) !!}
-                            </td>
-                            {!! Form::close() !!}
                         </tr>
                     @endforeach
                     </tbody>

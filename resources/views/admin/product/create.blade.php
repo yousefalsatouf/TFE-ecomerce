@@ -8,13 +8,13 @@
             <div class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
                 <div class="col-lg-8">
                     <div>
-                        <button class="btn bg-light float-right">
-                            <a class="nav-link text-dark" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> Manage Products</b></a>
+                        <button class="float-right">
+                            <a class="link" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> Gérer les produits</b></a>
                         </button>
                     </div>
-                    <h1>Add New Product</h1>
+                    <h2>Ajouter un nouveau produit</h2>
                     <hr>
-                    <strong class="text-warning"><i class="fa fa-warning"></i>Fields must be fill out</strong>
+                    <strong class="text-warning"><i class="fa fa-warning"></i> Les champs doivent être remplis</strong>
                     <br>
                     @if(session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
@@ -57,7 +57,9 @@
                             {{ Form::label('product_info', 'Description') }}
                             {{ Form::textarea('product_info', null, array('class' => 'form-control')) }}
                         </div>
-                        {{ Form::submit('Submit', array('class' => 'btn btn-outline-success')) }}
+                        <div class="form-group">
+                            <button type="submit">Submit</button>
+                        </div>
                         <br>
                         {!! Form::close() !!}
                     </div>

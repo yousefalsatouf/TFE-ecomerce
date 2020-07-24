@@ -29,7 +29,7 @@
                 </li>
                 @guest
                     <li class="nav-item">
-                        <a href="{{url('/login')}}" class="nav-link">Connection</a>
+                        <a href="{{url('/login')}}" class="nav-link">Connextion</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
@@ -45,7 +45,7 @@
                         </li>
                     @endif
                         <li class="nav-item">
-                            <a href="{{url('/logout')}}" class="nav-link text-danger">Déconnection</a>
+                            <a href="{{url('/logout')}}" class="nav-link text-danger">Déconnextion</a>
                         </li>
                         <li class=" cart nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -77,7 +77,7 @@
                             <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
                             <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">
-                                Déconnection
+                                Déconnextion
                             </a>
                         </div>
                     </li>

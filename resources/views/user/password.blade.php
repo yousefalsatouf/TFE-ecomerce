@@ -1,11 +1,11 @@
 @extends('front.helpers.master')
 @section('content')
-    <section id="cart_items" >
+    <section id="cart_items password">
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><b class="text-success">Hello {{ucwords(Auth::user()->name)}},</b></li>
-                    <li><b class="text-info">Manage your password</b></li>
+                    <li><h2>Gérez votre mot de passe</h2></li>
+                    <li><b class="text-info">Bonjour {{ucwords(Auth::user()->name)}},</b></li>
                 </ol>
             </div>
             @if(session('msg'))
@@ -18,24 +18,24 @@
                     @include('user.helpers.quickMenu')
                 </div>
                 <div class="col-md-8">
-                    <h3 ><span class="text-danger">Change Password</span></h3>
+                    <h2>Changer le mot de passe</h2>
                     <br>
                     <hr>
                     {!! Form::open(['url' => 'updatePassword',  'method' => 'post']) !!}
                         <div class="form-group row">
                             <div class="form-group col-md-6">
-                                <label for="example-text-input" class="text-success">Current Password</label>
+                                <label for="example-text-input">Mot de passe actuel</label>
                                 <input class="form-control" type="password"  name="oldPassword">
                                 <span style="color:red">{{ $errors->first('old_password') }}</span>
                             </div>
                             <br>
                             <div class="form-group col-md-6">
-                                <label for="example-text-input" class="text-success">New Password</label>
+                                <label for="example-text-input">Nouveau mot de passe</label>
                                 <input class="form-control" type="password"  name="newPassword">
                                 <span style="color:red">{{ $errors->first('newPassword') }}</span>
                             </div>
                             <div class="form-group col-md-6" align="right">
-                                <input type="submit" value="Update" class="btn btn-outline-success">
+                                <button type="submit">Modifier</button>
                             </div>
                         </div>
                     {!! Form::close() !!}
