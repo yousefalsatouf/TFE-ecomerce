@@ -7,16 +7,6 @@
     @include('front/helpers/toggleMenu')
     <div class="container large-screen col-md-auto">
         <div id="navbarCollapse" class="content">
-                @php
-                    $verify = DB::table('users')->where('id', Auth::id())->pluck('email_verified_at');
-                    //dd($verify)
-                @endphp
-                @if(Auth::check() && !$verify[0])
-                    <div class="link">
-                        Veuillez vérifier votre email pour confirmer votre inscription!
-                    </div>
-                @endif
-
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i></a>

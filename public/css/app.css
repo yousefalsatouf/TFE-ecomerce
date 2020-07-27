@@ -9919,6 +9919,12 @@ button:hover {
   cursor: pointer;
 }
 
+.verify-message {
+  background-color: #2BBBAD;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .quick-menu {
   margin-bottom: 5rem;
   padding: 1rem;

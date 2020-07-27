@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SHOPClub</title>
+    <title>SportClub</title>
     <link rel="stylesheet" href="{{asset('dist/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
     <body>
         <header id="header">
+            @php
+                $verify = DB::table('users')->where('id', Auth::id())->pluck('email_verified_at');
+            @endphp
+            @if(Auth::check() && !$verify[0])
+                <div class="alert verify-message" role="alert">
+                        Veuillez vérifier votre email pour confirmer votre inscription!
+                </div>
+            @endif
             @include('front.helpers.menu')
         </header>
         @yield('content')
