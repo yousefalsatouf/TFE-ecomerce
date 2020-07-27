@@ -14,7 +14,7 @@
                     </div>
                     <a href="{{url('/category/list/'.$category->name)}}" class="text-dark">
                         <button class="btn btn-sm text-dark">
-                            <b>Discover {{$category->name}}'s Products <i class="fa fa-eye"></i></b>
+                            <b>Découvrir {{$category->name}} <i class="fa fa-eye"></i></b>
                         </button>
                     </a>
                 </div>
