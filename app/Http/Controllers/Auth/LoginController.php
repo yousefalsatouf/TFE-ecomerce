@@ -62,18 +62,22 @@ class LoginController extends Controller
             if($findUser)
             {
                 Auth::login($findUser);
-                 return redirect('/home');
+                return redirect('/');
             }else
-                {
+            {
+                $date = date("Y-m-d H:i:s");
+                //dd($date);
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
+                    'email_verified_at' => $date,
                     'google_id'=> $user->id
                 ]);
+                //dd($newUser);
 
                 Auth::login($newUser);
 
-                return redirect()->back();
+                return redirect('/');
             }
 
         } catch (Exception $e)

@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8 content">
             <div class="card">
-                <div class="card-header">{{ __('Connection ...') }}</div>
+                <div class="card-header">{{ __('Connextion ...') }}</div>
                 <div class="card-body">
                     <div>
                         @if(session('msg'))
-                            <h1 class="text-danger">Please Login First !</h1>
+                            <h1 class="text-danger">Connectez-vous d'abord s'il vous plaît!</h1>
                         @endif
                     </div>
                     <form method="POST" action="{{ route('login') }}">
