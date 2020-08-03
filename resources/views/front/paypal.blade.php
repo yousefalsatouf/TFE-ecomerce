@@ -12,4 +12,4 @@
     <input type="hidden" name="tax_{{$count}}" value="{{Cart::tax()}}">
     <br>
 @endforeach
-<input name="submit" id="paypalbtn" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-34px.png" value="PayPal" formaction="https://www.paypal.com/cgi-bin/webscr">
+<button name="submit" id="paypalbtn" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-34px.png" formaction="https://www.paypal.com/cgi-bin/webscr">Payer</button>

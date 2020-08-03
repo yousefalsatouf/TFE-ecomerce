@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="title">
                         <div class="col-lg-9 order-2 order-lg-1">
-                            <h1>Checkout</h1>
+                            <h1>Check-out</h1>
                         </div>
                         <div class="quick-access">
                             <ol class="breadcrumb">
@@ -19,9 +19,9 @@
                     </div>
                     <div class="order-summary">
                         <div class="block-body">
-                            <h2 class="text-uppercase">Order Summary</h2>
+                            <h2 class="text-uppercase">Récapitulatif de la commande</h2>
                             <hr>
-                            <p>Shipping and additional costs are calculated based on values you have entered</p>
+                            <p>Les frais d'expédition et supplémentaires sont calculés en fonction des valeurs que vous avez saisies</p>
                             <table class="table table-striped">
                                 <thead>
                                 <tr class="cart_menu">
@@ -34,9 +34,9 @@
                                 <tbody>
                                 <tr>
                                     <td><b class="text-success">FREE</b></td>
-                                    <td>{{Cart::tax()}} $</td>
-                                    <td>{{Cart::subtotal()}} $</td>
-                                    <td>{{Cart::total()}} $</td>
+                                    <td>{{Cart::tax()}} EUR</td>
+                                    <td>{{Cart::subtotal()}} EUR</td>
+                                    <td>{{Cart::total()}} EUR</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -49,49 +49,51 @@
             <div class="container">
                 <div class="quick-checkout">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><b>Shopper Information<i class="fa fa-angle-double-right"></i></b></li>
-                        <li class="nav-item"><b>Delivery Method<i class="fa fa-angle-double-right"></i></b></li>
-                        <li class="nav-item"><b>Payment PayPal</b></li>
+                        <li class="nav-item"><a href="{{url('/checkoutaddress')}}" class="text-white"><b>Informations sur l'acheteur<i class="fa fa-angle-double-right"></i></b></a></li>
+                        <li class="nav-item"><b>méthode de livraison<i class="fa fa-angle-double-right"></i></b></li>
+                        <li class="nav-item"><b>Paiement: Paypal<i class="fa fa-angle-double-right"></i></b></li>
+                        <li class="nav-item text-white"><b>Terminer la commande</b></li>
                     </ul>
                     <hr>
                 </div>
-                @include('front/helpers/checkoutAddress')
-                <div class="delivery">
-                    <h3>Delivery Method</h3>
-                    <hr>
-                    <div>
-                        <i class="fa fa-truck"></i>
-                        <p>
-                            As a precaution and to protect everyone's health,
-                            our stores will remain closed until further notice.
-                            Do you want to make a purchase? We remain available 24/7 on shopclub.be. Your orders will be delivered to your home, safely and free of charge.
-                        </p>
+                <div class="container">
+                    <div class="delivery">
+                        <h3>méthode de livraison</h3>
+                        <hr>
+                        <div>
+                            <i class="fa fa-truck"></i>
+                            <p>
+                                Par précaution et pour protéger la santé de chacun,
+                                nos magasins resteront fermés jusqu'à nouvel ordre.
+                                Voulez-vous effectuer un achat? Nous restons disponibles 24/7 sur sportClub.be. Vos commandes seront livrées à votre domicile, en toute sécurité et gratuitement.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="payment">
-                    <h3>Payment Method</h3>
-                    <hr>
-                    <strong class="text-warning">To finish your order please checkout to pay ..</strong>
-                    <form action="{{url('/finishOrder')}}" method="get">
-                        {{--
+                    <div class="payment">
+                        <h3>Mode de paiement</h3>
+                        <hr>
+                        <strong>Pour terminer votre commande, veuillez effectuer le paiement.</strong>
+                        <form action="{{url('/finishOrder')}}" method="get">
                             <div class="form-group">
-                                <label for="pay" class="form-label">PayPal
-                                    <input type="radio" name="pay" value="paypal" checked>
-                                </label>
                                 @include('front/paypal')
                             </div>
-                        --}}
-                        <button type="submit" class="btn btn-success">Test</button>
-                    </form>
+                        </form>
+                        <a href="{{url('/finishOrder')}}" class="text-dark">
+                            <button class="float-right">
+                                <b>Terminer </b>
+                            </button>
+                        </a>
+                    </div>
+                    <hr>
+                    <br>
+                    <div>
+                        <a href="{{url('/cart')}}" class="link wide prev">
+                            <i class="fa fa-backward"></i> Back to Cart
+                        </a>
+                    </div>
+                    <br>
                 </div>
             </div>
         </section>
-        <div>
-            <a href="{{url('/cart')}}" class="btn btn-template-outlined wide prev">
-                <button class="btn btn-outline-dark">
-                    <i class="fa fa-backward"></i> Back to Cart
-                </button>
-            </a>
-        </div>
     </main>
 @endsection

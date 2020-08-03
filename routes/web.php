@@ -107,6 +107,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 Route::group(['middleware' => 'auth'], function()
 {
     Route::get('/checkout', 'CheckoutController@index');
+    Route::get('/checkoutaddress', 'CheckoutController@checkoutaddress');
     Route::post('/formValidate', 'CheckoutController@formValidate');
     Route::get('/finishOrder', 'CheckoutController@finishOrder');
     Route::get('/orders', 'ProfileController@orders');

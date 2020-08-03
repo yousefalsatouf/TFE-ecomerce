@@ -159,9 +159,9 @@
                                    <tbody>
                                        <tr>
                                            <td><span class="text-success">Free</span></td>
-                                           <td>{{Cart::tax()}} $</td>
-                                           <td>{{Cart::subtotal()}} $</td>
-                                           <td>{{Cart::total()}} $</td>
+                                           <td>{{Cart::tax()}} EUR</td>
+                                           <td>{{Cart::subtotal()}} EUR</td>
+                                           <td>{{Cart::total()}} EUR</td>
                                        </tr>
                                    </tbody>
                                </table>
@@ -180,9 +180,9 @@
                                            <b><i class="fa fa-backward"></i> Ajouter plus de la boutique</b>
                                        </button>
                                    </a>
-                                   <a href="{{url('/checkout')}}" class="text-dark">
+                                   <a href="{{url('/checkoutaddress')}}" class="text-dark">
                                        <button class="float-right">
-                                           <b>Check-out <i class="fa fa-eye"></i></b>
+                                           <b>Suivant <i class="fa fa-eye"></i></b>
                                        </button>
                                    </a>
                                </div>

@@ -9789,7 +9789,6 @@ a.text-dark:hover {
 #checkout h3,
 #checkout h4,
 #checkout h5 {
-  font-family: "Berkshire Swash", cursive;
   color: #2BBBAD;
 }
 
@@ -9890,6 +9889,11 @@ a.text-dark:hover {
   color: #2BBBAD;
 }
 
+#checkout .address form input {
+  border: 0;
+  border-bottom: 1px solid #2BBBAD;
+}
+
 h1 {
   color: #000;
   font-family: "Berkshire Swash", cursive;
@@ -9897,6 +9901,7 @@ h1 {
 
 h2 {
   color: #2BBBAD;
+  font-family: "Berkshire Swash", cursive;
 }
 
 h2,

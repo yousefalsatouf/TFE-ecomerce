@@ -65,14 +65,21 @@ class   CheckoutController extends Controller
 
         return back();
     }
+    public function checkoutaddress()
+    {
+        $userId = Auth::user()->id;
+        $addressInfos = DB::table('users')->where('id', $userId)->get();
+
+        return view('front/checkoutaddress', compact('addressInfos'));
+    }
 
     public function finishOrder()
     {
         orders::createOrder();
-
         Cart::destroy();
 
-        return redirect('/finish');
+
+        return view('user/orderSummary', compact('orders'));
     }
 }
 
