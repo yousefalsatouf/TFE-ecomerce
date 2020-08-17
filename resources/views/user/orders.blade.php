@@ -5,7 +5,6 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><b class="text-success">Hello {{ucwords(Auth::user()->name)}},</b></li>
-                    <li><b class="text-info">Manage your password</b></li>
                 </ol>
             </div>
             <div class="row">
@@ -13,14 +12,15 @@
                     @include('user.helpers.quickMenu')
                 </div>
                 <div class="col-md-8">
-                    <h3 ><span style='color:green'>Order's History</span></h3>
+                    <h3 ><span style='color:green'>Histoire de l'ordre</span></h3>
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Product name</th>
+                                <th>Image</th>
+                                <th>Nom</th>
                                 <th>Product Code</th>
-                                <th>Order Total</th>
+                                <th>Total </th>
                                 <th>Order Status</th>
                             </tr>
                         </thead>

@@ -17,7 +17,6 @@
 {
     h1, h2, h3, h4, h5
     {
-        font-family: $font-family-sans-serif;
         color: $green;
     }
     section
@@ -140,6 +139,12 @@
                 font-weight: bolder;
                 font-size: 18px;
                 color: $green;
+            }
+
+            input
+            {
+                border: 0;
+                border-bottom: 1px solid $green;
             }
         }
     }
