@@ -12,7 +12,7 @@
         }
         .shop-bg
         {
-            .container
+            .ad-container
             {
                 background-color: #CCCCC6;
                 padding: 1rem;
@@ -98,14 +98,15 @@
         img
         {
             max-width: 100%;
+            height: 70%;
         }
         .shop-bg
         {
             .bg
             {
-                height: 40rem;
+                height: 50rem;
             }
-            .container
+            .ad-container
             {
                 background-color: #CCCCC6;
                 padding: 1rem;
@@ -143,30 +144,6 @@
         .advanced-search
         {
             margin: 1rem auto;
-            background-color: #2BBBAD;
-            .search
-            {
-                .search-input
-                {
-                    form
-                    {
-                        div
-                        {
-                            width: 100%;
-                            label, input
-                            {
-                                width: 100%;
-                            }
-                            input, button, select
-                            {
-                                background-color: transparent;
-                                border: 0;
-                                border-bottom: 1px solid $black;
-                            }
-                        }
-                    }
-                }
-            }
             .search-specific
             {
                 .search-area
@@ -182,11 +159,10 @@
                             *{
                                 width: 100%;
                             }
-                            input, button, select
+                            input, select
                             {
-                                background-color: transparent;
                                 border: 0;
-                                border-bottom: 1px solid $black;
+                                border-bottom: 1px solid $green;
                             }
                         }
                     }
@@ -197,6 +173,25 @@
         {
             .container
             {
+                .search-input
+                {
+                    form
+                    {
+                        div
+                        {
+                            width: 100%;
+                            label, input
+                            {
+                                width: 100%;
+                            }
+                            input, select
+                            {
+                                border: 0;
+                                border-bottom: 1px solid $green;
+                            }
+                        }
+                    }
+                }
                 div
                 {
                     .card
@@ -227,14 +222,15 @@
         {
             width: 100%;
             padding-bottom: 1rem;
-            img
-            {
-
-            }
-            .container
+            margin-bottom: 10rem;
+            position: relative;
+            .ad-container
             {
                 background-color: $black;
                 padding: 2rem auto;
+                position: absolute;
+                top: 80%;
+                width: 100%;
                 div
                 {
                     h1
@@ -266,13 +262,12 @@
                     div
                     {
                         min-width: 100%;
-                        input, button, select
+                        input, select
                         {
-                            background-color: transparent;
                             border: 0;
-                            border-bottom: 1px solid $black;
+                            background-color: transparent;
+                            border-bottom: 1px solid $green;
                         }
-
                     }
                 }
             }
@@ -300,18 +295,6 @@
                                     transform: scale(1.1);
                                 }
                             }
-                            /*.card-body
-                            {
-                                &:hover
-                                {
-                                        position: absolute;
-                                        background-color: $black;
-                                        transform: translate(0px) scale(1);
-                                        width: 100%;
-                                        height: 100%;
-                                        display: none;
-                                }
-                            }*/
                         }
                     }
                 }

@@ -2,86 +2,35 @@
 @section('content')
     <main role="main" id="shop">
         <section class="shop-bg">
-            <div>
+            <div class="bg-ad">
                 <img src="{{URL::asset('dist/images/shop/bg-shop.jpg')}}" class="bg" alt="First slide">
-                <div class="container">
-                    @foreach($ads as $ad)
-                        <div class="text-center ad">
+            </div>
+            <div class="ad-container">
+                @foreach($ads as $ad)
+                    <div class="text-center ad">
+                        <div>
                             <div>
-                                <div>
-                                    <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
-                                    <h1>{{$ad->title}}</h1>
-                                </div>
-                                <div class="content">
-                                    <strong class="text-warning">This is an ad</strong>
-                                    <p>{{$ad->description}}</p>
-                                </div>
+                                <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="">
+                                <h1>{{$ad->title}}</h1>
                             </div>
-                            <a class="link" href={{$ad->link}} role="button">Learn more ...</a>
+                            <div class="content">
+                                <strong class="text-warning">@lang('shop.adTitle')</strong>
+                                <p>{{$ad->description}}</p>
+                            </div>
                         </div>
-                    @endforeach
-                </div>
+                        <a class="link" href={{$ad->link}} role="button">@lang('shop.adBtn')</a>
+                    </div>
+                @endforeach
             </div>
         </section>
-        <hr>
         <br>
         @include('front.helpers.topProducts')
+        <br>
         <section class="productsSearch container">
-            <div class="advanced-search">
-                <br>
-                <div class="container">
-                    <h6>Chercher par Le nom de produit ...</h6>
-                    <hr>
-                    <div class="search">
-                        <div class="search-input">
-                            <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
-                                    <label for="search">
-                                        <input type="text" name="search" class="form-control mr-2" placeholder="Search">
-                                    </label>
-                                    <button type="submit">Chercher</button>
-                                </div>
-                            </form>
-                        </div>
-                        <br>
-                        <div class="search-specific">
-                            <h6>Chercher Par Prix, Categorie, promo ..</h6>
-                            <hr>
-                            <div class="search-area">
-                                {!! Form::open(['url' => '/advancedSearch']) !!}
-                                <div class="form-group">
-                                    <label for="category">Categorie <br>
-                                        <select name="category" class="browser-default custom-select" id="category">
-                                            <option disabled>Veilliez Choisir un Categorie</option>
-                                            @if(isset($categories))
-                                                @foreach($categories as $cat)
-                                                    <option value="{{$cat->name}}">{{ucwords($cat->name)}}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="maxPrice">Prix Max
-                                        <input type="number" class="form-control" id="greater-than" name="maxPrice" placeholder="Max Price">
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="greater-than" class="d-flex">
-                                        Promo
-                                        <input type="checkbox" class="form-control" id="greater-than" name="onSold">
-                                    </label>
-                                </div>
-                                <button type="submit">Submit</button>
-                                {!! Form::close() !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('front/helpers.advancedSearch')
             <div class="album text-muted products">
                 <div class="container">
+                    @include('front.helpers.searchInput')
                     <h3 class="text-center">
                         @if(isset($msg))
                             {{$msg}}
@@ -100,7 +49,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="card-text iphone">{{$product->product_name}}</h6>
-                                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                                        @if($product->new_arrival)<img src="{{asset('dist/images/shop/new.png')}}" style="width: 50px">@endif
                                     </div>
                                     <div class="general-rated text-success">
                                         @php
@@ -123,23 +72,26 @@
                                         @if(!$product->product_price)
                                                 <p class="card-text text-success"><strong>FREE</strong></p>
                                         @elseif(($product->sold_price))
-                                                <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
+                                                <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
                                                 <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                                <p class="">{{$product->sold_price}} $</p>
+                                                <p class="">{{$product->sold_price}} EUR</p>
                                         @else
-                                                <p class="">{{$product->product_price}} $</p>
+                                                <p class="">{{$product->product_price}} EUR</p>
                                         @endif
                                     </div>
-                                    <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                        <button>
-                                            <b>View <i class="fa fa-eye"></i></b>
-                                        </button>
-                                    </a>
-                                    <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                        <button class="float-right">
-                                            <b>Add <i class="fa fa-shopping-cart"></i></b>
-                                        </button>
-                                    </a>
+                                    <br>
+                                    <div>
+                                        <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
+                                            <button>
+                                                <b> <i class="fa fa-eye"></i></b>
+                                            </button>
+                                        </a>
+                                        <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
+                                            <button class="float-right">
+                                                <b> <i class="fa fa-shopping-cart"></i></b>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         @empty

@@ -52311,6 +52311,10 @@ $(document).ready(function () {
   });
   $('input:radio').change(function () {
     var userRating = this.value; //console.log(userRating);
+  }); // select
+
+  $(document).ready(function () {
+    $('.changeLang').formSelect();
   });
 });
 

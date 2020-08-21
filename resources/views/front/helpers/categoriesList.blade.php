@@ -1,6 +1,6 @@
 <section class="categories-list">
     <div class="container">
-        <h2>Nos Categories</h2>
+        <h2>{{__('home.categoriesList')}}</h2>
         <br>
         <div class="articles">
             @foreach($categories as $category)
@@ -14,7 +14,7 @@
                     </div>
                     <a href="{{url('/category/list/'.$category->name)}}" class="text-dark">
                         <button class="btn btn-sm text-dark">
-                            <b>Découvrir {{$category->name}} <i class="fa fa-eye"></i></b>
+                            <b>{{__('home.discover')}} {{$category->name}} <i class="fa fa-eye"></i></b>
                         </button>
                     </a>
                 </div>

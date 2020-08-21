@@ -13,10 +13,9 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('locale/{locale}', function ($locale){
-    Session::put('locale', $locale);
-    return redirect()->back();
-});
+Route::get('lang/home', 'LangController@index');
+Route::get('lang/change', 'LangController@change')->name('changeLang');
+
 
 Route::get('/', function () {
     return view('/front/home');

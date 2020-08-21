@@ -13,5 +13,9 @@ $(document).ready(function(){
             let userRating = this.value;
             //console.log(userRating);
         });
+    // select
+    $(document).ready(function(){
+        $('.changeLang').formSelect();
+    });
 });
 

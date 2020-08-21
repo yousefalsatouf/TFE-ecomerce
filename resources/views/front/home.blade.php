@@ -12,11 +12,9 @@
                         <i class="fa fa-truck"></i>
                     </div>
                     <div>
-                        <h2>Livration</h2>
+                        <h2>{{__('home.delivery')}}</h2>
                         <p>
-                            Par précaution et pour protéger la santé de tous,
-                            nos magasins resteront fermés jusqu'à nouvel ordre.
-                            Voulez-vous faire un achat? Nous restons disponibles 24/7 sur shopclub.be. Vos commandes seront livrées à votre domicile, en toute sécurité et gratuitement.
+                            {{__('home.deliveryContent')}}
                         </p>
                     </div>
                 </div>
@@ -27,8 +25,7 @@
                     <div>
                         <h2>Contact</h2>
                         <p>
-                            quoi que ce soit à l'esprit, des questions, vous avez besoin de réponses sur nos services, ou peut-être vous devez signaler
-                            un problème, contactez-nous et parlons.
+                            {{__('home.contactContent')}}
                         </p>
                     </div>
                 </div>
@@ -37,10 +34,8 @@
                         <i class="fa fa-info-circle"></i>
                     </div>
                     <div>
-                        <h2>A props de nous</h2>
-                        <p>
-                            La petite histoire de nous, de nos services durant toutes les 10 années d'existence et de service à nos clients.
-                        </p>
+                        <h2>{{__('home.about')}}</h2>
+                        <p>{{__('home.aboutContent')}}</p>
                     </div>
                 </div>
             </div>

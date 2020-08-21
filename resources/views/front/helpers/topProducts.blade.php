@@ -1,6 +1,6 @@
 <section class="top-products">
     <div class="container">
-        <h2>Products recommend for you ...</h2>
+        <h2>@lang('shop.topTitle')</h2>
         <br>
         <div class="articles">
             @foreach($recommends as $product)
@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h3 class="card-text iphone">{{$product->product_name}}</h3>
-                            @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                            @if($product->new_arrival)<img src="{{asset('dist/images/shop/new.png')}}" style="width: 50px">@endif
                         </div>
                         <div class="general-rated text-success">
                             @php
@@ -43,25 +43,17 @@
                         </div>
                         <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                             <button>
-                                <b>View <i class="fa fa-eye"></i></b>
+                                <b> <i class="fa fa-eye"></i></b>
                             </button>
                         </a>
                         <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
                             <button class="float-right">
-                                <b>Add <i class="fa fa-shopping-cart"></i></b>
+                                <b> <i class="fa fa-shopping-cart"></i></b>
                             </button>
                         </a>
                     </div>
                 </div>
             @endforeach
-        </div>
-        <div class="see-more">
-            <a href="{{url('/shop')}}" class="last">
-                <button>
-                    See More
-                    <i class="fa fa-forward"></i>
-                </button>
-            </a>
         </div>
     </div>
 </section>
