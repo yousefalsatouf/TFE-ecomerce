@@ -18,7 +18,7 @@
             @endphp
             @if(Auth::check() && !$verify[0])
                 <div class="alert verify-message" role="alert">
-                        Veuillez vérifier votre email pour confirmer votre inscription!
+                    @lang('auth.confirmEmail')
                 </div>
             @endif
             @include('front.helpers.menu')
@@ -28,16 +28,13 @@
             @include('front.helpers.footer')
         </footer>
         <script src="{{asset('js/app.js')}}"></script>
+        <script type="text/javascript">
+            var url = "{{ route('changeLang') }}";
+            $(".changeLang").change(function(){
+                window.location.href = url + "?lang="+ $(this).val();
+            });
+        </script>
     </body>
-    <script type="text/javascript">
-
-        var url = "{{ route('changeLang') }}";
-
-        $(".changeLang").change(function(){
-            window.location.href = url + "?lang="+ $(this).val();
-        });
-
-    </script>
 </html>
 <!-- end -->
 

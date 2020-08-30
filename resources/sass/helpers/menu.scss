@@ -2,10 +2,14 @@
 {
     #header
     {
+        .top-menu
+        {
+            width: 100vw;
+        }
         #header-menu
         {
             background-color: $main-bg;
-            font-family: $font-family-sans-serif;
+            font-family: $font-family-anton;
             a
             {
                 color: $white;
@@ -28,6 +32,7 @@
             .toggle-menu
             {
                 margin: 1rem auto;
+                text-align: center;
                 div
                 {
                     width: 100%;
@@ -71,6 +76,17 @@
                     }
                 }
             }
+            .bottom-menu
+            {
+                display: none;
+            }
+            .changeLang
+            {
+                background-color: $black;
+                border-bottom: 1px solid $green;
+                width: 3rem;
+                color: $green;
+            }
         }
     }
 }
@@ -89,12 +105,15 @@
             .top-menu
             {
                 display: flex;
+                font-size: 14px;
+
                 .changeLang
                 {
                     background-color: $black;
                     border-bottom: 1px solid $green;
-                    width: 3rem;
-                    color: $green;
+                    color: $white;
+                    width: 2rem;
+                    font-size: 12px;
                 }
             }
             .bottom-menu
@@ -115,14 +134,14 @@
             .large-screen
             {
                 width: 20%;
+                display: flex;
+                justify-content: flex-end;
                 .content
                 {
-                    width: 95%;
-                    margin: auto;
                     ul
                     {
-                        justify-content: space-around;
-                        flex-direction: row;
+                        display: flex;
+                        justify-content: space-between;
                     }
                 }
             }
@@ -137,33 +156,38 @@
             .logo
             {
                 display: block;
-                width: 100%;
+                max-width: 25%;
                 text-align: center;
                 padding: 1rem;
+                h1
+                {
+                    font-size: 20px;
+                }
             }
             .over
             {
                 position: absolute;
             }
+            form>div
+            {
+                flex: 1
+            }
             .search
             {
                 margin: auto;
-                width: 60%;
+                width: 100vw;
                 div
                 {
-                    margin: auto;
-                    width: 100%;
+
                     button, label
                     {
                         margin: 0.5rem;
-                        width: 20%;
                     }
                     input
                     {
                         border: 0;
                         border-bottom: 1px solid $green;
                         background-color: $black;
-                        width: 100%;
                     }
                 }
             }
@@ -173,22 +197,21 @@
 
 @media screen and (min-width: $break-large)
 {
-    .logo
+    #header
     {
-        max-width: 20%;
-    }
-    .large-screen
-    {
-        max-width: 40%;
-        ul
+        #header-menu
         {
-            justify-content: space-between;
+            .top-menu
+            {
+                .content
+                {
+                    ul
+                    {
+                        display: flex
+                    }
+                }
+            }
         }
     }
-    .over
-    {
-        position: absolute;
-    }
-
 }
 

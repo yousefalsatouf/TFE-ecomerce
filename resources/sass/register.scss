@@ -1,10 +1,12 @@
 #register
 {
-    font-family: $font-family-sans-serif;
-    //background-color: $black;
+    margin-top: 5rem;
+    @media screen and (max-width: $break-small)
+    {
+        bottom: -35rem;
+    }
     .card
     {
-       // background-color: $black;
         .card-header
         {
             color: $black;

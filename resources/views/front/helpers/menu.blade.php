@@ -19,7 +19,7 @@
         @include('front/helpers/toggleMenu')
         <div class="container large-screen col-md-auto">
             <div id="navbarCollapse" class="content">
-                <ul class="navbar-nav mr-auto">
+                <ul class="">
                     @guest
                         <li class="nav-item">
                             <a href="{{url('/login')}}" class="nav-link">{{ __('header.login') }}</a>
@@ -90,7 +90,7 @@
         </div>
     </div>
     <div class="bottom-menu">
-        <ul class="navbar-nav mr-auto">
+        <ul class="mr-auto">
             <li class="nav-item">
                 <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i></a>
             </li>

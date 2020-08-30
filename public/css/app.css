@@ -7642,9 +7642,12 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 @media screen and (max-width: 768px) {
+  #header .top-menu {
+    width: 100vw;
+  }
   #header #header-menu {
     background-color: black;
-    font-family: "Berkshire Swash", cursive;
+    font-family: "Anton", sans-serif;
   }
   #header #header-menu a {
     color: #fff;
@@ -7663,6 +7666,7 @@ a.text-dark:focus, a.text-dark:hover {
   }
   #header #header-menu .toggle-menu {
     margin: 1rem auto;
+    text-align: center;
   }
   #header #header-menu .toggle-menu div {
     width: 100%;
@@ -7698,6 +7702,15 @@ a.text-dark:focus, a.text-dark:hover {
     border-bottom: 1px solid #2BBBAD;
     background-color: #000;
   }
+  #header #header-menu .bottom-menu {
+    display: none;
+  }
+  #header #header-menu .changeLang {
+    background-color: #000;
+    border-bottom: 1px solid #2BBBAD;
+    width: 3rem;
+    color: #2BBBAD;
+  }
 }
 @media screen and (min-width: 768px) {
   #header #header-menu {
@@ -7708,12 +7721,14 @@ a.text-dark:focus, a.text-dark:hover {
   }
   #header #header-menu .top-menu {
     display: flex;
+    font-size: 14px;
   }
   #header #header-menu .top-menu .changeLang {
     background-color: #000;
     border-bottom: 1px solid #2BBBAD;
-    width: 3rem;
-    color: #2BBBAD;
+    color: #fff;
+    width: 2rem;
+    font-size: 12px;
   }
   #header #header-menu .bottom-menu {
     width: 100%;
@@ -7729,14 +7744,12 @@ a.text-dark:focus, a.text-dark:hover {
   }
   #header #header-menu .large-screen {
     width: 20%;
-  }
-  #header #header-menu .large-screen .content {
-    width: 95%;
-    margin: auto;
+    display: flex;
+    justify-content: flex-end;
   }
   #header #header-menu .large-screen .content ul {
-    justify-content: space-around;
-    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
   }
   #header #header-menu a {
     color: #fff;
@@ -7746,55 +7759,52 @@ a.text-dark:focus, a.text-dark:hover {
   }
   #header #header-menu .logo {
     display: block;
-    width: 100%;
+    max-width: 25%;
     text-align: center;
     padding: 1rem;
+  }
+  #header #header-menu .logo h1 {
+    font-size: 20px;
   }
   #header #header-menu .over {
     position: absolute;
   }
+  #header #header-menu form > div {
+    flex: 1;
+  }
   #header #header-menu .search {
     margin: auto;
-    width: 60%;
-  }
-  #header #header-menu .search div {
-    margin: auto;
-    width: 100%;
+    width: 100vw;
   }
   #header #header-menu .search div button, #header #header-menu .search div label {
     margin: 0.5rem;
-    width: 20%;
   }
   #header #header-menu .search div input {
     border: 0;
     border-bottom: 1px solid #2BBBAD;
     background-color: #000;
-    width: 100%;
   }
 }
 @media screen and (min-width: 1200px) {
-  .logo {
-    max-width: 20%;
-  }
-
-  .large-screen {
-    max-width: 40%;
-  }
-  .large-screen ul {
-    justify-content: space-between;
-  }
-
-  .over {
-    position: absolute;
+  #header #header-menu .top-menu .content ul {
+    display: flex;
   }
 }
 #footer {
-  font-family: "Berkshire Swash", cursive;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 @media screen and (max-width: 768px) {
+  #footer {
+    bottom: -33rem;
+  }
+  #footer .bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   #footer .toggle-menu, #footer .large-screen {
     display: none;
   }
@@ -7805,7 +7815,7 @@ a.text-dark:focus, a.text-dark:hover {
   }
 }
 @media screen and (min-width: 1200px) {
-  #footer .toggle-menu {
+  #footer .toggle-menu, #footer .large-screen {
     display: none;
   }
   #footer b {
@@ -7820,6 +7830,9 @@ a.text-dark:focus, a.text-dark:hover {
 }
 #footer .bottom b {
   margin: 1rem auto;
+}
+#footer .bottom #header-menu .bottom-menu ul {
+  display: flex;
 }
 #footer .bottom #header-menu .logo, #footer .bottom #header-menu .search, #footer .bottom #header-menu .user, #footer .bottom #header-menu .cart {
   display: none;
@@ -8488,7 +8501,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 #login {
-  font-family: "Berkshire Swash", cursive;
+  margin-top: 5rem;
 }
 #login .card .card-header {
   color: #000;
@@ -8505,7 +8518,12 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 #register {
-  font-family: "Berkshire Swash", cursive;
+  margin-top: 5rem;
+}
+@media screen and (max-width: 768px) {
+  #register {
+    bottom: -35rem;
+  }
 }
 #register .card .card-header {
   color: #000;
@@ -8836,6 +8854,28 @@ a.text-dark:focus, a.text-dark:hover {
   border-bottom: 1px solid #2BBBAD;
 }
 
+* {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  h2, h1, h3 {
+    font-size: 13px;
+  }
+
+  h4, b, .last, p {
+    font-size: 13px;
+  }
+
+  .container {
+    margin: 1rem auto;
+  }
+}
+body {
+  position: relative;
+  height: 100vh;
+}
+
 h1 {
   color: #000;
   font-family: "Berkshire Swash", cursive;
@@ -8848,6 +8888,10 @@ h2 {
 
 h2, h3, h4, h5, h6 {
   font-family: "Anton", sans-serif;
+}
+
+ul {
+  list-style-type: none;
 }
 
 button, a.link {
