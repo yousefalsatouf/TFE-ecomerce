@@ -1,7 +1,12 @@
 @extends('front.helpers.master')
 @section('content')
-    <section id="gMap">
-        <GMap></GMap>
+    <section id="gmap">
+        <gmap-map
+            :center="{lat:10,lng:10}"
+            :zoom="7"
+            style="width: 100%; height: 500px"
+        >
+        </gmap-map>
     </section>
     <section id="contact">
         <div class="container">
@@ -19,7 +24,7 @@
                         SportClub Sportsnutrition B.V.
                         Mars 10 8448 CP Heerenveen (Pays-Bas)
                         <br>
-                        Registre du Commerce et des Sociétés: 52492052
+                        Register du Commerce et des Sociétés: 52492052
                         TVA : FR 24 883281131
                     </p>
                 </div>

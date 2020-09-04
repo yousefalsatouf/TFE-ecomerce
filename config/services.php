@@ -2,18 +2,6 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Third Party Services
-    |--------------------------------------------------------------------------
-    |
-    | This file is for storing the credentials for third party services such
-    | as Mailgun, Postmark, AWS and more. This file provides the de facto
-    | location for this type of information, allowing packages to have
-    | a conventional file to locate the various service credentials.
-    |
-    */
-
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -31,9 +19,28 @@ return [
     ],
 
     'google' => [
-        'client_id' => '308653350627-5soi0aqkvcn7c5m1e2l1v3t88120ik0v.apps.googleusercontent.com',
-        'client_secret' => 'zDas3ZaBuOlEi1QI-dMGVY0N',
-        'redirect' => 'http://localhost:8000/auth/google/callback',
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT'),
     ],
+
+
+    'payPal' => [
+        'client_id' => env('PAYPAL_CLIENT_ID'),
+        'secret' => env('PAYPAL_SECRET'),
+        'settings' => array(
+            'mode' => env('PAYPAL_MODE','sandbox'),
+            'http.ConnectionTimeOut' => 30,
+            'log.LogEnabled' => true,
+            'log.FileName' => storage_path() . '/logs/paypal.log',
+            'log.LogLevel' => 'ERROR'
+        ),
+    ],
+
+    /*'facebook' => [
+        'client_id'     => env('FB_ID'),
+        'client_secret' => env('FB_SECRET'),
+        'redirect'      => env('FB_REDIRECT'),
+    ]*/
 
 ];

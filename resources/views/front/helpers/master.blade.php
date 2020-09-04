@@ -29,9 +29,32 @@
         </footer>
         <script src="{{asset('js/app.js')}}"></script>
         <script type="text/javascript">
-            var url = "{{ route('changeLang') }}";
-            $(".changeLang").change(function(){
-                window.location.href = url + "?lang="+ $(this).val();
+            $(document).ready(function(){
+                @for($i=1;$i<20;$i++)
+                $('#upCart{{$i}}').on('change keyup', function(){
+                    let newQty = $('#upCart{{$i}}').val();
+                    let rowId = $('#rowId{{$i}}').val();
+                    let proId = $('#proId{{$i}}').val();
+                    if(newQty <= 0)
+                    {
+                        alert('enter only valid quantity')
+                    } else
+                    {
+                        // start of ajax
+                        $.ajax({
+                            type: 'get',
+                            dataType: 'html',
+                            url: {{url('/cart/update')}}+'/'+proId,
+                            data: "qty = " + newQty + "& rowId=" + rowId + "& proId=" + proId,
+                            success: function (response) {
+                                console.log(response);
+                                $('#updateDiv').html(response);
+                            }
+                        });
+                        // End of Ajax
+                    }
+                });
+                @endfor
             });
         </script>
     </body>

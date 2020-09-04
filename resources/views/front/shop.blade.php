@@ -35,7 +35,7 @@
                         @if(isset($msg))
                             {{$msg}}
                         @else
-                            Tous les produits
+                            @lang('shop.result')
                         @endif
                     </h3>
                     <hr>
@@ -71,7 +71,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         @if(!$product->product_price)
                                                 <p class="card-text text-success"><strong>FREE</strong></p>
-                                        @elseif(($product->sold_price))
+                                        @elseif(($product->sold_price && ($product->sold_price < $product->product_price)))
                                                 <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
                                                 <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
                                                 <p class="">{{$product->sold_price}} EUR</p>
@@ -96,7 +96,7 @@
                             </div>
                         @empty
                             <div>
-                                <h3 class="text-danger">Sorry, No Products ...</h3>
+                                <h3 class="text-danger">Ooops!! ...</h3>
                                 <a href="{{url('/shop')}}" class="text-dark">
                                     <button class="float-right">
                                         <b><i class="fa fa-toggle-left"></i> Back to Shop</b>
@@ -105,7 +105,9 @@
                             </div>
                         @endforelse
                     </div>
-                    {{$products}}
+                    <div class="pagination-links">
+                        {{$products->links()}}
+                    </div>
                 </div>
             </div>
         </section>

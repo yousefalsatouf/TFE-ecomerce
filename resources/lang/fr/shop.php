@@ -10,5 +10,8 @@ return [
     'advancedSearch' => 'Chercher Par',
     'cat' => 'Categorie',
     'price' => 'Prix Max',
-    'newArrival' => 'Nouvelle arrivee'
+    'newArrival' => 'Nouvelle arrivee',
+    'result' => 'Resultat de recherche',
+    'top' => 'Top Produits',
+    'new' => 'nouvelle arrivee'
 ];

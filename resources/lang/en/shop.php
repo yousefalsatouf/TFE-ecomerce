@@ -7,8 +7,11 @@ return [
     'view' => 'View',
     'add' => 'Add',
     'searchByName' => 'Search By Name',
-    'advancedSearcj' => 'Search By',
+    'advancedSearch' => 'Search By',
     'cat' => 'Category',
     'price' => 'Max Price',
-    'newArrival' => 'New Arrival'
+    'newArrival' => 'New Arrival',
+    'result' => 'Search result',
+    'top' => 'Top products',
+    'new' => 'new arrival'
 ];

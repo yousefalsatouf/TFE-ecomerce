@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+a
+{
+    text-decoration: none;
+}
+
 @media screen and (max-width: $break-small)
 {
     h2, h1, h3
@@ -45,9 +50,18 @@ ul
     list-style-type: none;
 }
 
+a.google
+{
+    background-color: $red;
+    color: $white;
+    font-weight: 900;
+    padding: 0.75rem;
+}
+
 button, a.link
 {
     background-color: $green;
+    font-weight: 800;
     color: $white;
     border: 0;
     padding: 10px 15px;

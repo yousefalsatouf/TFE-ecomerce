@@ -3,7 +3,7 @@ return [
     'phoneEmail' => 'Phone and Email',
     'email' => 'Email',
     'phone' => 'Phone',
-    'title' => 'Please contact us anytime with any questions!',
+    'title' => 'Contact us anytime for any questions!',
     'fieldsWarning' => 'Fields must be completed',
 
 ];

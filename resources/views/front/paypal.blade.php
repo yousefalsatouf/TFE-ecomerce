@@ -1,6 +1,64 @@
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="upload" value="1">
-<input type="hidden" name="business" value="yousef.alsatouf94@gmail.com">
+@extends('front.helpers.master')
+@section('content')
+    <main role="main" id="home">
+        <div class="container">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <span   onclick="this.parentElement.style.display='none'"
+                            class="w3-button w3-green w3-large w3-display-topright">
+                        &times;</span>
+                    <p>{!! $message !!}</p>
+                </div>
+                <?php Session::forget('success');?>
+            @endif
+
+            @if ($message = Session::get('error'))
+                <div class="alert alert-danger">
+                    <span   onclick="this.parentElement.style.display='none'"
+                            class="w3-button w3-red w3-large w3-display-topright">&times;</span>
+                    <p>{!! $message !!}</p>
+                </div>
+                <?php Session::forget('error');?>
+            @endif
+
+        </div>
+    </main>
+@endsection
+
+
+
+{{--
+
+
+
+--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--
+
 @php($count = 0)
 @foreach($cartItems as $cartItem)
     @php($count++)
@@ -12,4 +70,5 @@
     <input type="hidden" name="tax_{{$count}}" value="{{Cart::tax()}}">
     <br>
 @endforeach
-<button name="submit" id="paypalbtn" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-34px.png" formaction="https://www.paypal.com/cgi-bin/webscr">Payer</button>
+
+--}}

@@ -17,7 +17,18 @@ class   CheckoutController extends Controller
         if (Auth::check())
         {
             $cartItems = Cart::content();
-            return view('front/checkout', compact('cartItems'));
+            $amount=0;
+            $qty=0;
+            $names='';
+
+            foreach ($cartItems as $cartItem)
+            {
+                $amount += $cartItem->price + Cart::tax();
+                $qty += $cartItem->qty;
+                $names .= ' - '.$cartItem->name;
+            }
+
+            return view('front/checkout', compact('amount', 'qty', 'names'));
         }
         else
         {
@@ -63,7 +74,7 @@ class   CheckoutController extends Controller
                 'payment_type' => $payment_type
                 ]);
 
-        return back();
+        return redirect('checkout')->with([]);
     }
     public function checkoutaddress()
     {
@@ -75,11 +86,13 @@ class   CheckoutController extends Controller
 
     public function finishOrder()
     {
+        $cartItems = Cart::content();
+
+        // creating an order and destroy the cart ...
         orders::createOrder();
         Cart::destroy();
 
-
-        return view('user/orderSummary', compact('orders'));
+        return view('front.paypal');
     }
 }
 

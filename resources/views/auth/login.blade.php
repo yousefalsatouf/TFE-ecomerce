@@ -56,7 +56,7 @@
                         <hr>
                         <br>
                         <div class="col-md-12 row-block">
-                            <a href="{{ url('auth/google') }}" class="link google">
+                            <a href="{{ url('auth/google') }}" class="google">
                                 <strong>@lang('auth.google') </strong>
                             </a>
                         </div>

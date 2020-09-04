@@ -53,7 +53,7 @@
                     <button>
                         {{__('home.seeMore')}}
                         <i class="fa fa-forward"></i>
-                        <i class="fa fa-backward"></i>
+                        <i class="fa fa-backward backwardGSM"></i>
                     </button>
                 </a>
             </div>

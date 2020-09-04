@@ -13,9 +13,13 @@ $(document).ready(function(){
             let userRating = this.value;
             //console.log(userRating);
         });
-    // select
-    $(document).ready(function(){
-        $('.changeLang').formSelect();
-    });
+
+    // change language
+
+    $('.changeLang').change(function () {
+            let url = $(this).attr('data-url');
+            //console.log(url)
+            window.location.href = url + "?lang="+ $(this).val();
+        });
 });
 

@@ -1,49 +1,20 @@
 @extends('front.helpers.master')
 @section('content')
-    <script>
-        $(document).ready(function(){
-            @for($i=1;$i<20;$i++)
-                $('#upCart{{$i}}').on('change keyup', function(){
-                    let newQty = $('#upCart{{$i}}').val();
-                    let rowId = $('#rowId{{$i}}').val();
-                    let proId = $('#proId{{$i}}').val();
-                    if(newQty <= 0)
-                    {
-                        alert('enter only valid quantity')
-                    } else
-                        {
-                        // start of ajax
-                        $.ajax({
-                            type: 'get',
-                            dataType: 'html',
-                            url: {{url('/cart/update')}}+'/'+proId,
-                            data: "qty = " + newQty + "& rowId=" + rowId + "& proId=" + proId,
-                            success: function (response) {
-                                console.log(response);
-                                $('#updateDiv').html(response);
-                            }
-                        });
-                        // End of Ajax
-                    }
-                });
-            @endfor
-        });
-    </script>
    <main id="cart">
        @if($cartItems->isEmpty())
            <section id="cart_items">
                <div class="container">
                    <div class="quick-access bg-info">
                        <ol class="breadcrumb">
-                           <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Home <i class="fa fa-angle-right"></i></a></li>
+                           <li><a href="{{url('/')}}"><i class="fa fa-home"></i> <i class="fa fa-angle-right"></i></a></li>
                            <li><a href="{{url('/shop')}}"><i class="fa fa-shopping-cart"></i> Shop <i class="fa fa-angle-right"></i></a></li>
-                           <li class="active"><i class="fa fa-info"></i> Shopping Cart</li>
+                           <li class="active"><i class="fa fa-info"></i>@lang('cart.cart')</li>
                        </ol>
                    </div>
                    <div align="center">
                        <img src="{{asset('dist/img/empty-cart.png')}}"/>
                    </div>
-                   <a href="{{url('/shop')}}" class="link"><i class="fa fa-backward"></i> Back To Shop</a>
+                   <a href="{{url('/shop')}}" class="link"><i class="fa fa-backward"></i>@lang('commun.back')</a>
                </div>
            </section> <!--/#cart_items-->
        @else
@@ -51,9 +22,9 @@
                <div class="container">
                    <div class="quick-access bg-info">
                        <ol class="breadcrumb">
-                           <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Home <i class="fa fa-angle-right"></i></a></li>
+                           <li><a href="{{url('/')}}"><i class="fa fa-home"></i> <i class="fa fa-angle-right"></i></a></li>
                            <li><a href="{{url('/shop')}}"><i class="fa fa-shopping-cart"></i> Shop <i class="fa fa-angle-right"></i></a></li>
-                           <li class="active"><i class="fa fa-info"></i> Votre Panier</li>
+                           <li class="active"><i class="fa fa-info"></i>@lang('cart.cart')</li>
                        </ol>
                    </div>
                    <div id="updateDiv">
@@ -68,18 +39,18 @@
                                {{session('error')}}
                            </div>
                        @endif
-                       <h1>Votre Panier </h1>
-                       <p class="lead text-muted">vous avez <b class="text-success">{{Cart::count()}}</b>   element(s) dans votre panier</p>
+                       <h1>@lang('cart.cart')</h1>
+                       <p class="lead text-muted"><b class="text-success">{{Cart::count()}}</b> @lang('cart.nber')</p>
                        <div class="table-responsive">
                            <table class="table table-striped">
                                <thead>
                                    <tr class="cart_menu">
                                        <th class="image">Image</th>
                                        <th class="title">ID</th>
-                                       <th class="description">Product</th>
-                                       <th class="description">only left</th>
-                                       <th class="quantity">Quantité</th>
-                                       <th class="price">Prix</th>
+                                       <th class="description">@lang('cart.prod')</th>
+                                       <th class="description">@lang('cart.left')</th>
+                                       <th class="quantity">@lang('cart.qty')</th>
+                                       <th class="price">@lang('cart.price')</th>
                                        <th class="total">Subtotal</th>
                                        <th>Action</th>
                                    </tr>
@@ -98,7 +69,7 @@
                                                <h4>{{$cartItem->name}}</h4>
                                            </td>
                                            <td>
-                                               <p><b class="text-danger">{{($cartItem->options->stock - $cartItem->qty)}}</b> item(s)</p>
+                                               <p><b class="text-danger">{{($cartItem->options->stock - $cartItem->qty)}}</b> @lang('cart.item')</p>
                                            </td>
                                            {!! Form::open(['url'=> ['cart/updateItem', $cartItem->rowId], 'method'=> 'put']) !!}
                                            <td class="cart_quantity">
@@ -145,12 +116,12 @@
                    <div class="row">
                        <div class="side">
                            <div class="total_area">
-                               <h2>Votre commande</h2>
+                               <h2>@lang('cart.order')</h2>
                                <hr>
                                <table class="table table-striped">
                                    <thead>
                                        <tr class="cart_menu">
-                                           <th class="description">Shipping Cost</th>
+                                           <th class="description">@lang('cart.cost')</th>
                                            <th class="description">Tax</th>
                                            <th class="image">SubTotal</th>
                                            <th class="title">Total</th>
@@ -158,7 +129,7 @@
                                    </thead>
                                    <tbody>
                                        <tr>
-                                           <td><span class="text-success">Free</span></td>
+                                           <td><span class="text-success">@lang('cart.free')</span></td>
                                            <td>{{Cart::tax()}} EUR</td>
                                            <td>{{Cart::subtotal()}} EUR</td>
                                            <td>{{Cart::total()}} EUR</td>
@@ -170,19 +141,19 @@
                        <div class="side">
                            <div class="next-area">
                                <div class="heading">
-                                   <h2>Que voulez-vous faire ensuite?</h2>
+                                   <h2>@lang('cart.whatNext')</h2>
                                    <hr>
-                                   <p>Choisissez si vous avez un code de réduction ou des points de récompense que vous souhaitez utiliser ou souhaitez estimer vos frais de livraison.</p>
+                                   <p>@lang('cart.nextDes')</p>
                                </div>
                                <div>
                                    <a href="{{url('/shop')}}" class="text-dark">
                                        <button>
-                                           <b><i class="fa fa-backward"></i> Ajouter plus de la boutique</b>
+                                           <b><i class="fa fa-backward"></i>@lang('cart.addMore')</b>
                                        </button>
                                    </a>
                                    <a href="{{url('/checkoutaddress')}}" class="text-dark">
                                        <button class="float-right">
-                                           <b>Suivant <i class="fa fa-eye"></i></b>
+                                           <b>@lang('cart.next') <i class="fa fa-eye"></i></b>
                                        </button>
                                    </a>
                                </div>

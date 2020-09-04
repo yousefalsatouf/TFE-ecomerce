@@ -75,9 +75,8 @@
                     <li>
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="lang">
-                                    <select class="form-control changeLang" id="lang">
-                                        <option disabled>Lang</option>
+                                <label for="lang" class="">
+                                    <select class="form-control changeLang" id="lang" data-url="{{route('changeLang')}}">
                                         <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
                                         <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>FR</option>
                                     </select>

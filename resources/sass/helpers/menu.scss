@@ -84,7 +84,7 @@
             {
                 background-color: $black;
                 border-bottom: 1px solid $green;
-                width: 3rem;
+                width: 5rem;
                 color: $green;
             }
         }
@@ -99,13 +99,13 @@
         {
             background-color: $main-bg;
             font-family: $font-family-anton;
-            font-size: 20px;
+            font-size: 30px;
             display: block;
 
             .top-menu
             {
                 display: flex;
-                font-size: 14px;
+                font-size: 20px;
 
                 .changeLang
                 {
@@ -161,7 +161,7 @@
                 padding: 1rem;
                 h1
                 {
-                    font-size: 20px;
+                    font-size: 35px;
                 }
             }
             .over

@@ -13,7 +13,7 @@
                         <p>{{$category->description}}</p>
                     </div>
                     <a href="{{url('/category/list/'.$category->name)}}" class="text-dark">
-                        <button class="btn btn-sm text-dark">
+                        <button class="btn btn-sm text-white font-weight-bolder">
                             <b>{{__('home.discover')}} {{$category->name}} <i class="fa fa-eye"></i></b>
                         </button>
                     </a>

@@ -14,17 +14,26 @@
             flex-wrap: wrap;
             .card
             {
-                width: 49%;
+                width: 100%;
+                button
+                {
+                    width: 100%
+                }
             }
         }
         .see-more
         {
             margin: 1rem;
             font-size: 25px;
+            .backwardGSM
+            {
+                display: none;
+            }
         }
         .quick-access
         {
             background-color: $green;
+
             .articles
             {
                 div

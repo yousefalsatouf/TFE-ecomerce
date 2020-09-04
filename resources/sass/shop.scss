@@ -18,31 +18,39 @@
                 padding: 1rem;
             }
         }
+
+        .search-input
+        {
+            form
+            {
+                div
+                {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    flex: 1;
+                    label, input
+                    {
+                        width: 100%;
+                    }
+                    input
+                    {
+                        background-color: transparent;
+                        border: 0;
+                        border-bottom: 1px solid $green;
+                    }
+                }
+                button
+                {
+                    width: 100%;
+                }
+            }
+        }
+
         .advanced-search
         {
             margin: 1rem auto;
             .search
             {
-                .search-input
-                {
-                    form
-                    {
-                        div
-                        {
-                            width: 100%;
-                            label, input
-                            {
-                                width: 100%;
-                            }
-                            input, button, select
-                            {
-                                background-color: transparent;
-                                border: 0;
-                                border-bottom: 1px solid $black;
-                            }
-                        }
-                    }
-                }
                 .search-specific
                 {
                     .search-area
@@ -51,18 +59,16 @@
                         {
                             display: flex;
                             flex-wrap: wrap;
-                            justify-content: space-around;
                             div
                             {
-                                width: 50%;
+                                width: 100%;
                                 *{
                                     width: 100%;
                                 }
-                                input, button, select
+                                input, select
                                 {
-                                    background-color: transparent;
                                     border: 0;
-                                    border-bottom: 1px solid $black;
+                                    border-bottom: 1px solid $green;
                                 }
                             }
                         }
@@ -78,8 +84,7 @@
                 {
                     .card
                     {
-                        width: 45%;
-                        margin: 1rem auto;
+                        width: 100%;
                     }
                 }
             }
@@ -303,3 +308,18 @@
     }
 }
 
+#shop
+{
+    .pagination-links
+    {
+        ul
+        {
+            li
+            {
+               background-color: $green;
+                border: none;
+                color: $green;
+            }
+        }
+    }
+}

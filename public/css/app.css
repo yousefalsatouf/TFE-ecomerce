@@ -7708,7 +7708,7 @@ a.text-dark:focus, a.text-dark:hover {
   #header #header-menu .changeLang {
     background-color: #000;
     border-bottom: 1px solid #2BBBAD;
-    width: 3rem;
+    width: 5rem;
     color: #2BBBAD;
   }
 }
@@ -7716,12 +7716,12 @@ a.text-dark:focus, a.text-dark:hover {
   #header #header-menu {
     background-color: black;
     font-family: "Anton", sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     display: block;
   }
   #header #header-menu .top-menu {
     display: flex;
-    font-size: 14px;
+    font-size: 20px;
   }
   #header #header-menu .top-menu .changeLang {
     background-color: #000;
@@ -7764,7 +7764,7 @@ a.text-dark:focus, a.text-dark:hover {
     padding: 1rem;
   }
   #header #header-menu .logo h1 {
-    font-size: 20px;
+    font-size: 35px;
   }
   #header #header-menu .over {
     position: absolute;
@@ -7881,11 +7881,17 @@ a.text-dark:focus, a.text-dark:hover {
     flex-wrap: wrap;
   }
   #home .articles .card {
-    width: 49%;
+    width: 100%;
+  }
+  #home .articles .card button {
+    width: 100%;
   }
   #home .see-more {
     margin: 1rem;
     font-size: 25px;
+  }
+  #home .see-more .backwardGSM {
+    display: none;
   }
   #home .quick-access {
     background-color: #2BBBAD;
@@ -8062,39 +8068,41 @@ a.text-dark:focus, a.text-dark:hover {
     background-color: #CCCCC6;
     padding: 1rem;
   }
-  #shop .advanced-search {
-    margin: 1rem auto;
+  #shop .search-input form div {
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
   }
-  #shop .advanced-search .search .search-input form div {
+  #shop .search-input form div label, #shop .search-input form div input {
     width: 100%;
   }
-  #shop .advanced-search .search .search-input form div label, #shop .advanced-search .search .search-input form div input {
-    width: 100%;
-  }
-  #shop .advanced-search .search .search-input form div input, #shop .advanced-search .search .search-input form div button, #shop .advanced-search .search .search-input form div select {
+  #shop .search-input form div input {
     background-color: transparent;
     border: 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #2BBBAD;
+  }
+  #shop .search-input form button {
+    width: 100%;
+  }
+  #shop .advanced-search {
+    margin: 1rem auto;
   }
   #shop .advanced-search .search .search-specific .search-area form {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
   }
   #shop .advanced-search .search .search-specific .search-area form div {
-    width: 50%;
+    width: 100%;
   }
   #shop .advanced-search .search .search-specific .search-area form div * {
     width: 100%;
   }
-  #shop .advanced-search .search .search-specific .search-area form div input, #shop .advanced-search .search .search-specific .search-area form div button, #shop .advanced-search .search .search-specific .search-area form div select {
-    background-color: transparent;
+  #shop .advanced-search .search .search-specific .search-area form div input, #shop .advanced-search .search .search-specific .search-area form div select {
     border: 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #2BBBAD;
   }
   #shop .products .container div .card {
-    width: 45%;
-    margin: 1rem auto;
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -8231,6 +8239,12 @@ a.text-dark:focus, a.text-dark:hover {
     transform: scale(1.1);
   }
 }
+#shop .pagination-links ul li {
+  background-color: #2BBBAD;
+  border: none;
+  color: #2BBBAD;
+}
+
 @media screen and (max-width: 768px) {
   #single-category .bg-single-category .carousel-inner img {
     width: 100%;
@@ -8339,7 +8353,7 @@ a.text-dark:focus, a.text-dark:hover {
   }
 }
 #product-details .quick-access {
-  width: 80%;
+  width: 100%;
   background-color: #2BBBAD;
   margin-bottom: 2rem;
   border-bottom-right-radius: 5px;
@@ -8351,7 +8365,7 @@ a.text-dark:focus, a.text-dark:hover {
   width: 100%;
 }
 #product-details .quick-access ul li {
-  width: 20%;
+  flex: 1;
 }
 #product-details .quick-access ul li a {
   color: #000;
@@ -8858,6 +8872,10 @@ a.text-dark:focus, a.text-dark:hover {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
   h2, h1, h3 {
     font-size: 13px;
@@ -8894,8 +8912,16 @@ ul {
   list-style-type: none;
 }
 
+a.google {
+  background-color: #e3342f;
+  color: #fff;
+  font-weight: 900;
+  padding: 0.75rem;
+}
+
 button, a.link {
   background-color: #2BBBAD;
+  font-weight: 800;
   color: #fff;
   border: 0;
   padding: 10px 15px;
@@ -8970,6 +8996,7 @@ button:hover {
 }
 
 #contact .container .quick-access {
+  width: 100%;
   background-color: #2BBBAD;
   border-bottom-right-radius: 5px;
   height: 5rem;
@@ -8978,10 +9005,9 @@ button:hover {
   list-style: none;
   display: flex;
   justify-content: flex-start;
-  width: 100%;
 }
 #contact .container .quick-access ul li {
-  width: 20%;
+  flex: 1;
 }
 #contact .container .quick-access ul li a {
   color: #000;
@@ -8995,7 +9021,13 @@ button:hover {
 }
 #contact .container .address-phone {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-around;
+}
+@media screen and (max-width: 768px) {
+  #contact .container .address-phone {
+    display: block;
+  }
 }
 #contact .container form {
   display: flex;

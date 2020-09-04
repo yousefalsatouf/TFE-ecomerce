@@ -38,7 +38,7 @@
 {
     .quick-access
     {
-        width: 80%;
+        width: 100%;
         background-color: $green;
         margin-bottom: 2rem;
         border-bottom-right-radius: 5px;
@@ -50,7 +50,7 @@
             width: 100%;
             li
             {
-                width: 20%;
+                flex: 1;
                 a
                 {
                     color: $black;
