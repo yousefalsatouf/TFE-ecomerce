@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use PayPal\Api\Amount;
-use PayPal\Api\Details;
 use PayPal\Api\Item;
-
-/** All Paypal Details class **/
 use PayPal\Api\ItemList;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
@@ -22,7 +19,7 @@ use URL;
 
 class PaymentController extends Controller
 {
-    private $_api_context;
+    private $api_context;
     /**
      * Create a new controller instance.
      *
@@ -32,14 +29,12 @@ class PaymentController extends Controller
     {
         /** PayPal api context **/
         $settings  = config('services.payPal.settings');
-        $client_id = config('services.payPal.client_id');
+        $clientId = config('services.payPal.clientId');
         $secret    = config('services.payPal.secret');
-        $this->_api_context = new ApiContext(new OAuthTokenCredential(
-                $client_id,
-                $secret)
-        );
+
+        $apiContext = $this->api_context = new ApiContext(new OAuthTokenCredential($clientId, $secret));
+        $apiContext->setConfig($settings);
         //dd($settings);
-        $this->_api_context->setConfig($settings);
     }
     public function payWithpaypal(Request $request)
     {
@@ -48,7 +43,6 @@ class PaymentController extends Controller
         $payer->setPaymentMethod('paypal');
 
         $item = new Item();
-
         $item->setName($request->item_name) /** item name **/
             ->setCurrency('EUR')
             ->setQuantity($request->quantity)
@@ -66,7 +60,7 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
-            ->setDescription('Your transaction description');
+            ->setDescription('description');
         //dd($transaction);
 
         $redirect_urls = new RedirectUrls();
@@ -80,10 +74,10 @@ class PaymentController extends Controller
             ->setRedirectUrls($redirect_urls)
             ->setTransactions(array($transaction));
 
+        //dd($this->api_context);
+
         try {
-
-            $payment->create($this->_api_context);
-
+            $payment->create($this->api_context);
         } catch (\PayPal\Exception\PPConnectionException $ex) {
 
             if (\Config::get('app.debug')) {
