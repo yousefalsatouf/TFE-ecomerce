@@ -1,6 +1,6 @@
 <section class="last-products">
     <div class="container">
-        <h2>Some of last products ...</h2>
+        <h2>{{__('home.newProducts')}}</h2>
         <br>
         <div class="articles">
             @foreach($products as $product)
@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h6 class="card-text iphone">{{$product->product_name}}</h6>
-                            @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                            @if($product->new_arrival)<img src="{{asset('dist/images/shop/new.png')}}" style="width: 50px">@endif
                         </div>
                         <div class="general-rated text-success">
                             @php
@@ -36,13 +36,13 @@
                             </div>
                         @elseif(($product->sold_price != null))
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
+                                <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
                                 <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                <p class="">{{$product->sold_price}} $</p>
+                                <p class="">{{$product->sold_price}} EUR</p>
                             </div>
                         @else
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="">{{$product->product_price}} $</p>
+                                <p class="">{{$product->product_price}} EUR</p>
                             </div>
                         @endif
                     </div>
@@ -51,9 +51,9 @@
             <div class="see-more">
                 <a href="{{url('/shop')}}" class="last">
                     <button>
-                        See More
+                        {{__('home.seeMore')}}
                         <i class="fa fa-forward"></i>
-                        <i class="fa fa-backward"></i>
+                        <i class="fa fa-backward backwardGSM"></i>
                     </button>
                 </a>
             </div>

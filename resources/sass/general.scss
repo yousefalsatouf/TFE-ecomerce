@@ -1,3 +1,35 @@
+*
+{
+    margin: 0;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+@media screen and (max-width: $break-small)
+{
+    h2, h1, h3
+    {
+        font-size: 13px;
+    }
+    h4, b, .last, p
+    {
+        font-size: 13px
+    }
+    .container
+    {
+        margin: 1rem auto;
+    }
+}
+
+body
+{
+    position: relative;
+    height: 100vh;
+}
+
 h1
 {
     color: $black;
@@ -13,9 +45,23 @@ h2, h3, h4, h5, h6
     font-family: $font-family-anton;
 }
 
+ul
+{
+    list-style-type: none;
+}
+
+a.google
+{
+    background-color: $red;
+    color: $white;
+    font-weight: 900;
+    padding: 0.75rem;
+}
+
 button, a.link
 {
     background-color: $green;
+    font-weight: 800;
     color: $white;
     border: 0;
     padding: 10px 15px;

@@ -3,19 +3,23 @@ require('jquery');
 require('./main');
 
 import Vue from 'vue'
-import GMap from './components/MapComponent'
 import * as VueGoogleMap from 'vue2-google-maps'
 
 
 Vue.use(VueGoogleMap, {
     load: {
-        key: "AIzaSyA_xlrERGGQXWyNBuIDDWhy2xfP5LC_Dl8",
-        libraries: "places" // necessary for places input
+        key: 'AIzaSyAp_1_HEiNQYPi15ZvsKWmN9WIDmg0ICwo',
     }
 });
 
 new Vue({
-    el: '#gMap',
-    template: '<GMap/>',
-    components: { GMap }
+    el: '#gmap',
 });
+
+
+/*
+* php artisan config:clear
+php artisan cache:clear
+php artisan config:cache
+*
+* */

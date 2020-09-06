@@ -16,7 +16,7 @@ class ContactController extends Controller
     public function contact()
     {
         $locations = DB::table('locations')->get();
-
+        //dd($locations);
         return view('front.contact', compact('locations'));
     }
 

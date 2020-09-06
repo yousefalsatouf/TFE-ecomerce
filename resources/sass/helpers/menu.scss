@@ -2,10 +2,14 @@
 {
     #header
     {
+        .top-menu
+        {
+            width: 100vw;
+        }
         #header-menu
         {
             background-color: $main-bg;
-            font-family: $font-family-sans-serif;
+            font-family: $font-family-anton;
             a
             {
                 color: $white;
@@ -28,6 +32,7 @@
             .toggle-menu
             {
                 margin: 1rem auto;
+                text-align: center;
                 div
                 {
                     width: 100%;
@@ -71,6 +76,17 @@
                     }
                 }
             }
+            .bottom-menu
+            {
+                display: none;
+            }
+            .changeLang
+            {
+                background-color: $black;
+                border-bottom: 1px solid $green;
+                width: 5rem;
+                color: $green;
+            }
         }
     }
 }
@@ -82,22 +98,50 @@
         #header-menu
         {
             background-color: $main-bg;
-            font-family: $font-family-sans-serif;
+            font-family: $font-family-anton;
+            font-size: 30px;
+            display: block;
+
+            .top-menu
+            {
+                display: flex;
+                font-size: 20px;
+
+                .changeLang
+                {
+                    background-color: $black;
+                    border-bottom: 1px solid $green;
+                    color: $white;
+                    width: 2rem;
+                    font-size: 12px;
+                }
+            }
+            .bottom-menu
+            {
+                width: 100%;
+                text-align: center;
+                ul
+                {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                }
+            }
             .toggle-menu
             {
                 display: none;
             }
             .large-screen
             {
-                width: 100%;
+                width: 20%;
+                display: flex;
+                justify-content: flex-end;
                 .content
                 {
-                    width: 95%;
-                    margin: auto;
                     ul
                     {
-                        justify-content: space-around;
-                        flex-direction: row;
+                        display: flex;
+                        justify-content: space-between;
                     }
                 }
             }
@@ -112,24 +156,32 @@
             .logo
             {
                 display: block;
-                width: 100%;
+                max-width: 25%;
                 text-align: center;
                 padding: 1rem;
+                h1
+                {
+                    font-size: 35px;
+                }
             }
             .over
             {
                 position: absolute;
             }
+            form>div
+            {
+                flex: 1
+            }
             .search
             {
                 margin: auto;
+                width: 100vw;
                 div
                 {
-                    margin: auto;
+
                     button, label
                     {
                         margin: 0.5rem;
-                        width: 100%;
                     }
                     input
                     {
@@ -145,30 +197,20 @@
 
 @media screen and (min-width: $break-large)
 {
-    .logo
+    #header
     {
-        max-width: 20%;
-    }
-    .large-screen
-    {
-        max-width: 40%;
-        ul
+        #header-menu
         {
-            justify-content: space-between;
-        }
-    }
-    .over
-    {
-        position: absolute;
-    }
-    .search
-    {
-        max-width: 30%;
-        input
-        {
-            border: 0;
-            border-bottom: 1px solid $green;
-            background-color: $black;
+            .top-menu
+            {
+                .content
+                {
+                    ul
+                    {
+                        display: flex
+                    }
+                }
+            }
         }
     }
 }

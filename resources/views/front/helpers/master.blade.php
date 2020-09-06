@@ -3,6 +3,7 @@
 <html lang="{{ app()->getLocale()}}">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -17,7 +18,7 @@
             @endphp
             @if(Auth::check() && !$verify[0])
                 <div class="alert verify-message" role="alert">
-                        Veuillez vérifier votre email pour confirmer votre inscription!
+                    @lang('auth.confirmEmail')
                 </div>
             @endif
             @include('front.helpers.menu')
@@ -27,6 +28,35 @@
             @include('front.helpers.footer')
         </footer>
         <script src="{{asset('js/app.js')}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                @for($i=1;$i<20;$i++)
+                $('#upCart{{$i}}').on('change keyup', function(){
+                    let newQty = $('#upCart{{$i}}').val();
+                    let rowId = $('#rowId{{$i}}').val();
+                    let proId = $('#proId{{$i}}').val();
+                    if(newQty <= 0)
+                    {
+                        alert('enter only valid quantity')
+                    } else
+                    {
+                        // start of ajax
+                        $.ajax({
+                            type: 'get',
+                            dataType: 'html',
+                            url: {{url('/cart/update')}}+'/'+proId,
+                            data: "qty = " + newQty + "& rowId=" + rowId + "& proId=" + proId,
+                            success: function (response) {
+                                console.log(response);
+                                $('#updateDiv').html(response);
+                            }
+                        });
+                        // End of Ajax
+                    }
+                });
+                @endfor
+            });
+        </script>
     </body>
 </html>
 <!-- end -->

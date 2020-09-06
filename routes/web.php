@@ -1,22 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 use Illuminate\Support\Facades\Auth;
 
-Route::get('locale/{locale}', function ($locale){
-    Session::put('locale', $locale);
-    return redirect()->back();
-});
+Route::get('lang/home', 'LangController@index');
+Route::get('lang/change', 'LangController@change')->name('changeLang');
+
 
 Route::get('/', function () {
     return view('/front/home');
@@ -56,9 +44,6 @@ Route::post('/search', 'HomeController@search');
 Route::post('/advancedSearch', 'ShopController@advancedSearch');
 Route::post('/searchSingleCategory', 'CategoriesController@searchSingleCategory');
 
-Route::get('google', function () {
-    return view('googleAuth');
-});
 
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
@@ -70,7 +55,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         {
             return view('admin.index');
         })->name('admin.index');
-
 
         Route::POST('/admin/store', 'AdminController@store');
         Route::get('/inbox', 'AdminController@inbox');
@@ -120,3 +104,12 @@ Route::group(['middleware' => 'auth'], function()
         return view('user.finish');
     });
 });
+
+//payment form
+//Route::get('/', 'PaymentController@index');
+
+// route for processing payment
+Route::post('/paypal', 'PaymentController@payWithpaypal');
+
+// route for check status of the payment
+Route::get('/status', 'PaymentController@getPaymentStatus');

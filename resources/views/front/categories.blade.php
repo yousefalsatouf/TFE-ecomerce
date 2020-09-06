@@ -22,7 +22,7 @@
         <section class="info">
             <div class="container">
                 <div class="text-center">
-                    <h1>Chercher par Prix, Promo ...</h1>
+                    <h1>@lang('shop.advancedSearch')</h1>
                     <div class="search-area">
                         <form action='{{('/searchSingleCategory')}}' class="form-inline ml-auto" method="post">
                             <div class="d-flex justify-content-between align-items-center">

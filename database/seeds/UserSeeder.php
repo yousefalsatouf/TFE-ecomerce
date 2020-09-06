@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => "admin",
             'image' => 'yousef.jpg',
-            'email' => 'admin@ecom.com',
+            'email' => 'admin@ecodm.com',
             'email_verified_at' => '2020-07-19 16:11:27',
             'password' => 'admin',
             'first_name' => 'yousef',
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => "actor",
             'image' => 'yousef.jpg',
-            'email' => 'actor@ecom.com',
+            'email' => 'actor@ecdom.com',
             'email_verified_at' => '2020-07-19 16:11:27',
             'password' => 'actor',
             'first_name' => 'yousef',

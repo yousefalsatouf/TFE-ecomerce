@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i>HOME</a>
+                                    <a href="{{url('/')}}" class="navbar-brand"><i class="fa fa-home"></i></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{url('/shop')}}" class="nav-link">Shop</a>
@@ -20,11 +20,11 @@
                                 </li>
                                 @guest
                                     <li class="nav-item">
-                                        <a href="{{url('/login')}}" class="nav-link text-success">Login</a>
+                                        <a href="{{url('/login')}}" class="nav-link text-success">{{ __('header.login') }}</a>
                                     </li>
                                     @if (Route::has('register'))
                                         <li class="nav-item">
-                                            <a href="{{url('/register')}}" class="nav-link text-success">Register</a>
+                                            <a href="{{url('/register')}}" class="nav-link text-success">{{ __('header.register') }}</a>
                                         </li>
                                     @endif
                                 @else
@@ -42,11 +42,11 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item text-success" href="{{ url('/user')}}">
                                                 <b>
-                                                    <i class="fa fa-shopping-cart"></i> {{Cart::count()}} Item(s)
+                                                    <i class="fa fa-shopping-cart"></i> {{Cart::count()}} {{ __('header.item') }}(s)
                                                 </b>
                                             </a>
                                             <hr>
-                                            <a class="dropdown-item text-dark" href="{{ url('/orders') }}">Your Orders</a>
+                                            <a class="dropdown-item text-dark" href="{{ url('/orders') }}">{{ __('header.orders') }}</a>
                                         </div>
                                     </li>
                                     <li class="user nav-item dropdown">
@@ -63,7 +63,7 @@
                                                 {{Auth::user()->name}}<i class="fa fa-user" aria-hidden="true"></i>
                                             </b>
                                             <hr>
-                                            <a class="dropdown-item text-dark" href="{{ url('/user') }}">Your Profile</a>
+                                            <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
                                             <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
                                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">
                                                 Logout
@@ -71,7 +71,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{url('/logout')}}" class="nav-link text-danger">Logout</a>
+                                        <a href="{{url('/logout')}}" class="nav-link text-danger">{{ __('header.logout') }}</a>
                                     </li>
                                 @endguest
                             </ul>
@@ -79,6 +79,21 @@
                     </div>
                 </div>
             </div>
+            <ul>
+                <li>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="lang">
+                                <select class="form-control changeLang" id="lang">
+                                    <option disabled>Lang</option>
+                                    <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
+                                    <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>FR</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

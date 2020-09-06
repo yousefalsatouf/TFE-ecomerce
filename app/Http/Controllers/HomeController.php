@@ -33,7 +33,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products = Product::all()->take(4);
+        $products = Product::where('new_arrival', true)->take(4)->get();
         $categories = Category::all();
 
         return view('front.home', compact(['products', 'categories']));
@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function shop()
     {
         $lastProducts = Product::all()->take(10);
-        $products = Product::Paginate(9);
+        $products = Product::Paginate(6);
         $categories = Category::all();
         $ads = Ads::all();
         //dd($lastProducts);
