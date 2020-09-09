@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use PayPal\Api\Amount;
@@ -38,24 +39,24 @@ class PaymentController extends Controller
     }
     public function payWithpaypal(Request $request)
     {
-
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
-        $item = new Item();
-        $item->setName($request->item_name) /** item name **/
-            ->setCurrency('EUR')
-            ->setQuantity($request->quantity)
-            ->setPrice($request->amount); /** unit price **/
 
-            //dd($item);
+        $item = new Item();
+        $item->setName($request->get('item_name')) /** item name **/
+            ->setCurrency('EUR')
+            ->setQuantity($request->get('item_qty'))
+            ->setPrice($request->get('item_amount')); /** unit price **/
+
+        //dd($item);
 
         $item_list = new ItemList();
         $item_list->setItems(array($item));
 
         $amount = new Amount();
         $amount->setCurrency('EUR')
-            ->setTotal($request->get('amount'));
+            ->setTotal($request->get('item_amount'));
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -135,12 +136,12 @@ class PaymentController extends Controller
 
         }
 
-        $payment = Payment::get($payment_id, $this->_api_context);
+        $payment = Payment::get($payment_id, $this->api_context);
         $execution = new PaymentExecution();
         $execution->setPayerId($request->input('PayerID'));
 
         /**Execute the payment **/
-        $result = $payment->execute($execution, $this->_api_context);
+        $result = $payment->execute($execution, $this->api_context);
 
         if ($result->getState() == 'approved') {
 

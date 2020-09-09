@@ -19,6 +19,7 @@ return [
     'payment' => 'Paiement',
     'finish' => 'Terminer La commande',
     'paymentDes' => 'Pour terminer votre commande, veuillez effectuer le paiement.',
+    'name' => 'Nom',
     'fname' => 'Prénom',
     'lname' => 'Nom',
     'email' => 'E-mail',
@@ -30,5 +31,13 @@ return [
     'pc' => 'Code postal',
     'pMethod' => 'Méthode de Paiment',
     'pay' => 'Payer',
-    'detail' => 'Détail de la commande'
+    'detail' => 'Détail de la commande',
+    'success' => "Succès, nous avons reçu votre paiement.",
+    'denied' => 'Refusé, une erreur s\'est produite lors du traitement du paiement.',
+    'billTitle' => 'Facture de votre paiement online',
+    'billEmail' => 'Vous avez réçu un mail avec le paiement de vore commande',
+    'history' => "historique de vos commandes",
+    'code' => 'code de produit',
+    'status' => 'statut',
+    'chPass' => 'changer le mots de passe'
 ];

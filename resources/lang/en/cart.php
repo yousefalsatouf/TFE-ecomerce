@@ -20,6 +20,7 @@ return [
     'payment' => 'Payment',
     'finish' => 'Finish Order',
     'paymentDes' => 'To finish your order, please checkout to pay',
+    'name' => 'Name',
     'fname' => 'First name',
     'lname' => 'Last name',
     'email' => 'Email',
@@ -31,5 +32,13 @@ return [
     'pc' => 'Postal Code',
     'pMethod' => 'Payment Method',
     'pay' => 'Pay',
-    'detail' => 'Order\'s detail'
+    'detail' => 'Order\'s detail',
+    'success' => 'Success, we have received your payment.',
+    'denied' => 'Denied, something went wrong while processing the payment.',
+    'billTitle' => "Please find your prove payment below",
+    'billEmail' => 'Your received an email with the payment',
+    'history' => 'your order\'s history',
+    'code' => 'product code',
+    'status' => 'status',
+    'chPass' => 'Change Password'
 ];
