@@ -4,8 +4,8 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><b class="text-success">Hello {{ucwords(Auth::user()->name)}},</b></li>
-                    <li><b class="text-info">See your Profile</b></li>
+                    <li><b class="text-success">@lang('commun.greeting') {{ucwords(Auth::user()->name)}},</b></li>
+                    <li><b class="text-info">Profile</b></li>
                 </ol>
             </div>
             @if(session('msg'))
@@ -34,43 +34,43 @@
                             <div class="card-body">
                                 <ul>
                                     <li>
-                                        <h5>First Name</h5>
+                                        <h5>@lang('cart.fname')</h5>
                                         <p>{{$info->first_name}}</p>
                                     </li>
                                     <li>
-                                        <h5>Last Name</h5>
+                                        <h5>@lang('cart.lname')</h5>
                                         <p>{{$info->last_name}}</p>
                                     </li>
                                     <li>
-                                        <h5>Email</h5>
+                                        <h5>@lang('cart.email')</h5>
                                         <p>{{$info->email}}</p>
                                     </li>
                                     <li>
-                                        <h5>Phone</h5>
+                                        <h5>@lang('cart.phone')</h5>
                                         <p>{{$info->phone_number}}</p>
                                     </li>
                                     <li>
-                                        <h5>State</h5>
+                                        <h5>@lang('cart.state')</h5>
                                         <p>{{$info->state}}</p>
                                     </li>
                                     <li>
-                                        <h5>City</h5>
+                                        <h5>@lang('cart.city')</h5>
                                         <p>{{$info->city}}</p>
                                     </li>
                                     <li>
-                                        <h5>Street</h5>
+                                        <h5>@lang('cart.street')</h5>
                                         <p>{{$info->street}}</p>
                                     </li>
                                     <li>
-                                        <h5>Street Number</h5>
+                                        <h5>@lang('cart.stNber')</h5>
                                         <p>{{$info->street_number}}</p>
                                     </li>
                                     <li>
-                                        <h5>Postal Code</h5>
+                                        <h5>@lang('cart.pc')</h5>
                                         <p>{{$info->postal_code}}</p>
                                     </li>
                                     <li>
-                                        <h5>Payment Method</h5>
+                                        <h5>@lang('cart.pMethod')</h5>
                                         <p>{{$info->payment_type}}</p>
                                     </li>
                                     @endforeach

@@ -7,5 +7,6 @@ return [
     'search' => 'Search By Product, Mark',
     'orders' => 'Your Orders',
     'item' => 'Item',
-    'cart' => 'Cart'
+    'cart' => 'Cart',
+    'justSearch' => 'Search'
 ];

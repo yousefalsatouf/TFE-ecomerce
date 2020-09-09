@@ -29,14 +29,14 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Search">
                                 <input type="hidden" name="categoryName" value="{{(isset($categoryName))? $categoryName: ''}}">
                                 <label for="price">
-                                    Prix Max:
+                                    @lang('shop.price')
                                     <input type="number" name="price" class="form-control mr-2" placeholder="Great Price">
                                 </label>
                                 <label for="sold">
                                     Promo
                                     <input type="checkbox" name="sold" class="form-control mr-2" >
                                 </label>
-                                <button type="submit">Search</button>
+                                <button type="submit">@lang('header.justSearch')</button>
                             </div>
                         </form>
                     </div>
@@ -52,7 +52,7 @@
                             <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
                                 <button>
                                     <i class="fa fa-backward"></i>
-                                    <b>Back</b>
+                                    <b>@lang('cummon.justBack')</b>
                                 </button>
                             </a>
                         </div>
@@ -86,34 +86,34 @@
                                     </div>
                                     @if($product->product_price == 0)
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-text text-success"><strong>FREE</strong></p>
+                                            <p class="card-text text-success"><strong>@lang('commun.free')</strong></p>
                                         </div>
                                     @elseif(($product->sold_price))
                                         <div class="d-flex justify-content-between align-items-center">
-                                               <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} $</p>
+                                               <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
                                             <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                            <p class="">{{$product->sold_price}} $</p>
+                                            <p class="">{{$product->sold_price}} EUR</p>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="">{{$product->product_price}} $</p>
+                                            <p class="">{{$product->product_price}} EUR</p>
                                         </div>
                                     @endif
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                                         <button >
-                                            <b>View <i class="fa fa-eye"></i></b>
+                                            <b><i class="fa fa-eye"></i></b>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
                                         <button class=" float-right">
-                                            <b>Add <i class="fa fa-shopping-cart"></i></b>
+                                            <b><i class="fa fa-shopping-cart"></i></b>
                                         </button>
                                     </a>
                                 </div>
                             </div>
                         @empty
                             <div class="empty">
-                                <h3 class="text-danger">No Products for now ...</h3>
+                                <h3 class="text-danger">@lang('category.noProd')</h3>
                                 <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
                                     <button class="btn bg-success btn-sm text-dark">
                                         <i class="fa fa-backward"></i>

@@ -13,7 +13,7 @@ return [
     'nextDes' => 'Choisissez si vous avez un code de réduction ou des points de récompense que vous souhaitez utiliser ou souhaitez estimer vos frais de livraison.',
     'addMore' => 'Retouner au shop',
     'next' => 'Suivant ',
-    'order' => 'Votre commande',
+    'order' => 'Vos commandes',
     'desCost' => 'Les frais d\'expédition et supplémentaires sont calculés en fonction des valeurs que vous avez saisies',
     'shopperInfo' => 'Informations sur l\'acheteur',
     'payment' => 'Paiement',
@@ -39,5 +39,10 @@ return [
     'history' => "historique de vos commandes",
     'code' => 'code de produit',
     'status' => 'statut',
-    'chPass' => 'changer le mots de passe'
+    'chPass' => 'changer le mots de passe',
+    'infos' => 'Gérer vos données',
+    'update' => 'Modifier',
+    'wishListEmpty' => 'wishList est vide',
+    'pass' => 'Passer au panier',
+    'remove' => 'Retire de la WishList'
 ];

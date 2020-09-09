@@ -5,5 +5,6 @@ return [
     'free' => 'Gratuit',
     'back' => 'Return au Shop',
     'addToCart' => 'Ajouter au panier',
-    'greeting' => 'Bonjour'
+    'greeting' => 'Bonjour',
+    'justBack' => 'Retour'
 ];

@@ -14,7 +14,7 @@ return [
     'nextDes' => 'Choose if you have a discount code or reward points that you want to use or want to estimate your shipping cost.',
     'addMore' => 'Add more from the shop',
     'next' => 'Next',
-    'order' => 'Your Order',
+    'order' => 'Your Orders',
     'desCost' => 'Shipping and additional charges are calculated based on the values you entered',
     'shopperInfo'=> 'Shopper Info',
     'payment' => 'Payment',
@@ -40,5 +40,10 @@ return [
     'history' => 'your order\'s history',
     'code' => 'product code',
     'status' => 'status',
-    'chPass' => 'Change Password'
+    'chPass' => 'Change Password',
+    'infos' => 'mange your infos',
+    'update' => 'Update',
+    'wishListEmpty' => 'wishList is empty',
+    'pass' => 'Move to cart',
+    'remove' => 'Remove from WishList'
 ];

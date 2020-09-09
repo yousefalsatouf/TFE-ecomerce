@@ -6,5 +6,6 @@ return [
     'free' => 'Free',
     'back' => 'Back to Shop',
     'addToCart' => 'Add to Cart',
-    'greeting' => 'Hello'
+    'greeting' => 'Hello',
+    'justBack' => 'Back'
 ];

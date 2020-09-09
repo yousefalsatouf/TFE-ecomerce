@@ -8,5 +8,6 @@ return [
     'search' => 'Chercher par Produit, mark',
     'orders' => 'Vos Commandes',
     'item' => 'Element',
-    'cart' => 'Panier'
+    'cart' => 'Panier',
+    'justSearch' => 'Chercher'
 ];
