@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendBillEvent;
 use App\User;
 use App\orders;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -17,18 +18,20 @@ class   CheckoutController extends Controller
         if (Auth::check())
         {
             $cartItems = Cart::content();
+            $tax = Cart::tax();
+            $counter = 0;
             $amount=0;
             $qty=0;
             $names='';
 
             foreach ($cartItems as $cartItem)
             {
-                $amount += $cartItem->price + Cart::tax();
+                $amount += $cartItem->price + $tax;
                 $qty += $cartItem->qty;
                 $names .= ' - '.$cartItem->name;
             }
 
-            return view('front/checkout', compact('amount', 'qty', 'names'));
+            return view('front/checkout', compact('cartItems', 'counter', 'amount', 'qty', 'names'));
         }
         else
         {
@@ -86,13 +89,15 @@ class   CheckoutController extends Controller
 
     public function finishOrder()
     {
-        $cartItems = Cart::content();
-
         // creating an order and destroy the cart ...
-        orders::createOrder();
+        $order = orders::createOrder();
+        $user = Auth::user();
+
+        event(new SendBillEvent($user, $order));
+        //dd($order);
         Cart::destroy();
 
-        return view('front.paypal');
+        return view('front.order', compact('order'));
     }
 }
 

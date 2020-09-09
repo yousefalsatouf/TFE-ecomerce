@@ -34,5 +34,7 @@ class Orders extends Model
         {
             $order->orderFields()->attach($cartItem->id, ['qty' => $cartItem->qty, 'tax' => Cart::tax(), 'total' => $cartItem->qty * $cartItem->price]);
         }
+
+        return $order;
     }
 }

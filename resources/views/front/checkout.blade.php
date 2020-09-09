@@ -64,8 +64,9 @@
                                 </div>
                                 <div class="payment-details">
                                     <input type="hidden" name="item_name" value="{{$names}}">
-                                    <input type="hidden" name="quantity" value="{{$qty}}">
-                                    <input type="hidden" name="amount" value="{{$amount}}">
+                                    <input type="hidden" name="item_qty" value={{$qty}}>
+                                    <input type="hidden" name="item_amount" value={{$amount}}>
+                                    <input type="hidden" name="itemsSize" value={{$counter}}>
                                     <br>
                                 </div>
                                 <button class="w3-btn w3-blue">Pay with PayPal</button>

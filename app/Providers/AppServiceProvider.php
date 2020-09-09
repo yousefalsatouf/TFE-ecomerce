@@ -27,4 +27,11 @@ class AppServiceProvider extends ServiceProvider
         //
         Builder::defaultStringLength(191); // Update defaultStringLength this is mine to give more length ...
     }
+
+    /*
+     * View::composer('*', function ($view) {
+
+            $view->with('target_types', TargetType::all());
+        });
+     * */
 }

@@ -7847,10 +7847,6 @@ a.text-dark:focus, a.text-dark:hover {
   display: none;
 }
 
-#home + #footer, #contact + #footer, #shop + #footer, #single-category + #footer, #recommends + #footer, #cart + #footer, #checkout + #footer, #cart_items\ infos + #footer, #cart_items\ profile + #footer {
-  position: relative;
-}
-
 #myCarousel {
   font-family: "Berkshire Swash", cursive;
 }
@@ -8892,6 +8888,10 @@ a {
 body {
   position: relative;
   height: 100vh;
+}
+
+img {
+  max-width: 100%;
 }
 
 h1 {
