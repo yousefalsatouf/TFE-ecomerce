@@ -41,7 +41,6 @@
                 padding: 3rem;
             }
         }
-
     }
     @media screen and (min-width: $break-medium)
     {
@@ -93,19 +92,6 @@
         }
         margin-top: 3.2rem;
     }
-    .create-product
-    {
-        label
-        {
-            font-weight: bolder;
-            color: $green;
-        }
-        input, select, textarea
-        {
-            border: 0;
-            border-bottom: 1px solid $green;
-        }
-    }
     .role
     {
         margin-top: 5rem;
@@ -118,12 +104,13 @@
             }
         }
     }
-    .edit-product, .add-property, .categories-sec, .edit-category, .ads-sec
+    .products, .edit-product, .add-property, .categories-sec, .edit-category, .ads-sec
     {
         label
         {
             font-weight: bolder;
             color: $green;
+            display: none;
         }
         input, select, textarea
         {
@@ -131,4 +118,5 @@
             border-bottom: 1px solid $green;
         }
     }
+
 }

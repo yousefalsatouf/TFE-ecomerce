@@ -2,13 +2,13 @@
 
 @section('content')
     <section id="admin" class="container-fluid">
-        <div class="row">
-            <div class="nav-products">
+        <div class="row users">
+            <div class="col-md-2 col-lg-2 pt-3">
                 @include('admin.includes.sidenav')
             </div>
-            <div class="col-sm-12 ml-sm-auto col-md-12 col-lg-10 pt-3">
+            <div class="col-sm-12 ml-sm-auto col-md-10 col-lg-10 pt-3">
                 <div>
-                    <h2>Gestion des utilisateurs</h2>
+                    <h2>@lang('admin.manageUsers')</h2>
                 </div>
                 <br>
                 <table class="table table-striped">
@@ -16,9 +16,9 @@
                     <tr>
                         <th>Image</th>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>@lang('cart.name')</th>
+                        <th>@lang('cart.fname')</th>
+                        <th>@lang('cart.lname')</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Action</th>
@@ -47,6 +47,11 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <br>
+        <hr>
+        <div>
+            <a href="{{url('/admin')}}" class="link"><i class="fa fa-backward"></i> Admin</a>
         </div>
     </section>
 @endsection

@@ -18,5 +18,23 @@ return [
     "emptyInb" => "No messages in inbox",
     "from" => "from",
     "newMails" => "New Emails",
-    "warSelectedMsg" => "No message Opened"
+    "warSelectedMsg" => "No message Opened",
+    "manageUsers" => "Manage Users",
+    "editUsers" => "Edit User",
+    "save" => "Save",
+    "roles" => [
+        "changeRole" => "Change role",
+        "actor" => "Actor",
+        "user" => "User"
+    ],
+    "products" => [
+        "list" => "Products list",
+        "add" => "add properties",
+        "size" => "Size",
+        "color" => "Color",
+        "addNew" => "Add new product",
+        "mustComplete" => "fields must be completed",
+        "manage" => "manage products"
+    ],
+
 ];

@@ -18,6 +18,23 @@ return [
     "emptyInb" => "Boîte mails est vide",
     "from" => "De",
     "newMails" => "Nouveau mail",
-    "warSelectedMsg" => "Aucun message selecté"
+    "warSelectedMsg" => "Aucun message selecté",
+    "manageUsers" => "Gestion des utilisateurs",
+    "editUsers" => "Modifier l'utilisateur",
+    "save" => "Sauvgarder",
+    "roles" => [
+        "changeRole" => "Changer le role",
+        "actor" => "Acteur",
+        "user" => "Utilisateur"
+    ],
+    "products" => [
+        "list" => "Liste de produits",
+        "add" => "Ajouter des propriétés:",
+        "size" => "Taille",
+        "color" => "Couleur",
+        "addNew" => "Ajouter un nouveau produit",
+        "mustComplete" => "Les champs doivent être remplis",
+        "manage" => "Gérer les produits"
+    ],
 
 ];

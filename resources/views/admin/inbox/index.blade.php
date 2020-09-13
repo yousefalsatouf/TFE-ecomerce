@@ -1,9 +1,11 @@
 @extends('admin.master')
 @section('content')
-    <section id="admin" class="col-sm-9 ml-sm-auto col-md-10" style="margin-top: 5rem">
-        @include('admin.includes.sidenav')
+    <section id="admin" style="margin-top: 5rem">
         <div class="row inbox">
-            <div class="inbox-container">
+            <div class="col-md-2 col-lg-2 pt-3">
+                @include('admin.includes.sidenav')
+            </div>
+            <div class="inbox-container col-sm-12 ml-sm-auto col-md-10 col-lg-10 pt-3">
                 <div class="inbox-side">
                     @if(session('msg'))
                         <P class="alert alert-success"><i class="fa fa-check-circle"></i> {{session('msg')}}</P>
@@ -81,6 +83,7 @@
             </div>
         </div>
         <br>
+        <hr>
         <div>
             <a href="{{url('/admin')}}" class="link"><i class="fa fa-backward"></i> Admin</a>
         </div>

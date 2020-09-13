@@ -8767,14 +8767,6 @@ a.text-dark:focus, a.text-dark:hover {
 #admin #admin-content .sidebar, #admin #products .sidebar, #admin .categories .sidebar, #admin #edit-product .sidebar, #admin .add-property .sidebar, #admin .create-product .sidebar {
   display: none;
 }
-#admin .create-product label {
-  font-weight: bolder;
-  color: #2BBBAD;
-}
-#admin .create-product input, #admin .create-product select, #admin .create-product textarea {
-  border: 0;
-  border-bottom: 1px solid #2BBBAD;
-}
 #admin .role {
   margin-top: 5rem;
 }
@@ -8782,11 +8774,12 @@ a.text-dark:focus, a.text-dark:hover {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
 }
-#admin .edit-product label, #admin .add-property label, #admin .categories-sec label, #admin .edit-category label, #admin .ads-sec label {
+#admin .products label, #admin .edit-product label, #admin .add-property label, #admin .categories-sec label, #admin .edit-category label, #admin .ads-sec label {
   font-weight: bolder;
   color: #2BBBAD;
+  display: none;
 }
-#admin .edit-product input, #admin .edit-product select, #admin .edit-product textarea, #admin .add-property input, #admin .add-property select, #admin .add-property textarea, #admin .categories-sec input, #admin .categories-sec select, #admin .categories-sec textarea, #admin .edit-category input, #admin .edit-category select, #admin .edit-category textarea, #admin .ads-sec input, #admin .ads-sec select, #admin .ads-sec textarea {
+#admin .products input, #admin .products select, #admin .products textarea, #admin .edit-product input, #admin .edit-product select, #admin .edit-product textarea, #admin .add-property input, #admin .add-property select, #admin .add-property textarea, #admin .categories-sec input, #admin .categories-sec select, #admin .categories-sec textarea, #admin .edit-category input, #admin .edit-category select, #admin .edit-category textarea, #admin .ads-sec input, #admin .ads-sec select, #admin .ads-sec textarea {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
 }
