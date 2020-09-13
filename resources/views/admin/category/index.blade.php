@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-    <section class="container-fluid categories-sec">
+    <section id="admin" class="container-fluid categories-sec">
         <div class="row">
             @include('admin.includes.sidenav')
         </div>

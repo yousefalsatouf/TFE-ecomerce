@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <section id="products" class="container-fluid">
+    <section id="admin" class="container-fluid">
         <div class="row">
             <div class="nav-products">
                 @include('admin.includes.sidenav')

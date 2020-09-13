@@ -26,11 +26,16 @@ class AdminController extends Controller
 
     public function readMessage($id)
     {
+        $unreadMessages = DB::table('inbox')->whereNull('is_read')->get();
+        $countUnreadMessages = DB::table('inbox')->whereNull('is_read')->count();
+        $readMessages = DB::table('inbox')->whereNotNull('is_read')->get();
+        $countReadMessages = DB::table('inbox')->whereNotNull('is_read')->count();
         //dd($id);
         Inbox::where('id', $id)->update(array('is_read' => 1));
         $message = DB::table('inbox')->where('id', $id)->get();
-
-        return view('admin/inbox/read', compact('message'));
+        //dd($message);
+        return view('admin/inbox/index', compact('message', 'unreadMessages', 'countUnreadMessages', 'readMessages', 'countReadMessages'));
+        //return redirect('readMsg')->with($message);
     }
 
     public function clearAllMessages()

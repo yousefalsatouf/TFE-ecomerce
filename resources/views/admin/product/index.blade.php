@@ -2,7 +2,7 @@
 
 @section('content')
     <main id="products">
-        <section class="container-fluid">
+        <section id="admin" class="container-fluid">
             <div class="row">
                 <div class="nav-products">
                     @include('admin.includes.sidenav')
