@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-    <section id="admin" class="container-fluid create-product products">
-        <div class="row">
+    <section id="admin" class="container-fluid">
+        <div class="row products">
             <div class="col-md-2 col-lg-2 pt-3">
                 @include('admin.includes.sidenav')
             </div>
@@ -65,6 +65,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <br>
+        <hr>
+        <div class="back">
+            <a href="{{url('/admin')}}" class="link"><i class="fa fa-backward"></i> Admin</a>
         </div>
     </section>
 @endsection

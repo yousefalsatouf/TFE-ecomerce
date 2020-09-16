@@ -34,7 +34,29 @@ return [
         "color" => "Couleur",
         "addNew" => "Ajouter un nouveau produit",
         "mustComplete" => "Les champs doivent être remplis",
-        "manage" => "Gérer les produits"
+        "manage" => "Gérer les produits",
+        "backToProds" => "Returner à la liste de produits",
+        "makeSurImg" => "Assurez-vous que la première image se remplit",
+        "new" => "Nouvelle arrivee:",
+        "editProps" => "Modifier les propriétés de produit",
+        "editImg" => "Changer les images de la gallerie",
+        "update" => "Modifier",
+        "editProds" => "Modifier le produit",
+        "import" => "Importer des images"
     ],
+    "categories" => [
+        "create" => "Créer un categorie",
+        "list" => "Liste de categorie",
+        "add" => "Ajouter",
+        "name" => "Nom",
+        "update" => "Modifier",
+        "edit" => "Modifier la catégorie"
+    ],
+    "adsSec" => [
+        "create" => "créer une publicité",
+        "list" => "Liste des annonces",
+        "name" => "Nom",
+        "link" => "Lien"
+    ]
 
 ];

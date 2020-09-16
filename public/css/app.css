@@ -8737,6 +8737,9 @@ a.text-dark:focus, a.text-dark:hover {
     font-family: "Anton", sans-serif;
     margin-top: 8rem;
   }
+  #admin .back {
+    display: none;
+  }
   #admin .inbox-container {
     display: flex;
     flex: 1;
@@ -8761,12 +8764,6 @@ a.text-dark:focus, a.text-dark:hover {
 #admin .admin-home {
   margin: 1rem auto;
 }
-#admin #admin-content, #admin #products, #admin .categories, #admin #edit-product, #admin .add-property, #admin .create-product {
-  margin-top: 3.2rem;
-}
-#admin #admin-content .sidebar, #admin #products .sidebar, #admin .categories .sidebar, #admin #edit-product .sidebar, #admin .add-property .sidebar, #admin .create-product .sidebar {
-  display: none;
-}
 #admin .role {
   margin-top: 5rem;
 }
@@ -8774,12 +8771,11 @@ a.text-dark:focus, a.text-dark:hover {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
 }
-#admin .products label, #admin .edit-product label, #admin .add-property label, #admin .categories-sec label, #admin .edit-category label, #admin .ads-sec label {
+#admin .products label, #admin .categories label {
   font-weight: bolder;
   color: #2BBBAD;
-  display: none;
 }
-#admin .products input, #admin .products select, #admin .products textarea, #admin .edit-product input, #admin .edit-product select, #admin .edit-product textarea, #admin .add-property input, #admin .add-property select, #admin .add-property textarea, #admin .categories-sec input, #admin .categories-sec select, #admin .categories-sec textarea, #admin .edit-category input, #admin .edit-category select, #admin .edit-category textarea, #admin .ads-sec input, #admin .ads-sec select, #admin .ads-sec textarea {
+#admin .products input, #admin .products select, #admin .products textarea, #admin .categories input, #admin .categories select, #admin .categories textarea {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
 }

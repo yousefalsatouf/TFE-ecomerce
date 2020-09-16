@@ -34,7 +34,29 @@ return [
         "color" => "Color",
         "addNew" => "Add new product",
         "mustComplete" => "fields must be completed",
-        "manage" => "manage products"
+        "manage" => "manage products",
+        "backToProds" => "Go back to Products",
+        "makeSurImg" => "Make sure the image field is completed",
+        "new" => "New arrival:",
+        "editProps" => "Edit properties of product",
+        "editImg" => "Change images",
+        "update" => "Update",
+        "editProds" => "Edit properties",
+        "import" => "import images"
     ],
+    "categories" => [
+        "create" => "Create category",
+        "list" => "Categories's list",
+        "add" => "Add",
+        "name" => "Name",
+        "update" => "Update",
+        "edit" => "Edit category"
+    ],
+    "adsSec" => [
+        "create" => "create an ad",
+        "list" => "List of ads",
+        "name" => "Name",
+        "link" => "Link"
+    ]
 
 ];

@@ -1,11 +1,11 @@
 @extends('admin.master')
 @section('content')
-    <div class="container add-property products">
-        <div class="row edit-products">
+    <section id="admin" class="container-fluid">
+        <div class="row products">
             <div class="col-md-2 col-lg-2 pt-3">
                 @include('admin.includes.sidenav')
             </div>
-            <div class="col-sm-9 ml-sm-auto col-md-10 col-lg-10 pt-3">
+            <div class="col-sm-12 ml-sm-auto col-md-9 col-lg-9 pt-3">
                 @if(session('msg'))
                     <div class="alert alert-success">{{session('msg')}}</div>
                 @endif
@@ -33,6 +33,11 @@
                 {!! Form::close() !!}
             </div>
         </div>
-    </div>
+        <br>
+        <hr>
+        <div class="back">
+            <a href="{{url('/admin/products')}}" class="link"><i class="fa fa-backward"></i> @lang('admin.products.backToProds')</a>
+        </div>
+    </section>
 @endsection
 

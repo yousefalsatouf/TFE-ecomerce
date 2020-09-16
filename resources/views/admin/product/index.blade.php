@@ -61,7 +61,7 @@
         </div>
         <br>
         <hr>
-        <div>
+        <div class="back">
             <a href="{{url('/admin')}}" class="link"><i class="fa fa-backward"></i> Admin</a>
         </div>
     </section>

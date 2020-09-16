@@ -55,6 +55,10 @@
                 margin-top: 8rem;
             }
         }
+        .back
+        {
+            display: none;
+        }
         .inbox-container
         {
             display: flex;
@@ -84,14 +88,7 @@
     {
         margin: 1rem auto;
     }
-    #admin-content, #products, .categories, #edit-product, .add-property, .create-product
-    {
-        .sidebar
-        {
-            display: none;
-        }
-        margin-top: 3.2rem;
-    }
+
     .role
     {
         margin-top: 5rem;
@@ -104,13 +101,12 @@
             }
         }
     }
-    .products, .edit-product, .add-property, .categories-sec, .edit-category, .ads-sec
+    .products, .categories
     {
         label
         {
             font-weight: bolder;
             color: $green;
-            display: none;
         }
         input, select, textarea
         {
