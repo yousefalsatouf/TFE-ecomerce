@@ -32,7 +32,7 @@
                 <a class="nav-link" href="{{url('admin/categories')}}"><i class="fa fa-bars"></i> @lang('admin.cats')</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/admin/ads')}}"><i class="fa fa-times"></i> @lang('admin.orders')</a>
+                <a class="nav-link" href="{{url('/admin/orders')}}"><i class="fa fa-times"></i> @lang('admin.orders')</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/ads')}}"><i class="fa fa-adn"></i> @lang('admin.ads')</a>

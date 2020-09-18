@@ -57,6 +57,14 @@ return [
         "list" => "List of ads",
         "name" => "Name",
         "link" => "Link"
+    ],
+    "orderStatus" => [
+        "list" => "List of orders",
+        "clientName" => "Client Name",
+        "totalPrice" => "Total price",
+        "payed" => "Payed",
+        "status" => "Status",
+        "deleteMsg" => "Order is removed"
     ]
 
 ];

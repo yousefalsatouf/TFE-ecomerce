@@ -28,7 +28,7 @@
                         </div>
                     </div>
                         <div class="col-lg-3 col-sm-6 placeholder">
-                            <a href="{{url('admin/products')}}">
+                            <a href="{{url('admin/orders')}}">
                                 <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
                             </a>
                             <h4>@lang('admin.orders')</h4>

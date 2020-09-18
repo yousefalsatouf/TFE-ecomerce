@@ -57,6 +57,14 @@ return [
         "list" => "Liste des annonces",
         "name" => "Nom",
         "link" => "Lien"
+    ],
+    "orderStatus" => [
+        "list" => "Liste des commandes",
+        "clientName" => "Nom de client",
+        "totalPrice" => "Prix total",
+        "payed" => "Payé",
+        "status" => "Statut",
+        "deleteMsg" => "La commande est bien supprimée"
     ]
 
 ];

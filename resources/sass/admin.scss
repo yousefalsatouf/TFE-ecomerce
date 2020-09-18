@@ -101,7 +101,7 @@
             }
         }
     }
-    .products, .categories
+    .products, .categories, .orders
     {
         label
         {
@@ -112,6 +112,21 @@
         {
             border: 0;
             border-bottom: 1px solid $green;
+        }
+    }
+
+    .orders
+    {
+        table
+        {
+            .orderStatus
+            {
+                display: none;
+                input
+                {
+                    height: 3rem;
+                }
+            }
         }
     }
 

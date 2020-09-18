@@ -52120,6 +52120,37 @@ $(document).ready(function () {
 
     window.location.href = url + "?lang=" + $(this).val();
   });
+  $('#editStatus').click(function (e) {
+    e.preventDefault();
+    $('.orderStatus').show();
+    $('.statusContent').hide();
+  });
+  $('#updateStatus').click(function (e) {
+    e.preventDefault();
+    var orderId = $('#statusId').val();
+    var value = $('#statusValue').val();
+    var url = $('#urlOrderStatus').val();
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: {
+        id: orderId,
+        value: value
+      },
+      success: function success(data) {
+        alert(data.success);
+        window.location.reload(true);
+      },
+      error: function error(err) {
+        console.log(err);
+      }
+    });
+  });
 });
 
 /***/ }),

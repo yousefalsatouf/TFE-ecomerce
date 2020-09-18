@@ -84,6 +84,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::post('update/{id}', 'CategoriesController@update')->name('update');
 
         Route::resource('ads','AdsController');
+
+        Route::resource('orders','OrdersController');
+        Route::post('/changeOrderStatus', 'OrdersController@changeOrderStatus')->name('changeStatus');
     }
 );
 

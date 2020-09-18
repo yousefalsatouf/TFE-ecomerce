@@ -8771,13 +8771,19 @@ a.text-dark:focus, a.text-dark:hover {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
 }
-#admin .products label, #admin .categories label {
+#admin .products label, #admin .categories label, #admin .orders label {
   font-weight: bolder;
   color: #2BBBAD;
 }
-#admin .products input, #admin .products select, #admin .products textarea, #admin .categories input, #admin .categories select, #admin .categories textarea {
+#admin .products input, #admin .products select, #admin .products textarea, #admin .categories input, #admin .categories select, #admin .categories textarea, #admin .orders input, #admin .orders select, #admin .orders textarea {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
+}
+#admin .orders table .orderStatus {
+  display: none;
+}
+#admin .orders table .orderStatus input {
+  height: 3rem;
 }
 
 @media screen and (max-width: 768px) {
