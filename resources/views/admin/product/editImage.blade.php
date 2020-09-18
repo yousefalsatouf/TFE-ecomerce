@@ -1,8 +1,8 @@
 @extends('admin.master')
 @section('content')
-    <div class="container add-property">
-        <div class="row">
-            <div>
+    <section id="admin" class="container-fluid">
+        <div class="row product">
+            <div class="col-md-2 col-lg-2 pt-3">
                 @include('admin.includes.sidenav')
             </div>
             <hr>
@@ -10,8 +10,8 @@
                 <div class="alert alert-success">{{session('msg')}}</div>
             @endif
             <hr>
-            <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-                <h2>Edit Image: </h2>
+            <div class="col-sm-12 ml-sm-auto col-md-9 col-lg-9 pt-3">
+                <h2>@lang('admin.products.editImg'): </h2>
                 <hr>
                 <br>
                 {!! Form::model($product, ['method'=>'post', 'action'=> ['ProductsController@editProductImage', $product->id], 'files'=>true]) !!}
@@ -27,12 +27,17 @@
                 </div>
                 <br/>
                 <a class="link" href="{{url('/admin/products')}}">
-                    <i class="fa fa-backward"></i> GO back
+                    <i class="fa fa-backward"></i> @lang('admin.products.backToProds')
                 </a>
-                <button type="submit" class="pull-right float-right"><i class="fa fa-upload"></i>Importer des images</button>
+                <button type="submit" class="pull-right float-right"><i class="fa fa-upload"></i> @lang('admin.products.import')</button>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 {!! Form::close() !!}
             </div>
         </div>
-    </div>
+        <br>
+        <hr>
+        <div class="back">
+            <a href="{{url('/admin/products')}}" class="link"><i class="fa fa-backward"></i> @lang('admin.products.backToProds')</a>
+        </div>
+    </section>
 @endsection

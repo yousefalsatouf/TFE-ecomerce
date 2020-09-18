@@ -44,5 +44,7 @@ return [
     'update' => 'Modifier',
     'wishListEmpty' => 'wishList est vide',
     'pass' => 'Passer au panier',
-    'remove' => 'Retire de la WishList'
+    'remove' => 'Retire de la WishList',
+    "new" => "nouveau",
+    "cat" => "Categorie"
 ];

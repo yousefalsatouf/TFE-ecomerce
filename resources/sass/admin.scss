@@ -1,8 +1,8 @@
 #admin
 {
-    @media screen and (max-width: 1000px)
+    @media screen and (max-width: $break-small)
     {
-        .sidebar
+        .sidebar-container
         {
             display: none;
         }
@@ -17,24 +17,78 @@
                 }
             }
         }
-    }
-    #admin-content, #products, .categories, #edit-product, .add-property, .create-product
-    {
-        margin-top: 3.2rem;
-    }
-    .create-product
-    {
-        label
+        .inbox-container
         {
-            font-weight: bolder;
-            color: $green;
-        }
-        input, select, textarea
-        {
-            border: 0;
-            border-bottom: 1px solid $green;
+            display: flex;
+            flex: 1;
+            .inbox-side
+            {
+                padding: 10px;
+                flex: 0.30;
+                height: 100vh;
+                overflow: scroll;
+                >div
+                {
+                    overflow: scroll;
+                    height: 50vh;
+                }
+            }
+            .message-content
+            {
+                flex: 0.75;
+                height: 100vh;
+                overflow: scroll;
+                padding: 3rem;
+            }
         }
     }
+    @media screen and (min-width: $break-medium)
+    {
+        .sidebar-container
+        {
+            margin-top: 5rem;
+            .sidebar
+            {
+                color: $green;
+                font-size: 18px;
+                font-family: $font-family-anton;
+                margin-top: 8rem;
+            }
+        }
+        .back
+        {
+            display: none;
+        }
+        .inbox-container
+        {
+            display: flex;
+            flex: 1;
+            .inbox-side
+            {
+                padding: 10px;
+                flex: 0.25;
+                height: 100vh;
+                overflow: scroll;
+                >div
+                {
+                    overflow: scroll;
+                    height: 50vh;
+                }
+            }
+            .message-content
+            {
+                flex: 0.50;
+                height: 100vh;
+                overflow: scroll;
+                padding: 3rem;
+            }
+        }
+    }
+    .admin-home
+    {
+        margin: 1rem auto;
+    }
+
     .role
     {
         margin-top: 5rem;
@@ -47,7 +101,7 @@
             }
         }
     }
-    .edit-product, .add-property, .categories-sec, .edit-category, .ads-sec
+    .products, .categories, .orders
     {
         label
         {
@@ -60,4 +114,20 @@
             border-bottom: 1px solid $green;
         }
     }
+
+    .orders
+    {
+        table
+        {
+            .orderStatus
+            {
+                display: none;
+                input
+                {
+                    height: 3rem;
+                }
+            }
+        }
+    }
+
 }

@@ -7792,6 +7792,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 #footer {
   position: absolute;
+  display: none;
   bottom: 0;
   width: 100%;
 }
@@ -8691,29 +8692,77 @@ a.text-dark:focus, a.text-dark:hover {
   padding-bottom: 1.5rem;
 }
 
-@media screen and (max-width: 1000px) {
-  #admin .sidebar {
+@media screen and (max-width: 768px) {
+  #admin .sidebar-container {
     display: none;
   }
   #admin #products {
     width: 100%;
   }
 }
-@media screen and (max-width: 1000px) and (max-width: 992px) {
+@media screen and (max-width: 768px) and (max-width: 992px) {
   #admin #products .nav-products {
     display: none;
   }
 }
-#admin #admin-content, #admin #products, #admin .categories, #admin #edit-product, #admin .add-property, #admin .create-product {
-  margin-top: 3.2rem;
+@media screen and (max-width: 768px) {
+  #admin .inbox-container {
+    display: flex;
+    flex: 1;
+  }
+  #admin .inbox-container .inbox-side {
+    padding: 10px;
+    flex: 0.3;
+    height: 100vh;
+    overflow: scroll;
+  }
+  #admin .inbox-container .inbox-side > div {
+    overflow: scroll;
+    height: 50vh;
+  }
+  #admin .inbox-container .message-content {
+    flex: 0.75;
+    height: 100vh;
+    overflow: scroll;
+    padding: 3rem;
+  }
 }
-#admin .create-product label {
-  font-weight: bolder;
-  color: #2BBBAD;
+@media screen and (min-width: 768px) {
+  #admin .sidebar-container {
+    margin-top: 5rem;
+  }
+  #admin .sidebar-container .sidebar {
+    color: #2BBBAD;
+    font-size: 18px;
+    font-family: "Anton", sans-serif;
+    margin-top: 8rem;
+  }
+  #admin .back {
+    display: none;
+  }
+  #admin .inbox-container {
+    display: flex;
+    flex: 1;
+  }
+  #admin .inbox-container .inbox-side {
+    padding: 10px;
+    flex: 0.25;
+    height: 100vh;
+    overflow: scroll;
+  }
+  #admin .inbox-container .inbox-side > div {
+    overflow: scroll;
+    height: 50vh;
+  }
+  #admin .inbox-container .message-content {
+    flex: 0.5;
+    height: 100vh;
+    overflow: scroll;
+    padding: 3rem;
+  }
 }
-#admin .create-product input, #admin .create-product select, #admin .create-product textarea {
-  border: 0;
-  border-bottom: 1px solid #2BBBAD;
+#admin .admin-home {
+  margin: 1rem auto;
 }
 #admin .role {
   margin-top: 5rem;
@@ -8722,13 +8771,19 @@ a.text-dark:focus, a.text-dark:hover {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
 }
-#admin .edit-product label, #admin .add-property label, #admin .categories-sec label, #admin .edit-category label, #admin .ads-sec label {
+#admin .products label, #admin .categories label, #admin .orders label {
   font-weight: bolder;
   color: #2BBBAD;
 }
-#admin .edit-product input, #admin .edit-product select, #admin .edit-product textarea, #admin .add-property input, #admin .add-property select, #admin .add-property textarea, #admin .categories-sec input, #admin .categories-sec select, #admin .categories-sec textarea, #admin .edit-category input, #admin .edit-category select, #admin .edit-category textarea, #admin .ads-sec input, #admin .ads-sec select, #admin .ads-sec textarea {
+#admin .products input, #admin .products select, #admin .products textarea, #admin .categories input, #admin .categories select, #admin .categories textarea, #admin .orders input, #admin .orders select, #admin .orders textarea {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
+}
+#admin .orders table .orderStatus {
+  display: none;
+}
+#admin .orders table .orderStatus input {
+  height: 3rem;
 }
 
 @media screen and (max-width: 768px) {

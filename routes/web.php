@@ -57,7 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         })->name('admin.index');
 
         Route::POST('/admin/store', 'AdminController@store');
-        Route::get('/inbox', 'AdminController@inbox');
+        Route::get('/inbox', 'AdminController@inbox')->name('readMsg');
         Route::get('/inbox/{id}', 'AdminController@readMessage');
         Route::delete('/inbox/deleteAll', 'AdminController@clearAllMessages');
         Route::delete('/inbox/delete/{id}', 'AdminController@clearMessage');
@@ -84,6 +84,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         Route::post('update/{id}', 'CategoriesController@update')->name('update');
 
         Route::resource('ads','AdsController');
+
+        Route::resource('orders','OrdersController');
+        Route::post('/changeOrderStatus', 'OrdersController@changeOrderStatus')->name('changeStatus');
     }
 );
 

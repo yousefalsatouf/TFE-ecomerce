@@ -1,6 +1,7 @@
 #footer
 {
     position: absolute;
+    display: none;
     bottom: 0;
     width:100%;
     @media screen and (max-width: $break-small)

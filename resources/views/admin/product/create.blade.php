@@ -1,20 +1,20 @@
 @extends('admin.master')
 @section('content')
-    <section class="container-fluid create-product">
-        <div class="row">
-            <div>
+    <section id="admin" class="container-fluid">
+        <div class="row products">
+            <div class="col-md-2 col-lg-2 pt-3">
                 @include('admin.includes.sidenav')
             </div>
-            <div class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+            <div class="col-sm-12 ml-sm-auto col-md-10 col-lg-10 pt-3" role="main">
                 <div class="col-lg-8">
                     <div>
                         <button class="float-right">
-                            <a class="link" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> Gérer les produits</b></a>
+                            <a class="link" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> @lang('admin.products.manage')</b></a>
                         </button>
                     </div>
-                    <h2>Ajouter un nouveau produit</h2>
+                    <h2>@lang('admin.products.addNew')</h2>
                     <hr>
-                    <strong class="text-warning"><i class="fa fa-warning"></i> Les champs doivent être remplis</strong>
+                    <strong class="text-warning"><i class="fa fa-warning"></i> @lang('admin.products.mustComplete')</strong>
                     <br>
                     @if(session('error'))
                         <div class="alert alert-danger">{{session('error')}}</div>
@@ -65,6 +65,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <br>
+        <hr>
+        <div class="back">
+            <a href="{{url('/admin')}}" class="link"><i class="fa fa-backward"></i> Admin</a>
         </div>
     </section>
 @endsection

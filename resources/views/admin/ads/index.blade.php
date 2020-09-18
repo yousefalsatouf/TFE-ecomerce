@@ -1,13 +1,13 @@
 @extends('admin.master')
 @section('content')
-    <section class="container-fluid ads-sec">
+    <section id="admin" class="container-fluid ads-sec">
         <div class="row">
             @include('admin.includes.sidenav')
         </div>
         <div class="col-sm-9 ml-sm-auto col-md-10 pt-3 categories">
             <div class="row">
                 <div class="col-md-10">
-                    <h2>créer une publicité</h2>
+                    <h2>@lang('admin.adsSec.create')</h2>
                     <hr>
                     <div class="card card-body py-5">
                         @if(session('error'))
@@ -44,15 +44,15 @@
             <hr>
             <div class="row">
                 <div class="col-md-10">
-                    <h2>Liste des annonces</h2>
+                    <h2>@lang('admin.adsSec.list')</h2>
                     <hr>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>Image</th>
-                            <th>Name</th>
+                            <th>@lang('admin.adsSec.name')</th>
                             <th>Description</th>
-                            <th>Link</th>
+                            <th>@lang('admin.adsSec.link')</th>
                             <th>Remove</th>
                         </tr>
                         </thead>
@@ -80,5 +80,4 @@
             </div>
         </div>
     </section>
-    </div>
 @endsection
