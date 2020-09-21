@@ -68,3 +68,17 @@
         }
     }
 }
+
+#newsletter
+{
+    .form-group
+    {
+        width: 50%;
+    }
+    input
+    {
+        border: none;
+        border-bottom: 1px solid $green;
+    }
+}
+

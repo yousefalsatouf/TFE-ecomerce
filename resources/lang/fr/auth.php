@@ -11,5 +11,6 @@ return [
     'remember' => 'Se souvenir de moi',
     'forget' => 'Mots de passe oublier ?',
     'google' => 'Connecter via google',
-    'confirmEmail' => 'Veuillez vérifier votre email pour confirmer votre inscription!'
+    'confirmEmail' => 'Veuillez vérifier votre email pour confirmer votre inscription!',
+    'failed' => "la valeur n'est pas correct"
 ];

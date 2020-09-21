@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdsSeeder::class);
         // locations seeder
         $this->call(LocationsSeeder::class);
+        // reviews
+        //$this->call(ReviewsSeeder::class);
     }
 }

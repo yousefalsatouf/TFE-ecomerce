@@ -9101,3 +9101,11 @@ button:hover {
   border-bottom: 1px solid #2BBBAD;
   max-height: 3rem;
 }
+
+#newsletter .form-group {
+  width: 50%;
+}
+#newsletter input {
+  border: none;
+  border-bottom: 1px solid #2BBBAD;
+}
