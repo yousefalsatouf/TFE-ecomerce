@@ -1,8 +1,5 @@
 #footer
 {
-    position: absolute;
-    display: none;
-    bottom: 0;
     width:100%;
     @media screen and (max-width: $break-small)
     {
@@ -77,3 +74,8 @@
     }
 }
 
+
+#cart_items, #wishlist, #cart, .orders, .users
+{
+    margin-bottom: 30rem;
+}

@@ -106,7 +106,7 @@
                         @endforelse
                     </div>
                     <div class="pagination-links">
-                        {{$products->links()}}
+
                     </div>
                 </div>
             </div>

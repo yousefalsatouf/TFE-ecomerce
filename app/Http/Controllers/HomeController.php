@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function shop()
     {
         $lastProducts = Product::all()->take(10);
-        $products = Product::Paginate(6);
+        $products = Product::all();
         $categories = Category::all();
         $ads = Ads::all();
         //dd($lastProducts);

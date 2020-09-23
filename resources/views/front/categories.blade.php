@@ -52,7 +52,7 @@
                             <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
                                 <button>
                                     <i class="fa fa-backward"></i>
-                                    <b>@lang('cummon.justBack')</b>
+                                    <b>@lang('commun.justBack')</b>
                                 </button>
                             </a>
                         </div>
@@ -84,20 +84,14 @@
                                             <b>({{$rated}}/5)</b>
                                         @endif
                                     </div>
-                                    @if($product->product_price == 0)
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-text text-success"><strong>@lang('commun.free')</strong></p>
-                                        </div>
-                                    @elseif(($product->sold_price))
-                                        <div class="d-flex justify-content-between align-items-center">
-                                               <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
-                                            <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
-                                            <p class="">{{$product->sold_price}} EUR</p>
-                                        </div>
+                                    @if(!$product->product_price)
+                                        <p class="card-text text-success"><strong>FREE</strong></p>
+                                    @elseif(($product->sold_price && ($product->sold_price < $product->product_price)))
+                                        <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
+                                        <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
+                                        <p class="">{{$product->sold_price}} EUR</p>
                                     @else
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="">{{$product->product_price}} EUR</p>
-                                        </div>
+                                        <p class="">{{$product->product_price}} EUR</p>
                                     @endif
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                                         <button >
@@ -114,12 +108,6 @@
                         @empty
                             <div class="empty">
                                 <h3 class="text-danger">@lang('category.noProd')</h3>
-                                <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
-                                    <button class="btn bg-success btn-sm text-dark">
-                                        <i class="fa fa-backward"></i>
-                                        <b>Back</b>
-                                    </button>
-                                </a>
                             </div>
                         @endforelse
                     </div>

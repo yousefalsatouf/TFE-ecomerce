@@ -161,7 +161,7 @@ class CategoriesController extends Controller
                 ->leftJoin('categories', 'categories.id', 'products.category_id')
                 ->where('name', 'like', $categoryName)
                 ->where('product_price', "<=", $price)
-                ->whereNotNull('sale_price')
+                ->whereNotNull('sold_price')
                 ->get();
         elseif ($price)
             $products = DB::table('products')
@@ -173,7 +173,7 @@ class CategoriesController extends Controller
             $products = DB::table('products')
                 ->leftJoin('categories', 'categories.id', 'products.category_id')
                 ->where('name', 'like', $categoryName)
-                ->whereNotNull('sale_price')
+                ->whereNotNull('sold_price')
                 ->get();
         else
             $products = DB::table('products')

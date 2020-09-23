@@ -66,7 +66,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'product_name' => "Vitamine D3 - 3 000 UI",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'vitamine-d3.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -91,7 +91,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Vitamine E-400 naturelle",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'vE.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -103,7 +103,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Omega 3-6-9",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'omega.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -129,7 +129,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Galettes de Superfood",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'superfood.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -141,7 +141,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Coconut Cookies (sugar free)",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'p.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -167,7 +167,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Boisson Monster Energy Ultra",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'energyDrink.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -179,7 +179,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "BSN BCAA - 200g (40 servings) 2 for 1",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'bcaa.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -191,7 +191,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Gold Standard Pre-Workout",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'pre-workout.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -217,7 +217,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Homme - Short mi-long",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'short.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -241,7 +241,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "T-shirt Small Logo Noir Pour Femme",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'C100546_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -253,7 +253,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Débardeur dos nageur",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 50,
             'image' => 'C100547_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,

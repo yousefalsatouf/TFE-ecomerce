@@ -7791,9 +7791,6 @@ a.text-dark:focus, a.text-dark:hover {
   }
 }
 #footer {
-  position: absolute;
-  display: none;
-  bottom: 0;
   width: 100%;
 }
 @media screen and (max-width: 768px) {
@@ -7846,6 +7843,10 @@ a.text-dark:focus, a.text-dark:hover {
 }
 #footer .alert {
   display: none;
+}
+
+#cart_items, #wishlist, #cart, .orders, .users {
+  margin-bottom: 30rem;
 }
 
 #myCarousel {

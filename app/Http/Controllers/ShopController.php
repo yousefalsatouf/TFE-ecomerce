@@ -24,7 +24,7 @@ class ShopController extends Controller
         $onSold = $request->onSold;
         $newProd = $request->newProd;
         $topProd = $request->topProd;
-
+        //dd($onSold);
         $categories = Category::all();
 
         $ads = Ads::all();
@@ -39,29 +39,30 @@ class ShopController extends Controller
                 $products = DB::table('categories')
                     ->leftJoin('products', 'products.category_id', '=', 'categories.id')
                     ->where('categories.name', 'like', '%'.$category.'%')
-                    ->paginate(12);
+                    ->get();
                 break;
             case $maxPrice:
                 $products = DB::table('products')
                     ->Where('sold_price', '<=', $maxPrice)
-                    ->where('product_price', '<=', $maxPrice)
-                    ->paginate(12);
+                    ->orWhere('product_price', '<=', $maxPrice)
+                    ->get();
                 break;
             case $onSold:
                 $products = DB::table('products')
                     ->whereNotNull('sold_price')
-                    ->paginate(12);
+                    ->get();
+                //dd($products);
                 break;
             case $newProd:
                 $products = DB::table('products')
                     ->whereNotNull('new_arrival')
-                    ->paginate(12);
+                    ->get();
                 break;
             case $topProd:
                 $products = DB::table('products')
                     ->leftJoin('reviews', 'products.id', '=', 'reviews.product_id')
                     ->where('rating', '>=', 4)
-                    ->paginate(12);
+                    ->get();
                 break;
             case $category || $maxPrice || $onSold || $newProd || $topProd:
                 $products = DB::table('products')
@@ -72,10 +73,10 @@ class ShopController extends Controller
                     ->whereNotNull('new_arrival')
                     ->where('rating', '>=', 4)
                     ->where('categories.name', 'like', '%'.$category.'%')
-                    ->paginate(12);
+                    ->get();
                 break;
             default:
-                $products = Product::paginate(12);
+                $products = Product::all();
 
         }
         //print_r($products);

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Database\Schema\Builder;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,12 +27,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Builder::defaultStringLength(191); // Update defaultStringLength this is mine to give more length ...
-    }
 
-    /*
-     * View::composer('*', function ($view) {
+        /*View::composer('*', function ($view) {
 
             $view->with('target_types', TargetType::all());
-        });
-     * */
+        });*/
+    }
 }
