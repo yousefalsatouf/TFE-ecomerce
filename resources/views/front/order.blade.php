@@ -1,6 +1,6 @@
 @extends('front.helpers.master')
 @section('content')
-    <main role="main" id="home">
+    <main role="main" id="order">
         <div class="container">
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">

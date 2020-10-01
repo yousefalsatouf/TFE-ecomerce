@@ -71,6 +71,14 @@ button, a.link
     border: 0;
     padding: 10px 15px;
 }
+a.link-danger
+{
+    background-color: $red;
+    font-weight: 800;
+    color: $white;
+    border: 0;
+    padding: 10px 15px;
+}
 button:hover
 {
     cursor: pointer;
@@ -86,4 +94,13 @@ body
     background-color: $green;
     margin: 0 auto;
     text-align: center;
+}
+
+
+#newsletter, #order {
+    margin-top: 5rem;
+    @media screen and (min-width: $break-medium) {
+        margin-bottom: 30rem;
+    }
+
 }

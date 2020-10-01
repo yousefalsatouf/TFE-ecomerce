@@ -36,36 +36,36 @@ class ShopController extends Controller
         switch (true)
         {
             case $category:
-                $products = DB::table('categories')
+                $searchProducts = DB::table('categories')
                     ->leftJoin('products', 'products.category_id', '=', 'categories.id')
                     ->where('categories.name', 'like', '%'.$category.'%')
                     ->get();
                 break;
             case $maxPrice:
-                $products = DB::table('products')
+                $searchProducts = DB::table('products')
                     ->Where('sold_price', '<=', $maxPrice)
                     ->orWhere('product_price', '<=', $maxPrice)
                     ->get();
                 break;
             case $onSold:
-                $products = DB::table('products')
+                $searchProducts = DB::table('products')
                     ->whereNotNull('sold_price')
                     ->get();
                 //dd($products);
                 break;
             case $newProd:
-                $products = DB::table('products')
+                $searchProducts = DB::table('products')
                     ->whereNotNull('new_arrival')
                     ->get();
                 break;
             case $topProd:
-                $products = DB::table('products')
+                $searchProducts = DB::table('products')
                     ->leftJoin('reviews', 'products.id', '=', 'reviews.product_id')
                     ->where('rating', '>=', 4)
                     ->get();
                 break;
             case $category || $maxPrice || $onSold || $newProd || $topProd:
-                $products = DB::table('products')
+                $searchProducts = DB::table('products')
                     ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                     ->rightJoin('reviews', 'products.id', '=', 'reviews.id')
                     ->where('products.product_price', '<=', $maxPrice)
@@ -76,12 +76,12 @@ class ShopController extends Controller
                     ->get();
                 break;
             default:
-                $products = Product::all();
+                $searchProducts = Product::all();
 
         }
         //print_r($products);
         // die();
         //return redirect('shop')->with(['products', 'ads', 'recommends']);
-        return view('front/shop', compact('products', 'ads', 'recommends', 'categories'));
+        return view('front/shop', compact('searchProducts', 'ads', 'recommends', 'categories'));
     }
 }

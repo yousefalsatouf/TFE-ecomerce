@@ -1,6 +1,10 @@
 #register
 {
     margin-top: 5rem;
+    @media screen and (min-width: $break-medium)
+    {
+        margin-bottom: 23rem;
+    }
     @media screen and (max-width: $break-small)
     {
         bottom: -35rem;
