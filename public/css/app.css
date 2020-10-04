@@ -8580,12 +8580,6 @@ a.text-dark:focus, a.text-dark:hover {
   border: 1px solid #2BBBAD;
 }
 
-#reset-password {
-  font-family: "Berkshire Swash", cursive;
-}
-#reset-password .card {
-  background-color: #000;
-}
 #reset-password .card .card-header {
   color: #2BBBAD;
   font-weight: bolder;
@@ -8593,6 +8587,10 @@ a.text-dark:focus, a.text-dark:hover {
 }
 #reset-password .card .card-body label {
   color: #2BBBAD;
+}
+#reset-password .card .card-body input {
+  border: none;
+  border-bottom: 1px solid #2BBBAD;
 }
 
 @media screen and (max-width: 768px) {
@@ -9011,11 +9009,11 @@ button:hover {
   text-align: center;
 }
 
-#newsletter, #order {
+#newsletter, #order, #reset-password {
   margin-top: 5rem;
 }
 @media screen and (min-width: 768px) {
-  #newsletter, #order {
+  #newsletter, #order, #reset-password {
     margin-bottom: 30rem;
   }
 }
