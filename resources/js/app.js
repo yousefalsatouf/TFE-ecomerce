@@ -15,11 +15,3 @@ Vue.use(VueGoogleMap, {
 new Vue({
     el: '#gmap',
 });
-
-
-/*
-* php artisan config:clear
-php artisan cache:clear
-php artisan config:cache
-*
-* */

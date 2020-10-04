@@ -42,21 +42,23 @@ class PaymentController extends Controller
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
-
         $item = new Item();
-        $item->setName($request->get('item_name')) /** item name **/
+        $item->setName($request->item_name) /** item name **/
             ->setCurrency('EUR')
-            ->setQuantity($request->get('item_qty'))
-            ->setPrice($request->get('item_amount')); /** unit price **/
+            ->setQuantity($request->item_qty)
+            ->setPrice($request->item_amount); /** unit price **/
+
 
         //dd($item);
 
         $item_list = new ItemList();
         $item_list->setItems(array($item));
 
+        //dd($item_list);
+
         $amount = new Amount();
         $amount->setCurrency('EUR')
-            ->setTotal($request->get('item_amount'));
+                ->setTotal($request->item_amount);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -74,7 +76,7 @@ class PaymentController extends Controller
             ->setPayer($payer)
             ->setRedirectUrls($redirect_urls)
             ->setTransactions(array($transaction));
-
+        //dd($payment);
         //dd($this->api_context);
 
         try {

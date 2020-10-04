@@ -230,6 +230,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Cart' => \Gloudemans\Shoppingcart\Facades\Cart::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Newsletter' => \Spatie\Newsletter\Newsletter::class,
     ],
 
 ];

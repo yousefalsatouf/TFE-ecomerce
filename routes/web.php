@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('lang/home', 'LangController@index');
 Route::get('lang/change', 'LangController@change')->name('changeLang');
 
+Route::get('/create-newsletter','NewsletterController@create');
+Route::put('/newsletter','NewsletterController@store');
 
 Route::get('/', function () {
     return view('/front/home');
@@ -116,3 +118,4 @@ Route::post('/paypal', 'PaymentController@payWithpaypal');
 
 // route for check status of the payment
 Route::get('/status', 'PaymentController@getPaymentStatus');
+

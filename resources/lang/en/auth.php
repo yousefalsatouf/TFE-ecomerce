@@ -10,5 +10,10 @@ return [
     'remember' => 'Remember Me',
     'forget' => 'Forget Password ?',
     'google' => 'Login with google',
-    'confirmEmail' => 'Please check your emails to verified your account'
+    'confirmEmail' => 'Please check your emails to verified your account',
+    'failed' => "value is not correct",
+    'managePass' => "Manage your password",
+    'changePass' => "Change Password",
+    'currPass' => "Current Password",
+    'newPass' => "New password"
 ];

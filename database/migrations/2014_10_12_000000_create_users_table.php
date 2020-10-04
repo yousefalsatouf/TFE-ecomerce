@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->integer('street_number')->nullable();
             $table->integer('postal_code')->nullable();
             $table->string('payment_type')->nullable();
+            $table->boolean('subscribed_newsletter')->nullable()->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

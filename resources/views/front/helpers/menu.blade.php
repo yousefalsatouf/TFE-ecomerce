@@ -66,6 +66,9 @@
                             <hr>
                             <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
                             <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
+                            @if(!Auth::user()->subscribed_newsletter)
+                                <a class="dropdown-item text-dark" href="{{ url('/create-newsletter') }}">@lang('email.newsletter')</a>
+                            @endif
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}">
                                 {{ __('header.logout') }}
                             </a>

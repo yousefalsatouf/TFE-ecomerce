@@ -52042,12 +52042,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_google_maps__WEBPACK_IMPORTE
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#gmap'
 });
-/*
-* php artisan config:clear
-php artisan cache:clear
-php artisan config:cache
-*
-* */
 
 /***/ }),
 

@@ -40,7 +40,7 @@
                                                            <a href="{{url('/cart/addItem'). '/' .$product->id}}" class="link">
                                                                <i class="fa fa-shopping-cart"></i> @lang('cart.pass')
                                                            </a>
-                                                           <a href="{{url('/removeFromWishlist').'/'.$product->id}}" class="link">
+                                                           <a href="{{url('/removeFromWishlist').'/'.$product->id}}" class="link-danger">
                                                                <i class="fa fa-minus-square"></i> @lang('cart.remove')
                                                            </a>
                                                        </div>
