@@ -1,12 +1,13 @@
 @extends('front.helpers.master')
 @section('content')
     <section id="gmap">
-        <gmap-map
+        {{--<gmap-map
             :center="{lat:10,lng:10}"
             :zoom="7"
             style="width: 100%; height: 500px"
         >
-        </gmap-map>
+        </gmap-map>--}}
+        <iframe src="https://www.google.com/maps/d/embed?mid=1cWzykfq-y4XYmcuZz5tXmZc9CFPr5C3R" width="100%" height="480"></iframe>
     </section>
     <section id="contact">
         <div class="container">
