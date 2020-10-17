@@ -52167,8 +52167,8 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\WEB-MASTER\3emeAnne\TFE\project\ecomerce-TFE\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\WEB-MASTER\3emeAnne\TFE\project\ecomerce-TFE\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/yousefalsatouf/Dev/PHP/TFE/Project/TFE-ecomerce/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/yousefalsatouf/Dev/PHP/TFE/Project/TFE-ecomerce/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
