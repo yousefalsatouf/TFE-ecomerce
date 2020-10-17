@@ -52113,7 +52113,7 @@ $(document).ready(function () {
   }); // change language
 
   $('.changeLang').change(function () {
-    var url = $(this).attr('data-url'); //console.log(url)
+    var url = 'lang/change'; //console.log(url)
 
     window.location.href = url + "?lang=" + $(this).val();
   });
