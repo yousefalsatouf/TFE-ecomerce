@@ -52032,7 +52032,7 @@ __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 __webpack_require__(/*! ./main */ "./resources/js/main.js");
 
-__webpack_require__(/*! ./map */ "./resources/js/map.js");
+__webpack_require__(/*! ./rgpd */ "./resources/js/rgpd.js");
 
 
  // holding vue for the moment, instead using javascript to ingrate the map
@@ -52152,14 +52152,31 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/js/map.js":
-/*!*****************************!*\
-  !*** ./resources/js/map.js ***!
-  \*****************************/
+/***/ "./resources/js/rgpd.js":
+/*!******************************!*\
+  !*** ./resources/js/rgpd.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var checker = document.getElementById('check-me');
+var accept = document.getElementById('accept');
+document.getElementById('registerBtn').disabled = true;
+document.getElementById('registerBtn').style.cursor = 'not-allowed';
+accept.disabled = true;
+document.getElementById('accept').style.cursor = 'not-allowed'; // when unchecked or checked, run the function
 
+checker.onchange = function () {
+  if (this.checked) {
+    accept.disabled = false;
+    document.getElementById('accept').style.cursor = 'pointer';
+  }
+};
+
+accept.onclick = function () {
+  document.getElementById('registerBtn').disabled = false;
+  document.getElementById('registerBtn').style.cursor = 'pointer';
+};
 
 /***/ }),
 

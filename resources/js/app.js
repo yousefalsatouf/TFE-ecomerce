@@ -1,7 +1,7 @@
 require('./bootstrap');
 require('jquery');
 require('./main');
-require('./map');
+require('./rgpd');
 
 import Vue from 'vue'
 import * as VueGoogleMap from 'vue2-google-maps'
