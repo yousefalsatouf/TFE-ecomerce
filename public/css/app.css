@@ -8547,6 +8547,9 @@ a.text-dark:focus, a.text-dark:hover {
     bottom: -35rem;
   }
 }
+#register .scroll {
+  overflow: scroll;
+}
 #register .card .card-header {
   color: #000;
   background-color: #2BBBAD;
