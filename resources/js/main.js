@@ -17,7 +17,7 @@ $(document).ready(function(){
     // change language
 
     $('.changeLang').change(function () {
-            let url = $(this).attr('data-url');
+            let url = 'lang/change';
             //console.log(url)
             window.location.href = url + "?lang="+ $(this).val();
         });
