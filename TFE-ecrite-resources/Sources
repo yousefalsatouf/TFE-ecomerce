@@ -1,0 +1,14 @@
+Le Lien vers git => https://github.com/yousefalsatouf/TFE-ecomerce
+Le lien vers le site en ligne => http://tfe-web.herokuapp.com/
+Le lien vers la bartie admin => http://tfe-web.herokuapp.com/admin
+comme utilisateur
+    - email: user@sportclub.be
+    - password: useruser
+
+comme acteur
+    - email: actor@sportclub.be
+    - password: actoractor
+
+comme admin
+    - email: admin@sportclub.be
+    - password: adminadmin
