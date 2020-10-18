@@ -8549,6 +8549,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 #register .scroll {
   overflow: scroll;
+  height: 60vh;
 }
 #register .card .card-header {
   color: #000;
