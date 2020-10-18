@@ -1,5 +1,6 @@
 <?php
 
+use App\Recommends;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +25,10 @@ class DatabaseSeeder extends Seeder
         // locations seeder
         $this->call(LocationsSeeder::class);
         // reviews
-        //$this->call(ReviewsSeeder::class);
+        $this->call(ReviewsSeeder::class);
+        // recommended
+        $this->call(RecommendsSeeder::class);
+        // products props
+        $this->call(ProductPropsSeeder::class);
     }
 }
