@@ -17,7 +17,6 @@ class ReviewsSeeder extends Seeder
             'client_email' => "someone@gmail.com",
             'review_content' => "perfect",
             'rating' => 4,
-            'user_id' => 1,
             'product_id' => 1,
         ]);
         \App\Review::create([
@@ -25,16 +24,77 @@ class ReviewsSeeder extends Seeder
             'client_email' => "anther@gmail.com",
             'review_content' => "perfect",
             'rating' => 5,
-            'user_id' => 1,
-            'product_id' => 1,
+            'product_id' => 4,
         ]);
         \App\Review::create([
             'client_name' => "yousef",
             'client_email' => "yousefher@gmail.com",
             'review_content' => "good",
             'rating' => 3,
-            'user_id' => 1,
-            'product_id' => 1,
+            'product_id' => 10,
+        ]);
+        \App\Review::create([
+            'client_name' => "someone",
+            'client_email' => "someone@gmail.com",
+            'review_content' => "perfect",
+            'rating' => 4,
+            'product_id' => 9,
+        ]);
+        \App\Review::create([
+            'client_name' => "anther one",
+            'client_email' => "anther@gmail.com",
+            'review_content' => "perfect",
+            'rating' => 5,
+            'product_id' => 12,
+        ]);
+        \App\Review::create([
+            'client_name' => "yousef",
+            'client_email' => "yousefher@gmail.com",
+            'review_content' => "good",
+            'rating' => 3,
+            'product_id' => 8,
+        ]);
+        \App\Review::create([
+            'client_name' => "someone",
+            'client_email' => "someone@gmail.com",
+            'review_content' => "perfect",
+            'rating' => 4,
+            'product_id' => 15,
+        ]);
+        \App\Review::create([
+            'client_name' => "anther one",
+            'client_email' => "anther@gmail.com",
+            'review_content' => "perfect",
+            'rating' => 5,
+            'product_id' => 4,
+        ]);
+        \App\Review::create([
+            'client_name' => "yousef",
+            'client_email' => "yousefher@gmail.com",
+            'review_content' => "good",
+            'rating' => 3,
+            'product_id' => 18,
+        ]);
+        \App\Review::create([
+            'client_name' => "someone",
+            'client_email' => "someone@gmail.com",
+            'review_content' => "perfect",
+            'rating' => 4,
+            'product_id' => 22,
+        ]);
+        \App\Review::create([
+            'client_name' => "anther one",
+            'client_email' => "anther@gmail.com",
+            'review_content' => "perfect",
+            'rating' => 5,
+            'product_id' => 11,
+        ]);
+        \App\Review::create([
+            'client_name' => "yousef",
+            'client_email' => "yousefher@gmail.com",
+            'review_content' => "good",
+            'rating' => 3,
+            'product_id' => 6,
         ]);
     }
 }
