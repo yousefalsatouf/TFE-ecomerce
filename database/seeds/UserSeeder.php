@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        User::create([
+        /*User::create([
             'name' => "admin",
             'image' => 'yousef.jpg',
             'email' => 'admin@admin.com',
@@ -26,6 +26,6 @@ class UserSeeder extends Seeder
             'city' => 'liege',
             'postal_code' => 4000,
             'admin' => 1
-        ]);
+        ]);*/
     }
 }
