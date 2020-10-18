@@ -32,3 +32,9 @@ and last but not least run the app by
 php artisan serve
 npm run watch 
 ```
+run migration with seeder using 
+```php
+php artisan migrate:fresh --seed
+```
+
+and your are done !!
