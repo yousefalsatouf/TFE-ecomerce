@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReviewsSeeder::class);
         // recommended
         $this->call(RecommendsSeeder::class);
+        // products props
+        $this->call(ProductPropsSeeder::class);
     }
 }
