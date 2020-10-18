@@ -18,12 +18,12 @@ npm install
 ```
 
 ## Usage
-now to run your project your need to create .env end set connection to the database..
+now to run the project on localhost you need to create .env end set connection to the database..
 
 ```php
 cp .env.example .env
 ```
-your might need to generate a kay to run laravel app
+you might need to generate a kay to run laravel app
 ```php
 php artisan key:generate
 ```
@@ -37,4 +37,4 @@ run migration with seeder using
 php artisan migrate:fresh --seed
 ```
 
-and your are done !!
+and you'r done !!
