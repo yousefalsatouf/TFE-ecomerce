@@ -15,6 +15,14 @@ class   CheckoutController extends Controller
     //
     public function index()
     {
+        $checkInfos = DB::table('users')->where('id', '=', Auth::user()->id)->pluck('first_name');
+
+
+        //dd($checkInfos[0]);
+        if ($checkInfos[0] === null){
+            return back();
+        }
+
         if (Auth::check())
         {
             $cartItems = Cart::content();
@@ -41,6 +49,7 @@ class   CheckoutController extends Controller
 
     public function formValidate(Request $request)
     {
+
         $this->validate($request, [
             'first_name' => 'required|min:3|max:35',
             'last_name' => 'required|min:3|max:35',
