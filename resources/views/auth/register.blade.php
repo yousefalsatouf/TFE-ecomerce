@@ -63,16 +63,12 @@
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title" id="exampleModalLabel">
-                                            <a href="{{url('/')}}">SPORTClub</a>
-                                        </h3>
+                                        <h4 class="text-success text-center">RGPD : SPORTClub</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <h4 class="text-success text-center">RGPD : SPORTClub</h4>
-                                        <hr>
+                                    <div class="modal-body scroll">
                                         <strong class="text-info"><i class="fa fa-info-circle">
                                             </i>@lang('auth.rgbd.infoTitle')</strong>
                                         <hr>
