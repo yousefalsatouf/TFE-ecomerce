@@ -93,7 +93,7 @@ class   CheckoutController extends Controller
         $userId = Auth::user()->id;
         $addressInfos = DB::table('users')->where('id', $userId)->get();
 
-        return view('front/checkoutaddress', compact('addressInfos'));
+        return view('front/checkoutAddress', compact('addressInfos'));
     }
 
     public function finishOrder()
