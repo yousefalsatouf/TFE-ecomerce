@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Events\SendBillEvent;
+use App\Orders;
 use App\User;
-use App\orders;
+
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -99,7 +100,7 @@ class   CheckoutController extends Controller
     public function finishOrder()
     {
         // creating an order and destroy the cart ...
-        $order = orders::createOrder();
+        $order = Orders::createOrder();
         $user = Auth::user();
 
         event(new SendBillEvent($user, $order));
