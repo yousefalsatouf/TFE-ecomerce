@@ -8,7 +8,7 @@ use App\Product;
 use App\Products_properties;
 use App\Recommends;
 use App\Review;
-use App\wishList;
+use App\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -103,7 +103,7 @@ class HomeController extends Controller
     {
        if (Auth::check())
        {
-           $wishlist = new wishList;
+           $wishlist = new Wishlist();
            $wishlist->user_id = Auth::user()->id;
            $wishlist->product_id = $request->product_id;
            $wishlist->save();
