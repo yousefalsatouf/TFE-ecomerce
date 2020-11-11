@@ -1,11 +1,11 @@
-require('./bootstrap');
-require('jquery');
-require('./main');
-require('./rgpd');
+import './bootstrap'
+import './rgpd'
+import './main'
+import 'jquery'
+
 window.Vue = require('vue');
-Vue.component('Map', require('./components/MapComponent.vue'));
+Vue.component('street-map', require('./components/MapComponent').default);
 
-
-new Vue({
+const app = new Vue({
     el: '#app',
 });

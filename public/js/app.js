@@ -1915,6 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "street-map",
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -37512,9 +37513,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "map" }, [_vm._v("\n    hello there\n")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "map" }, [
+      _c("h1", [_vm._v("hello from map")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -49687,20 +49697,26 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _rgpd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rgpd */ "./resources/js/rgpd.js");
+/* harmony import */ var _rgpd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_rgpd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main */ "./resources/js/main.js");
+/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_main__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 
-__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-__webpack_require__(/*! ./main */ "./resources/js/main.js");
 
-__webpack_require__(/*! ./rgpd */ "./resources/js/rgpd.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('Map', __webpack_require__(/*! ./components/MapComponent.vue */ "./resources/js/components/MapComponent.vue"));
-new Vue({
+Vue.component('street-map', __webpack_require__(/*! ./components/MapComponent */ "./resources/js/components/MapComponent.vue")["default"]);
+var app = new Vue({
   el: '#app'
 });
 
@@ -49888,22 +49904,26 @@ $(document).ready(function () {
 
 var checker = document.getElementById('check-me');
 var accept = document.getElementById('accept');
-document.getElementById('registerBtn').disabled = true;
-document.getElementById('registerBtn').style.cursor = 'not-allowed';
-accept.disabled = true;
-document.getElementById('accept').style.cursor = 'not-allowed'; // when unchecked or checked, run the function
+var register = document.getElementById('registerBtn');
 
-checker.onchange = function () {
-  if (this.checked) {
-    accept.disabled = false;
-    document.getElementById('accept').style.cursor = 'pointer';
-  }
-};
+if (accept && register) {
+  accept.disabled = true;
+  accept.style.cursor = 'not-allowed';
+  register.disabled = true;
+  register.style.cursor = 'not-allowed'; // when unchecked or checked, run the function
 
-accept.onclick = function () {
-  document.getElementById('registerBtn').disabled = false;
-  document.getElementById('registerBtn').style.cursor = 'pointer';
-};
+  checker.onchange = function () {
+    if (this.checked) {
+      accept.disabled = false;
+      accept.style.cursor = 'pointer';
+    }
+  };
+
+  accept.onclick = function () {
+    register.disabled = false;
+    register.style.cursor = 'pointer';
+  };
+}
 
 /***/ }),
 

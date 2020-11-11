@@ -1,21 +1,29 @@
 let checker = document.getElementById('check-me');
 let accept = document.getElementById('accept');
-document.getElementById('registerBtn').disabled = true;
-document.getElementById('registerBtn').style.cursor = 'not-allowed';
-accept.disabled = true;
-document.getElementById('accept').style.cursor = 'not-allowed';
+let register = document.getElementById('registerBtn');
 
-// when unchecked or checked, run the function
-checker.onchange = function() {
-    if (this.checked)
-    {
-        accept.disabled = false;
-        document.getElementById('accept').style.cursor = 'pointer';
-    }
-};
 
-accept.onclick = function ()
+if (accept && register)
 {
-    document.getElementById('registerBtn').disabled = false;
-    document.getElementById('registerBtn').style.cursor = 'pointer';
-};
+    accept.disabled = true;
+    accept.style.cursor = 'not-allowed';
+    register.disabled = true;
+    register.style.cursor = 'not-allowed'
+
+    // when unchecked or checked, run the function
+    checker.onchange = function() 
+    {
+        if (this.checked)
+        {
+            accept.disabled = false;
+            accept.style.cursor = 'pointer';
+        }
+    };
+
+    accept.onclick = function ()
+    {
+        register.disabled = false;
+        register.style.cursor = 'pointer';
+    };
+
+}

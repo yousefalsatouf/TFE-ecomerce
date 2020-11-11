@@ -11,22 +11,19 @@
     },
     "devDependencies": {
         "axios": "^0.19",
-        "bootstrap": "^4.5.3",
+        "bootstrap": "^4.0.0",
         "cross-env": "^7.0.2",
-        "jquery": "^3.5.1",
+        "jquery": "^3.2",
         "laravel-mix": "^5.0.7",
         "lodash": "^4.17.20",
-        "popper.js": "^1.16.1",
-        "resolve-url-loader": "^3.1.1",
-        "sass": "^1.27.0",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
-        "vue": "^2.6.12",
-        "vue-router": "^3.4.7",
-        "vue-template-compiler": "^2.6.12"
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": {
-        "vue2-google-maps": "^0.10.7"
-    },
+    "dependencies": [],
     "engines": {
         "node": "12.x",
         "npm": "6.x"

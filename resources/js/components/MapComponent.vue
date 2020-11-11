@@ -1,14 +1,14 @@
 <template>
     <div class="map">
-        hello there
+        <h1>hello from map</h1>
     </div>
 </template>
 
 <script>
     export default {
-        mounted()
-        {
-           console.log('Component mounted.')
+        name: "street-map",
+        mounted() {
+            console.log('Component mounted.')
         }
     }
 </script>

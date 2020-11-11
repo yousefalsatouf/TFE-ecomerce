@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <title>SportClub</title>
     <link rel="stylesheet" href="{{asset('dist/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
     <body>
         <header id="header">
@@ -45,7 +45,7 @@
                         $.ajax({
                             type: 'get',
                             dataType: 'html',
-                            url: {{url('/cart/update')}}+'/'+proId,
+                            url: "{{url('/cart/update')}}"+'/'+proId,
                             data: "qty = " + newQty + "& rowId=" + rowId + "& proId=" + proId,
                             success: function (response) {
                                 console.log(response);

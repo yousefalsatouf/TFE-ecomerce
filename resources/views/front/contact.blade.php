@@ -2,8 +2,7 @@
 @section('content')
     <section id="app">
 
-
-        <Map></Map>
+        <street-map></street-map>
 
         {{--<iframe src="https://www.google.com/maps/d/embed?mid=1cWzykfq-y4XYmcuZz5tXmZc9CFPr5C3R" width="100%" height="480"></iframe>--}}
     </section>
