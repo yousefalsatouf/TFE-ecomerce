@@ -2006,30 +2006,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "leaflet-map",
   props: ['locations'],
   components: {
     LMap: vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["LMap"],
@@ -2040,15 +2019,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     var locations = this.locations;
-    console.log(locations);
     return {
       zoom: 9,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      center: Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["latLng"])(50.6448444, 5.5804934),
-      loc: Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["latLng"])(50.6448444, 5.5804934),
-      loc2: Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["latLng"])(50.9765614, 4.4371033),
+      center: Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["latLng"])(50.941201, 5.356898),
       data: locations,
-      currentZoom: 14,
+      currentZoom: 10,
       currentCenter: Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["latLng"])(50.6448444, 5.5804934),
       showParagraph: false,
       mapOptions: {
@@ -52513,118 +52489,56 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.data, function(piece) {
             return _c(
-              "div",
-              { key: piece.id },
+              "l-marker",
+              { key: piece.id, attrs: { "lat-lng": [piece.lat, piece.lng] } },
               [
-                piece.id == 1
-                  ? _c(
-                      "l-marker",
-                      { attrs: { "lat-lng": _vm.loc } },
-                      [
-                        _c("l-popup", [
-                          _c("div", [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(piece.title) +
-                                "\n                        "
-                            ),
-                            _c("p", [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(piece.description) +
-                                  "\n                            "
-                              ),
-                              _c("ul", [
-                                _c("li", [
-                                  _c("strong", [_vm._v("Address:")]),
-                                  _vm._v(" " + _vm._s(piece.address) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("City: ")]),
-                                  _vm._v(" " + _vm._s(piece.city) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("State:")]),
-                                  _vm._v(" " + _vm._s(piece.state) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("Hours: ")]),
-                                  _vm._v(" " + _vm._s(piece.hours) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("Lat: ")]),
-                                  _vm._v(" " + _vm._s(piece.lat))
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("Lng: ")]),
-                                  _vm._v(" " + _vm._s(piece.lng) + " ")
-                                ])
-                              ])
-                            ])
-                          ])
+                _c("l-popup", [
+                  _c("div", [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(piece.title) +
+                        "\n                        "
+                    ),
+                    _c("p", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(piece.description) +
+                          "\n                            "
+                      ),
+                      _c("ul", [
+                        _c("li", [
+                          _c("strong", [_vm._v("Address:")]),
+                          _vm._v(" " + _vm._s(piece.address) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("strong", [_vm._v("City: ")]),
+                          _vm._v(" " + _vm._s(piece.city) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("strong", [_vm._v("State:")]),
+                          _vm._v(" " + _vm._s(piece.state) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("strong", [_vm._v("Hours: ")]),
+                          _vm._v(" " + _vm._s(piece.hours) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("strong", [_vm._v("Lat: ")]),
+                          _vm._v(" " + _vm._s(piece.lat))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("strong", [_vm._v("Lng: ")]),
+                          _vm._v(" " + _vm._s(piece.lng) + " ")
                         ])
-                      ],
-                      1
-                    )
-                  : _c(
-                      "l-marker",
-                      { attrs: { "lat-lng": _vm.loc2 } },
-                      [
-                        _c("l-popup", [
-                          _c("div", [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(piece.title) +
-                                "\n                        "
-                            ),
-                            _c("p", [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(piece.description) +
-                                  "\n                            "
-                              ),
-                              _c("ul", [
-                                _c("li", [
-                                  _c("strong", [_vm._v("Address:")]),
-                                  _vm._v(" " + _vm._s(piece.address) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("City: ")]),
-                                  _vm._v(" " + _vm._s(piece.city) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("State:")]),
-                                  _vm._v(" " + _vm._s(piece.state) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("Hours: ")]),
-                                  _vm._v(" " + _vm._s(piece.hours) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("Lat: ")]),
-                                  _vm._v(" " + _vm._s(piece.lat))
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _c("strong", [_vm._v("Lng: ")]),
-                                  _vm._v(" " + _vm._s(piece.lng) + " ")
-                                ])
-                              ])
-                            ])
-                          ])
-                        ])
-                      ],
-                      1
-                    )
+                      ])
+                    ])
+                  ])
+                ])
               ],
               1
             )
