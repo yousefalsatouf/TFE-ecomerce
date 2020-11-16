@@ -14,37 +14,27 @@ class LocationsSeeder extends Seeder
     {
         //
         DB::table('locations')->insert([
-           'name' => 'sportClub - Wallo',
+           'title' => 'sportClub - Wallonie',
+           'description' => 'this is some description about this store',
            'address' => 'rue en bois',
             'city' => 'Liège',
             'state' => 'Liege',
             'hours' => '9:00am - 6:00pm',
-            'lat' => 50.6461,
-            'lng' => 5.5711,
+            'lat' => 50.6448444,
+            'lng' => 5.5804934,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
         DB::table('locations')->insert([
-            'name' => 'sportClub - Bruss',
+            'title' => 'sportClub - Brussels',
+            'description' => 'this is some description about this store',
             'address' => 'rue en bois',
             'city' => 'Brussels',
             'state' => 'Brussels',
             'hours' => '9:00am - 6:00pm',
-            'lat' => 50.845539,
-            'lng' => 4.355710,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
-
-        DB::table('locations')->insert([
-            'name' => 'sportClub - Anvers',
-            'address' => 'rue en bois',
-            'city' => 'Anvers',
-            'state' => 'Anvers',
-            'hours' => '9:00am - 6:00pm',
-            'lat' => 51.220558,
-            'lng' => 4.399310,
+            'lat' => 50.9208375,
+            'lng' => 4.7999096,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
