@@ -53,7 +53,7 @@ class HomeController extends Controller
 
         //dd($top);
 
-        return view('front.shop', compact(['categories','products', 'lastProducts','ads', 'recommends']));
+        return view('front.shop', compact(['categories', 'lastProducts','ads', 'recommends']));
     }
 
     public function product_details(Request $request, $id)

@@ -12768,7 +12768,7 @@ button:hover {
   border-bottom: 1px solid #2BBBAD;
 }
 
-#app .leaflet-shadow-pane {
+#map .leaflet-shadow-pane {
   display: none;
 }
 
