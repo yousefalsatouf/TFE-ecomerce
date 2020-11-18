@@ -1,6 +1,6 @@
 @extends('front.helpers.master')
 @section('content')
-    <section id="map">
+    <section id="app">
         <leaflet-map  :locations="{{$locations}}"/>
         {{--<iframe src="https://www.google.com/maps/d/embed?mid=1cWzykfq-y4XYmcuZz5tXmZc9CFPr5C3R" width="100%" height="480"></iframe>--}}
     </section>

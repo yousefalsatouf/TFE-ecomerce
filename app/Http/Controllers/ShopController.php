@@ -12,11 +12,17 @@ class ShopController extends Controller
 {
     public function index()
     {
-        //
-        $ads = Ads::all();
+        // pagination with api vue js
+            $data = Product::paginate(9);
+            return response()->json($data);
+    }
 
+    public function adds()
+    {
+        $ads = Ads::all();
         return view('front/shop', compact('ads'));
     }
+
     public function advancedSearch(Request $request)
     {
         $category = $request->category;
