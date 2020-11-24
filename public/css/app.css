@@ -11442,46 +11442,46 @@ a.text-dark:focus {
     padding: 1rem;
   }
 
-  #shop .search-input form div {
+  #shop .productsSearch .search-input form div {
     flex-wrap: wrap;
     justify-content: center;
     flex: 1;
   }
 
-  #shop .search-input form div label,
-  #shop .search-input form div input {
+  #shop .productsSearch .search-input form div label,
+  #shop .productsSearch .search-input form div input {
     width: 100%;
   }
 
-  #shop .search-input form div input {
+  #shop .productsSearch .search-input form div input {
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid #2BBBAD;
   }
 
-  #shop .search-input form button {
+  #shop .productsSearch .search-input form button {
     width: 100%;
   }
 
-  #shop .advanced-search {
+  #shop .productsSearch .advanced-search {
     margin: 1rem auto;
   }
 
-  #shop .advanced-search .search .search-specific .search-area form {
+  #shop .productsSearch .advanced-search .search .search-specific .search-area form {
     display: flex;
     flex-wrap: wrap;
   }
 
-  #shop .advanced-search .search .search-specific .search-area form div {
+  #shop .productsSearch .advanced-search .search .search-specific .search-area form div {
     width: 100%;
   }
 
-  #shop .advanced-search .search .search-specific .search-area form div * {
+  #shop .productsSearch .advanced-search .search .search-specific .search-area form div * {
     width: 100%;
   }
 
-  #shop .advanced-search .search .search-specific .search-area form div input,
-  #shop .advanced-search .search .search-specific .search-area form div select {
+  #shop .productsSearch .advanced-search .search .search-specific .search-area form div input,
+  #shop .productsSearch .advanced-search .search .search-specific .search-area form div select {
     border: 0;
     border-bottom: 1px solid #2BBBAD;
   }
@@ -11569,6 +11569,7 @@ a.text-dark:focus {
   #shop .products .container .search-input form div input,
   #shop .products .container .search-input form div select {
     border: 0;
+    width: 100%;
     border-bottom: 1px solid #2BBBAD;
   }
 

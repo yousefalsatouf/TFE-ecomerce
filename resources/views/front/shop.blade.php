@@ -114,14 +114,8 @@
          </div>
         </section>
         @else
-        <section class="productsSearch container" id="app">
-            @include('front/helpers.advancedSearch')
-            <div class="album text-muted products">
-                <div class="container">
-                    @include('front.helpers.searchInput')
-                    <shop url="{{ url('/') }}"/>
-                </div>
-            </div>
+        <section id="app">
+            <shop url="{{ url('/') }}"/>
         </section>
         @endif
     </main>

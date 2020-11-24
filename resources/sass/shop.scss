@@ -18,33 +18,34 @@
                 padding: 1rem;
             }
         }
-
-        .search-input
+        .productsSearch
         {
-            form
+            .search-input
             {
-                div
+                form
                 {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    flex: 1;
-                    label, input
+                    div
+                    {
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        flex: 1;
+                        label, input
+                        {
+                            width: 100%;
+                        }
+                        input
+                        {
+                            background-color: transparent;
+                            border: 0;
+                            border-bottom: 1px solid $green;
+                        }
+                    }
+                    button
                     {
                         width: 100%;
                     }
-                    input
-                    {
-                        background-color: transparent;
-                        border: 0;
-                        border-bottom: 1px solid $green;
-                    }
-                }
-                button
-                {
-                    width: 100%;
                 }
             }
-        }
 
         .advanced-search
         {
@@ -75,6 +76,7 @@
                     }
                 }
             }
+        }
         }
         .products
         {
@@ -192,6 +194,7 @@
                             input, select
                             {
                                 border: 0;
+                                width: 100%;
                                 border-bottom: 1px solid $green;
                             }
                         }
