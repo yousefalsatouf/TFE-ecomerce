@@ -15,21 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    /*public function __construct()
-    {
-        $this->middleware('auth');
-    }*/
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
 
     public function index()
     {
@@ -43,17 +29,13 @@ class HomeController extends Controller
     {
         $lastProducts = Product::all()->take(10);
         $products = Product::paginate(9);
-        $categories = Category::all();
         $ads = Ads::all();
-        //dd($lastProducts);
         $recommends = DB::table('recommends')
             ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
             ->take(5)
             ->get();
 
-        //dd($top);
-
-        return view('front.shop', compact(['categories', 'lastProducts','ads', 'recommends']));
+        return view('front.shop', compact(['lastProducts','ads', 'recommends']));
     }
 
     public function product_details(Request $request, $id)
@@ -187,8 +169,6 @@ class HomeController extends Controller
                 'updated_at' =>date("Y-m-d H:i:s")
             ]);
         }
-
-
 
         return back()->with('msg', 'Review added successfully');
     }

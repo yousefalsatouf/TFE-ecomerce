@@ -13,8 +13,8 @@
                                         <div class="form-group">
                                              <label for="category"><b>Categorie</b><br>
                                                   <select name="category" class="browser-default custom-select" id="category">
-                                                                 <option selected>all</option>
-                                                                 <option value="cat->nam">cat->name</option>
+                                                                 <option value="all" selected>all</option>
+                                                                 <option v-for="cat in catsNames" :key="cat.id" v-bind:value="cat.name">{{cat.name}}</option>
                                                   </select>
                                              </label>
                                         </div>
@@ -45,10 +45,10 @@
           <!--search input should start here-->
                <div class="search-input">
                     <h5>Chercher par Le nom</h5>
-                    <form action='/search' class="form-inline ml-auto" method="post">
-                         <div class="d-flex justify-content-between align-items-center">
+                    <form action='/search'  method="post">
+                         <div class="d-flex justify-content-around align-items-center">
                               <label for="search">
-                                   <input type="text" name="search" class="form-control mr-2" placeholder="Chercher par Le nom">
+                                   <input type="text" name="search" style="width:100%" placeholder="Chercher ">
                               </label>
                               <button type="submit"><i class="fa fa-search"></i></button>
                          </div>
@@ -109,24 +109,33 @@
         data() {
             return {
                 products: {},
+                catsNames: {}
             }
         },
         created() {
             this.getResults();
         },
         methods: {
-             //get products
-            getResults(page) {
+             // axios pagenation
+            async getResults(page) {
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
       
-                axios.get( 'shop/products?page=' + page)
+                try 
+                {
+                     await axios.get( 'shop/products?page=' + page)
                     .then(res => {
-                        const data = res.data
-                         //console.log(data)
-                         this.products = data
+                        const products = res.data.products
+                        const catsNames = res.data.catsNames
+                         //console.log(products)
+                         this.products = products
+                         this.catsNames = catsNames
                     })
+                } catch (e) 
+                {
+                     console.log(e)
+                }
             }
         }
     }

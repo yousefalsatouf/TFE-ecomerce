@@ -11557,23 +11557,18 @@ a.text-dark:focus {
     border-bottom: 1px solid #2BBBAD;
   }
 
-  #shop .products .container .search-input form div {
+  #shop .search-input form div {
     width: 100%;
   }
 
-  #shop .products .container .search-input form div label,
-  #shop .products .container .search-input form div input {
-    width: 100%;
-  }
-
-  #shop .products .container .search-input form div input,
-  #shop .products .container .search-input form div select {
+  #shop .search-input form div input,
+  #shop .search-input form div label {
     border: 0;
-    width: 100%;
+    width: 50%;
     border-bottom: 1px solid #2BBBAD;
   }
 
-  #shop .products .container div .card {
+  #shop div .card {
     width: 30%;
     margin: 1rem auto;
     border: 0;

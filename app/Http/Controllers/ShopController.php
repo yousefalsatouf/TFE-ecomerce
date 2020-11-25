@@ -13,14 +13,13 @@ class ShopController extends Controller
     public function index()
     {
         // pagination with api vue js
-            $data = Product::paginate(9);
-            return response()->json($data);
-    }
+            $products = Product::paginate(6);
+            $catsNames = Category::all();
 
-    public function adds()
-    {
-        $ads = Ads::all();
-        return view('front/shop', compact('ads'));
+            return response()->json([
+                'products' => $products,
+                'catsNames' => $catsNames,
+            ]);
     }
 
     public function advancedSearch(Request $request)
@@ -85,9 +84,7 @@ class ShopController extends Controller
                 $searchProducts = Product::all();
 
         }
-        //print_r($products);
-        // die();
-        //return redirect('shop')->with(['products', 'ads', 'recommends']);
+       
         return view('front/shop', compact('searchProducts', 'ads', 'recommends', 'categories'));
     }
 }

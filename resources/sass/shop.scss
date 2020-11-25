@@ -2,6 +2,7 @@
 {
     #shop
     {
+
         h2
         {
             color: $green;
@@ -176,39 +177,30 @@
                 }
             }
         }
-        .products
+      
+        .search-input
         {
-            .container
+            form
             {
-                .search-input
-                {
-                    form
-                    {
-                        div
-                        {
-                            width: 100%;
-                            label, input
-                            {
-                                width: 100%;
-                            }
-                            input, select
-                            {
-                                border: 0;
-                                width: 100%;
-                                border-bottom: 1px solid $green;
-                            }
-                        }
-                    }
-                }
                 div
                 {
-                    .card
+                    width: 100%;
+                    input, label
                     {
-                        width: 30%;
-                        margin: 1rem auto;
                         border: 0;
+                        width: 50%;
+                        border-bottom: 1px solid $green;
                     }
                 }
+            }
+        }
+        div
+        {
+            .card
+            {
+                width: 30%;
+                margin: 1rem auto;
+                border: 0;
             }
         }
     }
