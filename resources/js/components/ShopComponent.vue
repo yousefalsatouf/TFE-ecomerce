@@ -12,7 +12,7 @@
                                    <form>
                                         <div class="form-group">
                                              <label for="category"><b>Categorie</b><br>
-                                                  <select name="category" class="browser-default custom-select" id="category">
+                                                  <select name="category" @change="changeCat($event)" class="browser-default custom-select" id="category">
                                                                  <option value="all" selected>all</option>
                                                                  <option v-for="cat in catsNames" :key="cat.id" v-bind:value="cat.name">{{cat.name}}</option>
                                                   </select>
@@ -41,24 +41,9 @@
                </div>
           </div>
           <!--search advanced search ends here -->
-          <div class="album text-muted products">
-          <!--search input should start here-->
-               <div class="search-input">
-                    <h5>Chercher par Le nom</h5>
-                    <form action='/search'  method="post">
-                         <div class="d-flex justify-content-around align-items-center">
-                              <label for="search">
-                                   <input type="text" name="search" style="width:100%" placeholder="Chercher ">
-                              </label>
-                              <button type="submit"><i class="fa fa-search"></i></button>
-                         </div>
-                    </form>
-               </div>
-               <br>
-          <!--search input ends here-->
                <div class="container">
                     <div class="row d-flex justify-content-around">
-                         <div v-for="product in products.data" :key="product.id" class="card">
+                         <div v-for="product in products.data?products.data:products" :key="product.id" class="card">
                               <a v-bind:href="url+'/product_details/'+product.id">
                                    <img v-bind:src="url+'/images/'+product.image" class="card-img w-100 h-100" />
                               </a>
@@ -92,10 +77,8 @@
                               </div>
                          </div>
                     </div>
-               <pagination :data="products" @pagination-change-page="getResults"></pagination>
                </div>
            </div>
-     </div>
 </template>
  
 <script>
@@ -116,27 +99,37 @@
             this.getResults();
         },
         methods: {
-             // axios pagenation
+             // axios pagenation and fetching categories
             async getResults(page) {
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
       
-                try 
-                {
-                     await axios.get( 'shop/products?page=' + page)
-                    .then(res => {
-                        const products = res.data.products
-                        const catsNames = res.data.catsNames
-                         //console.log(products)
-                         this.products = products
-                         this.catsNames = catsNames
-                    })
-                } catch (e) 
-                {
-                     console.log(e)
-                }
-            }
+               await axios.get( 'shop/products?page=' + page)
+               .then(res => {
+                    const products = res.data.products
+                    const catsNames = res.data.catsNames
+                    //console.log(products)
+                    this.products = products
+                    this.catsNames = catsNames
+               })
+            },
+            //fetch prouducts on chage categories
+          async changeCat(event)
+          {
+               //console.log(event.target.value)
+               const catValue = event.target.value
+
+               await axios.get('advancedSearch', { params: { value: catValue } })
+               .then(res => {
+                   const data = res.data.products
+
+                   this.products = data
+
+                    console.log(data)
+               })
+
+          }
         }
     }
 </script>

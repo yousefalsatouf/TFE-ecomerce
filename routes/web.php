@@ -44,7 +44,7 @@ Route::post('/addReview', 'HomeController@addReview')->name('addReview');
 
 Route::post('/search', 'HomeController@search');
 Route::get('/shop/products', 'ShopController@index');
-Route::post('/advancedSearch', 'ShopController@advancedSearch');
+Route::get('/advancedSearch', 'ShopController@advancedSearch');
 Route::post('/searchSingleCategory', 'CategoriesController@searchSingleCategory');
 
 
