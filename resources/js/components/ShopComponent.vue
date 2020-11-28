@@ -9,32 +9,32 @@
                               <h5>Chercher Par </h5>
                               <hr>
                               <div class="search-area">
-                                   <form>
-                                        <div class="form-group">
+                                        <form id="resetID">
+                                             <div class="form-group">
                                              <label for="category"><b>Categorie</b><br>
                                                   <select name="category" @change="changeCat($event)" class="browser-default custom-select" id="category">
-                                                                 <option value="all" selected>all</option>
-                                                                 <option v-for="cat in catsNames" :key="cat.id" v-bind:value="cat.name">{{cat.name}}</option>
+                                                       <option value="all" selected>all</option>
+                                                       <option v-for="cat in catsNames" :key="cat.id" v-bind:value="cat.name">{{cat.name}}</option>
                                                   </select>
                                              </label>
                                         </div>
                                         <div class="form-group">
-                                             <label for="maxPrice"><b>Categorie</b>
-                                                  <input type="number" class="form-control" id="greater-than" name="maxPrice" placeholder="Max Price">
+                                             <label for="maxPrice"><b>Prix</b>
+                                                  <input type="number" @change="changePrice($event)"  class="form-control" id="greater-than" name="price" placeholder="Max Price">
                                              </label>
                                         </div>
                                         <div class="form-group">
                                              <label for="max" class="d-flex">
                                                   <b>Promo</b>
-                                                  <input type="checkbox" class="form-control" id="max" name="onSold">
+                                                  <input type="checkbox" @change="checkPromo($event)"  class="form-control" id="max" name="promo">
                                              </label>
                                              <label for="new" class="d-flex">
-                                                  <b>nouvelles</b>
-                                                  <input type="checkbox" class="form-control" id="new" name="newProd">
+                                                  <b>Nouvelles</b>
+                                                  <input type="checkbox" @change="checkNew($event)"  class="form-control" id="new" name="new">
                                              </label>
                                         </div>
-                                        <button type="submit">Submit</button>
                                    </form>
+                                   <button @click="getResults">RSET</button>
                               </div>
                          </div>
                     </div>
@@ -53,14 +53,17 @@
                                         <span v-if="product.new_arrival"><img v-bind:src="url+'/dist/images/shop/new.png'" style="width: 50px"></span>
                                    </div>
                               </div>
-                              <div class="d-flex justify-content-between align-items-center">
-                                   <p class="card-text text-success" v-if="!product.product_price"><strong>FREE</strong></p>
-                                   <p v-if="product.sold_price && (product.sold_price < product.product_price)" style="text-decoration:line-through; color:#333">
-                                        {{product.product_price}} EUR
-                                   </p>
-                                   <p v-else>{{product.product_price}} EUR</p>
-                                   <img v-bind:src="url+'/dist/images/shop/sale.png'" alt="..."  style="width:60px">
-                                   <p>{{product.sold_price}} EUR</p>
+                              <div>
+                                   <strong class="card-text text-success" v-if="product.shopping_cost==0">FREE Delivery</strong>
+                                   <hr>
+                                   <div>
+                                        <p v-if="product.sold_price" class="d-flex justify-content-between">
+                                             <strong  style="text-decoration:line-through;"  class="text-danger">{{product.product_price}} EUR</strong>
+                                             <img v-bind:src="url+'/dist/images/shop/sale.png'" alt="..."  style="width:60px">
+                                             {{product.sold_price}} EUR
+                                        </p>
+                                        <p v-else>{{product.product_price}} EUR</p> 
+                                   </div>
                               </div>
                               <br>
                               <div>
@@ -77,6 +80,7 @@
                               </div>
                          </div>
                     </div>
+                   <pagination :data="products?products:[]" @pagination-change-page="getResults"></pagination>
                </div>
            </div>
 </template>
@@ -101,6 +105,7 @@
         methods: {
              // axios pagenation and fetching categories
             async getResults(page) {
+
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
@@ -113,23 +118,51 @@
                     this.products = products
                     this.catsNames = catsNames
                })
+               document.getElementById('resetID').reset()
             },
-            //fetch prouducts on chage categories
+            //fetch prouducts on chage 
           async changeCat(event)
           {
-               //console.log(event.target.value)
-               const catValue = event.target.value
-
-               await axios.get('advancedSearch', { params: { value: catValue } })
+               const catName = event.target.value
+               console.log(catName)
+               await axios.get('/advancedSearch', { params: {  category: catName }  })
                .then(res => {
                    const data = res.data.products
-
-                   this.products = data
-
                     console.log(data)
+                    this.products = data
                })
-
+          },
+          async changePrice(event)
+          {
+                const price = event.target.value
+                await axios.get('advancedSearch', { params: {   price: price } })
+               .then(res => {
+                   const data = res.data.products
+                   console.log(data)
+                    this.products = data
+               })
+          },
+          async checkPromo(event)
+          {
+               const onSold = event.target.checked
+                await axios.get('advancedSearch', { params: {   onSold: onSold }  })
+               .then(res => {
+                   const data = res.data.products
+                   console.log(data)
+                    this.products = data
+               })
+          },
+          async checkNew(event)
+          {
+               const newProd = event.target.checked
+                await axios.get('advancedSearch', { params: {  new: newProd }  })
+               .then(res => {
+                   const data = res.data.products
+                   console.log(data)
+                    this.products = data
+               })
           }
         }
-    }
+     }
+       
 </script>

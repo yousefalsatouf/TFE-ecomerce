@@ -13,7 +13,7 @@ class ShopController extends Controller
     public function index()
     {
         // pagination with api vue js
-            $products = Product::paginate(6);
+            $products = Product::paginate(9);
             $catsNames = Category::all();
 
             return response()->json([
@@ -24,15 +24,25 @@ class ShopController extends Controller
 
     public function advancedSearch(Request $request)
     {
-        $all = $request->value;
-        $category = $request->value;
-        $maxPrice = $request->price;
+        $all = $request->category;
+        $category = $request->category;
+        $price = $request->price;
         $onSold = $request->onSold;
+        $new = $request->new;
 
-        switch (true)
+        switch (TRUE)
         {
+            case($all == 'all' || $category) && $price && $promo && $new:
+                $products = DB::table('categories')
+                ->leftJoin('products', 'products.category_id', '=', 'categories.id')
+                ->where('categories.name', 'like', '%'.$category.'%')
+                ->Where('product_price', '<=', $price)
+                ->whereNotNull('sold_price')
+                ->whereNotNull('new_arrival')
+                ->get();
+                break;
             case $all == 'all':
-                $products = $products = Product::all();
+                $products = Product::paginate(9);
             break;
             case $category:
                 $products = DB::table('categories')
@@ -40,27 +50,26 @@ class ShopController extends Controller
                     ->where('categories.name', 'like', '%'.$category.'%')
                     ->get();
                 break;
-            case $maxPrice:
+            case $price:
                 $products = DB::table('products')
-                    ->Where('sold_price', '<=', $maxPrice)
-                    ->orWhere('product_price', '<=', $maxPrice)
+                    ->Where('product_price', '<=', $price)
                     ->get();
                 break;
             case $onSold:
                 $products = DB::table('products')
                     ->whereNotNull('sold_price')
                     ->get();
-                //dd($products);
+                break;
+            case $new:
+                $products = DB::table('products')
+                    ->whereNotNull('new_arrival')
+                    ->get();
                 break;
             default:
-                $products = Product::all();
+                $products = Product::paginate(9);
 
         }
-
-        //dd($products);
        
-        return response()->json([
-            'products' => $products
-        ]);
+        return response()->json(['products' => $products ]);
     }
 }

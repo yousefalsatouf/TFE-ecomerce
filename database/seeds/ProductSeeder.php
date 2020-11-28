@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'product_name' => "GOLD STANDARD 100% WHEY PROTEIN",
             'product_code' => 222222222222,
-            'product_price' => 30,
+            'product_price' => 10,
             'image' => 'protein.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'product_name' => "Whey Perfection 2.27kg & Barebells Protein Bars (box)",
             'product_code' => 222224442222,
-            'product_price' => 40,
+            'product_price' => 15,
             'image' => 'protectionsProtein.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -40,7 +40,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'product_name' => "Perfect Protein",
             'product_code' => 222224442222,
-            'product_price' => 40,
+            'product_price' => 20,
             'image' => 'perfectProtein.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -53,12 +53,12 @@ class ProductSeeder extends Seeder
         Product::create([
             'product_name' => "100% Whey",
             'product_code' => 222224442222,
-            'product_price' => 40,
+            'product_price' => 25,
             'image' => '100whey.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'Besoin de protéines de lactosérum polyvalentes que vous pouvez utiliser dans des shakes, des smoothies ou des crêpes ? 100% Whey de Stacker 2 contient 24 g de protéines de lactosérum par portion, pour vous aider à développer et à entretenir votre masse musculaire. Avec son mélange de concentré et d’isolat de protéines de lactosérum, vous pouvez boire 100% Whey après l’entraînement ou à tout moment de la journée. Cette poudre de lactosérum facile à utiliser vous aidera à atteindre vos objectifs de mise en forme ou à obtenir le corps de vos rêves.',
-            'sold_price' => null,
+            'sold_price' => 15,
             'category_id' => 1,
             'new_arrival' => 1
         ]);
@@ -68,7 +68,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'product_name' => "Vitamine D3 - 3 000 UI",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 30,
             'image' => 'vitamine-d3.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -81,7 +81,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Vitamine B12",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 100,
             'image' => 'vitamine-b12.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -93,12 +93,12 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Vitamine E-400 naturelle",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 45,
             'image' => 'vE.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'Des capsules molles avec de la vitamine E 100 % naturelle avec des tocophérols mixtes. Cette version non estérifiée de vitamine E est la moins modifiée et elle est devenue plus populaire que tous les autres formes ces dernières années. La vitamine E-400 naturelle contient 400 UI de D-alpha-tocophérol ainsi que des petites quantités de bêta, gamma et delta-tocophérols.',
-            'sold_price' => 25,
+            'sold_price' => null,
             'category_id' => 2,
             'new_arrival' => 1
         ]);
@@ -106,12 +106,12 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Omega 3-6-9",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 70,
             'image' => 'omega.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'L’Omega 3-6-9 de Now Foods contient de l’oméga 3 & 9 de graines de lin, huile de colza, oméga 6 (GLA) d’onagre et de cassis.',
-            'sold_price' => 25,
+            'sold_price' => 50,
             'category_id' => 2
         ]);
 
@@ -120,7 +120,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Cookies protéinés Smart",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 60,
             'image' => 'cookies.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -133,24 +133,24 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Galettes de Superfood",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 99,
             'image' => 'superfood.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'Intégralement composées de riz brun complet, épeautre, son d’avoine, sarrasin et quinoa, ces galettes possèdent des valeurs nutritionnelles remarquables en plus de leur goût et saveur caractéristiques. Les Galettes de Superfood possèdent 10,1 g de protéines et 6,4 g de fibres pour 100 g en plus d’être faibles en sucres et acides gras saturés. Elles constituent une excellente source de glucides complexes pour un soutien optimal durant la journée.',
-            'sold_price' => 25,
+            'sold_price' => null,
             'category_id' => 3
         ]);
 
         Product::create([
             'product_name' => "Coconut Cookies (sugar free)",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 40,
             'image' => 'p.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'All The Taste Without The Sugar" Tels sont les objectifs de Diablo. Déguster tranquillement la nourriture sans tous ces sucres superflus. Ils l’ont réalisé, les produits ont un goût absolument fantastique, sans ajout de sucres ou même sans aucun sucre ! Tout le monde doit de temps en temps pouvoir se gâter avec une friandise, n’est-ce pas ? Les produits de Diablo ont gardé tout leur goût, sans mauvais sucres ! En bref : appréciez plus souvent sans culpabilité.',
-            'sold_price' => 25,
+            'sold_price' => null,
             'category_id' => 3,
             'new_arrival' => 1
         ]);
@@ -158,12 +158,12 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Smart Crunchy Wafers",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 80,
             'image' => 'smart-wafels.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'Besoin d’un en-cas gourmand, consistant, faible en sucres et riche en protéines et fibres ? Ne cherchez plus, les Smart Crunchy Wafers vous feront craquer ! Des gaufrettes enrobées d’une fine couche de chocolat au lait et constituées d’un concentré de protéines de whey, voilà de quoi satisfaire vos envies gourmandes tout en respectant vos ambitions sportives.',
-            'sold_price' => 25,
+            'sold_price' => null,
             'category_id' => 3
         ]);
 
@@ -172,7 +172,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Boisson Monster Energy Ultra",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 44,
             'image' => 'energyDrink.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -184,12 +184,12 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "BSN BCAA - 200g (40 servings) 2 for 1",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 95,
             'image' => 'bcaa.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' => 'Développée en 2016 par la marque BSN, la gamme DNA est une garantie de qualité, mot d’ordre pour l’entreprise américaine dans le développement de ses produits. BCAA DNA concentre 5 g d’acides aminés à chaîne ramifiée (2:1:1) par dose, éléments très convoités et utilisés dans le monde du fitness et bodybuilding pour leurs nombreux intérêts.',
-            'sold_price' => 25,
+            'sold_price' => 80,
             'category_id' => 4
         ]);
 
@@ -228,14 +228,14 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' =>'Pour s’entraîner, il est essentiel de porter un short qui offre une grande liberté de mouvement. Ce short mi-long est le modèle idéal pour la salle. Doux et confortable, il est très agréable à porter.',
-            'sold_price' => 25,
+            'sold_price' => 40,
             'category_id' => 5
         ]);
 
         Product::create([
             'product_name' => "Homme - Sweat à capuche zippé",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 100,
             'image' => 'C100494_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
@@ -247,24 +247,24 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "T-shirt Small Logo Noir Pour Femme",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 26,
             'image' => 'C100546_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' =>'Vous serez à l’aise et stylée pendant vos entraînements avec ce t-shirt extensible, doté de manches raglan et d’une encolure profonde. Il régule très bien l’humidité et vous garde au frais pendant vos exercices, grâce au coton qui absorbe la transpiration. Astuce : lavez-le sur l’envers pour préserver sa couleur et sa qualité.',
-            'sold_price' => 25,
+            'sold_price' => null,
             'category_id' => 5
         ]);
 
         Product::create([
             'product_name' => "Débardeur dos nageur",
             'product_code' => 222224442222,
-            'product_price' => 50,
+            'product_price' => 55,
             'image' => 'C100547_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' =>'Débardeur dos nageur doté d’une encolure profonde. Ce débardeur dos nageur est confectionné dans un mélange coton/élasthanne, qui associe douceur, confort et extensibilité. Vous disposerez de toute la liberté de mouvement nécessaire aux exercices les plus intensifs. Astuce : lavez-le sur l’envers pour préserver sa couleur et sa qualité.',
-            'sold_price' => 9,
+            'sold_price' => null,
             'category_id' => 5
         ]);
 
@@ -273,12 +273,12 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Super Collagen de NeoCell – 250 comprimés",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 150,
             'image' => 'super-colleganc_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' =>'En vieillissant, le corps produit moins de collagène. Donnez un coup de pouce à votre corps avec Super Collagen de NeoCell !',
-            'sold_price' => 6,
+            'sold_price' => null,
             'category_id' => 6,
             'new_arrival' => 1
         ]);
@@ -298,19 +298,19 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
         Product::create([
             'product_name' => "Déodorant naturel We love - Forever Fresh",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 39,
             'image' => 'C100176_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,
             'product_info' =>'Le déodorant est essentiel pour une sensation de fraîcheur. Naturellement, nous voulons vivre cette expérience tout au long de la journée et c’est encore plus important quand on mène une vie active. Les types de déodorants habituels regorgent de produits chimiques non naturels. Ils sont mauvais pour la peau et peuvent même provoquer des irritations. ',
-            'sold_price' => 5,
+            'sold_price' => 35,
             'category_id' => 6
         ]);
 
         Product::create([
             'product_name' => "Shampoing Perfect Curl d’Andrélon - 300 ml",
             'product_code' => 222224442222,
-            'product_price' => 10,
+            'product_price' => 5,
             'image' => 'C100362_Image_01.jpg',
             'shopping_cost' => 0,
             'stock' => 20,

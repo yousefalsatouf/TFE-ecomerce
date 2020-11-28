@@ -2100,6 +2100,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url'],
@@ -2139,6 +2143,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 3:
+                document.getElementById('resetID').reset();
+
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2146,35 +2153,122 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    //fetch prouducts on chage categories
+    //fetch prouducts on chage 
     changeCat: function changeCat(event) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var catValue;
+        var catName;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                //console.log(event.target.value)
-                catValue = event.target.value;
-                _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('advancedSearch', {
+                catName = event.target.value;
+                console.log(catName);
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/advancedSearch', {
                   params: {
-                    value: catValue
+                    category: catName
                   }
                 }).then(function (res) {
                   var data = res.data.products;
-                  _this2.products = data;
                   console.log(data);
+                  _this2.products = data;
                 });
 
-              case 3:
+              case 4:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
+      }))();
+    },
+    changePrice: function changePrice(event) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var price;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                price = event.target.value;
+                _context3.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('advancedSearch', {
+                  params: {
+                    price: price
+                  }
+                }).then(function (res) {
+                  var data = res.data.products;
+                  console.log(data);
+                  _this3.products = data;
+                });
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    checkPromo: function checkPromo(event) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var onSold;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                onSold = event.target.checked;
+                _context4.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('advancedSearch', {
+                  params: {
+                    onSold: onSold
+                  }
+                }).then(function (res) {
+                  var data = res.data.products;
+                  console.log(data);
+                  _this4.products = data;
+                });
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    checkNew: function checkNew(event) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var newProd;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                newProd = event.target.checked;
+                _context5.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('advancedSearch', {
+                  params: {
+                    "new": newProd
+                  }
+                }).then(function (res) {
+                  var data = res.data.products;
+                  console.log(data);
+                  _this5.products = data;
+                });
+
+              case 3:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
       }))();
     }
   }
@@ -54019,7 +54113,7 @@ var render = function() {
             _c("hr"),
             _vm._v(" "),
             _c("div", { staticClass: "search-area" }, [
-              _c("form", [
+              _c("form", { attrs: { id: "resetID" } }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "category" } }, [
                     _c("b", [_vm._v("Categorie")]),
@@ -54056,170 +54150,190 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "maxPrice" } }, [
+                    _c("b", [_vm._v("Prix")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        id: "greater-than",
+                        name: "price",
+                        placeholder: "Max Price"
+                      },
+                      on: {
+                        change: function($event) {
+                          return _vm.changePrice($event)
+                        }
+                      }
+                    })
+                  ])
+                ]),
                 _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")])
-              ])
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "d-flex", attrs: { for: "max" } },
+                    [
+                      _c("b", [_vm._v("Promo")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "checkbox", id: "max", name: "promo" },
+                        on: {
+                          change: function($event) {
+                            return _vm.checkPromo($event)
+                          }
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "d-flex", attrs: { for: "new" } },
+                    [
+                      _c("b", [_vm._v("Nouvelles")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "checkbox", id: "new", name: "new" },
+                        on: {
+                          change: function($event) {
+                            return _vm.checkNew($event)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.getResults } }, [_vm._v("RSET")])
             ])
           ])
         ])
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "row d-flex justify-content-around" },
-        _vm._l(_vm.products.data ? _vm.products.data : _vm.products, function(
-          product
-        ) {
-          return _c("div", { key: product.id, staticClass: "card" }, [
-            _c(
-              "a",
-              { attrs: { href: _vm.url + "/product_details/" + product.id } },
-              [
-                _c("img", {
-                  staticClass: "card-img w-100 h-100",
-                  attrs: { src: _vm.url + "/images/" + product.image }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "d-flex justify-content-between" }, [
-                _c("h6", { staticClass: "card-text iphone" }, [
-                  _vm._v(_vm._s(product.product_name))
-                ]),
-                _vm._v(" "),
-                product.new_arrival
-                  ? _c("span", [
-                      _c("img", {
-                        staticStyle: { width: "50px" },
-                        attrs: { src: _vm.url + "/dist/images/shop/new.png" }
-                      })
-                    ])
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "d-flex justify-content-between align-items-center"
-              },
-              [
-                !product.product_price
-                  ? _c("p", { staticClass: "card-text text-success" }, [
-                      _c("strong", [_vm._v("FREE")])
+    _c(
+      "div",
+      { staticClass: "container" },
+      [
+        _c(
+          "div",
+          { staticClass: "row d-flex justify-content-around" },
+          _vm._l(_vm.products.data ? _vm.products.data : _vm.products, function(
+            product
+          ) {
+            return _c("div", { key: product.id, staticClass: "card" }, [
+              _c(
+                "a",
+                { attrs: { href: _vm.url + "/product_details/" + product.id } },
+                [
+                  _c("img", {
+                    staticClass: "card-img w-100 h-100",
+                    attrs: { src: _vm.url + "/images/" + product.image }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "d-flex justify-content-between" }, [
+                  _c("h6", { staticClass: "card-text iphone" }, [
+                    _vm._v(_vm._s(product.product_name))
+                  ]),
+                  _vm._v(" "),
+                  product.new_arrival
+                    ? _c("span", [
+                        _c("img", {
+                          staticStyle: { width: "50px" },
+                          attrs: { src: _vm.url + "/dist/images/shop/new.png" }
+                        })
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                product.shopping_cost == 0
+                  ? _c("strong", { staticClass: "card-text text-success" }, [
+                      _vm._v("FREE Delivery")
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                product.sold_price && product.sold_price < product.product_price
-                  ? _c(
-                      "p",
-                      {
-                        staticStyle: {
-                          "text-decoration": "line-through",
-                          color: "#333"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                   " +
-                            _vm._s(product.product_price) +
-                            " EUR\n                              "
-                        )
-                      ]
-                    )
-                  : _c("p", [_vm._v(_vm._s(product.product_price) + " EUR")]),
+                _c("hr"),
                 _vm._v(" "),
-                _c("img", {
-                  staticStyle: { width: "60px" },
-                  attrs: {
-                    src: _vm.url + "/dist/images/shop/sale.png",
-                    alt: "..."
-                  }
-                }),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(product.sold_price) + " EUR")])
-              ]
-            ),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "a",
-                {
-                  staticClass: "text-dark",
-                  attrs: { href: _vm.url + "/product_details/" + product.id }
-                },
-                [_vm._m(2, true)]
-              ),
+                _c("div", [
+                  product.sold_price
+                    ? _c(
+                        "p",
+                        { staticClass: "d-flex justify-content-between" },
+                        [
+                          _c(
+                            "strong",
+                            {
+                              staticClass: "text-danger",
+                              staticStyle: { "text-decoration": "line-through" }
+                            },
+                            [_vm._v(_vm._s(product.product_price) + " EUR")]
+                          ),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticStyle: { width: "60px" },
+                            attrs: {
+                              src: _vm.url + "/dist/images/shop/sale.png",
+                              alt: "..."
+                            }
+                          }),
+                          _vm._v(
+                            "\n                                        " +
+                              _vm._s(product.sold_price) +
+                              " EUR\n                                   "
+                          )
+                        ]
+                      )
+                    : _c("p", [_vm._v(_vm._s(product.product_price) + " EUR")])
+                ])
+              ]),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "text-dark",
-                  attrs: { href: _vm.url + "/cart/addItem/" + product.id }
-                },
-                [_vm._m(3, true)]
-              )
+              _c("br"),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-dark",
+                    attrs: { href: _vm.url + "/product_details/" + product.id }
+                  },
+                  [_vm._m(0, true)]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-dark",
+                    attrs: { href: _vm.url + "/cart/addItem/" + product.id }
+                  },
+                  [_vm._m(1, true)]
+                )
+              ])
             ])
-          ])
-        }),
-        0
-      )
-    ])
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("pagination", {
+          attrs: { data: _vm.products ? _vm.products : [] },
+          on: { "pagination-change-page": _vm.getResults }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "maxPrice" } }, [
-        _c("b", [_vm._v("Categorie")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "number",
-            id: "greater-than",
-            name: "maxPrice",
-            placeholder: "Max Price"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { staticClass: "d-flex", attrs: { for: "max" } }, [
-        _c("b", [_vm._v("Promo")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "checkbox", id: "max", name: "onSold" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "d-flex", attrs: { for: "new" } }, [
-        _c("b", [_vm._v("nouvelles")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "checkbox", id: "new", name: "newProd" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
