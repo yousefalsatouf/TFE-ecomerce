@@ -37,11 +37,11 @@
                             @lang('shop.result')
                         @endif
                     </h3>
-                    <a href="{{url('/shop')}}" class="text-dark">
-                            <button class="float-right">
-                                <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
-                            </button>
-                        </a>
+                    <button class="float-right">
+                        <a href="{{url('/shop')}}" class="text-dark">
+                            <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
+                            </a>
+                    </button>
                     <hr>
                     <br>
                     <div class="row d-flex justify-content-around">
@@ -85,27 +85,27 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                        <button>
+                                    <button>
+                                        <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                                             <strong> <i class="fa fa-eye"></i></strong>
-                                        </button>
-                                    </a>
-                                    <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                        <button class="float-right">
+                                        </a>
+                                    </button>
+                                     <button class="float-right">
+                                        <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
                                             <strong> <i class="fa fa-shopping-cart"></i></strong>
-                                        </button>
-                                    </a>
+                                        </a>
+                                     </button>
                                 </div>
                             </div>
                         </div>
                     @empty
                         <div>
                             <h3 class="text-danger">Ooops!! ...</h3>
-                            <a href="{{url('/shop')}}" class="text-dark">
                                 <button class="float-right">
-                                    <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
+                                    <a href="{{url('/shop')}}" class="text-dark">
+                                        <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
+                                    </a>
                                 </button>
-                            </a>
                         </div>
                 </div>
                 @endforelse
@@ -115,7 +115,7 @@
         </section>
         @else
         <section id="app">
-            <shop url="{{ url('/') }}"></shop>
+            <shop url="{{ url('/') }}" />
         </section>
         @endif
     </main>
