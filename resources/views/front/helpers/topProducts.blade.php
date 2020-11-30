@@ -35,7 +35,7 @@
                                 <p class="card-text text-success"><strong>FREE</strong></p>
                             @elseif(($product->sold_price && ($product->sold_price < $product->product_price)))
                                 <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
-                                <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px" alt="photo">
+                                <img src="{{URL::asset('dist/images/shop/sale.png')}}"  style="width:60px" alt="photo">
                                 <p class="">{{$product->sold_price}} EUR</p>
                             @else
                                 <p class="">{{$product->product_price}} EUR</p>

@@ -1,12 +1,12 @@
 <div class="container toggle-menu">
     <div class="row">
         <div>
-            <div class="accordion" id="accordion">
+            <div class="accordion" >
                 <div class="card">
-                    <button type="button" data-toggle="collapse" data-target="#collapseT" aria-expanded="false" aria-controls="collapseT">
+                    <button type="button" data-toggle="collapse" data-target=".collapseT" aria-expanded="false" aria-controls="collapseT">
                         <i class="fa fa-bars">  Menu</i>
                     </button>
-                    <div id="collapseT" class="collapse" data-parent="#accordion">
+                    <div  class="collapseT collapse" data-parent=".accordion">
                         <div class="card-body">
                             <ul class="navbar-nav">
                                 <li class="nav-item">

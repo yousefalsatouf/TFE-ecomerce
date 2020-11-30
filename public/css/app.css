@@ -10908,44 +10908,44 @@ a.text-dark:focus {
     width: 100vw;
   }
 
-  #header #header-menu {
+  #header .header-menu {
     background-color: black;
     font-family: "Anton", sans-serif;
   }
 
-  #header #header-menu a {
+  #header .header-menu a {
     color: #fff;
   }
 
-  #header #header-menu a:hover {
+  #header .header-menu a:hover {
     color: #2BBBAD;
   }
 
-  #header #header-menu .logo {
+  #header .header-menu .logo {
     display: block;
     width: 100%;
     text-align: center;
     padding: 1rem;
   }
 
-  #header #header-menu .logo h1 {
+  #header .header-menu .logo h1 {
     font-size: 35px;
   }
 
-  #header #header-menu .large-screen {
+  #header .header-menu .large-screen {
     display: none;
   }
 
-  #header #header-menu .toggle-menu {
+  #header .header-menu .toggle-menu {
     margin: 1rem auto;
     text-align: center;
   }
 
-  #header #header-menu .toggle-menu div {
+  #header .header-menu .toggle-menu div {
     width: 100%;
   }
 
-  #header #header-menu .toggle-menu button {
+  #header .header-menu .toggle-menu button {
     background-color: transparent;
     border: 0;
     color: #2BBBAD;
@@ -10954,20 +10954,20 @@ a.text-dark:focus {
     font-size: 20px;
   }
 
-  #header #header-menu .toggle-menu button i {
+  #header .header-menu .toggle-menu button i {
     width: 100%;
     color: #2BBBAD;
   }
 
-  #header #header-menu .toggle-menu div {
+  #header .header-menu .toggle-menu div {
     background-color: #000;
   }
 
-  #header #header-menu .bottom-menu {
+  #header .header-menu .bottom-menu {
     display: none;
   }
 
-  #header #header-menu .changeLang {
+  #header .header-menu .changeLang {
     border: none;
     background-color: transparent;
     border-bottom: 1px solid #2BBBAD;
@@ -10977,19 +10977,19 @@ a.text-dark:focus {
 }
 
 @media screen and (min-width: 768px) {
-  #header #header-menu {
+  #header .header-menu {
     background-color: black;
     font-family: "Anton", sans-serif;
     font-size: 30px;
     display: block;
   }
 
-  #header #header-menu .top-menu {
+  #header .header-menu .top-menu {
     display: flex;
     font-size: 15px;
   }
 
-  #header #header-menu .top-menu .changeLang {
+  #header .header-menu .top-menu .changeLang {
     border: none;
     border-bottom: 1px solid #2BBBAD;
     background-color: transparent;
@@ -10998,58 +10998,58 @@ a.text-dark:focus {
     width: 5rem;
   }
 
-  #header #header-menu .bottom-menu {
+  #header .header-menu .bottom-menu {
     width: 100%;
     text-align: center;
   }
 
-  #header #header-menu .bottom-menu ul {
+  #header .header-menu .bottom-menu ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
 
-  #header #header-menu .toggle-menu {
+  #header .header-menu .toggle-menu {
     display: none;
   }
 
-  #header #header-menu .large-screen {
+  #header .header-menu .large-screen {
     width: 80%;
     display: flex;
     justify-content: flex-end;
   }
 
-  #header #header-menu .large-screen .content ul {
+  #header .header-menu .large-screen .content ul {
     display: flex;
     justify-content: space-around;
   }
 
-  #header #header-menu a {
+  #header .header-menu a {
     color: #fff;
   }
 
-  #header #header-menu a:hover {
+  #header .header-menu a:hover {
     color: #2BBBAD;
   }
 
-  #header #header-menu .logo {
+  #header .header-menu .logo {
     display: block;
     max-width: 25%;
     text-align: center;
     padding: 1rem;
   }
 
-  #header #header-menu .logo h1 {
+  #header .header-menu .logo h1 {
     font-size: 50px;
   }
 
-  #header #header-menu .over {
+  #header .header-menu .over {
     position: absolute;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  #header #header-menu .top-menu .content ul {
+  #header .header-menu .top-menu .content ul {
     display: flex;
   }
 }

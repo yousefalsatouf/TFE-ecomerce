@@ -6,7 +6,7 @@
         {
             width: 100vw;
         }
-        #header-menu
+        .header-menu
         {
             background-color: $main-bg;
             font-family: $font-family-anton;
@@ -80,7 +80,7 @@
 {
     #header
     {
-        #header-menu
+        .header-menu
         {
             background-color: $main-bg;
             font-family: $font-family-anton;
@@ -161,7 +161,7 @@
 {
     #header
     {
-        #header-menu
+        .header-menu
         {
             .top-menu
             {

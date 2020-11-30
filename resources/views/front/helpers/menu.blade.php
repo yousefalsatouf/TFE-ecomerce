@@ -1,4 +1,4 @@
-<nav id="header-menu" class="navbar">
+<nav class="navbar header-menu">
     <div class="top-menu">
         <div class="logo">
             <h1>
@@ -7,7 +7,7 @@
         </div>
         @include('front/helpers/toggleMenu')
         <div class="container large-screen col-md-auto">
-            <div id="navbarCollapse" class="content">
+            <div class="content">
                 <ul class="">
                     @guest
                         <li class="nav-item">
@@ -69,8 +69,8 @@
                             <div class="col-md-4">
                                 <form>
                                     @csrf
-                                    <label for="lang">
-                                        <select class="form-control changeLang" id="lang" data-url="{{route('changeLang')}}">
+                                    <label >
+                                        <select class="form-control changeLang"  data-url="{{route('changeLang')}}">
                                             <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
                                             <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>FR</option>
                                         </select>
