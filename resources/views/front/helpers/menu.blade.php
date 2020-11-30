@@ -5,17 +5,6 @@
                 <a href="{{url('/')}}">SPORTClub</a>
             </h1>
         </div>
-        <div class="search">
-            <form action='{{('/search')}}' class="form-inline ml-auto" method="post">
-                <div class="d-flex justify-content-center align-items-center">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" class="form-control mr-2" placeholder="Recherche">
-                    <label for="search">
-                        <input type="text" name="search" class="form-control mr-2" placeholder="{{ __('header.search') }}">
-                    </label>
-                    <button type="submit" class="head-search"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
-        </div>
         @include('front/helpers/toggleMenu')
         <div class="container large-screen col-md-auto">
             <div id="navbarCollapse" class="content">
