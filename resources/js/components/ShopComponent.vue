@@ -2,6 +2,7 @@
      <div class="productsSearch">
           <!--search advanced search goes here -->
           <div class="advanced-search">
+                <Spinner size="large" line-fg-color="green" v-if="loadingAdvanced"/>
                <br>
                <div class="container">
                     <div class="search">
@@ -35,7 +36,6 @@
                                         </div>
                                    </form>
                                    <button @click="getResults" v-if="!loadingAdvanced">RSET</button>
-                                   <Spinner size="medium" line-fg-color="green" v-if="loadingAdvanced"/>
                               </div>
                          </div>
                     </div>
@@ -50,7 +50,7 @@
                                         <input type="text"  id="search" class="form-control mr-2" ref="searchInput" placeholder="Search by product name, mark ....">
                                    </label>
                                    <button @click.prevent="inputSearchValue" v-if="!loadingInput"><i class="fa fa-search" ></i></button>
-                                   <Spinner size="medium" line-fg-color="red" v-if="loadingInput"/>
+                                   <Spinner size="large" line-fg-color="green" v-if="loadingInput"/>
                               </div>
                          </div>
                          <hr>
@@ -93,7 +93,7 @@
                               </div>
                          </div>
                     </div>
-                    <Spinner size="medium" line-fg-color="red" v-if="loadingPaginate"/>
+                    <Spinner size="large" line-fg-color="green" v-if="loadingPaginate"/>
                      <pagination :data="products?products:[]" @pagination-change-page="getResults"></pagination>
                </div>
            </div>

@@ -54175,20 +54175,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "productsSearch" }, [
-    _c("div", { staticClass: "advanced-search" }, [
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "search" }, [
-          _c("div", { staticClass: "search-specific" }, [
-            _c("h5", [_vm._v("Search By .... ")]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "search-area" },
-              [
+    _c(
+      "div",
+      { staticClass: "advanced-search" },
+      [
+        _vm.loadingAdvanced
+          ? _c("Spinner", {
+              attrs: { size: "large", "line-fg-color": "green" }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "search" }, [
+            _c("div", { staticClass: "search-specific" }, [
+              _c("h5", [_vm._v("Search By .... ")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "search-area" }, [
                 _c("form", { attrs: { id: "resetID" } }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "category" } }, [
@@ -54290,20 +54296,14 @@ var render = function() {
                   ? _c("button", { on: { click: _vm.getResults } }, [
                       _vm._v("RSET")
                     ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loadingAdvanced
-                  ? _c("Spinner", {
-                      attrs: { size: "medium", "line-fg-color": "green" }
-                    })
                   : _vm._e()
-              ],
-              1
-            )
+              ])
+            ])
           ])
         ])
-      ])
-    ]),
+      ],
+      1
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -54345,7 +54345,7 @@ var render = function() {
               _vm._v(" "),
               _vm.loadingInput
                 ? _c("Spinner", {
-                    attrs: { size: "medium", "line-fg-color": "red" }
+                    attrs: { size: "large", "line-fg-color": "green" }
                   })
                 : _vm._e()
             ],
@@ -54459,7 +54459,9 @@ var render = function() {
         ),
         _vm._v(" "),
         _vm.loadingPaginate
-          ? _c("Spinner", { attrs: { size: "medium", "line-fg-color": "red" } })
+          ? _c("Spinner", {
+              attrs: { size: "large", "line-fg-color": "green" }
+            })
           : _vm._e(),
         _vm._v(" "),
         _c("pagination", {
