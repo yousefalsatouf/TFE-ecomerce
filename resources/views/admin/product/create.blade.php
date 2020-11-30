@@ -9,7 +9,7 @@
                 <div class="col-lg-8">
                     <div>
                         <button class="float-right">
-                            <a class="link" href="{{url('/admin/products')}}"><b><i class="fa fa-backward"></i> @lang('admin.products.manage')</b></a>
+                            <a class="link" href="{{url('/admin/products')}}"><strong><i class="fa fa-backward"></i> @lang('admin.products.manage')</strong></a>
                         </button>
                     </div>
                     <h2>@lang('admin.products.addNew')</h2>

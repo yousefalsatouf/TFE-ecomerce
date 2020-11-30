@@ -5,9 +5,9 @@
             <div class="container">
                 <div class="quick-checkout">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><b>@lang('cart.shopperInfo')<i class="fa fa-angle-double-right"></i></b></li>
-                        <li class="nav-item text-white"><b>@lang('cart.payment'): Paypal<i class="fa fa-angle-double-right"></i></b></li>
-                        <li class="nav-item text-white"><b>@lang('cart.finish')</b></li>
+                        <li class="nav-item"><strong>@lang('cart.shopperInfo')<i class="fa fa-angle-double-right"></i></strong></li>
+                        <li class="nav-item text-white"><strong>@lang('cart.payment'): Paypal<i class="fa fa-angle-double-right"></i></strong></li>
+                        <li class="nav-item text-white"><strong>@lang('cart.finish')</strong></li>
                     </ul>
                     <hr>
                 </div>
@@ -77,12 +77,12 @@
                                             <div>
                                                 <a href="{{url('/shop')}}" class="text-dark">
                                                     <button>
-                                                        <b><i class="fa fa-backward"></i> @lang('cart.addMore')</b>
+                                                        <strong><i class="fa fa-backward"></i> @lang('cart.addMore')</strong>
                                                     </button>
                                                 </a>
                                                 <a href="{{url('/checkout')}}" class="text-dark">
                                                     <button class="float-right" type="submit">
-                                                        <b>@lang('cart.next') <i class="fa fa-eye"></i></b>
+                                                        <strong>@lang('cart.next') <i class="fa fa-eye"></i></strong>
                                                     </button>
                                                 </a>
                                             </div>
@@ -151,12 +151,12 @@
                                         <div>
                                             <a href="{{url('/shop')}}" class="text-dark">
                                                 <button>
-                                                    <b><i class="fa fa-backward"></i> @lang('cart.addMore')</b>
+                                                    <strong><i class="fa fa-backward"></i> @lang('cart.addMore')</strong>
                                                 </button>
                                             </a>
                                             <a href="{{url('/checkout')}}" class="text-dark">
                                                 <button class="float-right" type="submit">
-                                                    <b>@lang('cart.next') <i class="fa fa-eye"></i></b>
+                                                    <strong>@lang('cart.next') <i class="fa fa-eye"></i></strong>
                                                 </button>
                                             </a>
                                         </div>

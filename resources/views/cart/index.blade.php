@@ -81,10 +81,10 @@
                                                </div>
                                            </td>
                                            <td class="cart_price">
-                                               <p><b>{{$cartItem->price}}</b> EUR</p>
+                                               <p><strong>{{$cartItem->price}}</strong> EUR</p>
                                            </td>
                                            <td class="cart_total">
-                                               <p class="cart_total_price"><b>{{$cartItem->subtotal}}</b> EUR</p>
+                                               <p class="cart_total_price"><strong>{{$cartItem->subtotal}}</strong> EUR</p>
                                            </td>
                                            <td class="d-flex justify-content-between">
                                                <button type="submit">
@@ -148,12 +148,12 @@
                                <div>
                                    <a href="{{url('/shop')}}" class="text-dark">
                                        <button>
-                                           <b><i class="fa fa-backward"></i>@lang('cart.addMore')</b>
+                                           <strong><i class="fa fa-backward"></i>@lang('cart.addMore')</strong>
                                        </button>
                                    </a>
                                    <a href="{{url('/checkoutaddress')}}" class="text-dark">
                                        <button class="float-right">
-                                           <b>@lang('cart.next') <i class="fa fa-eye"></i></b>
+                                           <strong>@lang('cart.next') <i class="fa fa-eye"></i></strong>
                                        </button>
                                    </a>
                                </div>

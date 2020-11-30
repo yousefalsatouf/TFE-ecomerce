@@ -26,7 +26,7 @@
                                 @for($i=1;$i<=$rated;$i++)
                                     <i class="fa fa-star"></i>
                                 @endfor
-                                <b>({{$rated}}/5)</b>
+                                <strong>({{$rated}}/5)</strong>
                             @endif
                         </div>
                         <hr>

@@ -13,7 +13,7 @@
                         <p>{{$category->description}}</p>
                     </div>
                     <a href="{{url('/category/list/'.$category->id)}}" class="text-dark link">
-                            <b>{{__('home.discover')}} {{$category->name}}</b>
+                            <strong>{{__('home.discover')}} {{$category->name}}</strong>
                     </a>
                 </div>
             @endforeach

@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-around">
                     <h2>@lang('admin.products.list')</h2>
                     <button class="float-right">
-                        <a class="nav-link text-dark" href="{{route('products.create')}}"><b><i class="fa fa-plus-circle"></i> @lang('admin.products.addNew')</b></a>
+                        <a class="nav-link text-dark" href="{{route('products.create')}}"><strong><i class="fa fa-plus-circle"></i> @lang('admin.products.addNew')</strong></a>
                     </button>
                 </div>
                 @if(session('msg'))

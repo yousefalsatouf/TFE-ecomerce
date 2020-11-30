@@ -35,7 +35,7 @@
                                                            <img src="{{url('images',$product->image)}}" class="w-100" alt="photo" />
                                                        </a>
                                                        <h5>{{ $product->product_name }}</h5>
-                                                       <p><b>{{ $product->product_price }} EUR</b></p>
+                                                       <p><strong>{{ $product->product_price }} EUR</strong></p>
                                                        <div class="control d-flex justify-content-between">
                                                            <a href="{{url('/cart/addItem'). '/' .$product->id}}" class="link">
                                                                <i class="fa fa-shopping-cart"></i> @lang('cart.pass')

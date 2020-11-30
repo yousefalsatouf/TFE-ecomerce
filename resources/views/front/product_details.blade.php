@@ -62,7 +62,7 @@
                                                 @for($i=1;$i<=$rated;$i++)
                                                     <i class="fa fa-star"></i>
                                                 @endfor
-                                                <b>({{$rated}}/5)</b>
+                                                <strong>({{$rated}}/5)</strong>
                                             @endif
                                         </div>
                                         <hr>
@@ -96,12 +96,12 @@
                                         <div class="controls">
                                             <a href="{{url('/shop')}}" class="text-dark">
                                                 <button>
-                                                    <b><i class="fa fa-backward"></i> @lang('commun.back')</b>
+                                                    <strong><i class="fa fa-backward"></i> @lang('commun.back')</strong>
                                                 </button>
                                             </a>
                                             <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
                                                 <button class="float-right">
-                                                    <b>@lang('commun.addToCart')<i class="fa fa-shopping-cart"></i></b>
+                                                    <strong>@lang('commun.addToCart')<i class="fa fa-shopping-cart"></i></strong>
                                                 </button>
                                             </a>
                                         </div>

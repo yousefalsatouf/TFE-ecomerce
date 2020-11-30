@@ -28,7 +28,7 @@
                             <a href="{{url('/category/list/'.$categoryName)}}" class="text-dark">
                                 <button>
                                     <i class="fa fa-backward"></i>
-                                    <b>@lang('commun.justBack')</b>
+                                    <strong>@lang('commun.justBack')</strong>
                                 </button>
                             </a>
                         </div>
@@ -57,7 +57,7 @@
                                             @for($i=1;$i<=$rated;$i++)
                                                 <i class="fa fa-star"></i>
                                             @endfor
-                                            <b>({{$rated}}/5)</b>
+                                            <strong>({{$rated}}/5)</strong>
                                         @endif
                                     </div>
                                     @if(($product->sold_price && ($product->sold_price < $product->product_price)))
@@ -71,12 +71,12 @@
                                     @endif
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                                         <button >
-                                            <b><i class="fa fa-eye"></i></b>
+                                            <strong><i class="fa fa-eye"></i></strong>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
                                         <button class=" float-right">
-                                            <b><i class="fa fa-shopping-cart"></i></b>
+                                            <strong><i class="fa fa-shopping-cart"></i></strong>
                                         </button>
                                     </a>
                                 </div>

@@ -87,7 +87,7 @@
                                         @for($i=1;$i<=$one->rating;$i++)
                                             <i class="fa fa-star"></i>
                                         @endfor
-                                        <b>({{$one->rating}}/5)</b>
+                                        <strong>({{$one->rating}}/5)</strong>
                                     @endif
                                 </small>
                             </div>

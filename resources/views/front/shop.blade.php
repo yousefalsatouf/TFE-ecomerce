@@ -1,6 +1,6 @@
 @extends('front.helpers.master')
 @section('content')
-    <main role="main" id="shop">
+    <main  id="shop">
         <section class="shop-bg">
             <div class="bg-ad">
                 <img src="{{URL::asset('dist/images/home/gymGirl.jpg')}}" class="bg" alt="First slide">
@@ -39,7 +39,7 @@
                     </h3>
                     <a href="{{url('/shop')}}" class="text-dark">
                             <button class="float-right">
-                                <b><i class="fa fa-toggle-left"></i> Back to Shop</b>
+                                <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
                             </button>
                         </a>
                     <hr>
@@ -68,7 +68,7 @@
                                         @for($i=0;$i<$rated;$i++)
                                             <i class="fa fa-star"></i>
                                         @endfor
-                                        <b>({{$rated}}/5)</b>
+                                        <strong>({{$rated}}/5)</strong>
                                     @endif
                                 </div>
                                 <hr>
@@ -87,12 +87,12 @@
                                 <div>
                                     <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
                                         <button>
-                                            <b> <i class="fa fa-eye"></i></b>
+                                            <strong> <i class="fa fa-eye"></i></strong>
                                         </button>
                                     </a>
                                     <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
                                         <button class="float-right">
-                                            <b> <i class="fa fa-shopping-cart"></i></b>
+                                            <strong> <i class="fa fa-shopping-cart"></i></strong>
                                         </button>
                                     </a>
                                 </div>
@@ -103,7 +103,7 @@
                             <h3 class="text-danger">Ooops!! ...</h3>
                             <a href="{{url('/shop')}}" class="text-dark">
                                 <button class="float-right">
-                                    <b><i class="fa fa-toggle-left"></i> Back to Shop</b>
+                                    <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
                                 </button>
                             </a>
                         </div>
@@ -115,7 +115,7 @@
         </section>
         @else
         <section id="app">
-            <shop url="{{ url('/') }}"/>
+            <shop url="{{ url('/') }}"></shop>
         </section>
         @endif
     </main>

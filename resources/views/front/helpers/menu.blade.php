@@ -32,9 +32,9 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right over" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-success" href="{{ url('/cart')}}">
-                                <b>
+                                <strong>
                                     <i class="fa fa-shopping-cart"></i> {{Cart::count()}} {{ __('header.item') }}(s)
-                                </b>
+                                </strong>
                             </a>
                             <hr>
                             <a class="dropdown-item text-dark" href="{{ url('/orders') }}">{{ __('header.orders') }}</a>

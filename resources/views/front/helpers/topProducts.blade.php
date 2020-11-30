@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h3 class="card-text iphone">{{$product->product_name}}</h3>
-                            @if($product->new_arrival)<img src="{{asset('dist/images/shop/new.png')}}" style="width: 50px" alt="photo">@endif
+                            @if($product->new_arrival)<img src="{{asset('dist/images/shop/new.png')}}" alt="photo" style="width: 50px">@endif
                         </div>
                         <div class="general-rated text-success">
                             @php
@@ -26,7 +26,7 @@
                                 @for($i=0;$i<$rated;$i++)
                                     <i class="fa fa-star"></i>
                                 @endfor
-                                <b>({{$rated}}/5)</b>
+                                <strong>({{$rated}}/5)</strong>
                             @endif
                         </div>
                         <hr>
@@ -35,17 +35,21 @@
                                 <p class="card-text text-success"><strong>FREE</strong></p>
                             @elseif(($product->sold_price && ($product->sold_price < $product->product_price)))
                                 <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
-                                <img src="{{URL::asset('dist/images/shop/sale.png')}}"  style="width:60px" alt="photo">
+                                <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="photo"  style="width:60px">
                                 <p class="">{{$product->sold_price}} EUR</p>
                             @else
                                 <p class="">{{$product->product_price}} EUR</p>
                             @endif
                         </div>
-                        <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark link">
-                            <b> <i class="fa fa-eye"></i></b>
+                        <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
+                            <button>
+                                <strong> <i class="fa fa-eye"></i></strong>
+                            </button>
                         </a>
-                        <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark link float-right">
-                                <b> <i class="fa fa-shopping-cart"></i></b>
+                        <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
+                            <button class="float-right">
+                                <strong> <i class="fa fa-shopping-cart"></i></strong>
+                            </button>
                         </a>
                     </div>
                 </div>

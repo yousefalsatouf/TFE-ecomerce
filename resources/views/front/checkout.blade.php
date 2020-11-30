@@ -25,9 +25,9 @@
             <div class="container">
                 <div class="quick-checkout">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="{{url('/checkoutaddress')}}" class="text-white"><b>@lang('cart.shopperInfo')<i class="fa fa-angle-double-right"></i></b></a></li>
-                        <li class="nav-item"><b>@lang('cart.payment'): Paypal<i class="fa fa-angle-double-right"></i></b></li>
-                        <li class="nav-item text-white"><b>@lang('cart.pay')</b></li>
+                        <li class="nav-item"><a href="{{url('/checkoutaddress')}}" class="text-white"><strong>@lang('cart.shopperInfo')<i class="fa fa-angle-double-right"></i></strong></a></li>
+                        <li class="nav-item"><strong>@lang('cart.payment'): Paypal<i class="fa fa-angle-double-right"></i></strong></li>
+                        <li class="nav-item text-white"><strong>@lang('cart.pay')</strong></li>
                     </ul>
                     <hr>
                 </div>
@@ -79,12 +79,12 @@
                         <div>
                             <a href="{{url('/checkoutaddress')}}" class="text-dark">
                                 <button>
-                                    <b>@lang('cart.shopperInfo') <i class="fa fa-eye"></i></b>
+                                    <strong>@lang('cart.shopperInfo') <i class="fa fa-eye"></i></strong>
                                 </button>
                             </a>
                             <a href="{{url('/shop')}}" class="text-dark">
                                 <button class="float-right">
-                                    <b><i class="fa fa-backward"></i> @lang('cart.addMore')</b>
+                                    <strong><i class="fa fa-backward"></i> @lang('cart.addMore')</strong>
                                 </button>
                             </a>
                         </div>

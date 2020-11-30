@@ -1,7 +1,7 @@
 @extends('front.helpers.master')
 @section('content')
     <section id="app">
-        <leaflet-map  :locations="{{$locations}}"/>
+        <leaflet-map  :locations="{{$locations}}"></leaflet-map>
         {{--<iframe src="https://www.google.com/maps/d/embed?mid=1cWzykfq-y4XYmcuZz5tXmZc9CFPr5C3R" width="100%" height="480"></iframe>--}}
     </section>
     <section id="contact">
@@ -9,13 +9,13 @@
             <div class="quick-access">
                 <ul>
                     <li><a href="{{url('/')}}"><i class="fa fa-home"> </i>@lang('productDetail.homeMenu') <i class="fa fa-caret-right"></i></a></li>
-                    <li><b><i class="fa fa-mobile-phone"> </i> Contact</b></li>
+                    <li><strong><i class="fa fa-mobile-phone"> </i> Contact</strong></li>
                 </ul>
             </div>
             <hr>
             <div class="address-phone">
                 <div class="address">
-                    <b>Address:</b>
+                    <strong>Address:</strong>
                     <p>
                         SportClub Sportsnutrition B.V.
                         Mars 10 8448 CP Heerenveen (Pays-Bas)
@@ -25,11 +25,11 @@
                     </p>
                 </div>
                 <div class="phone">
-                    <b>@lang('contact.phoneEmail')</b>
+                    <strong>@lang('contact.phoneEmail')</strong>
                     <br>
-                    <b>@lang('contact.phone'): </b> 032 932 606
+                    <strong>@lang('contact.phone'): </strong> 032 932 606
                     <br>
-                    <b>@lang('contact.email'): </b> <a href="mailto:yousef.alsatouf94@gmail.com">contact@sportClub.be</a>
+                    <strong>@lang('contact.email'): </strong> <a href="mailto:yousef.alsatouf94@gmail.com">contact@sportClub.be</a>
                 </div>
             </div>
             <br>
