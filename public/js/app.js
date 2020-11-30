@@ -54286,13 +54286,13 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                !_vm.loadingPaginate
+                !_vm.loadingAdvanced
                   ? _c("button", { on: { click: _vm.getResults } }, [
                       _vm._v("RSET")
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.loadingPaginate
+                _vm.loadingAdvanced
                   ? _c("Spinner", {
                       attrs: { size: "medium", "line-fg-color": "green" }
                     })
@@ -54343,7 +54343,7 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _vm.loadingPaginate
+              _vm.loadingInput
                 ? _c("Spinner", {
                     attrs: { size: "medium", "line-fg-color": "red" }
                   })

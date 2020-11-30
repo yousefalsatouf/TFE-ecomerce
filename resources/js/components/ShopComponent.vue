@@ -34,8 +34,8 @@
                                              </label>
                                         </div>
                                    </form>
-                                   <button @click="getResults" v-if="!loadingPaginate">RSET</button>
-                                   <Spinner size="medium" line-fg-color="green" v-if="loadingPaginate"/>
+                                   <button @click="getResults" v-if="!loadingAdvanced">RSET</button>
+                                   <Spinner size="medium" line-fg-color="green" v-if="loadingAdvanced"/>
                               </div>
                          </div>
                     </div>
@@ -50,7 +50,7 @@
                                         <input type="text"  id="search" class="form-control mr-2" ref="searchInput" placeholder="Search by product name, mark ....">
                                    </label>
                                    <button @click.prevent="inputSearchValue" v-if="!loadingInput"><i class="fa fa-search" ></i></button>
-                                   <Spinner size="medium" line-fg-color="red" v-if="loadingPaginate"/>
+                                   <Spinner size="medium" line-fg-color="red" v-if="loadingInput"/>
                               </div>
                          </div>
                          <hr>
