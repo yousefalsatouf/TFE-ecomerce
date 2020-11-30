@@ -41,16 +41,14 @@
                                 <p class="">{{$product->product_price}} EUR</p>
                             @endif
                         </div>
-                        <button>
-                            <a href="{{url('/product_details').'/'.$product->id}}" class="text-dark">
-                                <strong> <i class="fa fa-eye"></i></strong>
-                            </a>
-                        </button>
-                        <button class="float-right">
-                            <a href="{{url('/cart/addItem').'/'.$product->id}}" class="text-dark">
-                                 <strong> <i class="fa fa-shopping-cart"></i></strong>
-                            </a>
-                        </button>
+                       <div class="d-flex justify-content-between">
+                                <a href="{{url('/product_details').'/'.$product->id}}" class=" link">
+                                    <strong> <i class="fa fa-eye"></i></strong>
+                                </a>
+                                <a href="{{url('/cart/addItem').'/'.$product->id}}" class=" link">
+                                    <strong> <i class="fa fa-shopping-cart"></i></strong>
+                                </a>
+                       </div>
                     </div>
                 </div>
             @endforeach
