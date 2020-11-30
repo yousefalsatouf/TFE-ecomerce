@@ -3,7 +3,7 @@
         <div>
             <div class="accordion" >
                 <div class="card">
-                    <button type="button" data-toggle="collapse" data-target=".collapseT" aria-expanded="false" aria-controls="collapseT">
+                    <button type="button" data-toggle="collapse" data-target=".collapseT" aria-controls="collapseT">
                         <i class="fa fa-bars">  Menu</i>
                     </button>
                     <div  class="collapseT collapse" data-parent=".accordion">
