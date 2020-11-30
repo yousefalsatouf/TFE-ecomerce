@@ -11105,22 +11105,22 @@ a.text-dark:focus {
   margin: 1rem auto;
 }
 
-#footer .bottom #header-menu .bottom-menu ul {
+#footer .bottom .header-menu .bottom-menu ul {
   display: flex;
 }
 
-#footer .bottom #header-menu .logo,
-#footer .bottom #header-menu .search,
-#footer .bottom #header-menu .user,
-#footer .bottom #header-menu .cart {
+#footer .bottom .header-menu .logo,
+#footer .bottom .header-menu .search,
+#footer .bottom .header-menu .user,
+#footer .bottom .header-menu .cart {
   display: none;
 }
 
-#footer .bottom #header-menu a {
+#footer .bottom .header-menu a {
   color: #fff;
 }
 
-#footer .bottom #header-menu a:hover {
+#footer .bottom .header-menu a:hover {
   color: #2BBBAD;
 }
 

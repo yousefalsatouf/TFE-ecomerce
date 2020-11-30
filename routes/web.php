@@ -28,7 +28,7 @@ Route::get('/contact', 'ContactController@contact');
 Route::post('/submitForm', 'ContactController@submitForm');
 Route::get('/product_details/{id}', 'HomeController@product_details');
 
-Route::get('/category/list/{name}', 'CategoriesController@list');
+Route::get('/category/list/{id}', 'CategoriesController@list');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/cart', 'CartController@index');

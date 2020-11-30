@@ -136,11 +136,11 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function list($name)
+    public function list($id)
     {
         //echo $name;
-        $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->where('name', '=', $name)->get();
-        $category = DB::table('categories')->where('name', '=', $name)->get();
+        $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->where('category_id', '=', $id)->get();
+        $category = DB::table('categories')->where('id', '=', $id)->get();
         //dd($products);
 
         return view('front.categories', compact(['products', 'category']));
