@@ -23,7 +23,7 @@
                                             @foreach($images as $image)
                                                 @php($count++)
                                                 <div class="carousel-item {{$count == 1?"active": ""}}">
-                                                    <img src="{{url('images', $image->gallery)}}" class="card-img h-50">
+                                                    <img src="{{url('images', $image->gallery)}}" class="card-img h-50" alt="photo">
                                                 </div>
                                             @endforeach
                                         </div>
@@ -55,7 +55,7 @@
                                     <div class="product-title">
                                         <div class="d-flex justify-content-between">
                                             <h2>{{ucwords($product->product_name)}}</h2>
-                                            @if($product->new_arrival)<img src="{{URL::asset('dist/images/shop/new.png')}}" alt="..."  style="width:60px">@endif
+                                            @if($product->new_arrival)<img src="{{URL::asset('dist/images/shop/new.png')}}" alt="photo"  style="width:60px">@endif
                                         </div>
                                         <div class="general-rated">
                                             @if($rated)
@@ -77,7 +77,7 @@
                                                     <p class="card-text text-success"><strong>@lang('commun.free')</strong></p>
                                                 @elseif(($product->sold_price))
                                                     <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
-                                                    <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
+                                                    <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="photo"  style="width:60px">
                                                     <p class="">{{$product->sold_price}} EUR</p>
                                                 @else
                                                     <p class="">{{$product->product_price}} EUR</p>

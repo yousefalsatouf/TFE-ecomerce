@@ -122,7 +122,7 @@
                                 <div class="galleries d-flex justify-content-around">
                                     @foreach($galleries as $image)
                                         <div style="width: 50px;">
-                                            <img class="card-img-top img-fluid w-100" src="{{url('images',$image->gallery)}}" style="width:200px" alt="">
+                                            <img class="card-img-top img-fluid w-100" src="{{url('images',$image->gallery)}}" style="width:200px" alt="photo">
                                         </div>
                                     @endforeach
                                 </div>

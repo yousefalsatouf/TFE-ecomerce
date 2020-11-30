@@ -1,12 +1,12 @@
 <div class="container toggle-menu">
     <div class="row">
         <div>
-            <div class="accordion" id="accordionExample">
+            <div class="accordion" id="accordion">
                 <div class="card">
-                    <button type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button type="button" data-toggle="collapse" data-target="#collapseT" aria-expanded="false" aria-controls="collapseT">
                         <i class="fa fa-bars">  Menu</i>
                     </button>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div id="collapseT" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -83,8 +83,8 @@
                 <li>
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="lang">
-                                <select class="form-control changeLang" id="lang">
+                            <label>
+                                <select class="form-control changeLang lang">
                                     <option disabled>Lang</option>
                                     <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
                                     <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>FR</option>

@@ -61,12 +61,12 @@
                         @forelse($products as $product)
                             <div class="card">
                                 <a href="{{url('/product_details')}}/{{$product->id}}">
-                                    <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100">
+                                    <img src="{{url('images',$product->image)}}" class="card-img w-100 h-100" alt="photo">
                                 </a>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h5 class="card-text iphone">{{$product->product_name}}</h5>
-                                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px">@endif
+                                        @if($product->new_arrival)<img src="{{asset('dist/images/home/new.png')}}" style="width: 50px" alt="photo">@endif
                                     </div>
                                     <div class="general-rated text-success">
                                         @php
@@ -88,7 +88,7 @@
                                         <p class="card-text text-success"><strong>FREE</strong></p>
                                     @elseif(($product->sold_price && ($product->sold_price < $product->product_price)))
                                         <p class="" style="text-decoration:line-through; color:#333">{{$product->product_price}} EUR</p>
-                                        <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="..."  style="width:60px">
+                                        <img src="{{URL::asset('dist/images/shop/sale.png')}}" alt="photo"  style="width:60px">
                                         <p class="">{{$product->sold_price}} EUR</p>
                                     @else
                                         <p class="">{{$product->product_price}} EUR</p>

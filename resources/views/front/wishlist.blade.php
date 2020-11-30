@@ -32,7 +32,7 @@
                                                <div class="text-center">
                                                    <div class="text-center">
                                                        <a href="{{url('/product_details/'.$product->id)}}">
-                                                           <img src="{{url('images',$product->image)}}" class="w-100" alt="" />
+                                                           <img src="{{url('images',$product->image)}}" class="w-100" alt="photo" />
                                                        </a>
                                                        <h5>{{ $product->product_name }}</h5>
                                                        <p><b>{{ $product->product_price }} EUR</b></p>

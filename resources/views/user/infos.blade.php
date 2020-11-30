@@ -27,7 +27,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="image" class="form-label font-weight-bolder">
                                         @if(isset($user->image))
-                                            <img class="card-img-top img-fluid" src="{{url('images',$user->image)}}" style="width:200px" alt="">
+                                            <img class="card-img-top img-fluid" src="{{url('images',$user->image)}}" style="width:200px" alt="photo">
                                         @else
                                             <i class="fa fa-user" style="font-size: 18px"></i>
                                         @endif

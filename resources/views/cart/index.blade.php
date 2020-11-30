@@ -12,7 +12,7 @@
                        </ol>
                    </div>
                    <div align="center">
-                       <img src="{{asset('dist/img/empty-cart.png')}}"/>
+                       <img src="{{asset('dist/img/empty-cart.png')}}" alt="photo"/>
                    </div>
                    <a href="{{url('/shop')}}" class="link"><i class="fa fa-backward"></i>@lang('commun.back')</a>
                </div>
@@ -60,7 +60,7 @@
                                    <tbody>
                                        <tr>
                                            <td class="cart_product w-25 h-25">
-                                               <p class="w-50 h-50"><img src="{{url('images',$cartItem->options->img)}}" class="card-img-top w-100" ></p>
+                                               <p class="w-50 h-50"><img src="{{url('images',$cartItem->options->img)}}" alt="photo" class="card-img-top w-100" ></p>
                                            </td>
                                            <td class="cart_title">
                                                <h5>{{$cartItem->id}}</h5>

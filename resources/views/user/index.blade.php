@@ -22,7 +22,7 @@
                             <div class="card-header m-auto">
                                 @if(isset($info->image))
                                     <div class="w-25">
-                                        <img class="card-img-top img-fluid w-100" src="{{url('images',$info->image)}}" alt="">
+                                        <img class="card-img-top img-fluid w-100" src="{{url('images',$info->image)}}" alt="photo">
                                     </div>
                                 @else
                                     <div class="w-25">

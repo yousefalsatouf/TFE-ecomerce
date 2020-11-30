@@ -28,7 +28,7 @@
                         @foreach($orders as $order)
                             <tr>
                                 <td>{{$order->created_at}}</td>
-                                <td><img src="{{url('images', $order->image)}}" alt=""></td>
+                                <td><img src="{{url('images', $order->image)}}" alt="photo"></td>
                                 <td>{{ucwords($order->product_name)}}</td>
                                 <td>{{$order->product_code}}</td>
                                 <td>{{$order->total}}</td>
