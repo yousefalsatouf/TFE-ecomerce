@@ -40,7 +40,7 @@
                     <button class="float-right">
                         <a href="{{url('/shop')}}" class="text-dark">
                             <strong><i class="fa fa-toggle-left"></i> Back to Shop</strong>
-                            </a>
+                        </a>
                     </button>
                     <hr>
                     <br>
