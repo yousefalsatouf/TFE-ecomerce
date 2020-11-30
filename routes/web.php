@@ -42,11 +42,9 @@ Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 
 Route::post('/addReview', 'HomeController@addReview')->name('addReview');
 
-Route::post('/search', 'HomeController@search');
 Route::get('/shop/products', 'ShopController@index');
+Route::get('/search', 'ShopController@search');
 Route::get('/advancedSearch', 'ShopController@advancedSearch');
-Route::post('/searchSingleCategory', 'CategoriesController@searchSingleCategory');
-
 
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');

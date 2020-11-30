@@ -6,7 +6,7 @@
                <div class="container">
                     <div class="search">
                          <div class="search-specific">
-                              <h5>Chercher Par </h5>
+                              <h5>Search By .... </h5>
                               <hr>
                               <div class="search-area">
                                         <form id="resetID">
@@ -34,7 +34,8 @@
                                              </label>
                                         </div>
                                    </form>
-                                   <button @click="getResults">RSET</button>
+                                   <button @click="getResults" v-if="!loadingPaginate">RSET</button>
+                                   <Spinner size="medium" line-fg-color="green" v-if="loadingPaginate"/>
                               </div>
                          </div>
                     </div>
@@ -42,8 +43,20 @@
           </div>
           <!--search advanced search ends here -->
                <div class="container">
+                    <!--Search input starts-->
+                         <div class="search-input flex-grow-1">
+                              <div class="d-flex justify-content-between align-items-center">
+                                   <label for="search">
+                                        <input type="text"  id="search" class="form-control mr-2" ref="searchInput" placeholder="Search by product name, mark ....">
+                                   </label>
+                                   <button @click.prevent="inputSearchValue" v-if="!loadingInput"><i class="fa fa-search" ></i></button>
+                                   <Spinner size="medium" line-fg-color="red" v-if="loadingPaginate"/>
+                              </div>
+                         </div>
+                         <hr>
+                    <!--Search input ends-->
                     <div class="row d-flex justify-content-around">
-                         <div v-for="product in products.data?products.data:products" :key="product.id" class="card">
+                            <div v-for="product in products.data?products.data:products" :key="product.id" class="card">
                               <a v-bind:href="url+'/product_details/'+product.id">
                                    <img v-bind:src="url+'/images/'+product.image" class="card-img w-100 h-100" />
                               </a>
@@ -80,23 +93,28 @@
                               </div>
                          </div>
                     </div>
-                   <pagination :data="products?products:[]" @pagination-change-page="getResults"></pagination>
+                    <Spinner size="medium" line-fg-color="red" v-if="loadingPaginate"/>
+                     <pagination :data="products?products:[]" @pagination-change-page="getResults"></pagination>
                </div>
            </div>
 </template>
  
 <script>
      import axios from 'axios'
+     import Spinner from 'vue-simple-spinner'
 
     export default {
          props: ['url'],
-        mounted() {
-            console.log('Component mounted.')
+        components: {
+             Spinner
         },
         data() {
             return {
                 products: {},
-                catsNames: {}
+                catsNames: {},
+                loadingPaginate: false,
+                loadingInput: false,
+                loadingAdvanced: false
             }
         },
         created() {
@@ -105,11 +123,11 @@
         methods: {
              // axios pagenation and fetching categories
             async getResults(page) {
-
+               this.loadingPaginate = true
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
-      
+               
                await axios.get( 'shop/products?page=' + page)
                .then(res => {
                     const products = res.data.products
@@ -118,49 +136,73 @@
                     this.products = products
                     this.catsNames = catsNames
                })
+               this.loadingPaginate = false
                document.getElementById('resetID').reset()
+            },
+            // fetch product on input search
+            async inputSearchValue()
+            {
+                const value = this.$refs.searchInput.value
+                this.loadingInput = true
+
+                await axios.get('/search', { params: {  value: value }  })
+               .then(res => {
+                    const products = res.data.products
+                    this.products = products 
+               })
+               this.loadingInput = false
+               // empty input after sending value ...
+               this.$refs.searchInput.value = ''
             },
             //fetch prouducts on chage 
           async changeCat(event)
           {
                const catName = event.target.value
-               console.log(catName)
+               this.loadingAdvanced = true
+
                await axios.get('/advancedSearch', { params: {  category: catName }  })
                .then(res => {
                    const data = res.data.products
                     console.log(data)
                     this.products = data
                })
+               this.loadingAdvanced = false
           },
           async changePrice(event)
           {
                 const price = event.target.value
+                this.loadingAdvanced = true
                 await axios.get('advancedSearch', { params: {   price: price } })
                .then(res => {
                    const data = res.data.products
                    console.log(data)
                     this.products = data
                })
+               this.loadingAdvanced = false
           },
           async checkPromo(event)
           {
                const onSold = event.target.checked
+               this.loadingAdvanced = true
                 await axios.get('advancedSearch', { params: {   onSold: onSold }  })
                .then(res => {
                    const data = res.data.products
                    console.log(data)
                     this.products = data
                })
+               this.loadingAdvanced = false
           },
           async checkNew(event)
           {
                const newProd = event.target.checked
+               this.loadingAdvanced = true
                 await axios.get('advancedSearch', { params: {  new: newProd }  })
                .then(res => {
                    const data = res.data.products
                    console.log(data)
                     this.products = data
                })
+               this.loadingAdvanced = false
           }
         }
      }

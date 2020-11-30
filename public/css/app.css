@@ -11522,14 +11522,15 @@ a.text-dark:focus {
     border-bottom: 1px solid #2BBBAD;
   }
 
-  #shop .search-input form div {
-    width: 100%;
+  #shop .search-input div,
+  #shop .search-input div label {
+    width: 80%;
   }
 
-  #shop .search-input form div input,
-  #shop .search-input form div label {
+  #shop .search-input div input,
+  #shop .search-input div label input {
     border: 0;
-    width: 50%;
+    width: 70%;
     border-bottom: 1px solid #2BBBAD;
   }
 
@@ -11622,12 +11623,6 @@ a.text-dark:focus {
   #shop .productsSearch .products .container div .card a:hover {
     transform: scale(1.1);
   }
-}
-
-#shop .pagination-links ul li {
-  background-color: #2BBBAD;
-  border: none;
-  color: #2BBBAD;
 }
 
 @media screen and (max-width: 768px) {

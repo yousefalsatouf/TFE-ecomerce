@@ -172,22 +172,4 @@ class HomeController extends Controller
 
         return back()->with('msg', 'Review added successfully');
     }
-
-    public function search(Request $request)
-    {
-        $result = $request->search;
-        $products = DB::table('products')->where('product_name', 'like', '%'.$result.'%')->paginate(12);
-        $ads = Ads::all();
-        //dd($lastProducts);
-        $recommends = DB::table('recommends')
-            ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
-            ->take(5)
-            ->get();
-
-        if ($request == '')
-            return view('front.shop');
-        else
-            return view('front.shop', ['msg' => 'Result: '.$result], compact('products', 'ads', 'recommends'));
-
-    }
 }

@@ -177,20 +177,16 @@
                 }
             }
         }
-      
         .search-input
         {
-            form
+            div, div label
             {
-                div
+                width: 80%;
+                input
                 {
-                    width: 100%;
-                    input, label
-                    {
-                        border: 0;
-                        width: 50%;
-                        border-bottom: 1px solid $green;
-                    }
+                    border: 0;
+                    width: 70%;
+                    border-bottom: 1px solid $green;
                 }
             }
         }
@@ -298,22 +294,6 @@
                         }
                     }
                 }
-            }
-        }
-    }
-}
-
-#shop
-{
-    .pagination-links
-    {
-        ul
-        {
-            li
-            {
-               background-color: $green;
-                border: none;
-                color: $green;
             }
         }
     }
