@@ -3,7 +3,7 @@
     <main role="main" id="shop">
         <section class="shop-bg">
             <div class="bg-ad">
-                <img src="{{URL::asset('dist/images/shop/bg-shop.jpg')}}" class="bg" alt="First slide">
+                <img src="{{URL::asset('dist/images/home/gymGirl.jpg')}}" class="bg" alt="First slide">
             </div>
             <div class="ad-container">
                 @foreach($ads as $ad)

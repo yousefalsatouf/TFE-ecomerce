@@ -1,6 +1,6 @@
 @extends('front.helpers.master')
 @section('content')
-    <main role="main" id="home">
+    <main id="home">
         @include('front/helpers/slider')
         @include('front/helpers/lastProducts')
         @include('front/helpers/categoriesList')

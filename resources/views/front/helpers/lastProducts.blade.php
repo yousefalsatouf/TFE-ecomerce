@@ -6,7 +6,7 @@
             @foreach($products as $product)
                 <div class="card">
                     <a href="{{url('/product_details')}}/{{$product->id}}">
-                        <img src="{{url('images',$product->image)}}" class="images card-img w-100 h-100">
+                        <img src="{{url('images',$product->image)}}" class="images card-img w-100 h-100" alert="photo">
                     </a>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
@@ -49,12 +49,8 @@
                 </div>
             @endforeach
             <div class="see-more">
-                <a href="{{url('/shop')}}" class="last">
-                    <button>
+                <a href="{{url('/shop')}}" class="last link">
                         {{__('home.seeMore')}}
-                        <i class="fa fa-forward"></i>
-                        <i class="fa fa-backward backwardGSM"></i>
-                    </button>
                 </a>
             </div>
         </div>
