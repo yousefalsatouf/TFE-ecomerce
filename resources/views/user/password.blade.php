@@ -1,10 +1,9 @@
 @extends('front.helpers.master')
 @section('content')
-    <section id="cart_items password">
+    <section id="cart_items password" style="margin-bottom: 22rem;">
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><h2>@lang('auth.managePass')</h2></li>
                     <li><b class="text-info">@lang('commun.greeting') {{ucwords(Auth::user()->name)}},</b></li>
                 </ol>
             </div>

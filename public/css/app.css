@@ -12400,6 +12400,10 @@ a.text-dark:focus {
   margin: 1rem;
 }
 
+#checkout .checkout {
+  margin-bottom: 20rem;
+}
+
 #checkout .checkout .quick-checkout {
   background-color: #000;
 }
@@ -12566,10 +12570,15 @@ button:hover {
   text-align: center;
 }
 
+#password .container {
+  margin-bottom: 25rem;
+}
+
 #newsletter,
 #order,
 #reset-password {
   margin-top: 5rem;
+  padding-bottom: 6rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -12601,7 +12610,7 @@ button:hover {
 }
 
 #cart_items\ profile {
-  margin-bottom: 12rem;
+  margin-bottom: 15rem;
 }
 
 #cart_items\ profile .user-info {

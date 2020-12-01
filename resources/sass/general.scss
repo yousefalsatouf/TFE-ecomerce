@@ -83,11 +83,6 @@ button:hover
 {
     cursor: pointer;
 }
-body
-{
-    //position: relative;
-}
-// verify-message is here
 
 .verify-message
 {
@@ -97,8 +92,16 @@ body
 }
 
 
+#password
+{
+    .container
+    {
+        margin-bottom: 25rem;
+    }
+}
 #newsletter, #order, #reset-password {
     margin-top: 5rem;
+    padding-bottom: 6rem;
     @media screen and (min-width: $break-medium) {
         margin-bottom: 30rem;
     }
