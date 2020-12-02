@@ -14,13 +14,29 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-
-            'name' => 'Alsatouf',
+            'name' => 'admin',
             'first_name' => 'Yousef',
-            'email' => 'yousef@gmail.com',
+            'email' => 'admin@admin.com',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('admin'),
             'admin' => 1,
+        ]);
+
+        User::create([
+            'name' => 'actor',
+            'first_name' => 'actor',
+            'email' => 'actor@actor.com',
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('actor'),
+            'actor' => 1,
+        ]);
+
+        User::create([
+            'name' => 'user',
+            'first_name' => 'Yousef',
+            'email' => 'user@user.com',
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('user'),
         ]);
     }
 }
