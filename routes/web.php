@@ -108,11 +108,7 @@ Route::group(['middleware' => 'auth'], function()
         return view('user.finish');
     });
 });
-
-//payment form
-//Route::get('/', 'PaymentController@index');
-
-// route for processing payment
+// payPal
 Route::post('/paypal', 'PaymentController@payWithpaypal');
 
 // route for check status of the payment

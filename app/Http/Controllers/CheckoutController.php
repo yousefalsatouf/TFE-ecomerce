@@ -18,7 +18,6 @@ class   CheckoutController extends Controller
     {
         $checkInfos = DB::table('users')->where('id', '=', Auth::user()->id)->pluck('first_name');
 
-
         //dd($checkInfos[0]);
         if ($checkInfos[0] === null){
             return back();
@@ -26,26 +25,16 @@ class   CheckoutController extends Controller
 
         if (Auth::check())
         {
-            $cartItems = Cart::content();
+            $cartItems = json_decode(Cart::content());//response()->json(Cart::content());
+            //dd($cartItems);
+            $amount = Cart::total();
             $tax = Cart::tax();
-            $counter = 0;
-            $amount=0;
-            $qty=0;
-            $names='';
 
-            foreach ($cartItems as $cartItem)
-            {
-                $amount += $cartItem->price + $tax;
-                $qty += $cartItem->qty;
-                $names .= ' - '.$cartItem->name;
-            }
 
-            return view('front/checkout', compact('cartItems', 'counter', 'amount', 'qty', 'names'));
+            return view('front/checkout', compact('cartItems', 'amount', 'tax'));
         }
         else
-        {
             return redirect('/login');
-        }
     }
 
     public function formValidate(Request $request)

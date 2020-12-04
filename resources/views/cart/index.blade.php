@@ -42,7 +42,7 @@
                        <h1>@lang('cart.cart')</h1>
                        <p class="lead text-muted"><b class="text-success">{{Cart::count()}}</b> @lang('cart.nber')</p>
                        <div class="table-responsive">
-                           <table class="table table-striped">
+                           <table class="table">
                                <thead>
                                    <tr class="cart_menu">
                                        <th class="image">Image</th>
