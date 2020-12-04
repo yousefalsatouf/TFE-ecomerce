@@ -52,8 +52,17 @@ class LocationsSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        
-
-        
+        DB::table('locations')->insert([
+            'title' => 'sportClub - Gent',
+            'description' => 'this is some description about this store',
+            'address' => 'rue en bois',
+            'city' => 'Gent',
+            'state' => 'Gent',
+            'hours' => '9:00am - 6:00pm',
+            'lat' => 51.0538286,
+            'lng' => 3.7250121,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }
