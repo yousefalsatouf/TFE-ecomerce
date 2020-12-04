@@ -49,7 +49,6 @@ export default
                     })
                }
           }
-          console.log(items);
           return {
                clientId: {
                     sandbox: 'AUP5fKBdz5W1Sy7_PZtaDhj8xqyuSe73vTLYtJtR7AmoOF03_llG4ROCJdm6RXqETs774gptBzCteTsw',

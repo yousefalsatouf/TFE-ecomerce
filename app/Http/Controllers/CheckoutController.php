@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Events\SendBillEvent;
 use App\Orders;
 use App\User;

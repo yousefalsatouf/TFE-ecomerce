@@ -108,9 +108,4 @@ Route::group(['middleware' => 'auth'], function()
         return view('user.finish');
     });
 });
-// payPal
-Route::post('/paypal', 'PaymentController@payWithpaypal');
-
-// route for check status of the payment
-Route::get('/status', 'PaymentController@getPaymentStatus');
 
