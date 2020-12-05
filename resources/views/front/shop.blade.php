@@ -115,7 +115,7 @@
         </section>
         @else
         <section id="app">
-            <shop url="{{ url('/') }}" />
+            <Shop url="{{ url('/') }}" />
         </section>
         @endif
     </main>

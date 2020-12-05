@@ -28,7 +28,10 @@
                         @endif
                     <li class=" cart nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <i class="fa fa-shopping-cart"></i>
+                            <i class="fa fa-shopping-cart "></i>
+                            @if(Cart::count() > 0)
+                            <i class="fas fa-circle text-danger"></i>
+                            @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-right over" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-success" href="{{ url('/cart')}}">

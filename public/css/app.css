@@ -12358,6 +12358,12 @@ a.text-dark:focus {
   color: #2BBBAD;
 }
 
+#cart .table-responsive {
+  height: 500px;
+  position: relative;
+  overflow: auto;
+}
+
 @media screen and (max-width: 768px) {
   .address .user-info .card-body ul li {
     width: 49%;
@@ -12372,8 +12378,13 @@ a.text-dark:focus {
   color: #2BBBAD;
 }
 
+#checkout section .title {
+  width: 90%;
+}
+
 #checkout section .quick-access {
   background-color: #2BBBAD;
+  width: 100%;
 }
 
 #checkout section .quick-access ol {

@@ -21,9 +21,14 @@
     }
     section
     {
+        .title
+        {
+            width: 90%;
+        }
         .quick-access
         {
             background-color: $green;
+            width: 100%;
             ol
             {
                 display: flex;

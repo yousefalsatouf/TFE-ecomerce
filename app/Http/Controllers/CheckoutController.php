@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Events\SendBillEvent;
 use App\Orders;
 use App\User;
@@ -18,7 +17,6 @@ class   CheckoutController extends Controller
     {
         $checkInfos = DB::table('users')->where('id', '=', Auth::user()->id)->pluck('first_name');
 
-
         //dd($checkInfos[0]);
         if ($checkInfos[0] === null){
             return back();
@@ -26,26 +24,15 @@ class   CheckoutController extends Controller
 
         if (Auth::check())
         {
-            $cartItems = Cart::content();
+            $cartItems = json_decode(Cart::content());
+            $amount = Cart::total();
+            $price = Cart::subtotal();
             $tax = Cart::tax();
-            $counter = 0;
-            $amount=0;
-            $qty=0;
-            $names='';
 
-            foreach ($cartItems as $cartItem)
-            {
-                $amount += $cartItem->price + $tax;
-                $qty += $cartItem->qty;
-                $names .= ' - '.$cartItem->name;
-            }
-
-            return view('front/checkout', compact('cartItems', 'counter', 'amount', 'qty', 'names'));
+            return view('front/checkout', compact('cartItems', 'amount', 'price', 'tax'));
         }
         else
-        {
             return redirect('/login');
-        }
     }
 
     public function formValidate(Request $request)
@@ -101,13 +88,11 @@ class   CheckoutController extends Controller
     {
         // creating an order and destroy the cart ...
         $order = Orders::createOrder();
+        Cart::destroy();
         $user = Auth::user();
 
         event(new SendBillEvent($user, $order));
-        //dd($order);
-        Cart::destroy();
-
-        return view('front.order', compact('order'));
+        return response()->json($order);
     }
 }
 

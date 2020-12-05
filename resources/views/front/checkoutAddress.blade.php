@@ -17,7 +17,7 @@
                             <h3>@lang('cart.shopperInfo')</h3>
                             <hr>
                             @foreach($addressInfos as $check)
-                                @if($check->first_name)
+                                @if($check->last_name)
                                     <div class="user-info card">
                                         @foreach($addressInfos as $info)
                                             <div class="card-header">

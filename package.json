@@ -31,6 +31,7 @@
         "bootstrap-vue": "^2.19.0",
         "laravel-vue-pagination": "^2.3.1",
         "leaflet": "^1.7.1",
+        "vue-paypal-checkout": "^3.2.0",
         "vue-resource": "^1.5.1",
         "vue-simple-spinner": "^1.2.10",
         "vue2-leaflet": "^2.6.0"
