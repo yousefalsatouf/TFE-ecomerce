@@ -24,11 +24,10 @@ class   CheckoutController extends Controller
 
         if (Auth::check())
         {
-            $cartItems = json_decode(Cart::content());//response()->json(Cart::content());
+            $cartItems = json_decode(Cart::content());
             $amount = Cart::total();
             $price = Cart::subtotal();
             $tax = Cart::tax();
-
 
             return view('front/checkout', compact('cartItems', 'amount', 'price', 'tax'));
         }
@@ -89,11 +88,10 @@ class   CheckoutController extends Controller
     {
         // creating an order and destroy the cart ...
         $order = Orders::createOrder();
+        Cart::destroy();
         $user = Auth::user();
 
         event(new SendBillEvent($user, $order));
-        Cart::destroy();
-
         return response()->json($order);
     }
 }

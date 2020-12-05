@@ -61,6 +61,7 @@
 
 <script>
 import { BSpinner } from 'bootstrap-vue'
+import axios from 'axios'
 
 export default {
      props: ["amount", "price", "tax", "cartitems"],
@@ -112,8 +113,12 @@ export default {
                this.bSpinner = false
                this.paidFor = true
                this.orderSuccessed.push(completOrder)
-
-               console.log(this.orderSuccessed);
+               //console.log(this.orderSuccessed);
+               //create the order and destroy the cart
+               axios.get('/finishOrder')
+               .then(res => {
+                    console.log(res.data)
+               })
           },
           onError: err => {
                this.orderFaild = true
