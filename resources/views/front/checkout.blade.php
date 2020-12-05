@@ -32,37 +32,11 @@
                     <hr>
                 </div>
                 <div class="container">
-                    <div class="payment">
-                        <div class="order-summary">
-                            <div class="block-body">
-                                <h2 class="text-uppercase">@lang('cart.order')</h2>
-                                <hr>
-                                <p>@lang('cart.desCost')</p>
-                                <table class="table">
-                                        <thead>
-                                        <tr class="cart_menu">
-                                            <th class="image">@lang('cart.cost')</th>
-                                            <th class="title">Tax</th>
-                                            <th class="description">Subtotal</th>
-                                            <th class="description">Total</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><b class="text-success">@lang('cart.free')</b></td>
-                                            <td>{{Cart::tax()}} EUR</td>
-                                            <td>{{Cart::subtotal()}} EUR</td>
-                                            <td>{{Cart::total()}} EUR</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div id="app">
-                                <Paypal amount="{{$amount}}" v-bind:cartitems="{{json_encode($cartItems)}}" tax="{{$tax}}" />
-                            </div>
-                        </div>
+                    <div id="app" class="payment">
+                        <h2 class="text-uppercase">@lang('cart.order')</h2>
+                        <hr>
+                        <Paypal amount="{{$amount}}" price="{{$price}}" tax="{{$tax}}" v-bind:cartitems="{{json_encode($cartItems)}}"  />
                     </div>
-
                     <hr>
                     <br>
                     <div>

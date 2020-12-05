@@ -25,12 +25,12 @@ class   CheckoutController extends Controller
         if (Auth::check())
         {
             $cartItems = json_decode(Cart::content());//response()->json(Cart::content());
-            //dd($cartItems);
             $amount = Cart::total();
+            $price = Cart::subtotal();
             $tax = Cart::tax();
 
 
-            return view('front/checkout', compact('cartItems', 'amount', 'tax'));
+            return view('front/checkout', compact('cartItems', 'amount', 'price', 'tax'));
         }
         else
             return redirect('/login');
@@ -92,10 +92,9 @@ class   CheckoutController extends Controller
         $user = Auth::user();
 
         event(new SendBillEvent($user, $order));
-        //dd($order);
         Cart::destroy();
 
-        return view('front.order', compact('order'));
+        return response()->json($order);
     }
 }
 
