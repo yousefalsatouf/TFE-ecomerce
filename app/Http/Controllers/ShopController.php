@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Ads;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Ads;
 use App\Category;
 use App\Product;
 use App\Products_properties;
@@ -29,13 +28,12 @@ class HomeController extends Controller
     {
         $lastProducts = Product::all()->take(10);
         $products = Product::paginate(9);
-        $ads = Ads::all();
         $recommends = DB::table('recommends')
             ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
             ->take(5)
             ->get();
 
-        return view('front.shop', compact(['lastProducts','ads', 'recommends']));
+        return view('front.shop', compact(['lastProducts', 'recommends']));
     }
 
     public function product_details(Request $request, $id)

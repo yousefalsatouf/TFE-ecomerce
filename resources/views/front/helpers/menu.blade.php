@@ -19,29 +19,15 @@
                             </li>
                         @endif
                     @else
-                        @if(Auth::check() && (Auth::user()->isAdmin() || Auth::user()->isActor()))
-                            <li class="nav-item">
-                                <a href="{{url('/admin')}}" class="nav-link">
-                                    <i class="fas fa-user-cog"></i> Admin
-                                </a>
-                            </li>
-                        @endif
-                    <li class=" cart nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <i class="fa fa-shopping-cart "></i>
-                            @if(Cart::count() > 0)
-                            <i class="fas fa-circle text-danger"></i>
-                            @endif
+                    <li class="cart" style="margin: 8px 20px;">
+                        <a  href="{{ url('/cart')}}" class="text-success">
+                            <strong>
+                                <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>    
+                                @if(Cart::count() > 0)
+                                {{Cart::count()}}
+                                @endif
+                            </strong>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right over" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-success" href="{{ url('/cart')}}">
-                                <strong>
-                                    <i class="fa fa-shopping-cart"></i> {{Cart::count()}} {{ __('header.item') }}(s)
-                                </strong>
-                            </a>
-                            <hr>
-                            <a class="dropdown-item text-dark" href="{{ url('/orders') }}">{{ __('header.orders') }}</a>
-                        </div>
                     </li>
                     <li class="user nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -58,6 +44,7 @@
                             <hr>
                             <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
                             <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
+                            <a class="dropdown-item text-dark" href="{{ url('/orders') }}">{{ __('header.orders') }}</a>
                             @if(!Auth::user()->subscribed_newsletter)
                                 <a class="dropdown-item text-dark" href="{{ url('/create-newsletter') }}">@lang('email.newsletter')</a>
                             @endif
@@ -67,6 +54,13 @@
                         </div>
                     </li>
                     @endguest
+                    @if(Auth::check() && (Auth::user()->isAdmin() || Auth::user()->isActor()))
+                        <li class="nav-item">
+                            <a href="{{url('/admin')}}" class="nav-link">
+                                <i class="fas fa-user-cog"></i> Admin
+                            </a>
+                        </li>
+                    @endif
                     <li>
                         <div class="row">
                             <div class="col-md-4">

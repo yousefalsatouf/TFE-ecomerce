@@ -10,9 +10,9 @@ Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('leaflet-map', require('./components/MapComponent').default);
 Vue.component('Shop', require('./components/ShopComponent').default);
 Vue.component('Paypal', require('./components/PaypalComponent').default);
+Vue.component('Review', require('./components/ReviewComponent').default);
 
 
 new Vue({
     el: "#app",
 });
-

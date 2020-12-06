@@ -5,23 +5,6 @@
             <div class="bg-ad">
                 <img src="{{URL::asset('dist/images/home/gymGirl.jpg')}}" class="bg" alt="First slide">
             </div>
-            <div class="ad-container">
-                @foreach($ads as $ad)
-                    <div class="text-center ad">
-                        <div>
-                            <div>
-                                <img src="{{url('images', $ad->image)}}" style="width: 50px" alt="photo">
-                                <h1>{{$ad->title}}</h1>
-                            </div>
-                            <div class="content">
-                                <strong class="text-warning">@lang('shop.adTitle')</strong>
-                                <p>{{$ad->description}}</p>
-                            </div>
-                        </div>
-                        <a class="link" href={{$ad->link}} role="button">@lang('shop.adBtn')</a>
-                    </div>
-                @endforeach
-            </div>
         </section>
         <br>
         @include('front.helpers.topProducts')
