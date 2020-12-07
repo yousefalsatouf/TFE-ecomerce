@@ -56,10 +56,11 @@
                 {!! Form::close() !!}
             @endguest
         </div>
-        <div class="reviews col-sm-12 col-md-6 col-lg-8">
+        <div class="reviews col-sm-12 col-md-6 col-lg-8" id="app">
             <h5>@lang('productDetail.all')</h5>
             <hr>
             @if(!$reviews->isEmpty())
+                <Reviews />
                 @foreach($reviews as $one)
                     <div class="review">
                         <div class="head">
