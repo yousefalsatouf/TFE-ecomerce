@@ -56,48 +56,13 @@
                 {!! Form::close() !!}
             @endguest
         </div>
-        <div class="reviews col-sm-12 col-md-6 col-lg-8" id="app">
+        <div class="reviews col-sm-12 col-md-6 col-lg-8">
             <h5>@lang('productDetail.all')</h5>
             <hr>
             @if(!$reviews->isEmpty())
-                <Reviews />
-                @foreach($reviews as $one)
-                    <div class="review">
-                        <div class="head">
-                            <div class="d-flex align-items-center">
-                                <?php
-                                $images = DB::table('users')->where('id', '=', $one->user_id)->get();
-                                ?>
-                                @foreach($images as $image)
-                                    @if($image->image)
-                                        <img class="card-img-top img-fluid" src="{{url('images',$image->image)}}" alt="Card image cap">
-                                    @else
-                                        <i class="fa fa-user"></i>
-                                    @endif
-                                @endforeach
-                                @if(!$one->user_id)
-                                    <i class="fa fa-user"></i>
-                                @endif
-                                <div>
-                                    <strong>{{(Auth::check()&&(Auth::user()->name==$one->client_name))?"You":$one->client_name}}</strong>
-                                    <br>
-                                    <small>{{$one->created_at}}</small>
-                                </div>
-                                <small class="rated">
-                                    @if($one->rating)
-                                        @for($i=1;$i<=$one->rating;$i++)
-                                            <i class="fa fa-star"></i>
-                                        @endfor
-                                        <strong>({{$one->rating}}/5)</strong>
-                                    @endif
-                                </small>
-                            </div>
-                        </div>
-                        <br>
-                        <b class="content">{{$one->review_content}}</b>
-                    </div>
-                    <hr>
-                @endforeach
+                <div id="app">
+                    <Reviews v-bind:reviews="{{json_encode($reviews)}}"/>
+                </div>                   
             @else
                 <div class="review">
                     <div class="text-danger">

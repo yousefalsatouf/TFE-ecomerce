@@ -77,8 +77,6 @@ export default {
           orderFaild: false,
           items: {
           amount: this.amount,
-          description: "leg lamp from that one movie",
-          img: "./assets/lamp.jpg"
           }
      };
      },

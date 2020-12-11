@@ -11868,6 +11868,12 @@ a.text-dark:focus {
   color: #fff;
 }
 
+#reviews .reviews {
+  height: 700px;
+  position: relative;
+  overflow: scroll;
+}
+
 #reviews .reviews .head .rated {
   color: #2BBBAD;
   margin: auto 2rem;

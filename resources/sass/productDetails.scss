@@ -160,6 +160,9 @@
     }
     .reviews
     {
+        height: 700px;
+        position: relative;
+        overflow: scroll;
         .head
         {
             .rated

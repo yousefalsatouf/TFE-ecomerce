@@ -51,26 +51,24 @@ class HomeController extends Controller
                 ->where('wishlist.user_id', '=', Auth::user()->id)
                 ->where('wishlist.product_id', '=', $id)
                 ->get();
-
+            
             foreach ($wishlistData as $data)
                 $userId = $data->user_id;
         }
-        //dd($wishlistData);
 
         $product = Product::findOrFail($id);
         $productProp = DB::table('products_properties')->where('product_id', '=', $id)->get();
-        //dd($products->product_name);
-
-        //dd($userId);
         $reviews = DB::table('reviews')->where('product_id', '=', $id)->get();
         $ratingSum = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->sum('rating');
         $ratingCount = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->pluck('rating')->count();
+
+        // convert to json
+        json_decode($reviews);
 
         if ($ratingSum == 0 || $ratingCount == 0)
             $rated = null;
         else
             $rated =  $ratingSum / $ratingCount;
-        //dd($rated);
 
         $images = DB::table('product_images')
             ->where('product_id', '=', $id)

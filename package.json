@@ -17,7 +17,7 @@
         "laravel-mix": "^5.0.7",
         "lodash": "^4.17.20",
         "popper.js": "^1.12",
-        "resolve-url-loader": "^2.3.1",
+        "resolve-url-loader": "^3.1.2",
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
         "vue": "^2.6.12",
@@ -31,9 +31,11 @@
         "bootstrap-vue": "^2.19.0",
         "laravel-vue-pagination": "^2.3.1",
         "leaflet": "^1.7.1",
+        "vue-material": "^1.0.0-beta-15",
         "vue-paypal-checkout": "^3.2.0",
         "vue-resource": "^1.5.1",
         "vue-simple-spinner": "^1.2.10",
         "vue2-leaflet": "^2.6.0"
-    }
+    },
+    "name": "TFE-ecomerce"
 }
