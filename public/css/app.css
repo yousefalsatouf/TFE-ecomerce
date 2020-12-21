@@ -10998,6 +10998,11 @@ a.text-dark:focus {
     width: 5rem;
   }
 
+  #header .header-menu .top-menu img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
   #header .header-menu .bottom-menu {
     width: 100%;
     text-align: center;

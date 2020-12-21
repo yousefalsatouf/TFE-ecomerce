@@ -61,7 +61,7 @@
             <hr>
             @if(!$reviews->isEmpty())
                 <div id="app">
-                    <Reviews v-bind:reviews="{{json_encode($reviews)}}"/>
+                    <Reviews v-bind:reviews="{{json_encode($reviews)}}" auth="{{$auth}}"/>
                 </div>                   
             @else
                 <div class="review">

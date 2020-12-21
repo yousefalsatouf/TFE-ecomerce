@@ -17,6 +17,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "someone@gmail.com",
             'review_content' => "perfect",
             'rating' => 4,
+            'likes' => 0,
             'product_id' => 1,
         ]);
         \App\Review::create([
@@ -24,6 +25,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "anther@gmail.com",
             'review_content' => "perfect",
             'rating' => 5,
+            'likes' => 0,
             'product_id' => 4,
         ]);
         \App\Review::create([
@@ -31,6 +33,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "yousefher@gmail.com",
             'review_content' => "good",
             'rating' => 3,
+            'likes' => 0,
             'product_id' => 10,
         ]);
         \App\Review::create([
@@ -38,6 +41,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "someone@gmail.com",
             'review_content' => "perfect",
             'rating' => 4,
+            'likes' => 0,
             'product_id' => 9,
         ]);
         \App\Review::create([
@@ -45,6 +49,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "anther@gmail.com",
             'review_content' => "perfect",
             'rating' => 5,
+            'likes' => 0,
             'product_id' => 12,
         ]);
         \App\Review::create([
@@ -52,6 +57,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "yousefher@gmail.com",
             'review_content' => "good",
             'rating' => 3,
+            'likes' => 0,
             'product_id' => 8,
         ]);
         \App\Review::create([
@@ -59,6 +65,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "someone@gmail.com",
             'review_content' => "perfect",
             'rating' => 4,
+            'likes' => 0,
             'product_id' => 15,
         ]);
         \App\Review::create([
@@ -66,6 +73,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "anther@gmail.com",
             'review_content' => "perfect",
             'rating' => 5,
+            'likes' => 0,
             'product_id' => 4,
         ]);
         \App\Review::create([
@@ -73,6 +81,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "yousefher@gmail.com",
             'review_content' => "good",
             'rating' => 3,
+            'likes' => 0,
             'product_id' => 18,
         ]);
         \App\Review::create([
@@ -80,6 +89,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "someone@gmail.com",
             'review_content' => "perfect",
             'rating' => 4,
+            'likes' => 0,
             'product_id' => 22,
         ]);
         \App\Review::create([
@@ -87,6 +97,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "anther@gmail.com",
             'review_content' => "perfect",
             'rating' => 5,
+             'likes' => 0,
             'product_id' => 11,
         ]);
         \App\Review::create([
@@ -94,6 +105,7 @@ class ReviewsSeeder extends Seeder
             'client_email' => "yousefher@gmail.com",
             'review_content' => "good",
             'rating' => 3,
+            'likes' => 0,
             'product_id' => 6,
         ]);
     }

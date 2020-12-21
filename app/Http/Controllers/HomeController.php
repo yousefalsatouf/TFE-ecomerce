@@ -41,10 +41,12 @@ class HomeController extends Controller
         $wishlistData = null;
         $userId = null;
         $count = 0;
+        $auth = null;
 
         if (Auth::check())
         {
             //wish list setup ...
+            $auth = Auth::user()->id;
             $wishlistData = DB::table('wishlist')
                 ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
                 ->rightJoin('users','wishlist.user_id', '=', 'users.id')
@@ -58,13 +60,16 @@ class HomeController extends Controller
 
         $product = Product::findOrFail($id);
         $productProp = DB::table('products_properties')->where('product_id', '=', $id)->get();
-        $reviews = DB::table('reviews')->where('product_id', '=', $id)->get();
+        $reviews = DB::table('reviews')
+                            ->leftJoin('users', 'users.id', '=', 'reviews.user_id')
+                            ->where('product_id', '=', $id)
+                            ->get();
         $ratingSum = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->sum('rating');
         $ratingCount = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->pluck('rating')->count();
 
         // convert to json
         json_decode($reviews);
-
+        //dd($reviews);
         if ($ratingSum == 0 || $ratingCount == 0)
             $rated = null;
         else
@@ -74,7 +79,7 @@ class HomeController extends Controller
             ->where('product_id', '=', $id)
             ->get();
 
-        return view('front/product_details', compact('product','productProp', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated'));
+        return view('front/product_details', compact('product','productProp', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated', 'auth'));
     }
 
     public function wishlist(Request $request)
@@ -102,7 +107,6 @@ class HomeController extends Controller
         if (Auth::check())
         {
             $userId = Auth::user()->id;
-            //dd($userId);
 
             $products = DB::table('wishlist')
                 ->leftJoin('products', 'wishlist.product_id', '=', 'products.id')
@@ -130,8 +134,6 @@ class HomeController extends Controller
         $productId = $request->product_id;
         $content = $request->review_content;
         $rating = $request->rating;
-
-        //dd($rating);
 
         if (Auth::check())
         {

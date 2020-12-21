@@ -20,6 +20,7 @@ class CreateReviewsTable extends Migration
             $table->text('review_content');
             $table->integer('rating')->nullable();
             $table->integer('user_id')->nullable();
+            $table->integer('likes')->default(0);
             $table->integer('product_id');
             $table->timestamps();
         });
