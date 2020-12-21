@@ -1,6 +1,6 @@
 <template>
    <div>
-      <div class="review" v-for="one in reviews" v-bind:key="one.id">
+      <div class="review" v-for="one in newReviews ? newReviews : reviews" v-bind:key="one.id">
           <div class="head d-flex align-items-center">
               <b-icon v-if="!one.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
               <img v-else v-bind:src="`/images/${one.image}`" class="profile-img" alt="profile image">
@@ -20,7 +20,7 @@
           </div>
           <div class="tasks">
               <VueStar color="#F05654">
-                <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.likes) "> {{one.likes}}</i>
+                <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
               </VueStar>
           </div>
           <hr>
@@ -40,25 +40,33 @@ export default {
   },
   data: () => {
     return {
-      like: false
+      like: false,
+      newReviews: null
     }
   },
   methods: {
-    increaseLike(id, value)
+    async increaseLike(id, prodID, value)
     {
-     
-      if (!this.like)
+      if (!this.like || this.like!=id)
       {
-        
-        this.like = true
-         return this.likes++
+        let newValue = value + 1
+        this.like = id
+        await axios.get('/singleProd/like', { params: {  value: newValue, id: id, prodId: prodID }  })
+               .then(res => {
+                  //edit reviews here ...
+                 this.newReviews = res.data
+               })
       }
-      else
+       else
       {
+        let newValue = value - 1
         this.like = false
-         return this.likes--
+        await axios.get('/singleProd/like', { params: {  value: newValue, id: id, prodId: prodID }  })
+               .then(res => {
+                  //edit reviews here ...
+                   this.newReviews = res.data
+               })
       }
-      console.log('clicked')
     }
   }
 

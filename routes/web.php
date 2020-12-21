@@ -49,6 +49,10 @@ Route::get('/advancedSearch', 'ShopController@advancedSearch');
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
+Route::get('/singleProd/like', 'ReviewsController@like');
+Route::get('/singleProd/dislike', 'ReviewsController@dislike');
+
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()
     {

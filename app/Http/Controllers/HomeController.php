@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    
-
     public function index()
     {
         $products = Product::where('new_arrival', true)->take(4)->get();
@@ -62,8 +60,11 @@ class HomeController extends Controller
         $productProp = DB::table('products_properties')->where('product_id', '=', $id)->get();
         $reviews = DB::table('reviews')
                             ->leftJoin('users', 'users.id', '=', 'reviews.user_id')
+                            ->select('reviews.*', 'users.image')
                             ->where('product_id', '=', $id)
                             ->get();
+        
+        //dd($reviews);
         $ratingSum = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->sum('rating');
         $ratingCount = DB::table('reviews')->where('product_id', '=', $id)->whereNotNull('rating')->pluck('rating')->count();
 
