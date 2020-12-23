@@ -33,8 +33,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/cart', 'CartController@index');
 Route::get('/cart/addItem/{id}', 'CartController@addItem');
-Route::get('/cart/removeItem/{id}', 'CartController@removeItem');
-Route::put('/cart/updateItem/{id}', 'CartController@updateItem');
+Route::get('/cart/removeItem', 'CartController@removeItem');
+Route::get('/cart/updateItem/', 'CartController@updateItem');
 
 Route::get('/wishlist', 'HomeController@view_wishlist');
 Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');

@@ -15,6 +15,8 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = Cart::content();
+        //dd($cartItems);
+        json_decode($cartItems);
         return view('cart.index', compact('cartItems'));
     }
 
@@ -47,18 +49,43 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
-    public function removeItem($id)
+    public function removeItem(Request $request)
     {
-        //echo $id;
+        $id = $request->id;
         Cart::remove($id);
-        return back();
+
+        $cartItems = Cart::content();
+        $tax = Cart::tax();
+        $sum = Cart::total();
+        $size = Cart::count();
+
+        return response()->json([
+            "cartItems" => $cartItems,
+            "tax" => $tax,
+            "sum" => $sum,
+            "size" => $size,
+        ]);
     }
 
-    public function updateItem(Request $request, $id)
+    public function updateItem(Request $request)
     {
-        $msg = 'Quantity is updated successfully';
-        Cart::update($id, $request->qty);
+        if($request->qty <= 0)
+        {
+            Cart::remove($request->id);
+        }else 
+        {
+            Cart::update($request->id, $request->qty);
+        }
+        $cartItems = Cart::content();
+        $tax = Cart::tax();
+        $sum = Cart::total();
+        $size = Cart::count();
 
-        return back()->with('status', $msg);
+        return response()->json([
+            "cartItems" => $cartItems,
+            "tax" => $tax,
+            "sum" => $sum,
+            "size" => $size,
+        ]);
     }
 }
