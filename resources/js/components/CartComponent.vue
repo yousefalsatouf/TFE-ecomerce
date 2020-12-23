@@ -31,13 +31,16 @@
                               <td class=" border-0">
                                    <i class="fa fa-minus updateQty" @click="decreaseQty(item.rowId, item.qty)"></i>
                                    <strong>{{item.qty}}</strong> 
-                                   <i class="fa fa-plus updateQty" @click="increaseQty(item.rowId, item.qty)"></i>
+                                   <i class="fa fa-plus updateQty" @click="increaseQty(item.rowId, item.qty, item.options.stock)"></i>
                               </td>
                               <td class="cart_price">
                                    <strong>{{item.subtotal}}</strong>
                               </td>
                               <td >
-                                   <strong><a href="#" @click="removeItem(item.rowId)"  class="remove">Remove</a></strong>
+                                   <strong>
+                                        <a href="#" @click="removeItem(item.rowId)" v-if="!spinner"  class="remove">Remove</a>
+                                        <Spinner  v-else size="small" line-fg-color="green"/>
+                                        </strong>
                               </td>
                          </tr>
                          <hr>
@@ -83,22 +86,28 @@
 
 <script>
 import axios from 'axios'
+ import Spinner from 'vue-simple-spinner'
 
 export default {
      props: ['items', 'sum', 'tax', 'empty', 'size', 'shop', 'checkout'],
+     components: {
+          Spinner
+     },
      data: () => {
           return {
                setItems: null,
                setSize: null,
                setTax: null,
                setSum: null,
-               setEmpty: false
+               setEmpty: false,
+               spinner: false,
           }
      },
      methods: {
          async removeItem(id)
           {
                //console.log(id);
+               this.spinner = true
                await axios.get('/cart/removeItem', {params: {id: id}})
                .then(res => {
                     //edit reviews here ...
@@ -111,19 +120,29 @@ export default {
                          this.setSize = res.data.size;
                          this.setTax = res.data.tax;
                          this.setSum = res.data.sum;
-                    }                                  
+                    }     
+                    this.spinner = false                             
                })
           },
-          async increaseQty(id, qty)
+          async increaseQty(id, qty, stock)
           {
-              
-               await axios.get('/cart/updateItem', {params: {id: id, qty: +qty+1}})
-               .then(res => {                    
-                         this.setItems = res.data.cartItems;
-                         this.setSize = res.data.size;
-                         this.setTax = res.data.tax;
-                         this.setSum = res.data.sum;                               
-               })
+              let newQty = +qty+1
+              this.spinnerInc = true
+               if (newQty>=stock) {
+                    alert('No more in stock :(')
+                    return 
+               }
+               else
+               {
+                    await axios.get('/cart/updateItem', {params: {id: id, qty: newQty}})
+                    .then(res => {                    
+                              this.setItems = res.data.cartItems;
+                              this.setSize = res.data.size;
+                              this.setTax = res.data.tax;
+                              this.setSum = res.data.sum;                               
+                    })
+               }
+               this.spinnerInc = false
           },
           async decreaseQty(id, qty)
           {
