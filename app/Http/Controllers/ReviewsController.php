@@ -24,4 +24,52 @@ class ReviewsController extends Controller
         
         return response()->json($reviews);
     }
+
+    public function submitReplay(Request $request)
+    {
+        $reviewID = (int)$request->reviewID;
+        $userID = (int)$request->userID;
+        $comment = $request->comment;
+        $name = $request->name;
+
+        if (Auth::check()) {
+            DB::table('comments')->insert([
+                'name' => Auth::user()->name,
+                'replay' => $comment,
+                'review_id' =>$reviewID,
+                'user_id' => Auth::user()->id,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' =>date("Y-m-d H:i:s")
+            ]);
+        }else {
+            DB::table('comments')->insert([
+                'name' => $name,
+                'replay' => $comment,
+                'review_id' =>$reviewID,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' =>date("Y-m-d H:i:s")
+            ]);
+        }
+
+        $replies = DB::table('comments')
+        ->leftJoin('users', 'users.id', '=', 'comments.user_id')
+        ->select('comments.*', 'users.image')
+        ->where('review_id', '=', $reviewID)
+        ->get();
+        
+        return response()->json($replies);
+    }
+
+    public function fetchComments(Request $request)
+    {
+        $id = (int)$request->id;
+
+        $comments = DB::table('comments')
+        ->leftJoin('users', 'users.id', '=', 'comments.user_id')
+        ->select('comments.*', 'users.image')
+        ->where('review_id', '=', $id)
+        ->get();
+        
+        return response()->json($comments);
+    }
 }

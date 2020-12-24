@@ -171,4 +171,16 @@ class HomeController extends Controller
 
         return back()->with('msg', 'Review added successfully');
     }
+
+    public function removeReview(Request $request)
+    {
+        DB::table('reviews')->where('id', $request->id)->delete();
+        $reviews = DB::table('reviews')
+        ->leftJoin('users', 'users.id', '=', 'reviews.user_id')
+        ->select('reviews.*', 'users.image')
+        ->where('product_id', '=', $request->prodID)
+        ->get();
+        
+        return response()->json($reviews);
+    }
 }

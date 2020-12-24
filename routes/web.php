@@ -40,8 +40,6 @@ Route::get('/wishlist', 'HomeController@view_wishlist');
 Route::post('addToWishList', 'HomeController@wishlist')->name('addToWishList');
 Route::get('/removeFromWishlist/{id}', 'HomeController@remove_from_wishlist');
 
-Route::post('/addReview', 'HomeController@addReview')->name('addReview');
-
 Route::get('/shop/products', 'ShopController@index');
 Route::get('/search', 'ShopController@search');
 Route::get('/advancedSearch', 'ShopController@advancedSearch');
@@ -49,9 +47,13 @@ Route::get('/advancedSearch', 'ShopController@advancedSearch');
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
+
+Route::post('/addReview', 'HomeController@addReview')->name('addReview');
+Route::get('/removeReview', 'HomeController@removeReview');
 Route::get('/singleProd/like', 'ReviewsController@like');
 Route::get('/singleProd/dislike', 'ReviewsController@dislike');
-
+Route::get('/singleProd/fetchComments', 'ReviewsController@fetchComments');
+Route::get('singleProd/submitReplay', 'ReviewsController@submitReplay');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()
