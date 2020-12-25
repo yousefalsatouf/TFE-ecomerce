@@ -1,5 +1,11 @@
 <template>
    <div>
+      <div class="success" :class="!success?'d-none':null">
+          <SweetalertIcon icon="success" />
+     </div>
+     <div class="success" :class="!loading?'d-none':null">
+          <SweetalertIcon icon="loading" color="green"/>
+     </div>
       <div class="review" v-for="one in newReviews ? newReviews : reviews" v-bind:key="one.id">
           <div class="head d-flex align-items-center">
               <b-icon v-if="!one.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
@@ -24,9 +30,10 @@
                     <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
                   </VueStar>
                 </div>
-              <md-button class="text-success" @click="fetchComments(one.id)">Replay </md-button>
-              <md-button class=" text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">Delete </md-button>
+              <md-button class="text-success" @click="fetchComments(one.id)">Reply </md-button>
+              <md-button class="text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">Remove </md-button>
           </md-field>
+          <hr>
           <div class="comments" v-if="showComments">
              <div v-if="comments">
                 <div v-for="comment in comments" :key="comment.id">
@@ -42,10 +49,11 @@
                             <small>{{comment.updated_at}}</small>
                         </div>
                       </div>
-                    <div class="text-center">{{comment.replay}}</div>
+                    <div class="text-center">{{comment.reply}}</div>
                 </div>
              </div>
-             <smal v-else class="text-danger" >No comments !!</smal>
+             <small v-else class="text-dange align-self-center">No comments ! Be the first one.</small>
+            <hr>
               <div class="d-flex justify-content-around">
                   <md-field :class="auth?'d-none' : null">
                     <label>Name!</label>
@@ -55,7 +63,7 @@
                       <label>Comment!</label>
                       <md-input v-model="comment" @keyup="comment = $event.target.value" id="comment" required></md-input>
                   </md-field>
-                  <md-button class="md-raised" style="max-width: 5rem;" @click="submitReplay(one.id, auth)">
+                  <md-button class="md-raised" style="max-width: 5rem;" @click="submitReply(one.id, auth)">
                     <small class="rated">
                       <img src="/dist/images/shop/sendB.png" alt="sendLogo">
                     </small>
@@ -70,8 +78,8 @@
 <script>
 import VueStar from 'vue-star'
 import axios from 'axios'
-import SweetalertIcon from 'vue-sweetalert-icons';
-//<sweetalert-icon icon="success" />
+ import SweetalertIcon from 'vue-sweetalert-icons';
+
 
 export default {
   props: ['reviews', 'auth'],
@@ -86,7 +94,9 @@ export default {
       showComments: false,
       name: null,
       comment: null,
-      comments: null
+      comments: null,
+      success: false,
+      loading: false
     }
   },
   methods: {
@@ -116,6 +126,7 @@ export default {
     async fetchComments(id)
    {
      this.showComments =  !this.showComments
+     this.loading = true
      await axios.get('/singleProd/fetchComments', { params: {  id: id }  })
       .then(res => {
         //edit reviews here ...
@@ -125,11 +136,12 @@ export default {
           this.comments  = res.data
         }
       })
+      setTimeout(() => {  this.loading  = false; }, 200);  
    }, 
-    async submitReplay(reviewID, userID)
+    async submitReply(reviewID, userID)
     {
      // console.log(reviewID, userID, this.comment, this.name)
-        await axios.get('/singleProd/submitReplay', { params: {  reviewID: reviewID, userID: userID, comment: this.comment, name: this.name}  })
+        await axios.get('/singleProd/submitReply', { params: {  reviewID: reviewID, userID: userID, comment: this.comment, name: this.name}  })
         .then(res => {
           //edit reviews here ...
           if (res.data.length===0) {
@@ -137,23 +149,23 @@ export default {
           } else {
             this.comments  = res.data
           }
+          this.success  = true
+          setTimeout(() => {  this.success  = false; }, 2000);   
       })
+      this.name = null
+      this.comment=null
     },
     async deleteComment(id, prodID)
     {
       await axios.get('/removeReview', { params: {  id: id, prodID: prodID }  })
       .then(res => {
-        //edit reviews here ...
-        if (res.data.length===0) {
-          this.newReviews  = null
-        } else {
-          this.newReviews  = res.data
-        }
+        //edit reviews here ...        
+        this.newReviews  = res.data
+        this.success  = true
+        setTimeout(() => {  this.success  = false; }, 2000);   
       })
     }
-    
   }
-
 }
 </script>
 
@@ -228,5 +240,12 @@ export default {
     text-align: center;
     margin-left: 5rem;
   }
+}
+.success
+{
+     position: fixed;
+     z-index: 100;
+     top: 30%;
+     left: 50%;
 }
 </style>

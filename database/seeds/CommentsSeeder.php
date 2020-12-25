@@ -14,12 +14,12 @@ class CommentsSeeder extends Seeder
         //
         \App\Comments::create([
             'name' => "stranger",
-            'replay' => "he is right babe",
+            'reply' => "he is right babe",
             'review_id' => 9,
         ]);
         \App\Comments::create([
             'name' => "stranger 2",
-            'replay' => "he is right babe 2",
+            'reply' => "he is right babe 2",
             'review_id' => 9,
         ]);
     }

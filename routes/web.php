@@ -48,12 +48,12 @@ Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
 
-Route::post('/addReview', 'HomeController@addReview')->name('addReview');
+Route::get('/addReview', 'HomeController@addReview');
 Route::get('/removeReview', 'HomeController@removeReview');
 Route::get('/singleProd/like', 'ReviewsController@like');
 Route::get('/singleProd/dislike', 'ReviewsController@dislike');
 Route::get('/singleProd/fetchComments', 'ReviewsController@fetchComments');
-Route::get('singleProd/submitReplay', 'ReviewsController@submitReplay');
+Route::get('singleProd/submitReply', 'ReviewsController@submitReply');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()

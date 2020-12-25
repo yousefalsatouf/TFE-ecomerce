@@ -1,5 +1,8 @@
 <template>
   <div>
+     <div class="success" :class="!success?'d-none':null">
+          <SweetalertIcon icon="success" />
+     </div>
      <div v-if="setEmpty? setEmpty : empty" class="text-center empty-cart">
           <img src="/dist/img/empty-cart.png" alt="photo"/>
       </div>
@@ -85,13 +88,16 @@
 </template>
 
 <script>
-import axios from 'axios'
+ import axios from 'axios'
  import Spinner from 'vue-simple-spinner'
+ import SweetalertIcon from 'vue-sweetalert-icons';
+
 
 export default {
      props: ['items', 'sum', 'tax', 'empty', 'size', 'shop', 'checkout'],
      components: {
-          Spinner
+          Spinner,
+          SweetalertIcon
      },
      data: () => {
           return {
@@ -101,6 +107,7 @@ export default {
                setSum: null,
                setEmpty: false,
                spinner: false,
+               success: false
           }
      },
      methods: {
@@ -113,15 +120,18 @@ export default {
                     //edit reviews here ...
                      if (res.data.size===0) 
                     {
-                         return this.setEmpty = true
+                          this.setEmpty = true
                     } else 
                     {
                          this.setItems = res.data.cartItems;
                          this.setSize = res.data.size;
                          this.setTax = res.data.tax;
                          this.setSum = res.data.sum;
+                         this.success = true
                     }     
-                    this.spinner = false                             
+                    this.spinner = false
+                    this.success  = true
+                    setTimeout(() => {  this.success  = false; }, 2000);                             
                })
           },
           async increaseQty(id, qty, stock)
@@ -178,5 +188,12 @@ export default {
 .updateQty:hover
 {
      cursor: pointer;
+}
+.success
+{
+     position: fixed;
+     z-index: 100;
+     top: 30%;
+     left: 50%;
 }
 </style>

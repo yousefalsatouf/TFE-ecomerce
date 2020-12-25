@@ -79,7 +79,7 @@ class HomeController extends Controller
         $images = DB::table('product_images')
             ->where('product_id', '=', $id)
             ->get();
-
+        
         return view('front/product_details', compact('product','productProp', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated', 'auth'));
     }
 
@@ -132,32 +132,25 @@ class HomeController extends Controller
 
     public function addReview(Request $request)
     {
-        $productId = $request->product_id;
-        $content = $request->review_content;
+        $productId = $request->prodID;
+        $content = $request->content;
         $rating = $request->rating;
+        $guestName = $request->name;
+        $guestEmail = $request->email;
 
         if (Auth::check())
         {
-            $userId = Auth::user()->id;
-            $userName = Auth::user()->name;
-            $userEmail = Auth::user()->email;
-
             DB::table('reviews')->insert([
-                'client_name' => $userName,
-                'client_email' => $userEmail,
                 'review_content' => $content,
                 'rating' => $rating,
-                'user_id' => $userId,
-                'product_id' => $productId,
+                'user_id' => Auth::user()->id,
+                'product_id' => (int)$productId,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' =>date("Y-m-d H:i:s")
             ]);
         }
         else
         {
-            $guestName = $request->client_name;
-            $guestEmail = $request->client_email;
-
             DB::table('reviews')->insert([
                 'client_name' => $guestName,
                 'client_email' => $guestEmail,
@@ -169,7 +162,7 @@ class HomeController extends Controller
             ]);
         }
 
-        return back()->with('msg', 'Review added successfully');
+        return response()->json(true);
     }
 
     public function removeReview(Request $request)

@@ -25,7 +25,7 @@ class ReviewsController extends Controller
         return response()->json($reviews);
     }
 
-    public function submitReplay(Request $request)
+    public function submitReply(Request $request)
     {
         $reviewID = (int)$request->reviewID;
         $userID = (int)$request->userID;
@@ -35,7 +35,7 @@ class ReviewsController extends Controller
         if (Auth::check()) {
             DB::table('comments')->insert([
                 'name' => Auth::user()->name,
-                'replay' => $comment,
+                'reply' => $comment,
                 'review_id' =>$reviewID,
                 'user_id' => Auth::user()->id,
                 'created_at' => date("Y-m-d H:i:s"),
@@ -44,7 +44,7 @@ class ReviewsController extends Controller
         }else {
             DB::table('comments')->insert([
                 'name' => $name,
-                'replay' => $comment,
+                'reply' => $comment,
                 'review_id' =>$reviewID,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' =>date("Y-m-d H:i:s")

@@ -67,7 +67,7 @@ button, a.link
 {
     background-color: $green;
     font-weight: 800;
-    color: $white;
+    color: $white !important;
     border: 0;
     padding: 10px 15px;
 }
