@@ -1,6 +1,6 @@
 <section id="reviews">
     <div id="app">
-        <Reviews
+        <Rating
          v-bind:reviews="{{json_encode($reviews)}}" 
          auth="{{$auth}}" 
          empty="{{$reviews->isEmpty()}}"

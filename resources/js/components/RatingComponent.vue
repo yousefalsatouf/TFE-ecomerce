@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <div class="success" :class="!success?'d-none':null">
+  <div class="container d-flex justify-content-between flex-wrap">
+     <div class="success" :class="!success?'d-none':null">
           <SweetalertIcon icon="success" />
      </div>
      <div class="loading" :class="!loading?'d-none':null">
@@ -9,54 +9,63 @@
      <div class="faild" :class="!faild?'d-none':null">
           <SweetalertIcon icon="error"/>
      </div>
-     <div>
-          <h1>Hello {{auth? name : "Stranger"}},</h1>
-          <strong> Help others know about this product</strong>
-          <hr>
+
+     <div class="new col-sm-12 col-md-5 col-lg-3">
+          <div>
+               <h1>Hello {{auth? name : "Stranger"}},</h1>
+               <strong> Help others know about this product</strong>
+               <hr>
+          </div>
+          <div>
+               <strong v-if="required" class="text-danger text-center">Fields must fill out ! *</strong>
+               <md-field class="rating">
+                    <star-rating 
+                    v-model="rating"
+                    @rating-selected ="() => rating= rating"
+                    v-bind:max-rating="5" 
+                    v-bind:border-width="2"
+                    border-color="black" 
+                    inactive-color="lightgreen" 
+                    active-color="#38c172" 
+                    v-bind:star-size="15"
+                    />
+               </md-field>
+               <md-field v-if="!auth">
+                    <label>Name !</label>
+                    <md-input v-model="strangerName" @keyup="strangerName = $event.target.value" id="strangerName" required></md-input>
+               </md-field>
+               <md-field v-if="!auth">
+                    <label>Email !</label>
+                    <md-input v-model="strangerEmail" type="email" @keyup="strangerEmail = $event.target.value" id="strangerEmail"></md-input>
+               </md-field>
+               <md-field>
+                    <label>Write something!:</label>
+                    <md-textarea v-model="commentContent" @keyup="commentContent = $event.target.value" id="commentContent" md-autogrow required></md-textarea>
+               </md-field>
+               <md-button class="md-raised text-info" submit @click="submitReview">
+                    <img src="/dist/images/shop/sendB.png" alt="sendLogo">
+               </md-button>
+          </div>
      </div>
-      <div>
-          <strong v-if="required" class="text-danger text-center">Fields must fill out ! *</strong>
-           <md-field class="rating">
-               <star-rating 
-               v-model="rating"
-               @rating-selected ="() => rating= rating"
-               v-bind:max-rating="5" 
-               v-bind:border-width="2"
-               border-color="black" 
-               inactive-color="lightgreen" 
-               active-color="#38c172" 
-               v-bind:star-size="15"
-               />
-          </md-field>
-          <md-field v-if="!auth">
-               <label>Name !</label>
-               <md-input v-model="strangerName" @keyup="strangerName = $event.target.value" id="strangerName" required></md-input>
-          </md-field>
-           <md-field v-if="!auth">
-               <label>Email !</label>
-               <md-input v-model="strangerEmail" @keyup="strangerEmail = $event.target.value" id="strangerEmail"></md-input>
-          </md-field>
-          <md-field>
-               <label>Write something!:</label>
-               <md-textarea v-model="commentContent" @keyup="commentContent = $event.target.value" id="commentContent" md-autogrow required></md-textarea>
-          </md-field>
-          <md-button class="md-raised text-info" submit @click="submitReview">
-               <img src="/dist/images/shop/sendB.png" alt="sendLogo">
-          </md-button>
+
+      <div class="reviews col-sm-12 col-md-6 col-lg-8">
+           <Reviews  :auth="auth" :reviews="addReview? addReview : reviews"/>
       </div>
   </div>
 </template>
 
 <script>
+import Reviews from './ReviewsComponent'
 import axios from 'axios'
 import StarRating from 'vue-star-rating'
 import SweetalertIcon from 'vue-sweetalert-icons';
 
 export default {
-     props: ["auth", "name", 'productid', 'newreview'],
+     props: ["auth", "reviews", "empty", "name", 'productid'],
      components: {
           StarRating,
-          SweetalertIcon
+          SweetalertIcon,
+          Reviews
      },
      methods: {
           async submitReview(event)
@@ -72,8 +81,11 @@ export default {
                .then(res => {
                     this.loading = true
                     setTimeout(() => {this.loading= false}, 500);
-                    this.$emit('clicked', )
+                    this.addReview = res.data
                     this.success = true
+                    this.strangerName = ''
+                    this.strangerEmail = ''
+                    this.commentContent = ''
                     setTimeout(() => {this.success= false}, 5000);
                })
              } 
@@ -96,7 +108,8 @@ export default {
                strangerName: '',
                strangerEmail: '',
                commentContent: '',
-               required: false
+               required: false,
+               addReview: ''
           }
      },
 }

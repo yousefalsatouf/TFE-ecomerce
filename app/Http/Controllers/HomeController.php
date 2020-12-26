@@ -164,7 +164,13 @@ class HomeController extends Controller
             ]);
         }
 
-        return response()->json(true);
+        $reviews = DB::table('reviews')
+        ->leftJoin('users', 'users.id', '=', 'reviews.user_id')
+        ->select('reviews.*', 'users.image')
+        ->where('product_id', '=', $request->prodID)
+        ->get();
+
+        return response()->json($reviews);
     }
 
     public function removeReview(Request $request)
