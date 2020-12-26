@@ -19,7 +19,6 @@ Vue.component('leaflet-map', require('./components/MapComponent').default);
 Vue.component('Shop', require('./components/ShopComponent').default);
 Vue.component('Paypal', require('./components/PaypalComponent').default);
 Vue.component('Reviews', require('./components/ReviewsComponent').default);
-Vue.component('Rating', require('./components/RatingComponent').default);
 Vue.component('Cart', require('./components/CartComponent').default);
 
 new Vue({

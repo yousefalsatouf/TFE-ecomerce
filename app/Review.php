@@ -11,12 +11,12 @@ class Review extends Model
 
     public function product()
     {
-        return $this->hasOne('App\Product');
+        return $this->belongsTo('App\Product');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function comments()

@@ -9,13 +9,12 @@ class Comments extends Model
     protected $table = 'comments';
     protected $fillable = ['review_id', 'user_id'];
 
-    public function review()
-    {
-        return $this->hasOne('App\Review');
+    public function review(){
+        return $this->belongsTo('App\Review');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 }

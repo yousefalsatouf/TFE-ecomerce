@@ -53,13 +53,13 @@ import StarRating from 'vue-star-rating'
 import SweetalertIcon from 'vue-sweetalert-icons';
 
 export default {
-     props: ["auth", "name", 'productid'],
+     props: ["auth", "name", 'productid', 'newreview'],
      components: {
           StarRating,
           SweetalertIcon
      },
      methods: {
-          async submitReview()
+          async submitReview(event)
           {
               if((!this.auth && this.strangerName!= '' && this.commentContent!= '') || (this.auth && this.commentContent!= '') )
              {
@@ -72,9 +72,9 @@ export default {
                .then(res => {
                     this.loading = true
                     setTimeout(() => {this.loading= false}, 500);
+                    this.$emit('clicked', )
                     this.success = true
                     setTimeout(() => {this.success= false}, 5000);
-                    window.location.reload(true)
                })
              } 
              else

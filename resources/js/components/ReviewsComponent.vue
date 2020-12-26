@@ -1,91 +1,110 @@
 <template>
-   <div>
+   <div class="container d-flex justify-content-between flex-wrap">
       <div class="success" :class="!success?'d-none':null">
           <SweetalertIcon icon="success" />
      </div>
-     <div class="success" :class="!loading?'d-none':null">
-          <SweetalertIcon icon="loading" color="green"/>
+     <div class="loading" :class="!loading?'d-none':null">
+          <SweetalertIcon icon="loading"/>
      </div>
-      <div class="review" v-for="one in newReviews ? newReviews : reviews" v-bind:key="one.id">
-          <div class="head d-flex align-items-center">
-              <b-icon v-if="!one.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
-              <img v-else v-bind:src="`/images/${one.image}`" class="profile-img" alt="profile image">
-              <div>
-                  <strong v-if="one.user_id!=auth">{{one.client_name}}</strong>
-                  <strong v-else>You </strong>
-                  <br>
-                  <small>{{one.updated_at}}</small>
-              </div>
-              <small class="rated">
-                  <img src="/dist/images/shop/starB.png" v-for="star in one.rating" v-bind:key="star" v-bind:alt="star"/>
-              </small>
-          </div>
-          <br>
-          <div class="content text-center">
-            {{one.review_content}}
-          </div>
-          <md-field class="comment">
-                <div class="tasks">
-                  <VueStar color="#F05654">
-                    <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
-                  </VueStar>
-                </div>
-              <md-button class="text-success" @click="fetchComments(one.id)">Reply </md-button>
-              <md-button class="text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">Remove </md-button>
-          </md-field>
+     <div class="faild" :class="!faild?'d-none':null">
+          <SweetalertIcon icon="error"/>
+     </div>
+
+    <div class="new col-sm-12 col-md-5 col-lg-3">
+            <Rating  :auth="auth" :name="name" :productid="productid" :newreview="getReviews"/>
+    </div>
+
+     <div class="reviews col-sm-12 col-md-6 col-lg-8">
+          <h1>All reviews</h1>
           <hr>
-          <div class="comments" v-if="showComments">
-             <div v-if="comments">
-                <div v-for="comment in comments" :key="comment.id">
-                    <div class="content-comment">
-                      <div class="person">
-                        <b-icon v-if="!comment.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
-                        <img v-else v-bind:src="`/images/${comment.image}`" class="profile-img" alt="profile image">
-                      </div>
-                        <div>
-                            <strong v-if="comment.user_id!=auth">{{comment.name}}</strong>
-                            <strong v-else>You</strong>
-                            <br>
-                            <small>{{comment.updated_at}}</small>
-                        </div>
-                      </div>
-                    <div class="text-center">{{comment.reply}}</div>
+          <div class="review" v-for="one in newReviews ? newReviews : reviews" v-bind:key="one.id">
+            <div v-if="!empty">
+                <div class="head d-flex align-items-center">
+                  <b-icon v-if="!one.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
+                  <img v-else v-bind:src="`/images/${one.image}`" class="profile-img" alt="profile image">
+                  <div>
+                      <strong v-if="one.user_id!=auth">{{one.client_name}}</strong>
+                      <strong v-else>You </strong>
+                      <br>
+                      <small>{{one.updated_at}}</small>
+                  </div>
+                  <small class="rated">
+                      <img src="/dist/images/shop/starB.png" v-for="star in one.rating" v-bind:key="star" v-bind:alt="star"/>
+                  </small>
                 </div>
-             </div>
-             <small v-else class="text-dange align-self-center">No comments ! Be the first one.</small>
+                <br>
+                <div class="content text-center">
+                  {{one.review_content}}
+                </div>
+                <md-field class="comment">
+                      <div class="tasks">
+                        <VueStar color="#F05654">
+                          <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
+                        </VueStar>
+                      </div>
+                    <md-button class="text-success" @click="fetchComments(one.id)">Reply </md-button>
+                    <md-button class="text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">Remove </md-button>
+                </md-field>
+                <hr>
+                <div class="comments" v-if="showComments">
+                  <div v-if="comments">
+                      <div v-for="comment in comments" :key="comment.id">
+                          <div class="content-comment">
+                            <div class="person">
+                              <b-icon v-if="!comment.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
+                              <img v-else v-bind:src="`/images/${comment.image}`" class="profile-img" alt="profile image">
+                            </div>
+                              <div>
+                                  <strong v-if="comment.user_id!=auth">{{comment.name}}</strong>
+                                  <strong v-else>You</strong>
+                                  <br>
+                                  <small>{{comment.updated_at}}</small>
+                              </div>
+                            </div>
+                          <div class="text-center">{{comment.reply}}</div>
+                      </div>
+                  </div>
+                  <small v-else class="text-dange align-self-center">No comments ! Be the first one.</small>
+                  <hr>
+                    <div class="d-flex justify-content-around">
+                        <md-field :class="auth?'d-none' : null">
+                          <label>Name!</label>
+                          <md-input v-model="name" @keyup="name = $event.target.value" id="name" required></md-input>
+                        </md-field>
+                        <md-field class="comment-input">
+                            <label>Comment!</label>
+                            <md-input v-model="comment" @keyup="comment = $event.target.value" id="comment" required></md-input>
+                        </md-field>
+                        <md-button class="md-raised" style="max-width: 5rem;" @click="submitReply(one.id, auth)">
+                          <small class="rated">
+                            <img src="/dist/images/shop/sendB.png" alt="sendLogo">
+                          </small>
+                        </md-button>
+                      </div>
+                </div>
+            </div>
+            <div v-else>
+                No reviews on this Product! Be the first one .
+            </div>
             <hr>
-              <div class="d-flex justify-content-around">
-                  <md-field :class="auth?'d-none' : null">
-                    <label>Name!</label>
-                    <md-input v-model="name" @keyup="name = $event.target.value" id="name" required></md-input>
-                  </md-field>
-                  <md-field class="comment-input">
-                      <label>Comment!</label>
-                      <md-input v-model="comment" @keyup="comment = $event.target.value" id="comment" required></md-input>
-                  </md-field>
-                  <md-button class="md-raised" style="max-width: 5rem;" @click="submitReply(one.id, auth)">
-                    <small class="rated">
-                      <img src="/dist/images/shop/sendB.png" alt="sendLogo">
-                    </small>
-                  </md-button>
-                </div>
-          </div>
+        </div>
       </div>
-      <hr>
    </div>
 </template>
 
 <script>
+import Rating from './RatingComponent'
 import VueStar from 'vue-star'
 import axios from 'axios'
- import SweetalertIcon from 'vue-sweetalert-icons';
+ import SweetalertIcon from 'vue-sweetalert-icons'
 
 
 export default {
-  props: ['reviews', 'auth'],
+  props: ['reviews', 'auth', 'empty', 'name', 'productid'],
   components: {
     VueStar,
-    SweetalertIcon
+    SweetalertIcon,
+    Rating
   },
   data: () => {
     return {
@@ -241,7 +260,7 @@ export default {
     margin-left: 5rem;
   }
 }
-.success
+.success, .error, .loading
 {
      position: fixed;
      z-index: 100;

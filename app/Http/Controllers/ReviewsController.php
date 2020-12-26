@@ -35,6 +35,7 @@ class ReviewsController extends Controller
         if (Auth::check()) {
             DB::table('comments')->insert([
                 'name' => Auth::user()->name,
+                'image' => Auth::user()->image,
                 'reply' => $comment,
                 'review_id' =>$reviewID,
                 'user_id' => Auth::user()->id,

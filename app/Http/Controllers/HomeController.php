@@ -40,7 +40,8 @@ class HomeController extends Controller
         $userId = null;
         $count = 0;
         $auth = null;
-
+        
+       
         if (Auth::check())
         {
             //wish list setup ...
@@ -79,7 +80,8 @@ class HomeController extends Controller
         $images = DB::table('product_images')
             ->where('product_id', '=', $id)
             ->get();
-        
+
+       // $test = Review::with('comments', 'user')->where('product_id', $product->id)->get();
         return view('front/product_details', compact('product','productProp', 'reviews', 'wishlistData', 'userId', 'images', 'count', 'rated', 'auth'));
     }
 
