@@ -4,14 +4,15 @@
     {
         margin-bottom: 23rem;
     }
-
 }
 
 #login
 {
     margin-top: 5rem;
+    
     .card
     {
+        box-shadow: 8px 7px 8px -6px #888c8b ;
         .card-header
         {
             color: $black;

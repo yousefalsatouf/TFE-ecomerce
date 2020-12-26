@@ -129,6 +129,7 @@
                     {
                         width: 24%;
                         transition: all 0.5s;
+                        box-shadow: 8px 7px 8px -6px #888c8b ;
                         img
                         {
                             width: 100%;
@@ -148,9 +149,11 @@
                             transition: all 0.5s;
                             font-weight: bolder;
                             width: 100%;
+                            box-shadow: 8px 7px 8px -6px #888c8b ;
                             button
                             {
                                 transition: all 0.5s;
+                                
                                 .fa-backward
                                 {
                                     display: none;
@@ -194,6 +197,7 @@
                         width: 32%;
                         margin: 1rem auto;
                         border: 0;
+                        box-shadow: 8px 7px 8px -6px #888c8b ;
                         img
                         {
                             width: 100%;
@@ -201,6 +205,8 @@
                         a
                         {
                             text-align: center;
+                            margin: 0.5rem;
+                            box-shadow: 8px 7px 8px -6px #888c8b ;
                             button
                             {
                                 width: 100%;

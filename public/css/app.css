@@ -11272,6 +11272,7 @@ a.text-dark:focus {
   #home .last-products .container .articles .card {
     width: 24%;
     transition: all 0.5s;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card img {
@@ -11292,6 +11293,7 @@ a.text-dark:focus {
     transition: all 0.5s;
     font-weight: bolder;
     width: 100%;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .see-more a.last button {
@@ -11330,6 +11332,7 @@ a.text-dark:focus {
     width: 32%;
     margin: 1rem auto;
     border: 0;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .categories-list .container .articles .card img {
@@ -11338,6 +11341,8 @@ a.text-dark:focus {
 
   #home .categories-list .container .articles .card a {
     text-align: center;
+    margin: 0.5rem;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .categories-list .container .articles .card a button {
@@ -11490,6 +11495,11 @@ a.text-dark:focus {
 
   #shop .top-products .articles .card {
     width: 24%;
+    box-shadow: 8px 7px 8px -6px #888c8b;
+  }
+
+  #shop .top-products .articles .card :hover {
+    box-shadow: none;
   }
 
   #shop .last-carousel {
@@ -11541,6 +11551,12 @@ a.text-dark:focus {
     width: 30%;
     margin: 1rem auto;
     border: 0;
+    padding: 0.5rem;
+    box-shadow: 8px 7px 8px -6px #888c8b;
+  }
+
+  #shop div .card :hover {
+    box-shadow: none;
   }
 }
 
@@ -11972,6 +11988,10 @@ a.text-dark:focus {
   margin-top: 5rem;
 }
 
+#login .card {
+  box-shadow: 8px 7px 8px -6px #888c8b;
+}
+
 #login .card .card-header {
   color: #000;
   background-color: #2BBBAD;
@@ -12007,6 +12027,10 @@ a.text-dark:focus {
 #register .scroll {
   overflow: scroll;
   height: 60vh;
+}
+
+#register .card {
+  box-shadow: 8px 7px 8px -6px #888c8b;
 }
 
 #register .card .card-header {

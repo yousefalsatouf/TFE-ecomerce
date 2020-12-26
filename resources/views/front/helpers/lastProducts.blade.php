@@ -1,6 +1,6 @@
 <section class="last-products">
     <div class="container">
-        <h2>{{__('home.newProducts')}}</h2>
+        <h1>{{__('home.newProducts')}}</h1>
         <br>
         <div class="articles">
             @foreach($products as $product)

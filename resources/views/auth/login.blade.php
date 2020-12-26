@@ -5,7 +5,7 @@
     <div class="row justify-content-center align-items-center">
         <div class="col-md-8 content">
             <div class="card">
-                <div class="card-header">{{ __('auth.titleLogin') }}</div>
+                <h1 class="card-header">{{ __('auth.titleLogin') }}</h1>
                 <div class="card-body">
                     <div>
                         @if(session('msg'))

@@ -1,6 +1,6 @@
 <section class="top-products">
     <div class="container">
-        <h2>@lang('shop.topTitle')</h2>
+        <h1>@lang('shop.topTitle')</h1>
         <br>
         <div class="articles">
             @foreach($recommends as $product)
