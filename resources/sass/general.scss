@@ -29,6 +29,22 @@ body
 {
     position: relative;
     height: 100vh;
+    .container
+    {
+        .articles
+        {
+            .card
+            {
+                position: relative;
+                .add-cart
+                {
+                    position: absolute;
+                    right: 25px;
+                    top: 52%;
+                }
+            }
+        }
+    }
 }
 
 img
@@ -91,7 +107,6 @@ button:hover
     text-align: center;
 }
 
-
 #password
 {
     .container
@@ -99,7 +114,8 @@ button:hover
         margin-bottom: 25rem;
     }
 }
-#newsletter, #order, #reset-password {
+#newsletter, #order, #reset-password 
+{
     margin-top: 5rem;
     padding-bottom: 6rem;
     @media screen and (min-width: $break-medium) {

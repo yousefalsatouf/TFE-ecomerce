@@ -11267,12 +11267,12 @@ a.text-dark:focus {
     justify-content: space-between;
     justify-items: center;
     margin: 3rem auto;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card {
     width: 24%;
     transition: all 0.5s;
-    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card img {
@@ -11494,7 +11494,7 @@ a.text-dark:focus {
   }
 
   #shop .top-products .articles .card {
-    width: 24%;
+    width: 30%;
     box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
@@ -12552,6 +12552,16 @@ a {
 body {
   position: relative;
   height: 100vh;
+}
+
+body .container .articles .card {
+  position: relative;
+}
+
+body .container .articles .card .add-cart {
+  position: absolute;
+  right: 25px;
+  top: 52%;
 }
 
 img {

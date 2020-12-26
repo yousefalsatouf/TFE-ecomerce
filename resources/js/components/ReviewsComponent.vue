@@ -81,7 +81,6 @@
             <div v-else>
                 No reviews on this Product! Be the first one .
             </div>
-            <hr>
         </div>
    </div>
 </template>

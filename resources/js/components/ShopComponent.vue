@@ -55,10 +55,15 @@
                          </div>
                          <hr>
                     <!--Search input ends-->
-                    <div class="row d-flex justify-content-around">
+                    <div class="row d-flex justify-content-around articles">
                             <div v-for="product in products.data?products.data:products" :key="product.id" class="card">
                               <a v-bind:href="url+'/product_details/'+product.id">
                                    <img v-bind:src="url+'/images/'+product.image" class="card-img w-100 h-100" />
+                              </a>
+                              <a v-bind:href="url+'/cart/addItem/'+product.id" class="text-dark">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#38c172" class="bi bi-plus-circle-fill add-cart" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                   </svg>
                               </a>
                               <div class="card-body">
                                    <div class="d-flex justify-content-between">
