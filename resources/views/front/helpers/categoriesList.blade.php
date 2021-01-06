@@ -1,6 +1,6 @@
 <section class="categories-list">
     <div class="container">
-        <h1>{{__('home.categoriesList')}}</h1>
+        <h2>{{__('home.categoriesList')}}</h2>
         <br>
         <div class="articles">
             @foreach($categories as $category)

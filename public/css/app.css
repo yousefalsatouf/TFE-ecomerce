@@ -11494,7 +11494,7 @@ a.text-dark:focus {
   }
 
   #shop .top-products .articles .card {
-    width: 30%;
+    width: 24%;
     box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
@@ -11548,7 +11548,7 @@ a.text-dark:focus {
   }
 
   #shop div .card {
-    width: 30%;
+    width: 33%;
     margin: 1rem auto;
     border: 0;
     padding: 0.5rem;
@@ -11574,26 +11574,6 @@ a.text-dark:focus {
     padding-bottom: 1rem;
     margin-bottom: 10rem;
     position: relative;
-  }
-
-  #shop .shop-bg .ad-container {
-    background-color: #000;
-    padding: 2rem auto;
-    position: absolute;
-    top: 80%;
-    width: 100%;
-  }
-
-  #shop .shop-bg .ad-container div h1 {
-    color: #2BBBAD;
-  }
-
-  #shop .shop-bg .ad-container div p {
-    color: #fff;
-  }
-
-  #shop .shop-bg .ad-container div * {
-    margin: 1rem;
   }
 
   #shop .productsSearch {
@@ -12546,6 +12526,7 @@ a {
 
   .container {
     margin: 1rem auto;
+    max-width: 60% !important;
   }
 }
 
@@ -12561,29 +12542,45 @@ body .container .articles .card {
 body .container .articles .card .add-cart {
   position: absolute;
   right: 25px;
-  top: 52%;
+  top: 45%;
 }
 
 img {
   max-width: 100%;
 }
 
-h1 {
-  color: #000;
-  font-family: "Berkshire Swash", cursive;
-}
-
-h2 {
-  color: #2BBBAD;
-  font-family: "Berkshire Swash", cursive;
-}
-
+h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
-  font-family: "Anton", sans-serif;
+  color: #000;
+  font-family: "Berkshire Swash", cursive !important;
+}
+
+#footer {
+  padding: 0;
+}
+
+#home .container,
+#contact .container,
+#shop .container,
+#cart .container,
+#wishlist .container,
+#checkout .container,
+#newsletter .container,
+#cart_items .container {
+  display: block !important;
+}
+
+#login .row,
+#reset-password .row {
+  width: 100%;
+}
+
+#login .card,
+#reset-password .card {
+  width: 70%;
 }
 
 ul {
@@ -12592,7 +12589,7 @@ ul {
 
 a.google {
   background-color: #e3342f;
-  color: #fff;
+  color: #fff !important;
   font-weight: 900;
   padding: 0.75rem;
 }
@@ -12622,10 +12619,6 @@ button:hover {
   background-color: #2BBBAD;
   margin: 0 auto;
   text-align: center;
-}
-
-#password .container {
-  margin-bottom: 25rem;
 }
 
 #newsletter,
@@ -12712,6 +12705,16 @@ button:hover {
 #cart_items\ password form input {
   border: 0;
   border-bottom: 1px solid #2BBBAD;
+}
+
+.profile-box {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  background-color: white;
+  border: 0;
+  text-align: center;
+  padding: 1rem;
 }
 
 #contact .container .quick-access {

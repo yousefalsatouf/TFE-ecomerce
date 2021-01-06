@@ -2,8 +2,6 @@
      <div class="productsSearch">
           <!--search advanced search goes here -->
           <div class="advanced-search">
-                <Spinner size="large" line-fg-color="green" v-if="loadingAdvanced"/>
-               <br>
                <div class="container">
                     <div class="search">
                          <div class="search-specific">
@@ -12,7 +10,7 @@
                               <div class="search-area">
                                         <form id="resetID">
                                              <div class="form-group">
-                                             <label for="category"><b>Categorie</b><br>
+                                             <label for="category"><h6>Categorie</h6><br>
                                                   <select name="category" @change="changeCat($event)" class="browser-default custom-select" id="category">
                                                        <option value="all" selected>all</option>
                                                        <option v-for="cat in catsNames" :key="cat.id" v-bind:value="cat.name">{{cat.name}}</option>
@@ -20,22 +18,22 @@
                                              </label>
                                         </div>
                                         <div class="form-group">
-                                             <label for="maxPrice"><b>Prix</b>
+                                             <label for="maxPrice"><h6>Prix</h6>
                                                   <input type="number" @change="changePrice($event)"  class="form-control" id="greater-than" name="price" placeholder="Max Price">
                                              </label>
                                         </div>
                                         <div class="form-group">
                                              <label for="max" class="d-flex">
-                                                  <b>Promo</b>
+                                                  <h6>Promo</h6>
                                                   <input type="checkbox" @change="checkPromo($event)"  class="form-control" id="max" name="promo">
                                              </label>
                                              <label for="new" class="d-flex">
-                                                  <b>Nouvelles</b>
+                                                  <h6>Nouvelles</h6>
                                                   <input type="checkbox" @change="checkNew($event)"  class="form-control" id="new" name="new">
                                              </label>
                                         </div>
                                    </form>
-                                   <button @click="getResults" v-if="!loadingAdvanced">RSET</button>
+                                   <button @click="getResults" v-if="!loading">RSET</button>
                               </div>
                          </div>
                     </div>
@@ -46,28 +44,25 @@
                     <!--Search input starts-->
                          <div class="search-input flex-grow-1">
                               <div class="d-flex justify-content-between align-items-center">
-                                   <label for="search">
-                                        <input type="text"  id="search" class="form-control mr-2" ref="searchInput" placeholder="Search by product name, mark ....">
-                                   </label>
-                                   <button @click.prevent="inputSearchValue" v-if="!loadingInput"><i class="fa fa-search" ></i></button>
-                                   <Spinner size="large" line-fg-color="green" v-if="loadingInput"/>
+                                   <md-field>
+                                        <label>Search by name or mark </label>
+                                        <md-input v-model="searchValue" @keyup="searchValue = $event.target.value" id="search" required></md-input>
+                                   </md-field>
+                                   <button @click.prevent="inputSearchValue" v-if="!loading"><i class="fa fa-search" ></i></button>
                               </div>
                          </div>
-                         <hr>
                     <!--Search input ends-->
+                     <Pagination :data="products?products:[]" @pagination-change-page="getResults" />
+                     <Spinner size="large" line-fg-color="green" v-if="loading"/>
+                     <hr>
                     <div class="row d-flex justify-content-around articles">
                             <div v-for="product in products.data?products.data:products" :key="product.id" class="card">
                               <a v-bind:href="url+'/product_details/'+product.id">
                                    <img v-bind:src="url+'/images/'+product.image" class="card-img w-100 h-100" />
                               </a>
-                              <a v-bind:href="url+'/cart/addItem/'+product.id" class="text-dark">
-                                   <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#38c172" class="bi bi-plus-circle-fill add-cart" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                   </svg>
-                              </a>
                               <div class="card-body">
                                    <div class="d-flex justify-content-between">
-                                        <h6 class="card-text iphone">{{product.product_name}}</h6>
+                                        <h5 class="card-text iphone">{{product.product_name}}</h5>
                                         <span v-if="product.new_arrival"><img v-bind:src="url+'/dist/images/shop/new.png'" style="width: 50px"></span>
                                    </div>
                               </div>
@@ -98,8 +93,6 @@
                               </div>
                          </div>
                     </div>
-                    <Spinner size="large" line-fg-color="green" v-if="loadingPaginate"/>
-                     <pagination :data="products?products:[]" @pagination-change-page="getResults"></pagination>
                </div>
            </div>
 </template>
@@ -107,19 +100,22 @@
 <script>
      import axios from 'axios'
      import Spinner from 'vue-simple-spinner'
+     import Pagination from 'laravel-vue-pagination'
+     import StarRating from 'vue-star-rating'
 
     export default {
          props: ['url'],
         components: {
-             Spinner
+             Spinner,
+             Pagination,
+             StarRating
         },
         data() {
             return {
                 products: {},
                 catsNames: {},
-                loadingPaginate: false,
-                loadingInput: false,
-                loadingAdvanced: false
+                loading: false,
+                searchValue: null
             }
         },
         created() {
@@ -128,7 +124,7 @@
         methods: {
              // axios pagenation and fetching categories
             async getResults(page) {
-               this.loadingPaginate = true
+               this.loading = true
                 if (typeof page === 'undefined') {
                     page = 1;
                 }
@@ -141,75 +137,76 @@
                     this.products = products
                     this.catsNames = catsNames
                })
-               this.loadingPaginate = false
+               this.loading = false
                document.getElementById('resetID').reset()
             },
             // fetch product on input search
             async inputSearchValue()
             {
-                const value = this.$refs.searchInput.value
-                this.loadingInput = true
+                const value = this.searchValue
+                this.loading = true
 
                 await axios.get('/search', { params: {  value: value }  })
                .then(res => {
                     const products = res.data.products
                     this.products = products 
                })
-               this.loadingInput = false
+               this.loading = false
                // empty input after sending value ...
-               this.$refs.searchInput.value = ''
+               this.searchValue = ''
             },
             //fetch prouducts on chage 
           async changeCat(event)
           {
                const catName = event.target.value
-               this.loadingAdvanced = true
+               this.loading = true
 
                await axios.get('/advancedSearch', { params: {  category: catName }  })
                .then(res => {
                    const data = res.data.products
-                    console.log(data)
                     this.products = data
                })
-               this.loadingAdvanced = false
+               this.loading = false
           },
           async changePrice(event)
           {
                 const price = event.target.value
-                this.loadingAdvanced = true
+                this.loading = true
                 await axios.get('advancedSearch', { params: {   price: price } })
                .then(res => {
                    const data = res.data.products
-                   console.log(data)
                     this.products = data
                })
-               this.loadingAdvanced = false
+               this.loading = false
           },
           async checkPromo(event)
           {
                const onSold = event.target.checked
-               this.loadingAdvanced = true
+               this.loading = true
                 await axios.get('advancedSearch', { params: {   onSold: onSold }  })
                .then(res => {
                    const data = res.data.products
-                   console.log(data)
                     this.products = data
                })
-               this.loadingAdvanced = false
+               this.loading = false
           },
           async checkNew(event)
           {
                const newProd = event.target.checked
-               this.loadingAdvanced = true
+               this.loading = true
                 await axios.get('advancedSearch', { params: {  new: newProd }  })
                .then(res => {
                    const data = res.data.products
-                   console.log(data)
                     this.products = data
                })
-               this.loadingAdvanced = false
+               this.loading = false
           }
         }
      }
-       
 </script>
+<style lang="scss">
+.pagination
+{
+     justify-content: center;
+}
+</style>

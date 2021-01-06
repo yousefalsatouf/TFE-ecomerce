@@ -1,15 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
 <div id="login" class="container">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-8 content">
+    <div class="row justify-content-center">
             <div class="card">
                 <h1 class="card-header">{{ __('auth.titleLogin') }}</h1>
                 <div class="card-body">
                     <div>
                         @if(session('msg'))
-                            <h1 class="text-danger">Connectez-vous d'abord s'il vous plaît!</h1>
+                            <h3 class="text-danger">Login first please!</h3>
                         @endif
                     </div>
                     <form method="POST" action="{{ route('login') }}">
@@ -63,7 +61,6 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 @endsection

@@ -12,7 +12,7 @@
 
      <div class="new col-sm-12 col-md-5 col-lg-3">
           <div>
-               <h1>Hello {{auth? name : "Stranger"}},</h1>
+               <h3>Hello {{auth? name : "Stranger"}},</h3>
                <strong> Help others know about this product</strong>
                <hr>
           </div>
@@ -23,9 +23,6 @@
                     v-model="rating"
                     @rating-selected ="() => rating= rating"
                     v-bind:max-rating="5" 
-                    v-bind:border-width="2"
-                    border-color="black" 
-                    inactive-color="lightgreen" 
                     active-color="#38c172" 
                     v-bind:star-size="15"
                     />
@@ -42,9 +39,7 @@
                     <label>Write something!:</label>
                     <md-textarea v-model="commentContent" @keyup="commentContent = $event.target.value" id="commentContent" md-autogrow required></md-textarea>
                </md-field>
-               <md-button class="md-raised text-info" submit @click="submitReview">
-                    <img src="/dist/images/shop/sendB.png" alt="sendLogo">
-               </md-button>
+               <span class="material-icons " @click="submitReview">send</span>
           </div>
      </div>
 
@@ -115,12 +110,19 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .success, .loading, .faild
 {
      position: fixed;
      z-index: 100;
      top: 30%;
      left: 50%;
+}
+span
+{
+     &:hover
+     {
+          cursor: pointer;
+     }
 }
 </style>

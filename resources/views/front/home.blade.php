@@ -4,7 +4,6 @@
         @include('front/helpers/slider')
         @include('front/helpers/lastProducts')
         @include('front/helpers/categoriesList')
-
         <section class="quick-access">
             <div class="articles container">
                 <div class="col-lg-4">

@@ -29,7 +29,7 @@
                             </strong>
                         </a>
                     </li>
-                    <li class="user nav-item dropdown">
+                    <li class="user nav-item" id="show-profile">
                         <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if(Auth::user()->image)
                                 <img class="card-img-top img-fluid" src="{{url('images',Auth::user()->image)}}" style="width:40px; border-radius: 50%" alt="Card image cap">
@@ -37,10 +37,11 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             @endif
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right over" aria-labelledby="navbarDropdown">
-                            <b class="dropdown-item text-success">
-                                {{Auth::user()->name}}<i class="fa fa-user" aria-hidden="true"></i>
-                            </b>
+                        
+                        <div class="profile-box">
+                            <strong class="text-success">
+                                {{Auth::user()->name}}
+                            </strong>
                             <hr>
                             <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
                             <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>

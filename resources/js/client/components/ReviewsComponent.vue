@@ -12,7 +12,7 @@
           <div class="review" v-for="one in setReviews ? setReviews : reviews" v-bind:key="one.id">
             <div v-if="!empty">
                 <div>
-                  <div class="head d-flex align-items-center">
+                  <div class=".md-ripple d-flex align-items-center">
                   <b-icon v-if="!one.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
                   <img v-else v-bind:src="`/images/${one.image}`" class="profile-img" alt="profile image">
                   <div>
@@ -21,27 +21,28 @@
                       <br>
                       <small>{{one.updated_at}}</small>
                   </div>
-                  <small class="rated">
-                      <img src="/dist/images/shop/starB.png" v-for="star in one.rating" v-bind:key="star" v-bind:alt="star"/>
-                  </small>
+                  <star-rating 
+                    :rating="one.rating"
+                    :max-rating="5" 
+                    read-only
+                    active-color="#38c172" 
+                    v-bind:star-size="15"
+                    />
                 </div>
                 <br>
                 <div class="content text-center">
                   {{one.review_content}}
                 </div>
                 <md-field class="comment">
-                      <div class="tasks">
-                        <VueStar color="#F05654">
-                          <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
-                        </VueStar>
-                      </div>
-                    <md-button class="text-success" @click="fetchComments(one.id)">Reply </md-button>
-                    <md-button class="text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">Remove </md-button>
+                      <VueStar color="#F05654">
+                        <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
+                      </VueStar>
+                      <span class="material-icons text-info" @click="fetchComments(one.id)">reply</span>
+                      <span class="material-icons text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">delete</span>
                 </md-field>
                 </div>
-                <hr>
                 <div class="comments" v-if="showComments==one.id">
-                  <md-button class="text-danger float-right"  @click="close">Close </md-button>
+                   <span class="material-icons float-right text-danger" @click="close">close</span>
                   <div v-if="comments">
                       <div v-for="comment in comments" :key="comment.id">
                           <div class="content-comment">
@@ -61,7 +62,7 @@
                   </div>
                   <small v-else class="text-dange align-self-center">No comments ! Be the first one.</small>
                   <hr>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex">
                         <md-field :class="auth?'d-none' : null">
                           <label>Name!</label>
                           <md-input v-model="name" @keyup="name = $event.target.value" id="name" required></md-input>
@@ -70,11 +71,7 @@
                             <label>Comment!</label>
                             <md-input v-model="comment" @keyup="comment = $event.target.value" id="comment" required></md-input>
                         </md-field>
-                        <md-button class="md-raised" style="max-width: 5rem;" @click="submitReply(one.id, auth)">
-                          <small class="rated">
-                            <img src="/dist/images/shop/sendB.png" alt="sendLogo">
-                          </small>
-                        </md-button>
+                        <span class="material-icons send" @click="submitReply(one.id, auth)">send</span>
                       </div>
                 </div>
             </div>
@@ -88,13 +85,15 @@
 <script>
 import VueStar from 'vue-star'
 import axios from 'axios'
-import SweetalertIcon from 'vue-sweetalert-icons';
+import SweetalertIcon from 'vue-sweetalert-icons'
+import StarRating from 'vue-star-rating'
 
 export default {
   props: ['reviews', 'auth', 'empty'],
   components: {
     VueStar,
     SweetalertIcon,
+    StarRating
   },
   data: () => {
     return {
@@ -196,7 +195,7 @@ export default {
   {
     flex: 100%;
   }
-  .head
+  .head-comment
   {
     div
     {
@@ -210,14 +209,6 @@ export default {
       margin: 0 4rem !important;
      }
   }
-  .rated
-  {
-    img
-    {
-     max-width: 20px;
-     margin-right: 0rem !important;
-    }
-  }
 }
 .content
 {
@@ -226,11 +217,9 @@ export default {
 }
 .comment
 {
-  display: flex;
+  
 }
-.tasks
-{
-  margin-top: 1rem;
+
   .heart
   {
     font-size: 15px;
@@ -239,10 +228,13 @@ export default {
       cursor: pointer;
     }
   }
+.send
+{
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 .comments
 {
-  background-color: lightgrey;
   padding: 1rem;
 }
 .content-comment
@@ -251,7 +243,6 @@ export default {
   margin: 1rem auto;
   div
   {
-
     max-width: 20%;
     text-align: start;
   }
@@ -261,4 +252,12 @@ export default {
     margin-left: 5rem;
   }
 }
+ span
+ {
+   text-align: center;
+   &:hover
+   {
+     cursor: pointer;
+   }
+ }
 </style>
