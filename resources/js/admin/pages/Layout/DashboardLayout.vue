@@ -28,7 +28,7 @@
           <p>Mangement</p>
         </div>
 
-        <sidebar-link to="locations">
+        <sidebar-link to="users">
           <md-icon>people</md-icon>
           <p>Users</p>
         </sidebar-link>

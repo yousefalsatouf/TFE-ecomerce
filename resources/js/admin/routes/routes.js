@@ -1,8 +1,16 @@
-import DashboardLayout from "../pages/Layout/DashboardLayout.vue";
-import Dashboard from "../pages/Dashboard.vue";
-import UserProfile from "../pages/UserProfile.vue";
-import TableList from "../pages/TableList.vue";
-import Maps from "../pages/Maps.vue";
+import 
+{ 
+  DashboardLayout,
+  Dashboard,
+  UserProfile,
+  TableList,
+  Maps,
+  Categories,
+  Inbox,
+  Orders,
+  Users,
+  Products
+  } from '../pages'
 
 const routes = [
   {
@@ -28,10 +36,32 @@ const routes = [
       {
         path: "locations",
         name: "Locations",
-        meta: {
-          hideFooter: true
-        },
         component: Maps
+      },
+      {
+        path: "users",
+        name: "Users",
+        component: Users
+      },
+      {
+        path: "inbox",
+        name: "Inbox",
+        component: Inbox
+      },
+      {
+        path: "products",
+        name: "Products",
+        component: Products
+      },
+      {
+        path: "categories",
+        name: "Categories",
+        component: Categories
+      },
+      {
+        path: "orders",
+        name: "Orders",
+        component: Orders
       }
     ]
   }

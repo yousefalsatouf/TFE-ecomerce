@@ -16,17 +16,6 @@
         </md-button>
 
         <div class="md-collapse">
-          <!--
-            <div class="md-autocomplete">
-            <md-autocomplete
-              class="search"
-              v-model="selectedEmployee"
-              :md-options="employees"
-            >
-              <label>Search...</label>
-            </md-autocomplete>
-          </div>
-          -->
           <md-list>
             <li class="md-list-item">
               <a
