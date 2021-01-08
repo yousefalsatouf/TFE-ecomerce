@@ -55,6 +55,12 @@ Route::get('/singleProd/dislike', 'ReviewsController@dislike');
 Route::get('/singleProd/fetchComments', 'ReviewsController@fetchComments');
 Route::get('singleProd/submitReply', 'ReviewsController@submitReply');
 
+//locations api
+Route::get('/locations', 'LocationsController@index');
+Route::get('/removeLocation', 'LocationsController@removeLocation');
+Route::post('/addLocation', 'LocationsController@addLocation');
+
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()
     {

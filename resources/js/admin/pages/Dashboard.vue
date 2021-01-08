@@ -1,13 +1,20 @@
 <template>
-  <div>Dashboard</div>
+  <div class="dashboard">
+  
+  </div>
 </template>
 
 <script>
 
 export default {
-
-  data() {
-    return {};
-  }
 };
 </script>
+<style lang="scss" scoped>
+  .dashboard
+  {
+    background-image: url('../../assets/img/guyGym.jpg');
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
+</style>

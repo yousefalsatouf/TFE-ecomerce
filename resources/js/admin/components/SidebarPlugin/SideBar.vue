@@ -2,7 +2,6 @@
   <div
     class="sidebar"
     :data-color="sidebarItemColor"
-    :style="sidebarStyle"
   >
     <div class="logo">
       <h2>

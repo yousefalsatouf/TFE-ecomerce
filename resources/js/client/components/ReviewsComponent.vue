@@ -30,14 +30,14 @@
                     />
                 </div>
                 <br>
-                <div class="content text-center">
+                <div class="content">
                   {{one.review_content}}
                 </div>
                 <md-field class="comment">
                       <VueStar color="#F05654">
                         <i slot="icon" class="fa fa-heart heart" @click="increaseLike(one.id, one.product_id, one.likes) "> {{one.likes}}</i>
                       </VueStar>
-                      <span class="material-icons text-info" @click="fetchComments(one.id)">reply</span>
+                      <span class="material-icons " @click="fetchComments(one.id)">reply</span>
                       <span class="material-icons text-danger" @click="deleteComment(one.id, one.product_id)" v-if="one.user_id==auth">delete</span>
                 </md-field>
                 </div>
@@ -189,8 +189,8 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   margin: 5rem 1rem;
-  box-shadow: 8px 7px 8px -6px #888c8b ;
   padding: 1rem;
+  background-color: lightgray;
   *
   {
     flex: 100%;
@@ -255,6 +255,7 @@ export default {
  span
  {
    text-align: center;
+   border-bottom: 2px solid white;
    &:hover
    {
      cursor: pointer;

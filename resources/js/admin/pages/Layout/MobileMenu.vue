@@ -15,9 +15,9 @@
     <li>
       <drop-down>
         <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="material-icons">notifications</i>
+          <i class="material-icons">inbox</i>
           <span class="notification">5</span>
-          <p>Notifications</p>
+          <p>Inbox</p>
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
           <li><a href="#">Mike John responded to your email</a></li>

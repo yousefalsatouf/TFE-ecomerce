@@ -2,7 +2,7 @@
   <md-toolbar md-elevation="0" class="md-transparent">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        <h3 class="md-title">{{ $route.name }}</h3>
+        <h1 class="md-title">{{ $route.name }}</h1>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -29,16 +29,12 @@
                       class="md-button md-just-icon md-simple"
                       data-toggle="dropdown"
                     >
-                      <md-icon>notifications</md-icon>
+                      <md-icon>inbox</md-icon>
                       <span class="notification">5</span>
-                      <p class="hidden-lg hidden-md">Notifications</p>
+                      <p class="hidden-lg hidden-md">Inbox</p>
                     </md-button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li><a href="#">Mike John responded to your email</a></li>
-                      <li><a href="#">You have 5 new tasks</a></li>
-                      <li><a href="#">You're now friend with Andrew</a></li>
-                      <li><a href="#">Another Notification</a></li>
-                      <li><a href="#">Another One</a></li>
                     </ul>
                   </drop-down>
                 </div>

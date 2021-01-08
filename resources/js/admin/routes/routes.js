@@ -3,7 +3,6 @@ import
   DashboardLayout,
   Dashboard,
   UserProfile,
-  TableList,
   Maps,
   Categories,
   Inbox,
@@ -27,11 +26,6 @@ const routes = [
         path: "user",
         name: "My profile",
         component: UserProfile
-      },
-      {
-        path: "tables",
-        name: "Table List",
-        component: TableList
       },
       {
         path: "locations",

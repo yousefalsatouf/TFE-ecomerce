@@ -5,6 +5,11 @@
       :sidebar-item-color="sidebarBackground"
     >
       <mobile-menu slot="content"></mobile-menu>
+      <div :style="'background-color:black'" class="head">
+        <md-icon>build</md-icon>
+        <p>Mangement</p>
+      </div>
+
       <sidebar-link to="/">
         <md-icon>dashboard</md-icon>
         <p>Dashboard</p>
@@ -13,21 +18,6 @@
         <md-icon>person</md-icon>
         <p>My Profile</p>
       </sidebar-link>
-      <sidebar-link to="/tables">
-        <md-icon>content_paste</md-icon>
-        <p>Tables list</p>
-      </sidebar-link>
-     
-      <sidebar-link to="/inbox">
-        <md-icon>inbox</md-icon>
-        <p>Inbox</p>
-      </sidebar-link>
-
-        <div :style="'background-color:'+sidebarBackground" class="head">
-          <md-icon>build</md-icon>
-          <p>Mangement</p>
-        </div>
-
         <sidebar-link to="users">
           <md-icon>people</md-icon>
           <p>Users</p>
@@ -49,7 +39,6 @@
           <p>Orders</p>
         </sidebar-link>
       
-
     </side-bar>
 
     <div class="main-panel">
