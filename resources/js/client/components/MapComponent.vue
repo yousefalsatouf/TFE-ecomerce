@@ -48,7 +48,6 @@ export default {
     },
     data() {
         const locations = this.locations
-
         return {
             zoom: 9,
             url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -70,9 +69,6 @@ export default {
     centerUpdate(center) {
       this.currentCenter = center;
     },
-  },
-  mounted() {
-      //console.log(this.locations)
   }
 }
 </script>

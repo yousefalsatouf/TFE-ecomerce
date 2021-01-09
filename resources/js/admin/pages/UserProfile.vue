@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import EditProfileForm from "../pages/UserProfile/EditProfileForm.vue";
-import UserCard from '../pages/UserProfile/UserCard.vue'
+import EditProfileForm from "../components/UserProfile/EditProfileForm.vue";
+import UserCard from '../components/UserProfile/UserCard.vue'
 
 export default {
   components: {

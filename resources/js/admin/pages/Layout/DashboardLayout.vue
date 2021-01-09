@@ -5,10 +5,6 @@
       :sidebar-item-color="sidebarBackground"
     >
       <mobile-menu slot="content"></mobile-menu>
-      <div :style="'background-color:black'" class="head">
-        <md-icon>build</md-icon>
-        <p>Mangement</p>
-      </div>
 
       <sidebar-link to="/">
         <md-icon>dashboard</md-icon>
