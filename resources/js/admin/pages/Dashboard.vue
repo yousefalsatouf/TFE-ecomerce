@@ -15,6 +15,6 @@ export default {
     background-image: url('../../assets/img/guyGym.jpg');
     background-position: center;
     width: 100%;
-    height: 100vh;
+    height: 83vh;
   }
 </style>

@@ -1,33 +1,33 @@
 <template>
-  <md-card class="md-card-profile">
-    <div class="md-card-avatar">
-      <img class="img" :src="cardUserImage" />
-    </div>
-
-    <md-card-content>
-      <h6 class="category text-gray">CEO / Co-Founder</h6>
-      <h4 class="card-title">Alec Thompson</h4>
-      <p class="card-description">
-        Don't be scared of the truth because we need to restart the human
-        foundation in truth And I love you like Kanye loves Kanye I love Rick
-        Owens’ bed design but the back is...
-      </p>
-      <md-button class="md-round md-success">Follow</md-button>
-    </md-card-content>
-  </md-card>
+<div>
+      <md-card class="md-card-profile">
+      <div class="md-card-avatar" v-if="auth.image">
+        <img class="img" v-bind:src="`/images/${auth.image}`" />
+      </div>
+      <div v-else>
+            <i class="material-icons" style="font-size: 100px">person</i>
+            <p class="hidden-lg hidden-md">Profile</p>
+        </div>
+      <md-card-content>
+        <strong class="card-title">{{auth.first_name && auth.last_name? auth.first_name+" "+auth.last_name : null}} </strong>
+        <h5 class="text-success">Connected as: {{ auth.name }}</h5>
+        <h6 class="role text-danger">Role: {{auth.admin? "Admin" : "Editor"}}</h6>
+        <p class="card-description">{{auth.about? auth.about : null}}</p>
+      </md-card-content>
+    </md-card>
+</div>
+  
 </template>
 <script>
+
 export default {
   name: "user-card",
-  props: {
-    cardUserImage: {
-      type: String,
-      default: require("../../../assets/img/faces/marc.jpg")
-    }
-  },
-  data() {
-    return {};
+  props: ["auth"],
+data(){
+  return {
+    user: null,
   }
+},
 };
 </script>
 <style></style>

@@ -17,31 +17,22 @@
 
         <div class="md-collapse">
           <md-list>
-            <li class="md-list-item">
-              <a
-                href="#/notifications"
-                class="md-list-item-router md-list-item-container md-button-clean dropdown"
-              >
+            <md-list-item>
+              <a href="#/inbox">
                 <div class="md-list-item-content">
-                  <drop-down>
                     <md-button
                       slot="title"
                       class="md-button md-just-icon md-simple"
-                      data-toggle="dropdown"
                     >
                       <md-icon>inbox</md-icon>
                       <span class="notification">5</span>
                       <p class="hidden-lg hidden-md">Inbox</p>
                     </md-button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="#">Mike John responded to your email</a></li>
-                    </ul>
-                  </drop-down>
                 </div>
               </a>
-            </li>
+            </md-list-item>
             <md-list-item href="#/user">
-              <i class="material-icons">person</i>
+              <i class="material-icons" style="font-size: 40px">person</i>
               <p class="hidden-lg hidden-md">Profile</p>
             </md-list-item>
           </md-list>
@@ -57,16 +48,6 @@ export default {
   data() {
     return {
       selectedEmployee: null,
-      employees: [
-        "Jim Halpert",
-        "Dwight Schrute",
-        "Michael Scott",
-        "Pam Beesly",
-        "Angela Martin",
-        "Kelly Kapoor",
-        "Ryan Howard",
-        "Kevin Malone"
-      ]
     };
   },
   methods: {

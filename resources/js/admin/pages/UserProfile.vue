@@ -2,10 +2,10 @@
   <div class="content">
     <div class="md-layout">
       <div class="md-layout-item md-medium-size-100 md-size-66">
-        <edit-profile-form data-background-color="green"> </edit-profile-form>
+        <edit-profile-form @get-auth="getAuth"/>
       </div>
       <div class="md-layout-item md-medium-size-100 md-size-33">
-        <user-card> </user-card>
+        <user-card :auth="auth" />
       </div>
     </div>
   </div>
@@ -14,11 +14,23 @@
 <script>
 import EditProfileForm from "../components/UserProfile/EditProfileForm.vue";
 import UserCard from '../components/UserProfile/UserCard.vue'
+import axios from "axios";
 
 export default {
   components: {
     EditProfileForm,
     UserCard
+  },
+  data(){
+    return {
+      auth: null
+    }
+  },
+  methods: {
+    getAuth(auth){
+      this.auth= auth
+    }
   }
+ 
 };
 </script>
