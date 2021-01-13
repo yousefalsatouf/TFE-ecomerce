@@ -28,7 +28,7 @@
                     </md-table-cell>
                </md-table-row>
           </md-table>
-          <strong v-else>No Locations registed yet .</strong>
+          <strong v-else class="text-danger">No Locations registed yet .</strong>
      </md-card-content>
      </md-card>
   </div>
