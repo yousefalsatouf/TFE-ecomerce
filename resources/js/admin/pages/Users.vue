@@ -13,17 +13,30 @@
                       </div>
                 </md-table-toolbar>
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
-                      <md-table-cell md-label="Name" md-sort-by="name">{{ item.title }}</md-table-cell>
-                      <md-table-cell md-label="Address" md-sort-by="address">{{ item.address }}</md-table-cell>
-                      <md-table-cell md-label="State" md-sort-by="state">{{ item.state }}</md-table-cell>
-                      <md-table-cell md-label="City" md-sort-by="city">{{ item.city }}</md-table-cell>
-                      <md-table-cell md-label="Hours" md-sort-by="hours">{{ item.hours }}</md-table-cell>
-                      <md-table-cell md-label="Lat" md-sort-by="lat">{{ item.lat }}</md-table-cell>
-                      <md-table-cell md-label="Lng" md-sort-by="lng">{{ item.lng }}</md-table-cell>
+                      <md-table-cell md-label="Image" md-sort-by="image">
+                        <img v-if="item.image" class="img" v-bind:src="`/images/${item.image}`" />
+                        <i v-else class="material-icons" style="font-size: 50px">person</i>
+                      </md-table-cell>
+                      <md-table-cell md-label="Name" md-sort-by="name" class="name">{{ item.first_name }} {{item.last_name }}</md-table-cell>
+                      <md-table-cell md-label="Email" md-sort-by="email">{{ item.email }}</md-table-cell>
+                      <md-table-cell md-label="Phone" md-sort-by="phone">{{ item.phone_number }}</md-table-cell>
+                       <md-table-cell md-label="Email Verified? " md-sort-by="email-verified-at">
+                        <md-icon class="text-success" v-if="item.email_verified_at">check</md-icon>
+                        <md-icon v-else class="text-danger">thumb_down_alt</md-icon> 
+                      </md-table-cell>
+                      <md-table-cell md-label="Subscribed Newsletter" md-sort-by="newsletter">
+                           <md-icon class="text-success" v-if="item.subscribed_newsletter===1">check</md-icon>
+                           <md-icon v-else class="text-danger">thumb_down_alt</md-icon> 
+                      </md-table-cell>
+                      <md-table-cell md-label="About him" md-sort-by="abouthim">
+                        <p v-if="item.about">{{ item.about }}</p>
+                        <strong class="text-danger" v-else>Nothing yet</strong>
+                      </md-table-cell>
+                      <md-table-cell md-label="Role" md-sort-by="role">{{ item.admin? "Admin" : "Editor" }}</md-table-cell>
                       <md-table-cell>
-                          <md-button class="md-just-icon md-simple md-danger" @click="deleteLocation(item.id)">
-                          <md-icon>delete</md-icon>
-                          <md-tooltip md-direction="top">setting</md-tooltip>
+                          <md-button class="md-just-icon md-simple" @click="handle(item.id)">
+                          <md-icon>build</md-icon>
+                          <md-tooltip md-direction="top">change role</md-tooltip>
                           </md-button>
                       </md-table-cell>
                 </md-table-row>
@@ -45,9 +58,7 @@ export default {
      };
     },
     created(){
-      async() =>{
-        return await axios.get('/')
-      }
+      axios.get('/admin/users').then(res => this.users= res.data).catch(err => console.log(err))
     }
   
 }
@@ -59,5 +70,16 @@ export default {
      //height: 300px;
      width: 90%;
      margin: auto;
+     img
+     {
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50%;
+      border: 0;
+     }
+     .md-table-head-label:not(div:first-of-type)
+     {
+       margin-left: 3rem;
+     }
      }
 </style>
