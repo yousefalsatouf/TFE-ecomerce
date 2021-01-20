@@ -5,7 +5,7 @@
         @include('front/helpers/lastProducts')
         @include('front/helpers/categoriesList')
         <section class="quick-access">
-            <div class="articles container">
+            <div class="articles">
                 <div class="col-lg-4">
                     <div>
                         <i class="fa fa-truck"></i>

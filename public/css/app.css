@@ -12707,13 +12707,10 @@ button:hover {
 }
 
 .profile-box {
-  position: absolute;
-  z-index: 100;
-  display: none;
-  background-color: white;
+  background-color: #000 !important;
+  border-radius: 10px !important;
   border: 0;
-  text-align: center;
-  padding: 1rem;
+  padding: 0.5rem !important;
 }
 
 #contact .container .quick-access {
