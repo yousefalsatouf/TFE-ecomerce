@@ -136,7 +136,7 @@
                 justify-content: space-between;
                 .card
                 {
-                    width: 30%;
+                    width: 24%;
                     box-shadow: 8px 7px 8px -6px #888c8b ;
                     :hover
                     {
@@ -199,7 +199,7 @@
         {
             .card
             {
-                width: 30%;
+                width: 33%;
                 margin: 1rem auto;
                 border: 0;
                 padding: 0.5rem;
@@ -230,30 +230,7 @@
             width: 100%;
             padding-bottom: 1rem;
             margin-bottom: 10rem;
-            position: relative;
-            .ad-container
-            {
-                background-color: $black;
-                padding: 2rem auto;
-                position: absolute;
-                top: 80%;
-                width: 100%;
-                div
-                {
-                    h1
-                    {
-                        color: $green;
-                    }
-                    p
-                    {
-                        color: $white;
-                    }
-                }
-                div *
-                {
-                    margin: 1rem;
-                }
-            }
+            position: relative;           
         }
         .productsSearch
         {

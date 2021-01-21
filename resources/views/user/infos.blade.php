@@ -1,6 +1,6 @@
 @extends('front.helpers.master')
 @section('content')
-    <section id="cart_items infos">
+    <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">

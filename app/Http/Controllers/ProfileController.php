@@ -19,7 +19,35 @@ class ProfileController extends Controller
         else
             return redirect('/login');
     }
+    // auth profile
+    public function getAuth()
+    {
+        $auth = Auth::user();
 
+        return response()->json($auth);
+    }
+    // auth update profile
+    public function updateProfile(Request $request)
+    {
+        //$image= $request->file('image')->store('image');
+
+        DB::table('users')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $request->username,
+                'state'=> $request->state, 
+                'city'=> $request->city, 
+                'email'=> $request->email,
+                'first_name'=> $request->fname, 
+                'last_name'=> $request->lname, 
+                'postal_code'=> $request->code,
+                'about'=> $request->about,
+            ]);
+
+        $user=  Auth::user();
+            
+        return response()->json($user);
+    }
     public function orders()
     {
         $user_id = Auth::user()->id;

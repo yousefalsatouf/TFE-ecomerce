@@ -20,7 +20,7 @@
                         @endif
                     @else
                     <li class="cart" style="margin: 8px 20px;">
-                        <a  href="{{ url('/cart')}}" class="text-success">
+                        <a  href="{{ url('/cart')}}" style="color:#2BBBAD">
                             <strong>
                                 <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>    
                                 @if(Cart::count() > 0)
@@ -29,28 +29,21 @@
                             </strong>
                         </a>
                     </li>
-                    <li class="user nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-success" role="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            @if(Auth::user()->image)
-                                <img class="card-img-top img-fluid" src="{{url('images',Auth::user()->image)}}" style="width:40px; border-radius: 50%" alt="Card image cap">
-                            @else
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            @endif
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right over" aria-labelledby="navbarDropdown">
-                            <b class="dropdown-item text-success">
-                                {{Auth::user()->name}}<i class="fa fa-user" aria-hidden="true"></i>
-                            </b>
-                            <hr>
-                            <a class="dropdown-item text-dark" href="{{ url('/user') }}">Profile</a>
-                            <a class="dropdown-item text-dark" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
-                            <a class="dropdown-item text-dark" href="{{ url('/orders') }}">{{ __('header.orders') }}</a>
+                    <li class="user btn-group"> 
+                        <button type="button"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->name}}</button>
+                        <button type="button" class="dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only"></span>
+                        </button>
+                        
+                        <div class="profile-box dropdown-menu">
+                            <a class="dropdown-item" href="{{ url('/user') }}">Profile</a>
+                            <a class="dropdown-item" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
+                            <a class="dropdown-item " href="{{ url('/orders') }}">{{ __('header.orders') }}</a>
                             @if(!Auth::user()->subscribed_newsletter)
-                                <a class="dropdown-item text-dark" href="{{ url('/create-newsletter') }}">@lang('email.newsletter')</a>
+                                <a class="dropdown-item" href="{{ url('/create-newsletter') }}">@lang('email.newsletter')</a>
                             @endif
-                            <a class="dropdown-item text-danger" href="{{ route('logout') }}">
-                                {{ __('header.logout') }}
-                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"> {{ __('header.logout') }}</a>
                         </div>
                     </li>
                     @endguest

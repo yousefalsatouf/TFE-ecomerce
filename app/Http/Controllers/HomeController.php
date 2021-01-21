@@ -24,11 +24,11 @@ class HomeController extends Controller
 
     public function shop()
     {
-        $lastProducts = Product::all()->take(10);
+        $lastProducts = Product::all()->take(4);
         $products = Product::paginate(9);
         $recommends = DB::table('recommends')
             ->leftJoin('products', 'products.id', '=', 'recommends.product_id')
-            ->take(5)
+            ->take(4)
             ->get();
 
         return view('front.shop', compact(['lastProducts', 'recommends']));

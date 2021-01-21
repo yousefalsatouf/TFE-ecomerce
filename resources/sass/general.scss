@@ -21,6 +21,7 @@ a
     .container
     {
         margin: 1rem auto;
+        max-width: 60% !important;
     }
 }
 
@@ -40,7 +41,7 @@ body
                 {
                     position: absolute;
                     right: 25px;
-                    top: 52%;
+                    top: 45%;
                 }
             }
         }
@@ -51,19 +52,37 @@ img
 {
     max-width: 100%;
 }
-h1
+h1, h2, h3, h5, h6
 {
     color: $black;
-    font-family: $font-family-sans-serif;
+    font-family: $font-family-sans-serif !important;
 }
-h2
+
+#footer
 {
-    color:$green;
-    font-family: $font-family-sans-serif;
+    padding: 0;
 }
-h2, h3, h4, h5, h6
+
+#home .container, 
+#contact .container, 
+#shop .container, 
+#cart .container, 
+#wishlist .container, 
+#checkout .container, 
+#newsletter .container, 
+#cart_items .container
 {
-    font-family: $font-family-anton;
+    display: block !important;
+}
+
+#login .row, #reset-password .row
+{
+    width: 100%;
+}
+
+#login .card, #reset-password .card
+{
+    width: 70%;
 }
 
 ul
@@ -74,7 +93,7 @@ ul
 a.google
 {
     background-color: $red;
-    color: $white;
+    color: $white !important;
     font-weight: 900;
     padding: 0.75rem;
 }
@@ -107,13 +126,6 @@ button:hover
     text-align: center;
 }
 
-#password
-{
-    .container
-    {
-        margin-bottom: 25rem;
-    }
-}
 #newsletter, #order, #reset-password 
 {
     margin-top: 5rem;

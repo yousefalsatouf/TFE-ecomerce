@@ -16,7 +16,7 @@ class UsersController extends Controller
 
         $users = User::all();
 
-        return view('admin/users/index', compact('users'));
+        return response()->json($users);
     }
 
     public function findUser($id)

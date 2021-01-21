@@ -1,26 +1,39 @@
-import './bootstrap'
-import './rgpd'
-import './main'
-import 'jquery'
 import Vue from 'vue'
-import "leaflet/dist/leaflet.css"
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueMaterial from 'vue-material'
+import './admin/main'
+import "leaflet/dist/leaflet.css"
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
+// ........................
+import './bootstrap'
+import 'jquery'
+import './rgpd'
+import './main'
+//..........................
+
+// Global 
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueMaterial)
 Vue.use(require('vue-resource'));
-Vue.component('pagination', require('laravel-vue-pagination'));
-Vue.component('leaflet-map', require('./components/MapComponent').default);
-Vue.component('Shop', require('./components/ShopComponent').default);
-Vue.component('Paypal', require('./components/PaypalComponent').default);
-Vue.component('Rating', require('./components/RatingComponent').default);
-Vue.component('Cart', require('./components/CartComponent').default);
+
+// Client side 
+import Shop from './client/components/ShopComponent'
+import Rating from './client/components/RatingComponent'
+import Cart from './client/components/CartComponent'
+import Paypal from './client/components/PaypalComponent'
+import Leafletmap from './client/components/MapComponent'
 
 new Vue({
-    el: "#app",
+  el: "#app",
+  components: {
+    Shop,
+    Rating,
+    Cart,
+    Paypal,
+    Leafletmap
+  }
 });
