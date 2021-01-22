@@ -8,7 +8,7 @@
         @include('front/helpers/toggleMenu')
         <div class="container large-screen col-md-auto">
             <div class="content">
-                <ul class="">
+                <ul>
                     @guest
                         <li class="nav-item">
                             <a href="{{url('/login')}}" class="nav-link">{{ __('header.login') }}</a>
@@ -30,13 +30,19 @@
                         </a>
                     </li>
                     <li class="user btn-group"> 
-                        <button type="button"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->name}}</button>
+                        <button type="button">
+                            <a href="{{ url('/user') }}"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->name}}</a>
+                        </button>
                         <button type="button" class="dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only"></span>
+                            <span class="sr-only">Drop down</span>
                         </button>
                         
                         <div class="profile-box dropdown-menu">
-                            <a class="dropdown-item" href="{{ url('/user') }}">Profile</a>
+                            @if(Auth::check() && (Auth::user()->isAdmin() || Auth::user()->isActor()))
+                            <a href="{{url('/admin')}}" class="dropdown-item">
+                                <i class="fas fa-user-cog"></i> <strong>Admin Management</strong>
+                            </a>
+                            @endif
                             <a class="dropdown-item" href="{{ url('/wishlist') }}">Wishlist <i class="fa fa-star"></i></a>
                             <a class="dropdown-item " href="{{ url('/orders') }}">{{ __('header.orders') }}</a>
                             @if(!Auth::user()->subscribed_newsletter)
@@ -47,20 +53,13 @@
                         </div>
                     </li>
                     @endguest
-                    @if(Auth::check() && (Auth::user()->isAdmin() || Auth::user()->isActor()))
-                        <li class="nav-item">
-                            <a href="{{url('/admin')}}" class="nav-link">
-                                <i class="fas fa-user-cog"></i> Admin
-                            </a>
-                        </li>
-                    @endif
                     <li>
                         <div class="row">
                             <div class="col-md-4">
                                 <form>
                                     @csrf
                                     <label >
-                                        <select class="form-control changeLang"  data-url="{{route('changeLang')}}">
+                                        <select class="form-control changeLang text-center"  data-url="{{route('changeLang')}}">
                                             <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
                                             <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>FR</option>
                                         </select>

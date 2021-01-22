@@ -29,7 +29,7 @@ export default {
         LocationsTable
     },
     created(){
-        axios.get('/locations').then(res => {
+        axios.get('/admin/locations').then(res => {
              this.locations= res.data
         })
     },

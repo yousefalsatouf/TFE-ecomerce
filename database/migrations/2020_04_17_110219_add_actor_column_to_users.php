@@ -15,7 +15,7 @@ class AddActorColumnToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->tinyInteger('actor')->nullable();
+            $table->boolean('actor')->nullable();
         });
     }
 

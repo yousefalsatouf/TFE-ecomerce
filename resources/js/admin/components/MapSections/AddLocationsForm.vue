@@ -93,7 +93,7 @@ export default {
           {
               if(this.locationTitle && this.locationAddress && this.locationState && this.locationCity && this.locationHours && this.locationLat && this.locationLng && this.locationDes )
              {
-               await axios.get('/addLocation', {params: {
+               await axios.get('/admin/addLocation', {params: {
                     title: this.locationTitle,
                     address: this.locationAddress, 
                     state: this.locationState, 

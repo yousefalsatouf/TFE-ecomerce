@@ -104,7 +104,7 @@ export default {
     };
   },
    created(){ 
-      axios.get('/getAuth').then(res => {
+      axios.get('/admin/getAuth').then(res => {
           const auth = res.data
 
           this.$emit("get-auth", auth)
@@ -130,7 +130,7 @@ export default {
     let data = new FormData(profileForm);
     //data.append("image", this.image, "ProfileImage");
     const self= this
-    await axios.get('updateProfile', {params: {
+    await axios.get('/admin/updateProfile', {params: {
             id: this.id,
             //image: data,
             username: this.username, 

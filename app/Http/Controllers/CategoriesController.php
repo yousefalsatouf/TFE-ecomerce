@@ -18,9 +18,9 @@ class CategoriesController extends Controller
     {
         //
         $categories = Category::all();
-        $products = Product::all();
+        //dd($categories);
 
-        return view('admin.category.index',compact(['categories','products']));
+        return response()->json($categories);
     }
 
     /**
@@ -122,12 +122,13 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function removeCategory(Request $request)
     {
         //
-        Category::findOrFail($id)->delete();
+        Category::findOrFail($request->id)->delete();
+        $categories= Category::all();
 
-        return back()->with('msg','Category removed');
+        return response()->json($categories);
     }
 
     /**

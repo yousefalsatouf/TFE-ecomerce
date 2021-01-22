@@ -128,10 +128,15 @@
                 justify-content: flex-end;
                 .content
                 {
+                    display: flex;
+
                     ul
                     {
                         display: flex;
-                        justify-content: space-around;
+                        justify-content: space-between;
+                        li{
+                            margin: auto 10px;
+                        }
                     }
                 }
             }
@@ -157,26 +162,6 @@
             .over
             {
                 position: absolute;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: $break-large)
-{
-    #header
-    {
-        .header-menu
-        {
-            .top-menu
-            {
-                .content
-                {
-                    ul
-                    {
-                        display: flex
-                    }
-                }
             }
         }
     }

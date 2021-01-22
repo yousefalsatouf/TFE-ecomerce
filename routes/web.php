@@ -55,17 +55,6 @@ Route::get('/singleProd/dislike', 'ReviewsController@dislike');
 Route::get('/singleProd/fetchComments', 'ReviewsController@fetchComments');
 Route::get('singleProd/submitReply', 'ReviewsController@submitReply');
 
-//locations api
-Route::get('/locations', 'LocationsController@index');
-Route::get('/removeLocation', 'LocationsController@removeLocation');
-Route::get('/addLocation', 'LocationsController@addLocation');
-
-// auth api
-Route::get('/getAuth', 'ProfileController@getAuth');
-Route::get('/updateProfile', 'ProfileController@updateProfile');
-
-
-
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function ()
     {
@@ -75,35 +64,49 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         })->name('admin.index');
 
         Route::POST('/admin/store', 'AdminController@store');
+
+        //locations API
+        Route::get('/locations', 'LocationsController@index');
+        Route::get('/removeLocation', 'LocationsController@removeLocation');
+        Route::get('/addLocation', 'LocationsController@addLocation');
+
+        // auth API
+        Route::get('/getAuth', 'ProfileController@getAuth');
+        Route::get('/updateProfile', 'ProfileController@updateProfile');
+
+        // inbox API
         Route::get('/inbox', 'AdminController@inbox')->name('readMsg');
         Route::get('/inbox/{id}', 'AdminController@readMessage');
         Route::delete('/inbox/deleteAll', 'AdminController@clearAllMessages');
         Route::delete('/inbox/delete/{id}', 'AdminController@clearMessage');
 
+        // users API
         Route::resource('users', 'UsersController');
         Route::get('findUser/{id}', 'UsersController@findUser')->name('findUser');
         Route::post('editUser/{id}', 'UsersController@editUser')->name('editUser');
         Route::get('editImage/{id}', 'UsersController@editImage')->name('editImage');
 
+        // Products API
         Route::resource('products', 'ProductsController');
-        Route::get('editProductForm/{id}', 'ProductsController@editProductForm')->name('editProductForm');
         Route::post('editProduct/{id}', 'ProductsController@editProduct')->name('editProduct');
         Route::get('editImage/{id}', 'ProductsController@editImage')->name('editImage');
         Route::post('editProductImage', 'ProductsController@editProductImage')->name('editProductImage');
+        Route::get('/removeProduct', 'ProductsController@removeProduct');
 
+        // Categories API
+        Route::resource('categories','CategoriesController');
+        Route::post('update/{id}', 'CategoriesController@update')->name('update');
+        Route::get('/removeCategory', 'CategoriesController@removeCategory');
+
+
+        // Properties API
         Route::get('/addProperty/{id}', 'ProductsController@addProperty')->name('addProperty');
         Route::post('/submitProperty', 'ProductsController@submitProperty')->name('submitProperty');
         Route::post('/editProperty', 'ProductsController@editProperty');
         Route::delete('/removeProperty/{id}', 'ProductsController@removeProperty');
 
-
-        Route::resource('categories','CategoriesController');
-        Route::get('editCategoryForm/{id}', 'CategoriesController@editCategoryForm')->name('editCategoryForm');
-        Route::post('update/{id}', 'CategoriesController@update')->name('update');
-
-        Route::resource('ads','AdsController');
-
-        Route::resource('orders','OrdersController');
+        // Orders API
+        Route::resource('/orders','OrdersController');
         Route::post('/changeOrderStatus', 'OrdersController@changeOrderStatus')->name('changeStatus');
     }
 );

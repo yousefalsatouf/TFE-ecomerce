@@ -17,8 +17,7 @@ class ProductsController extends Controller
     {
         $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->get();
         //dd($products);
-
-        return view('admin.product.index', compact('products'));
+        return response()->json($products);
     }
 
     public function create()
@@ -67,6 +66,15 @@ class ProductsController extends Controller
         //dd($props);
 
         return view('admin.product.edit', compact('products', 'categories', 'props', 'galleries'));
+    }
+
+    public function removeProduct(Request $request)
+    {
+        //
+        Product::findOrFail($request->id)->delete();
+        $products= Product::all();
+
+        return response()->json($products);
     }
 
 

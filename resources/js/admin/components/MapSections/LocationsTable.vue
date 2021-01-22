@@ -61,7 +61,7 @@ export default {
       },
       deleteLocation(id)
       {
-           axios.get('/removeLocation', { params: { id: id }}).then(res => this.$emit("remove-location", res.data))
+           axios.get('/admin/removeLocation', { params: { id: id }}).then(res => this.$emit("remove-location", res.data))
       },
     },
 }

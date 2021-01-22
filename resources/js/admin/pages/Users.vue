@@ -19,28 +19,28 @@
                       </md-table-cell>
                       <md-table-cell md-label="Name" md-sort-by="name" class="name">{{ item.first_name }} {{item.last_name }}</md-table-cell>
                       <md-table-cell md-label="Email">{{ item.email }}</md-table-cell>
-                      <md-table-cell md-label="Phone">{{ item.phone_number? item.phone_number: "No phone number" }}</md-table-cell>
+                      <md-table-cell md-label="Phone">
+                        <span v-if="item.phone_number">{{ item.phone_number }}</span>
+                        <span v-else class="material-icons text-danger">minimize</span>
+                        </md-table-cell>
                        <md-table-cell md-label="Email Verified? ">
                         <md-icon class="text-success" v-if="item.email_verified_at">check</md-icon>
                         <md-icon v-else class="text-danger">thumb_down_alt</md-icon> 
                       </md-table-cell>
                       <md-table-cell md-label="Subscribed Newsletter">
                            <md-icon class="text-success" v-if="item.subscribed_newsletter===1">check</md-icon>
-                           <md-icon v-else class="text-danger">thumb_down_alt</md-icon> 
+                           <span v-else class="material-icons text-danger">minimize</span>
                       </md-table-cell>
                       <md-table-cell md-label="About him">
                         <p v-if="item.about">{{ item.about }}</p>
-                        <strong class="text-danger" v-else>Nothing yet</strong>
+                        <span v-else class="material-icons text-danger">minimize</span>
                       </md-table-cell>
                       <md-table-cell md-label="Role">
-                        <md-field id="role">
-                            <label for="role">Changing Role: </label>
-                            <md-select v-model="role" name="role" id="role" md-dense>
-                              <md-option value="admin">Admin</md-option>
-                              <md-option value="editor">Editor</md-option>
-                              <md-option value="user">User</md-option>
-                            </md-select>
-                          </md-field>
+                            <select  name="role" id="role" md-dense >
+                              <option value="admin">Admin</option>
+                              <option value="editor">Editor</option>
+                              <option value="user">User</option>
+                            </select>
                       </md-table-cell>
                       <md-table-cell>
                           <md-button class="md-just-icon md-simple" @click="handleRole(item.id)">

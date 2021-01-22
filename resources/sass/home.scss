@@ -125,12 +125,11 @@
                     justify-content: space-between;
                     justify-items: center;
                     margin: 3rem auto;
-                    box-shadow: 8px 7px 8px -6px #888c8b ;
                     .card
                     {
                         width: 24%;
                         transition: all 0.5s;
-                        
+                        box-shadow: 8px 7px 8px -6px #888c8b ;
                         img
                         {
                             width: 100%;

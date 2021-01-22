@@ -11022,9 +11022,17 @@ a.text-dark:focus {
     justify-content: flex-end;
   }
 
+  #header .header-menu .large-screen .content {
+    display: flex;
+  }
+
   #header .header-menu .large-screen .content ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+
+  #header .header-menu .large-screen .content ul li {
+    margin: auto 10px;
   }
 
   #header .header-menu a {
@@ -11048,12 +11056,6 @@ a.text-dark:focus {
 
   #header .header-menu .over {
     position: absolute;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  #header .header-menu .top-menu .content ul {
-    display: flex;
   }
 }
 
@@ -11267,12 +11269,12 @@ a.text-dark:focus {
     justify-content: space-between;
     justify-items: center;
     margin: 3rem auto;
-    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card {
     width: 24%;
     transition: all 0.5s;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card img {
@@ -12707,7 +12709,7 @@ button:hover {
 }
 
 .profile-box {
-  background-color: #000 !important;
+  background-color: transparent !important;
   border-radius: 10px !important;
   border: 0;
   padding: 0.5rem !important;
