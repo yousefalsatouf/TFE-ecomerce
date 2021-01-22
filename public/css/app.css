@@ -11171,6 +11171,15 @@ a.text-dark:focus {
     border-bottom: 1.5px solid #2BBBAD;
   }
 
+  #home .carousel-caption h4 {
+    display: none;
+  }
+
+  #home .last-products .container,
+  #home .categories-list .container {
+    max-width: 100% !important;
+  }
+
   #home .articles {
     display: flex;
     flex-wrap: wrap;
@@ -11403,65 +11412,9 @@ a.text-dark:focus {
 }
 
 @media screen and (max-width: 768px) {
-  #shop h2 {
-    color: #2BBBAD;
-  }
-
-  #shop img {
-    max-width: 100%;
-  }
-
-  #shop .shop-bg .ad-container {
-    background-color: #CCCCC6;
-    padding: 1rem;
-  }
-
-  #shop .productsSearch .search-input form div {
-    flex-wrap: wrap;
-    justify-content: center;
-    flex: 1;
-  }
-
-  #shop .productsSearch .search-input form div label,
-  #shop .productsSearch .search-input form div input {
-    width: 100%;
-  }
-
-  #shop .productsSearch .search-input form div input {
-    background-color: transparent;
-    border: 0;
-    border-bottom: 1px solid #2BBBAD;
-  }
-
-  #shop .productsSearch .search-input form button {
-    width: 100%;
-  }
-
-  #shop .productsSearch .advanced-search {
-    margin: 1rem auto;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div {
-    width: 100%;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div * {
-    width: 100%;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div input,
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div select {
-    border: 0;
-    border-bottom: 1px solid #2BBBAD;
-  }
-
-  #shop .products .container div .card {
-    width: 100%;
+  #shop .top-products .container,
+  #shop .productsSearch .container {
+    max-width: 100% !important;
   }
 }
 
@@ -11737,6 +11690,11 @@ a.text-dark:focus {
 @media screen and (max-width: 768px) {
   .gallery {
     margin-bottom: 5rem;
+  }
+
+  #product-details .container,
+  #app .container {
+    max-width: 100% !important;
   }
 }
 
@@ -12634,6 +12592,14 @@ button:hover {
   #order,
   #reset-password {
     margin-bottom: 30rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container,
+  #login .card,
+  #register .card {
+    min-width: 100% !important;
   }
 }
 

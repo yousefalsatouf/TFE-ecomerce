@@ -8,6 +8,20 @@
             padding-bottom: 0.5rem;
             border-bottom: 1.5px solid $green;
         }
+        .carousel-caption
+        {
+            h4
+            {
+                display: none;
+            }
+        }
+        .last-products, .categories-list
+        {
+            .container
+            {
+                max-width: 100% !important;
+            }
+        }
         .articles
         {
             display: flex;
