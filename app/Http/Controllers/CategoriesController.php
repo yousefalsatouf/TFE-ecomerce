@@ -32,28 +32,27 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request);
         $name = $request->name;
         $des = $request->description;
-        $image = $request->image;
-
-        if (!$name || !$des || !$image)
-            return back()->with('error','Fields can not be empty');
+        $image = $request->file('image');
+        dd($image);
 
         if($image)
-        {
-            $imageName = $image->getClientOriginalName();
-            $image->move('images',$imageName);
-            $formInput['image'] = $imageName;
-        }
+            $path= $image->store('images', 'public');
+
+        dd($path);
 
         DB::table('categories')->insert([
             'name' => $name,
+            'image' => imageName,
             'description' => $des,
-            'image' => $imageName
         ]);
 
-        return back()->with('msg','Category added');
+        $categories= Category::all();
+
+       //dd($categories);
+
+        return response()->json($categories);
     }
 
     /**
@@ -68,20 +67,6 @@ class CategoriesController extends Controller
         $categories = Category::all();
 
         return view('admin.category.index',compact(['categories','products']));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editCategoryForm($id)
-    {
-        $category = Category::findOrFail($id);
-
-        return view('admin.category.edit', compact('category'));
     }
 
     /**

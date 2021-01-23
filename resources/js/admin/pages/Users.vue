@@ -1,5 +1,6 @@
 <template>
     <div class="users-table">
+      <md-progress-bar md-mode="indeterminate" v-if="sending" />
      <md-card>
       <md-card-header data-background-color="black">
             <h4 class="title">Users Table</h4>
@@ -36,17 +37,11 @@
                         <span v-else class="material-icons text-danger">minimize</span>
                       </md-table-cell>
                       <md-table-cell md-label="Role">
-                            <select  name="role" id="role" md-dense >
-                              <option value="admin">Admin</option>
-                              <option value="editor">Editor</option>
-                              <option value="user">User</option>
+                            <select  name="role" id="role" md-dense @change="handleRole($event, item.id)">
+                              <option :selected="!item.admin?false:true" value="admin">Admin</option>
+                              <option :selected="!item.actor?false:true" value="editor">Editor</option>
+                              <option :selected="!item.actor&&!item.admin?true:false" value="user">User</option>
                             </select>
-                      </md-table-cell>
-                      <md-table-cell>
-                          <md-button class="md-just-icon md-simple" @click="handleRole(item.id)">
-                            <md-icon>build</md-icon>
-                            <md-tooltip md-direction="top">change role</md-tooltip>
-                          </md-button>
                       </md-table-cell>
                 </md-table-row>
             </md-table>
@@ -63,14 +58,27 @@ export default {
      name: "users-table",
       data() {
         return {
-          users: null,
-          role: null,
-         success: false,
+          users: [],
+          sending: false
      };
     },
     methods: {
-      handleRole(id)
+      async handleRole(event, id)
       {
+        this.sending= true
+        await axios.get('/admin/changeRole', {
+          params: {
+            value: event.target.value,
+            id: id
+          }
+        })
+        .then(res => {
+          //this.users= res.data
+          setTimeout(() => {
+            this.sending= false
+          }, 1000);
+        })
+        .catch(err => console.log(err))
         
       }
     },

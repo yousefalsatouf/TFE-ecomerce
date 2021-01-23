@@ -6,7 +6,7 @@
             <p class="category">All Orders listed in this table (you are the only one who has asscess and makes changes to this table.</p>
       </md-card-header>
       <md-card-content>
-            <md-table v-if="orders.length>0" v-model="orders" md-sort="name" md-sort-order="desc">
+            <md-table v-model="orders" md-sort="name" md-sort-order="desc">
                 <md-table-toolbar>
                       <div class="md-toolbar-section-start">
                           <h1 class="md-title">Orders</h1>
@@ -21,7 +21,7 @@
                       <md-table-cell md-label="Status">{{ item.status }}</md-table-cell>
                 </md-table-row>
             </md-table>
-            <strong v-else class="text-danger">No  pending orders ...</strong>
+            <strong class="text-danger" v-if="orders.length==0">No orders pending ...</strong>
       </md-card-content>
      </md-card>
   </div>
@@ -32,10 +32,10 @@
 import axios from 'axios'
 
 export default {
-     name: "users-table",
+     name: "orders-table",
       data() {
         return {
-          orders: null,
+          orders: [],
      };
     },
     methods: {
@@ -47,7 +47,6 @@ export default {
     created(){
       axios.get('/admin/orders').then(res => this.orders= res.data).catch(err => console.log(err))
     }
-  
 }
 </script>
 

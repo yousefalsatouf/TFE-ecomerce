@@ -82,12 +82,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 
         // users API
         Route::resource('users', 'UsersController');
-        Route::get('findUser/{id}', 'UsersController@findUser')->name('findUser');
-        Route::post('editUser/{id}', 'UsersController@editUser')->name('editUser');
-        Route::get('editImage/{id}', 'UsersController@editImage')->name('editImage');
+        Route::get('/changeRole', 'UsersController@changeRole');
 
         // Products API
         Route::resource('products', 'ProductsController');
+        Route::get('/addProduct', 'ProductsController@store');
         Route::post('editProduct/{id}', 'ProductsController@editProduct')->name('editProduct');
         Route::get('editImage/{id}', 'ProductsController@editImage')->name('editImage');
         Route::post('editProductImage', 'ProductsController@editProductImage')->name('editProductImage');
@@ -95,7 +94,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 
         // Categories API
         Route::resource('categories','CategoriesController');
-        Route::post('update/{id}', 'CategoriesController@update')->name('update');
+        Route::post('/addCategory', 'CategoriesController@store');
         Route::get('/removeCategory', 'CategoriesController@removeCategory');
 
 

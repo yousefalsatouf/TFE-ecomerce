@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('shopping_cost')->nullable();
             $table->string('stock');
             $table->text('product_info');
-            $table->string('image');
-            $table->integer('new_arrival')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('new_arrival')->default(false);
             $table->string('sold_price')->nullable();
             $table->integer('category_id');
             $table->timestamps();

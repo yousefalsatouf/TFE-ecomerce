@@ -89,7 +89,7 @@ export default {
           }
      },
      methods: {
-           async submitLocations(event)
+        async submitLocations(event)
           {
               if(this.locationTitle && this.locationAddress && this.locationState && this.locationCity && this.locationHours && this.locationLat && this.locationLng && this.locationDes )
              {
