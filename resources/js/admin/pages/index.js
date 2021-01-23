@@ -1,5 +1,4 @@
 import DashboardLayout from "../pages/Layout/DashboardLayout.vue";
-import Dashboard from "../pages/Dashboard.vue";
 import UserProfile from "../pages/UserProfile.vue";
 import Maps from "../pages/Maps.vue";
 import Categories from '../pages/Categories.vue'
@@ -10,7 +9,6 @@ import Products from '../pages/Products.vue'
 
 export { 
 DashboardLayout,
-Dashboard,
 UserProfile,
 Maps,
 Categories,

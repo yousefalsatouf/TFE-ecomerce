@@ -14,8 +14,7 @@ class OrdersController extends Controller
             ->join('orders_product', 'orders.id', '=', 'orders_product.orders_id')
             ->join('users', 'users.id', '=', 'orders.user_id')
             ->get();
-
-        return view('admin.orders.index', compact('orderStatus'));
+        return response()->json($orderStatus);
     }
 
     public function changeOrderStatus(Request $request)
@@ -28,16 +27,5 @@ class OrdersController extends Controller
 
         return response()->json(['success'=>'Status is updated !']);
 
-    }
-
-    public function destroy($id)
-    {
-        $deleted = false;
-        $destroy = DB::table('orders')->where('id', '=', $id)->delete();
-        $destroyOrder = DB::table('orders_product')->where('orders_id', '=', $id)->delete();
-        if ($destroy && $destroyOrder)
-            $deleted = true;
-
-        return back()->with('status', $deleted);
     }
 }

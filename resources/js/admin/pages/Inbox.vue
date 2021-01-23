@@ -1,5 +1,5 @@
 <template>
-  <div>inbox</div>
+  <h1 class="text-success">In Progress .....</h1>
 </template>
 
 <script>

@@ -132,8 +132,4 @@
     </section>
     <hr>
     @include('front.helpers.review')
-    <section id="recommends">
-        <div class="container">
-        </div>
-    </section>
 @endsection

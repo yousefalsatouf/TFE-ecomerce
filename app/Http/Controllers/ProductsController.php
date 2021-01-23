@@ -16,42 +16,33 @@ class ProductsController extends Controller
     public function index()
     {
         $products = DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->get();
+        $categories= Category::all();
         //dd($products);
-
-        return view('admin.product.index', compact('products'));
-    }
-
-    public function create()
-    {
-        $categories = Category::pluck('name', 'id');
-
-        return view('admin.product.create', compact('categories'));
+        return response()->json([
+            "products"=> $products,
+            "categories"=> $categories,
+        ]);
     }
 
     public function store( Request $request)
     {
 
-        $formInput = $request->except('image');
+        DB::table('products')->insert([
+            'product_name' => $request->name,
+            'product_code' => $request->code,
+            'product_price' => $request->price,
+            'shopping_cost' => $request->shoppingCost,
+            'stock' => $request->stock,
+            'product_info' => $request->description,
+            'new_arrival' => $request->new?1:false,
+            'sold_price' => $request->sold,
+            'category_id' => (int)$request->category,
+        ]);
 
-        if (!$request->product_name || !$request->product_code || !$request->product_price || !$request->stock || !$request->product_info ||!$request->image)
-            return back()->with('error','Fields can not be empty');
-
-        //dd($request->all());
-        // create first image
-        $image = $request->image;
-
-        if($request->hasfile('image'))
-        {
-            $imageName = $image->getClientOriginalName();
-            $image->move('image', $imageName);
-            $formInput['image'] = $imageName;
-        }
-        // create gallery images
-
-        Product::create($formInput);
+        $products= Product::all();
 
 
-        return redirect('/admin/products')->with('msg', 'Product created !');
+        return response()->json($products);
     }
 
     public function editProductForm($id) {
@@ -67,6 +58,15 @@ class ProductsController extends Controller
         //dd($props);
 
         return view('admin.product.edit', compact('products', 'categories', 'props', 'galleries'));
+    }
+
+    public function removeProduct(Request $request)
+    {
+        //
+        Product::findOrFail($request->id)->delete();
+        $products= Product::all();
+
+        return response()->json($products);
     }
 
 

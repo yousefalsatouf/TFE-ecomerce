@@ -47,7 +47,7 @@ class ProductSeeder extends Seeder
             'product_info' => 'Perfect Protein contient le mélange de protéines optimal pour les sportifs confirmés. Perfect Protein contient de 40 % de Whey Isolate avec 30 % de concentré de Whey ultrafiltré et 30 % de protéines de lait. Buvez Perfect Protein le matin, entre les repas, après un entraînement ou le soir. En combinant des protéines de Whey avec des protéines de lait, on obtient Perfect Protein, une efficacité maximale à tout moment de la journée !',
             'sold_price' => null,
             'category_id' => 1,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         Product::create([
@@ -60,7 +60,7 @@ class ProductSeeder extends Seeder
             'product_info' => 'Besoin de protéines de lactosérum polyvalentes que vous pouvez utiliser dans des shakes, des smoothies ou des crêpes ? 100% Whey de Stacker 2 contient 24 g de protéines de lactosérum par portion, pour vous aider à développer et à entretenir votre masse musculaire. Avec son mélange de concentré et d’isolat de protéines de lactosérum, vous pouvez boire 100% Whey après l’entraînement ou à tout moment de la journée. Cette poudre de lactosérum facile à utiliser vous aidera à atteindre vos objectifs de mise en forme ou à obtenir le corps de vos rêves.',
             'sold_price' => 15,
             'category_id' => 1,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         //category 2, Vitamins
@@ -100,7 +100,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
             'product_info' => 'Des capsules molles avec de la vitamine E 100 % naturelle avec des tocophérols mixtes. Cette version non estérifiée de vitamine E est la moins modifiée et elle est devenue plus populaire que tous les autres formes ces dernières années. La vitamine E-400 naturelle contient 400 UI de D-alpha-tocophérol ainsi que des petites quantités de bêta, gamma et delta-tocophérols.',
             'sold_price' => null,
             'category_id' => 2,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         Product::create([
@@ -127,7 +127,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
             'product_info' => 'Vous cherchez des cookies riches en protéines mais à faible teneur en sucre pour un petit extra sucré ? Nos cookies protéinés Smart sont disponibles en cinq saveurs délicieuses et chaque sachet de 175 g contient 21 cookies. Vous pouvez les emporter avec vous pour un shot de protéines à tout moment ou les manger après votre entraînement pour aider à développer et à maintenir la masse musculaire. Ou pourquoi ne pas les savourer avec votre boisson chaude préférée ou en dessert après le repas !',
             'sold_price' => null,
             'category_id' => 3,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         Product::create([
@@ -152,7 +152,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
             'product_info' => 'All The Taste Without The Sugar" Tels sont les objectifs de Diablo. Déguster tranquillement la nourriture sans tous ces sucres superflus. Ils l’ont réalisé, les produits ont un goût absolument fantastique, sans ajout de sucres ou même sans aucun sucre ! Tout le monde doit de temps en temps pouvoir se gâter avec une friandise, n’est-ce pas ? Les produits de Diablo ont gardé tout leur goût, sans mauvais sucres ! En bref : appréciez plus souvent sans culpabilité.',
             'sold_price' => null,
             'category_id' => 3,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         Product::create([
@@ -203,7 +203,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
             'product_info' =>'Ne vous contentez pas du minimum et exploitez vos ressources lors d\'entraînements intenses ! Le Gold Standard Pre-Workout vous aide a y parvenir grâce à une formulation complète et adaptée. Il contient notamment 3,4 g de créatine monohydrate par dose, qui améliore les capacités physiques en cas de séries successives d\'exercices très intenses de courte durée. Ce produit concentre également 2,9 g d\'un complexe d\'acides aminés qui constituent les protéines. Pour clore le tout, le Gold Standard Pre-Workout mélange vitamines D, B1, B3, B5, B6, B9 et B12 pour produit unique en son genre. Ces vitamines contribuent à de nombreux processus biologiques utiles au sportif en situation d\'entraînement. La vitamine D contribue, par exemple, au maintien d\'une fonction musculaire normale, au maintien d\'une ossature normale et à une calcémie normale. Les vitamines B3, B6, B9 et B12 contribuent à réduire la fatigue et à un métabolisme énergétique normal.',
             'sold_price' => 25,
             'category_id' => 4,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         Product::create([
@@ -280,7 +280,7 @@ La Vitamine D3 3000UI peut se prendre quotidiennement tout au long de l’année
             'product_info' =>'En vieillissant, le corps produit moins de collagène. Donnez un coup de pouce à votre corps avec Super Collagen de NeoCell !',
             'sold_price' => null,
             'category_id' => 6,
-            'new_arrival' => 1
+            'new_arrival' => true
         ]);
 
         Product::create([

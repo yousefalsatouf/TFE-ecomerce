@@ -5,12 +5,7 @@
       :sidebar-item-color="sidebarBackground"
     >
       <mobile-menu slot="content"></mobile-menu>
-
       <sidebar-link to="/">
-        <md-icon>dashboard</md-icon>
-        <p>Dashboard</p>
-      </sidebar-link>
-      <sidebar-link to="/user">
         <md-icon>person</md-icon>
         <p>My Profile</p>
       </sidebar-link>

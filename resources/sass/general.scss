@@ -135,3 +135,11 @@ button:hover
     }
 
 }
+
+@media screen and (max-width: $break-small)
+{
+    .container, #login .card, #register .card
+    {
+        min-width: 100% !important;
+    }
+}

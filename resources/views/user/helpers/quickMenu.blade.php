@@ -1,4 +1,4 @@
-<nav class="nav flex-column quick-menu">
+<nav class=" flex-column quick-menu">
     <h4>Profile</h4>
     <hr>
     <a class="nav-link" href="{{url('/user')}}">Profile</a>

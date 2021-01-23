@@ -11022,9 +11022,17 @@ a.text-dark:focus {
     justify-content: flex-end;
   }
 
+  #header .header-menu .large-screen .content {
+    display: flex;
+  }
+
   #header .header-menu .large-screen .content ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+
+  #header .header-menu .large-screen .content ul li {
+    margin: auto 10px;
   }
 
   #header .header-menu a {
@@ -11048,12 +11056,6 @@ a.text-dark:focus {
 
   #header .header-menu .over {
     position: absolute;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  #header .header-menu .top-menu .content ul {
-    display: flex;
   }
 }
 
@@ -11169,6 +11171,15 @@ a.text-dark:focus {
     border-bottom: 1.5px solid #2BBBAD;
   }
 
+  #home .carousel-caption h4 {
+    display: none;
+  }
+
+  #home .last-products .container,
+  #home .categories-list .container {
+    max-width: 100% !important;
+  }
+
   #home .articles {
     display: flex;
     flex-wrap: wrap;
@@ -11267,12 +11278,12 @@ a.text-dark:focus {
     justify-content: space-between;
     justify-items: center;
     margin: 3rem auto;
-    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card {
     width: 24%;
     transition: all 0.5s;
+    box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
   #home .last-products .container .articles .card img {
@@ -11401,65 +11412,9 @@ a.text-dark:focus {
 }
 
 @media screen and (max-width: 768px) {
-  #shop h2 {
-    color: #2BBBAD;
-  }
-
-  #shop img {
-    max-width: 100%;
-  }
-
-  #shop .shop-bg .ad-container {
-    background-color: #CCCCC6;
-    padding: 1rem;
-  }
-
-  #shop .productsSearch .search-input form div {
-    flex-wrap: wrap;
-    justify-content: center;
-    flex: 1;
-  }
-
-  #shop .productsSearch .search-input form div label,
-  #shop .productsSearch .search-input form div input {
-    width: 100%;
-  }
-
-  #shop .productsSearch .search-input form div input {
-    background-color: transparent;
-    border: 0;
-    border-bottom: 1px solid #2BBBAD;
-  }
-
-  #shop .productsSearch .search-input form button {
-    width: 100%;
-  }
-
-  #shop .productsSearch .advanced-search {
-    margin: 1rem auto;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div {
-    width: 100%;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div * {
-    width: 100%;
-  }
-
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div input,
-  #shop .productsSearch .advanced-search .search .search-specific .search-area form div select {
-    border: 0;
-    border-bottom: 1px solid #2BBBAD;
-  }
-
-  #shop .products .container div .card {
-    width: 100%;
+  #shop .top-products .container,
+  #shop .productsSearch .container {
+    max-width: 100% !important;
   }
 }
 
@@ -11735,6 +11690,11 @@ a.text-dark:focus {
 @media screen and (max-width: 768px) {
   .gallery {
     margin-bottom: 5rem;
+  }
+
+  #product-details .container,
+  #app .container {
+    max-width: 100% !important;
   }
 }
 
@@ -12065,287 +12025,6 @@ a.text-dark:focus {
   border-bottom: 1px solid #2BBBAD;
 }
 
-@media screen and (max-width: 768px) {
-  #admin-menu nav .menu ul {
-    justify-content: space-evenly;
-  }
-}
-
-#admin-menu {
-  font-family: "Berkshire Swash", cursive;
-}
-
-#admin-menu nav {
-  background-color: black;
-  display: flex;
-}
-
-#admin-menu nav .menu {
-  width: 80%;
-}
-
-#admin-menu nav .menu ul {
-  display: flex;
-  flex-direction: row;
-}
-
-#admin-menu nav > a:first-child {
-  color: #2BBBAD;
-  font-weight: bolder;
-}
-
-#admin-menu nav div ul li a {
-  color: #fff;
-}
-
-#admin-menu nav div ul li a:hover {
-  color: #2BBBAD;
-}
-
-#admin {
-  font-family: "Berkshire Swash", cursive;
-}
-
-#admin h1,
-#admin h4 {
-  color: #2BBBAD;
-}
-
-#admin .sidebar {
-  background-color: #000;
-  padding: 0;
-}
-
-#admin .sidebar .active {
-  background-color: #2BBBAD;
-  color: #000;
-  font-weight: bolder;
-  font-size: 25px;
-}
-
-#admin .sidebar a {
-  color: #2BBBAD;
-}
-
-#admin .sidebar a:hover {
-  color: #000;
-}
-
-#admin #admin-content {
-  background-color: #000;
-}
-
-/*
- * Base structure
- */
-
-/* Move down content because we have a fixed navbar that is 3.5rem tall */
-
-/*
- * Typography
- */
-
-/*
- * Sidebar
- */
-
-.sidebar {
-  position: fixed;
-  top: 51px;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 20px 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid #eee;
-}
-
-.sidebar .nav {
-  margin-bottom: 20px;
-}
-
-.sidebar .nav-item {
-  width: 100%;
-}
-
-.sidebar .nav-item + .nav-item {
-  margin-left: 0;
-}
-
-.sidebar .nav-link {
-  border-radius: 0;
-}
-
-/*
- * Dashboard
- */
-
-/* Placeholders */
-
-.placeholders {
-  padding-bottom: 3rem;
-}
-
-.placeholder img {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-@media screen and (max-width: 768px) {
-  #admin .sidebar-container {
-    display: none;
-  }
-
-  #admin #products {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 768px) and (max-width: 992px) {
-  #admin #products .nav-products {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #admin .inbox-container {
-    display: flex;
-    flex: 1;
-  }
-
-  #admin .inbox-container .inbox-side {
-    padding: 10px;
-    flex: 0.30;
-    height: 100vh;
-    overflow: scroll;
-  }
-
-  #admin .inbox-container .inbox-side > div {
-    overflow: scroll;
-    height: 50vh;
-  }
-
-  #admin .inbox-container .message-content {
-    flex: 0.75;
-    height: 100vh;
-    overflow: scroll;
-    padding: 3rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #admin .sidebar-container {
-    margin-top: 5rem;
-  }
-
-  #admin .sidebar-container .sidebar {
-    color: #2BBBAD;
-    font-size: 18px;
-    font-family: "Anton", sans-serif;
-    margin-top: 8rem;
-  }
-
-  #admin .back {
-    display: none;
-  }
-
-  #admin .inbox-container {
-    display: flex;
-    flex: 1;
-  }
-
-  #admin .inbox-container .inbox-side {
-    padding: 10px;
-    flex: 0.25;
-    height: 100vh;
-    overflow: scroll;
-  }
-
-  #admin .inbox-container .inbox-side > div {
-    overflow: scroll;
-    height: 50vh;
-  }
-
-  #admin .inbox-container .message-content {
-    flex: 0.50;
-    height: 100vh;
-    overflow: scroll;
-    padding: 3rem;
-  }
-}
-
-#admin .admin-home {
-  margin: 1rem auto;
-}
-
-#admin .role {
-  margin-top: 5rem;
-}
-
-#admin .role form select {
-  border: 0;
-  border-bottom: 1px solid #2BBBAD;
-}
-
-#admin .products label,
-#admin .categories label,
-#admin .orders label {
-  font-weight: bolder;
-  color: #2BBBAD;
-}
-
-#admin .products input,
-#admin .products select,
-#admin .products textarea,
-#admin .categories input,
-#admin .categories select,
-#admin .categories textarea,
-#admin .orders input,
-#admin .orders select,
-#admin .orders textarea {
-  border: 0;
-  border-bottom: 1px solid #2BBBAD;
-}
-
-#admin .orders table .orderStatus {
-  display: none;
-}
-
-#admin .orders table .orderStatus input {
-  height: 3rem;
-}
-
-@media screen and (max-width: 768px) {
-  .resume .side {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .resume {
-    justify-content: space-between;
-  }
-
-  .resume .side {
-    width: 45%;
-    margin: 1rem;
-  }
-}
-
-#cart h1,
-#cart h2 {
-  font-family: "Berkshire Swash", cursive;
-  color: #2BBBAD;
-}
-
-#cart section:first-child {
-  margin-bottom: 12rem;
-  margin-top: 2rem;
-}
-
 #cart section .quick-access {
   background-color: #2BBBAD;
 }
@@ -12635,6 +12314,14 @@ button:hover {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .container,
+  #login .card,
+  #register .card {
+    min-width: 100% !important;
+  }
+}
+
 .quick-menu {
   margin-bottom: 5rem;
   padding: 1rem;
@@ -12707,7 +12394,7 @@ button:hover {
 }
 
 .profile-box {
-  background-color: #000 !important;
+  background-color: transparent !important;
   border-radius: 10px !important;
   border: 0;
   padding: 0.5rem !important;

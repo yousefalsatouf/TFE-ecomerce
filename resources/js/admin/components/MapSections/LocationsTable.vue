@@ -6,7 +6,7 @@
           <p class="category">All locations listed in this table.</p>
      </md-card-header>
      <md-card-content>
-          <md-table v-if="locations.length>0" v-model="locations" md-sort="name" md-sort-order="desc" md-card md-fixed-header>
+          <md-table v-model="locations" md-sort="name" md-sort-order="desc" md-card md-fixed-header>
                <md-table-toolbar>
                     <div class="md-toolbar-section-start">
                          <h1 class="md-title">Locations</h1>
@@ -28,7 +28,6 @@
                     </md-table-cell>
                </md-table-row>
           </md-table>
-          <strong v-else class="text-danger">No Locations registed yet .</strong>
      </md-card-content>
      </md-card>
   </div>
@@ -61,7 +60,7 @@ export default {
       },
       deleteLocation(id)
       {
-           axios.get('/removeLocation', { params: { id: id }}).then(res => this.$emit("remove-location", res.data))
+           axios.get('/admin/removeLocation', { params: { id: id }}).then(res => this.$emit("remove-location", res.data))
       },
     },
 }

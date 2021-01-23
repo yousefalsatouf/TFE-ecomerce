@@ -40,7 +40,7 @@
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
-              <label>Adress</label>
+              <label>Address</label>
               <md-input v-model="address" type="text" required></md-input>
             </md-field>
           </div>
@@ -104,16 +104,15 @@ export default {
     };
   },
    created(){ 
-      axios.get('/getAuth').then(res => {
+      axios.get('/admin/getAuth').then(res => {
           const auth = res.data
-
           this.$emit("get-auth", auth)
           this.id= auth.id
           this.username= auth.name
           this.emailadress= auth.email
           this.firstname= auth.first_name
           this.lastname= auth.last_name
-          this.address= auth.address
+          this.address= auth.street
           this.city= auth.city
           this.state= auth.state
           this.code= auth.postal_code
@@ -130,12 +129,12 @@ export default {
     let data = new FormData(profileForm);
     //data.append("image", this.image, "ProfileImage");
     const self= this
-    await axios.get('updateProfile', {params: {
+    await axios.get('/admin/updateProfile', {params: {
             id: this.id,
             //image: data,
             username: this.username, 
-            state: this.locationState, 
-            city: this.locationCity, 
+            state: this.state, 
+            city: this.city, 
             email: this.emailadress,
             fname: this.firstname, 
             lname: this.lastname, 

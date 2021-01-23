@@ -2,94 +2,11 @@
 {
     #shop
     {
-
-        h2
-        {
-            color: $green;
-        }
-        img
-        {
-            max-width: 100%;
-        }
-        .shop-bg
-        {
-            .ad-container
-            {
-                background-color: #CCCCC6;
-                padding: 1rem;
-            }
-        }
-        .productsSearch
-        {
-            .search-input
-            {
-                form
-                {
-                    div
-                    {
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        flex: 1;
-                        label, input
-                        {
-                            width: 100%;
-                        }
-                        input
-                        {
-                            background-color: transparent;
-                            border: 0;
-                            border-bottom: 1px solid $green;
-                        }
-                    }
-                    button
-                    {
-                        width: 100%;
-                    }
-                }
-            }
-
-        .advanced-search
-        {
-            margin: 1rem auto;
-            .search
-            {
-                .search-specific
-                {
-                    .search-area
-                    {
-                        form
-                        {
-                            display: flex;
-                            flex-wrap: wrap;
-                            div
-                            {
-                                width: 100%;
-                                *{
-                                    width: 100%;
-                                }
-                                input, select
-                                {
-                                    border: 0;
-                                    border-bottom: 1px solid $green;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        }
-        .products
+        .top-products, .productsSearch
         {
             .container
             {
-                div
-                {
-                    .card
-                    {
-                        width: 100%;
-                    }
-                }
+                max-width: 100% !important;
             }
         }
     }

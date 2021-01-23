@@ -12,51 +12,40 @@ class UsersController extends Controller
     public function index()
     {
         if (Auth::user()->isActor())
-            return redirect('/user');
+            return redirect('/');
 
         $users = User::all();
 
         return response()->json($users);
     }
 
-    public function findUser($id)
+    public function changeRole(Request $request)
     {
         if (Auth::user()->isActor())
-            return redirect('/user');
+            return redirect('/admin');
 
-        $user = User::findOrFail($id);
+        if ($request->value==="admin") {
+            # code...
+            DB::table('users')
+            ->where('id', $request->id)
+            ->update(['admin' => 1, 'actor' => null]);
+        }
+        if ($request->value==="editor") {
+            # code...
+            DB::table('users')
+            ->where('id', $request->id)
+            ->update(['admin' => null, 'actor' => 1]);
+        }
+        if($request->value==="user") {
+            # code...
+            DB::table('users')
+            ->where('id', $request->id)
+            ->update(['admin' => null, 'actor' => null]);
+        }
+        $users= User::all();
 
-        return view('admin.users.edit', compact('user'));
+        return response()->json($users);
     }
 
-    public function editUser(Request $request, $id)
-    {
-        if (Auth::user()->isActor())
-            return redirect('/user');
 
-        $role = $request->role;
-        //dd($role);
-
-        if ($role == 'admin')
-            //dd($role);
-            DB::table('users')->where('id', $id)->update(['admin' => 1, 'actor' => null]);
-        elseif ($role == 'actor')
-            //dd($role);
-            DB::table('users')->where('id', $id)->update(['admin' => null, 'actor' => 1]);
-        else
-            //dd($role);
-            DB::table('users')->where('id', $id)->update(['admin' => null, 'actor' => null]);
-
-        return redirect('/admin/users');
-    }
-
-    public function destroy($id)
-    {
-        if (Auth::user()->isActor())
-            return redirect('/user');
-
-        User::findOrFail($id)->delete();
-
-        return redirect()->back();
-    }
 }

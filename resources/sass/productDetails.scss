@@ -4,6 +4,13 @@
     {
         margin-bottom: 5rem;
     }
+    #product-details, #app
+    {
+        .container
+        {
+            max-width: 100% !important;
+        }
+    }
 }
 
 @media screen and (max-width: $break-medium + 232px)

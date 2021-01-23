@@ -1,7 +1,6 @@
 import 
 { 
   DashboardLayout,
-  Dashboard,
   UserProfile,
   Maps,
   Categories,
@@ -19,11 +18,6 @@ const routes = [
     children: [
       {
         path: "/",
-        name: "Dashboard",
-        component: Dashboard
-      },
-      {
-        path: "user",
         name: "My profile",
         component: UserProfile
       },
