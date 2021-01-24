@@ -2,7 +2,7 @@
   <div class="content">
     <div class="md-layout">
       <div class="md-layout-item md-medium-size-100 md-size-66">
-        <edit-profile-form @get-auth="getAuth"/>
+        <edit-profile-form @fetch-auth="fetchAuth"/>
       </div>
       <div class="md-layout-item md-medium-size-100 md-size-33">
         <user-card :auth="auth" />
@@ -14,7 +14,6 @@
 <script>
 import EditProfileForm from "../components/UserProfile/EditProfileForm.vue";
 import UserCard from '../components/UserProfile/UserCard.vue'
-import axios from "axios";
 
 export default {
   components: {
@@ -27,7 +26,7 @@ export default {
     }
   },
   methods: {
-    getAuth(auth){
+    fetchAuth(auth){
       this.auth= auth
     }
   }

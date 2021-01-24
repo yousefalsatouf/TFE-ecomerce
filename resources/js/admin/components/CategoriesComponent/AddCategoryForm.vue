@@ -54,26 +54,30 @@ export default {
         },
         async submitCategory(e)
         {
-           e.preventDefault();
+          e.preventDefault();
           this.sending= true
           let self = this;
-          const config = {headers: {'content-type': 'multipart/form-data'} }
+          const config = {
+              headers: {
+                  'content-type': 'multipart/form-data'
+              }
+          }
           // form data
-          let formData = new FormData();
-          formData.set('image', this.image);
-          formData.set('name', this.categoryName);
-          formData.set('description', this.description);
+          let data = new FormData();
+          data.append('file', this.image);
+          data.append('name', this.categoryName)
+          data.append('description', this.description)
           // send upload request
-          await axios.post('/admin/addCategory', formData, config)
+          await axios.post('/admin/addCategory', data, config)
           .then(res => {
-            this.$emit('add-category', res.data)
+            self.$emit('add-category', res.data)
             setTimeout(() => {
-                  this.sending= false
-                  this.imported= false
+                  self.sending= false
+                  self.imported= false
             }, 1000);
           })
           .catch(function (error) {
-          self.output = error;
+            self.output = error;
           });
         }
       },

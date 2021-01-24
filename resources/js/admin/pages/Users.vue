@@ -83,7 +83,11 @@ export default {
       }
     },
     created(){
+      this.sending= true
       axios.get('/admin/users').then(res => this.users= res.data).catch(err => console.log(err))
+      setTimeout(() => {
+        this.sending= false
+      }, 1000);
     }
   
 }

@@ -31,7 +31,7 @@
                 </div>
               </a>
             </md-list-item>
-            <md-list-item href="#/user">
+            <md-list-item href="#/">
               <i class="material-icons" style="font-size: 40px">person</i>
               <p class="hidden-lg hidden-md">Profile</p>
             </md-list-item>

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <md-progress-bar md-mode="indeterminate" v-if="sending" />
       <div class="map-addForm">
             <div class="form">
                 <add-locations-form @add-location="addLocation" />
@@ -21,6 +22,7 @@ export default {
     data(){
         return {
             locations: [],
+            sending: false
         }
     },
     components: {
@@ -29,9 +31,13 @@ export default {
         LocationsTable
     },
     created(){
+        this.sending= true
         axios.get('/admin/locations').then(res => {
              this.locations= res.data
         })
+        setTimeout(() => {
+            this.sending= false
+        }, 1000);
     },
     methods: {
         addLocation(data){

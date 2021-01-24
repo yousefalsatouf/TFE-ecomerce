@@ -26,9 +26,19 @@ class ProductsController extends Controller
 
     public function store( Request $request)
     {
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048'
+         ]);
+  
+         if($request->file()) {
+             $imageName = time().'_'.$request->file->getClientOriginalName();
+             $request->file->move('images',$imageName);
+         }
+
 
         DB::table('products')->insert([
             'product_name' => $request->name,
+            'image' => $imageName,
             'product_code' => $request->code,
             'product_price' => $request->price,
             'shopping_cost' => $request->shoppingCost,
@@ -39,7 +49,7 @@ class ProductsController extends Controller
             'category_id' => (int)$request->category,
         ]);
 
-        $products= Product::all();
+        $products= DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->get();;
 
 
         return response()->json($products);

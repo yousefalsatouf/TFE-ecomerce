@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="updateProfile" id="profileForm">
+  <form @submit.prevent="updateProfile" id="profileForm"  enctype="multipart/form-data">
+     <md-progress-bar md-mode="indeterminate" v-if="sending" />
     <md-card>
-      <p></p>
       <md-card-header data-background-color="black">
         <h4 class="title">Edit Profile</h4>
         <p class="category">Complete your profile</p>
@@ -11,13 +11,13 @@
           <div class="md-layout-item md-small-size-100 md-size-33">
               <md-field>
               <span v-if="uploaded" class="material-icons text-success" style="font-size: 25px">done</span>
-              <input type="file" name="image" class="form-control-file" id="image" @change="setImage">
+              <input type="file" class="form-control-file" id="image" @change="setImage($event)">
               </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
               <label>User Name</label>
-              <md-input v-model="username" type="text" required></md-input>
+              <md-input v-model="username" type="text"></md-input>
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
@@ -41,7 +41,7 @@
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
               <label>Address</label>
-              <md-input v-model="address" type="text" required></md-input>
+              <md-input v-model="address" type="text" v></md-input>
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
@@ -65,7 +65,7 @@
           <div class="md-layout-item md-size-100">
             <md-field maxlength="5">
               <label>About Me</label>
-              <md-textarea v-model="aboutme"></md-textarea>
+              <md-textarea v-model="aboutme" required></md-textarea>
             </md-field>
           </div>
           <div class="md-layout-item md-size-100 text-right">
@@ -89,6 +89,7 @@ export default {
   data() {
     return {
       success: false,
+      sending: false,
       uploaded: false,
       id: null,
       username: null,
@@ -104,6 +105,7 @@ export default {
     };
   },
    created(){ 
+      this.sending= true
       axios.get('/admin/getAuth').then(res => {
           const auth = res.data
           this.$emit("get-auth", auth)
@@ -117,36 +119,52 @@ export default {
           this.state= auth.state
           this.code= auth.postal_code
           this.aboutme= auth.about
-  })
+  }).catch(err=>console.log(err))
+
+  setTimeout(() => {
+    this.sending= false
+  }, 1000);
+  
   },
   methods: {
     setImage: function (event) {
       this.uploaded= true
       this.image = event.target.files[0]
     },
-   async updateProfile(){
+   async updateProfile(e){
 
-    let data = new FormData(profileForm);
-    //data.append("image", this.image, "ProfileImage");
-    const self= this
-    await axios.get('/admin/updateProfile', {params: {
-            id: this.id,
-            //image: data,
-            username: this.username, 
-            state: this.state, 
-            city: this.city, 
-            email: this.emailadress,
-            fname: this.firstname, 
-            lname: this.lastname, 
-            code: this.code,
-            about: this.aboutme,
-      }})
-      .then(res => {
-          this.$emit("get-auth", res.data)
-          this.success = true
-          this.uploaded= false
-          setTimeout(() => {self.success= false}, 3000);
-      })
+    e.preventDefault();
+    this.sending= true
+    let self = this
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    }
+    // form data
+    let data = new FormData();
+    data.append('file', this.image);
+    data.append('id', this.id)
+    data.append('username', this.username)
+    data.append('email', this.emailadress)
+    data.append('fname', this.firstname)
+    data.append('lname', this.lastname)
+    data.append('address', this.address)
+    data.append('city', this.city)
+    data.append('state', this.state)
+    data.append('code', this.code)
+    data.append('about', this.aboutme)
+    // send upload request
+    await axios.post('/admin/updateProfile', data, config)
+    .then(res => {
+        self.$emit("fetch-auth", res.data)
+        self.success = true
+        self.uploaded= false
+        setTimeout(() => {
+          self.success= false
+          self.sending= false
+          }, 1000);
+    })
     }
   },
  

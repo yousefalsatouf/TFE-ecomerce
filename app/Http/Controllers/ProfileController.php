@@ -29,17 +29,27 @@ class ProfileController extends Controller
     // auth update profile
     public function updateProfile(Request $request)
     {
-        //$image= $request->file('image')->store('image');
+
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048'
+         ]);
+  
+         if($request->file()) {
+             $imageName = time().'_'.$request->file->getClientOriginalName();
+             $request->file->move('images',$imageName);
+         }
 
         DB::table('users')
             ->where('id', $request->id)
             ->update([
                 'name' => $request->username,
+                'image' => $imageName,
                 'state'=> $request->state, 
                 'city'=> $request->city, 
                 'email'=> $request->email,
                 'first_name'=> $request->fname, 
                 'last_name'=> $request->lname, 
+                'street' => $request->address,
                 'postal_code'=> $request->code,
                 'about'=> $request->about,
             ]);

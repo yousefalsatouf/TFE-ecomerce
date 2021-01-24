@@ -1,5 +1,6 @@
 <template>
     <div class="categories-container">
+       <md-progress-bar md-mode="indeterminate" v-if="sending" />
       <add-categories-form @add-category="addCategory" />
       <hr>
       <categories-table :categories="categories" @remove-category="removeCategory"/>
@@ -13,6 +14,7 @@ import axios from 'axios'
 export default {
     data(){
         return {
+          sending: false,
             categories: [],
         }
     },
@@ -21,7 +23,11 @@ export default {
       CategoriesTable
     },
     created(){
+      this.sending= true
       axios.get('/admin/categories').then(res => this.categories= res.data).catch(err => console.log(err))
+      setTimeout(() => {
+        this.sending= false
+      }, 1000);
     },
     methods: {
       addCategory(data){

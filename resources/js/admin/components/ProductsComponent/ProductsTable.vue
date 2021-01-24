@@ -6,7 +6,7 @@
             <p class="category">All Products listed in this table</p>
       </md-card-header>
       <md-card-content>
-            <md-table v-model="products" class="products-table" md-sort="name" md-sort-order="desc" md-fixed-header>
+            <md-table v-model="products" class="products-table" md-sort="name" md-sort-order="desc">
                 <md-table-toolbar>
                       <div class="md-toolbar-section-start">
                           <h1 class="md-title">Products</h1>

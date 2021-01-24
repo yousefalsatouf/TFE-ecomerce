@@ -72,13 +72,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 
         // auth API
         Route::get('/getAuth', 'ProfileController@getAuth');
-        Route::get('/updateProfile', 'ProfileController@updateProfile');
+        Route::post('/updateProfile', 'ProfileController@updateProfile');
 
         // inbox API
-        Route::get('/inbox', 'AdminController@inbox')->name('readMsg');
-        Route::get('/inbox/{id}', 'AdminController@readMessage');
-        Route::delete('/inbox/deleteAll', 'AdminController@clearAllMessages');
-        Route::delete('/inbox/delete/{id}', 'AdminController@clearMessage');
+
 
         // users API
         Route::resource('users', 'UsersController');
@@ -86,10 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 
         // Products API
         Route::resource('products', 'ProductsController');
-        Route::get('/addProduct', 'ProductsController@store');
-        Route::post('editProduct/{id}', 'ProductsController@editProduct')->name('editProduct');
-        Route::get('editImage/{id}', 'ProductsController@editImage')->name('editImage');
-        Route::post('editProductImage', 'ProductsController@editProductImage')->name('editProductImage');
+        Route::post('/addProduct', 'ProductsController@store');
         Route::get('/removeProduct', 'ProductsController@removeProduct');
 
         // Categories API
@@ -99,10 +93,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
 
 
         // Properties API
-        Route::get('/addProperty/{id}', 'ProductsController@addProperty')->name('addProperty');
-        Route::post('/submitProperty', 'ProductsController@submitProperty')->name('submitProperty');
-        Route::post('/editProperty', 'ProductsController@editProperty');
-        Route::delete('/removeProperty/{id}', 'ProductsController@removeProperty');
 
         // Orders API
         Route::resource('/orders','OrdersController');

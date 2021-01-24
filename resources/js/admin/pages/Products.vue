@@ -1,5 +1,6 @@
 <template>
     <div class="products-container">
+      <md-progress-bar md-mode="indeterminate" v-if="sending" />
       <add-products-form @add-product="addProduct" :categories="categories"/>
       <hr>
       <products-table :products="products" @remove-product="removeProduct"/>
@@ -13,6 +14,7 @@ import axios from 'axios'
 export default {
     data(){
         return {
+            sending: false,
             products: [],
             categories: []
         }
@@ -22,10 +24,14 @@ export default {
       ProductsTable
     },
     created(){
+        this.sending= true
         axios.get('/admin/products').then(res => {
           this.products= res.data.products
           this.categories= res.data.categories
         }).catch(err => console.log(err))
+        setTimeout(() => {
+          this.sending= false
+        }, 1000);
     },
     methods: {
       addProduct(data){

@@ -31,26 +31,22 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $name = $request->name;
-        $des = $request->description;
-        $image = $request->file('image');
-        dd($image);
-
-        if($image)
-            $path= $image->store('images', 'public');
-
-        dd($path);
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048'
+         ]);
+  
+         if($request->file()) {
+             $imageName = time().'_'.$request->file->getClientOriginalName();
+             $request->file->move('images',$imageName);
+         }
 
         DB::table('categories')->insert([
-            'name' => $name,
-            'image' => imageName,
-            'description' => $des,
+            'name' => $request->name,
+            'image' => $imageName,
+            'description' => $request->description,
         ]);
 
         $categories= Category::all();
-
-       //dd($categories);
 
         return response()->json($categories);
     }

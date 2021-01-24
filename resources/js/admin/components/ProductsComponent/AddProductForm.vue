@@ -6,6 +6,12 @@
       </md-card-header>
       <md-card-content>
           <div class="md-layout">
+            <div class="md-layout-item md-small-size-100 md-size-33">
+              <md-field>
+              <span v-if="imported" class="material-icons text-success" style="font-size: 25px">done</span>
+              <input type="file" class="form-control-file" id="image" @change="setImage($event)">
+              </md-field>
+          </div>
           <div class="md-layout-item md-small-size-100 md-size-33 lg-size-33">
             <md-field>
               <label>Prodcut Name: </label>
@@ -51,7 +57,7 @@
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33 lg-size-33">
-            <md-checkbox v-model="newArrival">New Arrival?</md-checkbox>
+            <md-checkbox v-model="newArrival" :value="false">New Arrival?</md-checkbox>
           </div>
           <div class="md-layout-item md-size-100">
             <md-field maxlength="5">
@@ -77,6 +83,8 @@ export default {
       data: () => {
         return{
           sending: false,
+          image: null,
+          imported: false,
           productName: null,
           productCode: null,
           productPrice: null,
@@ -89,27 +97,43 @@ export default {
         }
       },
       methods: {
-        async submitProduct(event)
-          {
-            this.sending= true
-              await axios.get('/admin/addProduct', {params: {
-                  name: this.productName,
-                  code: this.productCode, 
-                  price: this.productPrice, 
-                  description: this.productInfo, 
-                  shoppingCost: this.shoppingCost,
-                  stock: this.stock, 
-                  sold: this.soldPrice, 
-                  new: this.newArrival,
-                  category: this.category,
-              }})
-              .then(res => {
-                  this.$emit('add-product', res.data)
-                 setTimeout(() => {
-                    this.sending = false
-                 }, 1000);
-              })
-          },
+        setImage(e)
+        {
+           this.image = e.target.files[0];
+          this.imported= true
+        },
+        async submitProduct(e)
+      {
+          e.preventDefault();
+          this.sending= true
+          let self = this;
+          const config = {
+              headers: {
+                  'content-type': 'multipart/form-data'
+              }
+          }
+          // form data
+          let data = new FormData();
+          data.append('file', this.image);
+          data.append('name', this.productName)
+          data.append('code', this.productCode)
+          data.append('price', this.productPrice);
+          data.append('description', this.productInfo)
+          data.append('shoppingCost', this.shoppingCost)
+          data.append('stock', this.stock)
+          data.append('sold', this.soldPrice);
+          data.append('new', this.newArrival)
+          data.append('category', this.category)
+          // send upload request
+          await axios.post('/admin/addProduct', data, config)
+          .then(res => {
+              self.$emit('add-product', res.data)
+              setTimeout(() => {
+                self.sending = false
+                self.imported= false
+              }, 1000);
+          })
+      },
       },
 
 }
