@@ -14,29 +14,32 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'admin',
+            'name' => 'yousef',
             'first_name' => 'Yousef',
-            'email' => 'admin@admin.com',
+            'first_name' => 'Alsatouf',
+            'email' => 'yousef@sportclub.be',
             'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('admin123456'),
             'admin' => true,
         ]);
 
         User::create([
-            'name' => 'actor',
-            'first_name' => 'actor',
-            'email' => 'actor@actor.com',
+            'name' => 'david',
+            'first_name' => 'David',
+            'first_name' => 'Louis',
+            'email' => 'david@sportclub.be',
             'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('actor'),
+            'password' => bcrypt('actor123456'),
             'actor' => true,
         ]);
 
         User::create([
-            'name' => 'user',
-            'first_name' => 'Yousef',
-            'email' => 'user@user.com',
+            'name' => 'louis',
+            'first_name' => 'Louis',
+            'first_name' => 'David',
+            'email' => 'louis@sportclub.be',
             'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('user'),
+            'password' => bcrypt('user123456'),
         ]);
     }
 }
