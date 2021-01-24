@@ -1,22 +1,26 @@
 <template>
     <div class="products-container">
       <md-progress-bar md-mode="indeterminate" v-if="sending" />
-      <add-products-form @add-product="addProduct" :categories="categories"/>
+      <add-products-form @add-product="addProduct" :categories="categories" :bus="bus"/>
       <hr>
-      <products-table :products="products" @remove-product="removeProduct"/>
+      <products-table :products="products" @edit-product="editProduct" @remove-product="removeProduct"/>
     </div>
 </template>
 
 <script>
 import { AddProductsForm, ProductsTable } from '../components/ProductsComponent'
 import axios from 'axios'
+import Vue from "vue";
+
 
 export default {
     data(){
         return {
             sending: false,
             products: [],
-            categories: []
+            product: [],
+            categories: [],
+            bus: new Vue(),
         }
     },
     components: {
@@ -36,6 +40,11 @@ export default {
     methods: {
       addProduct(data){
           this.products= data
+      },
+      editProduct(data)
+      {
+          this.product= data
+          this.bus.$emit('edit-product', data)
       },
       removeProduct(data){
         this.products= data

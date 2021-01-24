@@ -11,10 +11,10 @@
           <hr>
           <div class="review" v-for="one in setReviews ? setReviews : reviews" v-bind:key="one.id">
             <div v-if="!empty">
-                <div>
+                <div class="head-comment">
                   <div class=".md-ripple d-flex align-items-center">
                   <b-icon v-if="!one.image" class="profile-img"  icon="person-circle" font-scale="2.5"/>
-                  <img v-else v-bind:src="`/images/${one.image}`" class="profile-img" alt="profile image">
+                  <img v-else v-bind:src="`/images/${one.image}`"  alt="profile image">
                   <div>
                       <strong v-if="one.user_id!=auth">{{one.client_name}}</strong>
                       <strong v-else>You </strong>
@@ -202,10 +202,11 @@ export default {
      margin: 0;
      padding: 0;
     }
-    .profile-img
+    img
      {
-      max-width: 40px;
-      max-height: 40px;
+      max-width: 50px;
+      max-height: 50px;
+      border-radius: 50%;
       margin: 0 4rem !important;
      }
   }
@@ -215,14 +216,11 @@ export default {
   margin: 1rem;
   flex: 1;
 }
-.comment
-{
-  
-}
 
   .heart
   {
     font-size: 15px;
+    margin-top: 1rem;
     &:hover
     {
       cursor: pointer;
@@ -250,6 +248,12 @@ export default {
   {
     text-align: center;
     margin-left: 5rem;
+  }
+  img
+  {
+    width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
   }
 }
  span

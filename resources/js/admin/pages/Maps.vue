@@ -1,28 +1,32 @@
 <template>
     <div>
-        <md-progress-bar md-mode="indeterminate" v-if="sending" />
+     <md-progress-bar md-mode="indeterminate" v-if="sending" />
       <div class="map-addForm">
             <div class="form">
-                <add-locations-form @add-location="addLocation" />
+                <add-locations-form @add-location="addLocation" :bus="bus"/>
             </div>
             <div class="locations">
-                <map-leaflet :locations="locations" />
+                <map-leaflet :locations="locations"/>
             </div>
       </div>
        <hr>
-        <locations-table :locations="locations" @remove-location="removeLocation"/>
+        <locations-table :locations="locations" @remove-location="removeLocation" @edit-location="editLocation"/>
     </div>
 </template>
 
 <script>
 import { MapLeaflet, LocationsTable, AddLocationsForm } from '../components/MapSections'
 import axios from 'axios'
+import Vue from "vue";
+
 
 export default {
     data(){
         return {
             locations: [],
-            sending: false
+            sending: false,
+            location: [],
+            bus: new Vue(),
         }
     },
     components: {
@@ -42,6 +46,11 @@ export default {
     methods: {
         addLocation(data){
             this.locations= data
+        },
+        editLocation(data)
+        {
+            this.location= data
+            this.bus.$emit('edit-location', data)
         },
          removeLocation(data){
             this.locations= data

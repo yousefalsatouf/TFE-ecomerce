@@ -1,5 +1,5 @@
 <template>
-  <form class="add-locations-form">
+  <form class="add-locations-form" @submit.prevent="submitLocations" enctype="multipart/form-data">
     <md-card>
       <md-card-header data-background-color="black">
         <h4 class="title">Add Location</h4>
@@ -54,15 +54,13 @@
               <md-textarea v-model="locationDes"  @keyup="locationDes = $event.target.value" required></md-textarea>
             </md-field>
           </div>
-           <div v-if="required" class='md-layout-item md-size-50'>
-                <strong  class="text-danger text-center">Fields must fill out ! *</strong>
-          </div>
-          <div class="md-layout-item md-size-50 text-right">
-               <span  v-if="!success" @click="submitLocations" class="material-icons text-success" style="font-size: 30px">add_location_alt</span>
-                <span  v-else class="material-icons text-success" style="font-size: 30px">done</span>
-          </div>
         </div>
       </md-card-content>
+      <md-progress-bar md-mode="indeterminate" v-if="sending" />
+
+      <md-card-actions>
+        <md-button type="submit" class="md-success" :disabled="sending">Add Location</md-button>
+      </md-card-actions>
     </md-card>
   </form>
 </template>
@@ -72,48 +70,69 @@ import axios from 'axios'
 
 export default {
      name: "add-locations-form",
-     components: {
-     },
+     props: ['bus'],
      data(){
-          return {
-               locationTitle: null,
-               locationAddress: null,
-               locationState: null,
-               locationCity: null,
-               locationHours: null,
-               locationLat: null,
-               locationLng: null,
-               locationDes: null,
-               success: false,
-               required: false,
-          }
+      return {
+          id: null,
+            locationTitle: null,
+            locationAddress: null,
+            locationState: null,
+            locationCity: null,
+            locationHours: null,
+            locationLat: null,
+            locationLng: null,
+            locationDes: null,
+            sending: false,
+      }
      },
+    mounted() {
+      this.bus.$on('edit-location', this.editLocation)
+    }, 
      methods: {
-        async submitLocations(event)
-          {
-              if(this.locationTitle && this.locationAddress && this.locationState && this.locationCity && this.locationHours && this.locationLat && this.locationLng && this.locationDes )
-             {
-               await axios.get('/admin/addLocation', {params: {
-                    title: this.locationTitle,
-                    address: this.locationAddress, 
-                    state: this.locationState, 
-                    city: this.locationCity, 
-                    hours: this.locationHours,
-                    lat: this.locationLat, 
-                    lng: this.locationLng, 
-                    des: this.locationDes
-               }})
-               .then(res => {
-                   this.$emit('add-location', res.data)
-                    this.success = true
-               })
-             } 
-             else
-             {                 
-                  this.required = true
-             }
+       editLocation(location)
+        {
+          this.id= location[0].id
+          this.locationTitle= location[0].title
+          this.locationAddress= location[0].address
+          this.locationState= location[0].state
+          this.locationCity= location[0].city
+          this.locationHours= location[0].hours
+          this.locationLat= location[0].lat,
+          this.locationLng= location[0].lng
+          this.locationDes= location[0].description
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        },
+        async submitLocations(e)
+        {
+          e.preventDefault();
+          this.sending= true
+          let self = this;
+          const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+          }
+          // form data
+          let data = new FormData();
+          data.append('id', this.id)
+          data.append('title', this.locationTitle)
+          data.append('address', this.locationAddress)
+          data.append('state', this.locationState)
+          data.append('city', this.locationCity)
+          data.append('hours', this.locationHours)
+          data.append('lat', this.locationLat)
+          data.append('lng', this.locationLng)
+          data.append('des', this.locationDes)
+          // send upload request
+          await axios.post('/admin/addLocation', data, config)
+          .then(res => {
+              self.$emit('add-location', res.data)
+              setTimeout(() => {
+                self.sending= false
+              }, 1000);
+          })
+        } 
           },
-     }
 }
 </script>
 

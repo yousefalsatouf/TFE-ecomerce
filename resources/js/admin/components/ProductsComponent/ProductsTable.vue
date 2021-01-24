@@ -30,11 +30,17 @@
                         <span v-else class="material-icons text-danger">minimize</span>
                       </md-table-cell>
                       <md-table-cell>
+                         <md-button class="md-just-icon md-simple md-dark" @click="editProduct(item.id)">
+                         <md-icon>create</md-icon>
+                         <md-tooltip md-direction="top">Edit</md-tooltip>
+                         </md-button>
+                      </md-table-cell>
+                      <md-table-cell>
                          <md-button class="md-just-icon md-simple md-danger" @click="deleteProduct(item.id)">
                          <md-icon>delete</md-icon>
                          <md-tooltip md-direction="top">Delete</md-tooltip>
                          </md-button>
-                    </md-table-cell>
+                      </md-table-cell>
                 </md-table-row>
             </md-table>
       </md-card-content>
@@ -54,6 +60,11 @@ export default {
      };
     },
     methods: {
+    editProduct(id)
+    {
+      let product= this.products.filter(product => product.id === id);
+      this.$emit('edit-product', product)
+    },
      async deleteProduct(id)
       {
         //console.log(id);

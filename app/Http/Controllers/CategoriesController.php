@@ -40,12 +40,14 @@ class CategoriesController extends Controller
              $request->file->move('images',$imageName);
          }
 
-        DB::table('categories')->insert([
-            'name' => $request->name,
-            'image' => $imageName,
-            'description' => $request->description,
-        ]);
-
+        DB::table('categories')->updateOrInsert(
+            [ 'name' => $request->name],
+            [
+                'name' => $request->name,
+                'image' => $imageName,
+                'description' => $request->description,
+            ]);
+        
         $categories= Category::all();
 
         return response()->json($categories);

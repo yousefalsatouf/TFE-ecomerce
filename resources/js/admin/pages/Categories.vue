@@ -1,21 +1,25 @@
 <template>
     <div class="categories-container">
        <md-progress-bar md-mode="indeterminate" v-if="sending" />
-      <add-categories-form @add-category="addCategory" />
+      <add-categories-form @add-category="addCategory" :bus="bus"/>
       <hr>
-      <categories-table :categories="categories" @remove-category="removeCategory"/>
+      <categories-table :categories="categories" @edit-category="editCategory" @remove-category="removeCategory"/>
     </div>
 </template>
 
 <script>
 import { AddCategoriesForm, CategoriesTable } from '../components/CategoriesComponent'
 import axios from 'axios'
+import Vue from "vue";
+
 
 export default {
     data(){
         return {
-          sending: false,
+            sending: false,
             categories: [],
+            category: [],
+            bus: new Vue(),
         }
     },
     components: {
@@ -32,6 +36,11 @@ export default {
     methods: {
       addCategory(data){
          this.categories= data
+      },
+      editCategory(data)
+      {
+          this.category= data
+          this.bus.$emit('edit-category', data)
       },
       removeCategory(data){
         this.categories= data

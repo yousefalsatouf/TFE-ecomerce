@@ -18,6 +18,12 @@
                       </md-table-cell>
                       <md-table-cell md-label="Cateogry Name">{{ item.name }}</md-table-cell>
                       <md-table-cell md-label="Description">{{ item.description}}</md-table-cell>
+                       <md-table-cell>
+                         <md-button class="md-just-icon md-simple md-dark" @click="editCategory(item.id)">
+                         <md-icon>create</md-icon>
+                         <md-tooltip md-direction="top">Edit</md-tooltip>
+                         </md-button>
+                      </md-table-cell>
                       <md-table-cell>
                          <md-button class="md-just-icon md-simple md-danger" @click="deleteCategory(item.id)">
                          <md-icon>delete</md-icon>
@@ -38,11 +44,12 @@ import axios from 'axios'
 export default {
      name: "categories-table",
      props: ['categories'],
-      data() {
-        return {
-     };
-    },
      methods: {
+       editCategory(id)
+       {
+          let category= this.categories.filter(category => category.id === id);
+          this.$emit('edit-category', category)
+       },
       async deleteCategory(id)
       {
         await  axios.get('/admin/removeCategory', { params: { id: id }}).then(res => this.$emit("remove-category", res.data))

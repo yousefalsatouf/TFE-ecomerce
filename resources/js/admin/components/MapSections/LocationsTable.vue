@@ -21,6 +21,12 @@
                     <md-table-cell md-label="Lat" md-sort-by="lat">{{ item.lat }}</md-table-cell>
                     <md-table-cell md-label="Lng" md-sort-by="lng">{{ item.lng }}</md-table-cell>
                     <md-table-cell>
+                         <md-button class="md-just-icon md-simple md-dark" @click="editLocation(item.id)">
+                         <md-icon>create</md-icon>
+                         <md-tooltip md-direction="top">Edit</md-tooltip>
+                         </md-button>
+                      </md-table-cell>
+                    <md-table-cell>
                          <md-button class="md-just-icon md-simple md-danger" @click="deleteLocation(item.id)">
                          <md-icon>delete</md-icon>
                          <md-tooltip md-direction="top">Delete</md-tooltip>
@@ -48,16 +54,16 @@ const searchByName = (items, term) => {
 export default {
      name: "locations-table",
      props: ['locations'],
-      data() {
-        const data = this.locations
-        return {
-     };
-  },
      methods: {
       searchOnTable () 
       {
         this.searched = searchByName(this.data, this.search)
       },
+     editLocation(id)
+     {
+     let location= this.locations.filter(location => location.id === id);
+     this.$emit('edit-location', location)
+     },
       deleteLocation(id)
       {
            axios.get('/admin/removeLocation', { params: { id: id }}).then(res => this.$emit("remove-location", res.data))

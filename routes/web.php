@@ -68,7 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],
         //locations API
         Route::get('/locations', 'LocationsController@index');
         Route::get('/removeLocation', 'LocationsController@removeLocation');
-        Route::get('/addLocation', 'LocationsController@addLocation');
+        Route::post('/addLocation', 'LocationsController@addLocation');
 
         // auth API
         Route::get('/getAuth', 'ProfileController@getAuth');

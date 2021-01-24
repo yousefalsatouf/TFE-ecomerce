@@ -14,6 +14,7 @@
 <script>
 import EditProfileForm from "../components/UserProfile/EditProfileForm.vue";
 import UserCard from '../components/UserProfile/UserCard.vue'
+import axios from 'axios'
 
 export default {
   components: {
@@ -24,6 +25,9 @@ export default {
     return {
       auth: []
     }
+  },
+  created(){ 
+      axios.get('/admin/getAuth').then(res => this.auth = res.data).catch(err=>console.log(err))
   },
   methods: {
     fetchAuth(auth){

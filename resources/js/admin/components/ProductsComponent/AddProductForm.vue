@@ -9,7 +9,7 @@
             <div class="md-layout-item md-small-size-100 md-size-33">
               <md-field>
               <span v-if="imported" class="material-icons text-success" style="font-size: 25px">done</span>
-              <input type="file" class="form-control-file" id="image" @change="setImage($event)">
+              <input type="file" class="form-control-file" id="image" @change="setImage($event)" required>
               </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33 lg-size-33">
@@ -79,10 +79,11 @@
 <script>
 export default {
       name: "add-products-form",
-      props: ['categories'],
+      props: ['categories', 'product', 'bus'],
       data: () => {
         return{
           sending: false,
+          id: null,
           image: null,
           imported: false,
           productName: null,
@@ -96,14 +97,30 @@ export default {
           productInfo: null,
         }
       },
+      mounted() {
+        this.bus.$on('edit-product', this.editProduct)
+      }, 
       methods: {
         setImage(e)
         {
            this.image = e.target.files[0];
           this.imported= true
         },
+        editProduct(product)
+        {
+          this.id= product[0].id
+          this.productName= product[0].product_name
+          this.productCode= product[0].product_code,
+          this.productPrice= product[0].product_price,
+          this.shoppingCost= product[0].shopping_cost,
+          this.stock= product[0].stock,
+          this.soldPrice= product[0].sold_price,
+          this.category= product[0].category_id,
+          this.productInfo= product[0].product_info
+         window.scrollTo({top: 0, behavior: 'smooth'});
+        },
         async submitProduct(e)
-      {
+        {
           e.preventDefault();
           this.sending= true
           let self = this;
@@ -115,6 +132,7 @@ export default {
           // form data
           let data = new FormData();
           data.append('file', this.image);
+          data.append('id', this.id)
           data.append('name', this.productName)
           data.append('code', this.productCode)
           data.append('price', this.productPrice);
@@ -140,13 +158,7 @@ export default {
 </script>
 
 <style lang="scss">
-.add-products-form
-{
-  height: 400px;
-  width: 95%;
-  margin: auto;
-  overflow: scroll;
-}
+
  button, a.link
 {
   color: black !important;

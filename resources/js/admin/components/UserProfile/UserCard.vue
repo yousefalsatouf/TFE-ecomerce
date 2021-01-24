@@ -23,11 +23,11 @@
 export default {
   name: "user-card",
   props: ["auth"],
-data(){
-  return {
-    user: null,
+  data(){
+    return {
+      user: []
+    }
   }
-},
 };
 </script>
 <style></style>

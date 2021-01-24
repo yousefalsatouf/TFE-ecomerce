@@ -36,18 +36,21 @@ class ProductsController extends Controller
          }
 
 
-        DB::table('products')->insert([
-            'product_name' => $request->name,
-            'image' => $imageName,
-            'product_code' => $request->code,
-            'product_price' => $request->price,
-            'shopping_cost' => $request->shoppingCost,
-            'stock' => $request->stock,
-            'product_info' => $request->description,
-            'new_arrival' => $request->new?1:false,
-            'sold_price' => $request->sold,
-            'category_id' => (int)$request->category,
-        ]);
+        DB::table('products')->updateOrInsert(
+            [ 'product_name' => $request->name],
+            [
+                'product_name' => $request->name,
+                'image' => $imageName,
+                'product_code' => $request->code,
+                'product_price' => $request->price,
+                'shopping_cost' => $request->shoppingCost,
+                'stock' => $request->stock,
+                'product_info' => $request->description,
+                'new_arrival' => $request->new?1:false,
+                'sold_price' => $request->sold,
+                'category_id' => (int)$request->category,
+            ]
+        );
 
         $products= DB::table('categories')->rightJoin('products', 'products.category_id', '=', 'categories.id')->get();;
 

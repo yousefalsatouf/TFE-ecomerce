@@ -9,19 +9,19 @@
           <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
               <span v-if="imported" class="material-icons text-success" style="font-size: 25px">done</span>
-              <input type="file" class="form-control-file" id="image" @change="setImage">
+              <input type="file" class="form-control-file" id="image" @change="setImage" required>
               </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-50 lg-size-50">
             <md-field>
               <label>Category Name: </label>
-              <md-input v-model="categoryName" name="name" type="text" @keyup="categoryName = $event.target.value"  ></md-input>
+              <md-input v-model="categoryName" name="name" type="text" @keyup="categoryName = $event.target.value"  required></md-input>
             </md-field>
           </div>
           <div class="md-layout-item md-size-100">
             <md-field maxlength="5">
               <label>Category Description: </label>
-              <md-textarea v-model="description" name="description" @keyup="description = $event.target.value" ></md-textarea>
+              <md-textarea v-model="description" name="description" @keyup="description = $event.target.value" required></md-textarea>
             </md-field>
           </div>
           </div>
@@ -38,16 +38,28 @@
 <script>
 export default {
       name: "add-categories-form",
+      props: ['bus'],
       data() {
         return{
           sending: false,
           imported: false,
+          id: null,
           image: null,
           categoryName: null,
           description: null,
         }
       },
+      mounted() {
+        this.bus.$on('edit-category', this.editCategory)
+      }, 
       methods: {
+        editCategory(category)
+        {
+          this.id= category[0].id
+          this.categoryName= category[0].name
+          this.description= category[0].description,
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        },
         setImage(e){
           this.image = e.target.files[0];
           this.imported= true
@@ -65,6 +77,7 @@ export default {
           // form data
           let data = new FormData();
           data.append('file', this.image);
+          data.append('id', this.id)
           data.append('name', this.categoryName)
           data.append('description', this.description)
           // send upload request

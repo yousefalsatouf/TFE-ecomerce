@@ -11,7 +11,7 @@
           <div class="md-layout-item md-small-size-100 md-size-33">
               <md-field>
               <span v-if="uploaded" class="material-icons text-success" style="font-size: 25px">done</span>
-              <input type="file" class="form-control-file" id="image" @change="setImage($event)">
+              <input type="file" class="form-control-file" id="image" @change="setImage($event)" required>
               </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
@@ -41,7 +41,7 @@
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
               <label>Address</label>
-              <md-input v-model="address" type="text" v></md-input>
+              <md-input v-model="address" type="text" required></md-input>
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
@@ -83,6 +83,7 @@ import ImageUploader from 'vue-image-upload-resize'
 
 export default {
   name: "edit-profile-form",
+  props: ['auth'],
   components: {
     ImageUploader
   },
@@ -108,7 +109,6 @@ export default {
       this.sending= true
       axios.get('/admin/getAuth').then(res => {
           const auth = res.data
-          this.$emit("get-auth", auth)
           this.id= auth.id
           this.username= auth.name
           this.emailadress= auth.email
@@ -157,7 +157,7 @@ export default {
     // send upload request
     await axios.post('/admin/updateProfile', data, config)
     .then(res => {
-        self.$emit("fetch-auth", res.data)
+        this.$emit("fetch-auth", res.data)
         self.success = true
         self.uploaded= false
         setTimeout(() => {
