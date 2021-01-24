@@ -17,7 +17,7 @@ class LocationsController extends Controller
     public function addLocation(Request $request)
     {
         DB::table('locations')->updateOrInsert(
-            ['state' => $request->state],
+            [ 'title' => $request->title],
             [
                 'title' => $request->title,
                 'state' => $request->state,

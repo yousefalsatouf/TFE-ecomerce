@@ -37,7 +37,7 @@ class ProductsController extends Controller
 
 
         DB::table('products')->updateOrInsert(
-            [ 'product_name' => $request->name],
+            [ 'product_code' => $request->code ],
             [
                 'product_name' => $request->name,
                 'image' => $imageName,
