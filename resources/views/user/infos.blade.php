@@ -5,7 +5,6 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><b class="text-success">@lang('commun.greeting') {{ucwords(Auth::user()->name)}},</b></li>
-                    <li><b class="text-info">@lang('cart.shopperInfo')</b></li>
                 </ol>
             </div>
             @if(session('msg'))
@@ -26,12 +25,9 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="image" class="form-label font-weight-bolder">
-                                        @if(isset($user->image))
-                                            <img class="card-img-top img-fluid" src="{{url('images',$user->image)}}" style="width:200px" alt="photo">
-                                        @else
-                                            <i class="fa fa-user" style="font-size: 18px"></i>
-                                        @endif
+                                       
                                     </label>
+                                    <br>
                                     <input id="image" type="file" name="image" class="form-control">
                                     <br>
                                     <span style="color:red">{{ $errors->first('image') }}</span>

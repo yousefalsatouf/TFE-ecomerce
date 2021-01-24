@@ -53,8 +53,10 @@
                          </div>
                     <!--Search input ends-->
                      <Pagination :data="products?products:[]" @pagination-change-page="getResults" />
-                     <Spinner size="large" line-fg-color="green" v-if="loading"/>
                      <hr>
+                     <div class="spinner">
+                          <Spinner size="large" line-fg-color="green" v-if="loading"/>
+                     </div>
                     <div class="row d-flex justify-content-around articles">
                             <div v-for="product in products.data?products.data:products" :key="product.id" class="card">
                               <a v-bind:href="url+'/product_details/'+product.id">
@@ -208,5 +210,9 @@
 .pagination
 {
      justify-content: center;
+}
+.spinner
+{
+     height: 50px;
 }
 </style>

@@ -11432,23 +11432,14 @@ a.text-dark:focus {
     height: 50rem;
   }
 
-  #shop .shop-bg .ad-container {
-    background-color: #CCCCC6;
-    padding: 1rem;
-  }
-
-  #shop .shop-bg .ad-container .ad div:first-child {
-    display: flex;
-    justify-content: center;
-  }
-
   #shop .top-products .articles {
     display: flex;
     justify-content: space-between;
   }
 
   #shop .top-products .articles .card {
-    width: 24%;
+    width: 30%;
+    padding: 1rem;
     box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
@@ -11456,13 +11447,9 @@ a.text-dark:focus {
     box-shadow: none;
   }
 
-  #shop .last-carousel {
-    width: 100%;
-    margin: 1rem auto;
-  }
-
-  #shop .last-carousel .carousel-inner {
-    display: flex;
+  #shop .productsSearch {
+    max-width: 80%;
+    margin: auto;
   }
 
   #shop .advanced-search {
@@ -11502,10 +11489,10 @@ a.text-dark:focus {
   }
 
   #shop div .card {
-    width: 33%;
+    width: 30%;
     margin: 1rem auto;
     border: 0;
-    padding: 0.5rem;
+    padding: 1rem;
     box-shadow: 8px 7px 8px -6px #888c8b;
   }
 
@@ -11563,7 +11550,7 @@ a.text-dark:focus {
   }
 
   #shop .productsSearch .products .container div .card {
-    width: 28%;
+    width: 25%;
     margin: 1rem auto;
     transition: all 0.5s;
     border: 0;
@@ -12223,6 +12210,17 @@ body .container .articles .card .add-cart {
   top: 45%;
 }
 
+.md-body-1,
+.md-body-2,
+body {
+  font-weight: bold !important;
+  background-color: white !important;
+}
+
+.form-group input[type="file"] {
+  opacity: 1 !important;
+}
+
 img {
   max-width: 100%;
 }
@@ -12323,17 +12321,16 @@ button:hover {
 }
 
 .quick-menu {
-  margin-bottom: 5rem;
-  padding: 1rem;
+  margin-bottom: 5rem !important;
+  padding: 1rem !important;
 }
 
 .quick-menu a {
-  color: #000;
-  font-weight: bolder;
+  color: #000 !important;
 }
 
 .quick-menu a:hover {
-  color: #2BBBAD;
+  color: #2BBBAD !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -12346,23 +12343,23 @@ button:hover {
   margin-bottom: 15rem;
 }
 
+#cart_items\ profile .container {
+  display: block !important;
+}
+
 #cart_items\ profile .user-info {
   margin: 5rem auto;
 }
 
 #cart_items\ profile .user-info .card-header {
   display: flex;
-}
-
-#cart_items\ profile .user-info .card-header i {
-  font-size: 35px;
-  width: 20%;
+  align-items: center;
 }
 
 #cart_items\ profile .user-info .card-body ul {
   list-style-type: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
   justify-content: space-between;
 }
 

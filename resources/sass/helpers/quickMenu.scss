@@ -1,15 +1,14 @@
 
     .quick-menu
     {
-        margin-bottom: 5rem;
-        padding: 1rem;
+        margin-bottom: 5rem !important;
+        padding: 1rem !important;
         a
         {
-            color: $black;
-            font-weight: bolder;
+            color: $black !important;
             &:hover
             {
-                color: $green;
+                color: $green !important;
             }
         }
     }

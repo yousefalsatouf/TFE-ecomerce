@@ -48,6 +48,17 @@ body
     }
 }
 
+.md-body-1, .md-body-2, body
+{
+    font-weight: bold !important;
+    background-color: white !important;
+}
+
+.form-group input[type="file"]
+{
+    opacity: 1 !important;
+}
+
 img
 {
     max-width: 100%;

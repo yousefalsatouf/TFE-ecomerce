@@ -1,11 +1,10 @@
 @extends('front.helpers.master')
 @section('content')
-    <section id="cart_items" >
+    <section id="cart_items profile" >
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><b class="text-success">@lang('commun.greeting') {{ucwords(Auth::user()->name)}},</b></li>
-                    <li><b class="text-info">Profile</b></li>
+                    <li><b >@lang('commun.greeting') {{ucwords(Auth::user()->name)}},</b></li>
                 </ol>
             </div>
             @if(session('msg'))
@@ -19,7 +18,7 @@
                     <div class="container a">
                         <div class="user-info card">
                             @foreach($user_data as $info)
-                            <div class="card-header m-auto">
+                            <div class="card-header m-auto text-center">
                                 @if(isset($info->image))
                                     <div class="w-25">
                                         <img class="card-img-top img-fluid w-100" src="{{url('images',$info->image)}}" alt="photo">

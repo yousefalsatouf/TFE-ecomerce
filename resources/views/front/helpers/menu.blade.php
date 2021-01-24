@@ -25,6 +25,8 @@
                                 <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>    
                                 @if(Cart::count() > 0)
                                 {{Cart::count()}}
+                                @else
+                                0
                                 @endif
                             </strong>
                         </a>
